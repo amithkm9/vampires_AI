@@ -1,0 +1,94 @@
+{
+  "purpose": "Original supplied materials and verified ZIP extraction",
+  "files": [
+    {
+      "original_name": "starterkit.zip",
+      "path": "materials/archives/starterkit.zip",
+      "bytes": 1569,
+      "sha256": "a870c05e4e1cbd0ef10d22fff607fd421c7bd6d35e21a9397cd6b77656a49460"
+    },
+    {
+      "original_name": "Server v3.2.1.zip",
+      "path": "materials/archives/Server v3.2.1.zip",
+      "bytes": 150774,
+      "sha256": "12195ff11954c19b0fad1522bef85113785b68605542b77fc72c58a2d96116dd"
+    },
+    {
+      "original_name": "Map generator.zip",
+      "path": "materials/archives/Map generator.zip",
+      "bytes": 3769,
+      "sha256": "09e0dfc3dee367eb44bfb5ecd34cdddc6ab8ed28d3551c0385aaafca816a4a88"
+    },
+    {
+      "original_name": "Projectv10.pdf",
+      "path": "docs/reference/Projectv10.pdf",
+      "bytes": 832453,
+      "sha256": "afec7f3b0099bb434d97a12025010503f914f052aef5cd744d8178423845ba96"
+    }
+  ],
+  "extracted": [
+    {
+      "archive": "starterkit.zip",
+      "member": "client.py",
+      "path": "vendor/starterkit/client.py",
+      "bytes": 3491,
+      "sha256": "edf65bf315129bc4a6554bb17e5658433edb7a195d5c61226d24ea2b01c7f825"
+    },
+    {
+      "archive": "starterkit.zip",
+      "member": "main.py",
+      "path": "vendor/starterkit/main.py",
+      "bytes": 1222,
+      "sha256": "98fe3f6580ca081b5533eadb152d01da48eb1c48135407a68d86cd80033b5f8a"
+    },
+    {
+      "archive": "Server v3.2.1.zip",
+      "member": "VampiresVSWerewolvesGameServer.exe",
+      "path": "vendor/server/VampiresVSWerewolvesGameServer.exe",
+      "bytes": 104960,
+      "sha256": "314e3bd026824a9feef7149cb9f96ea522a9137da160d692f0e44e256f17fe07"
+    },
+    {
+      "archive": "Server v3.2.1.zip",
+      "member": "VampiresVSWerewolvesGameServer.exe.config",
+      "path": "vendor/server/VampiresVSWerewolvesGameServer.exe.config",
+      "bytes": 993,
+      "sha256": "47e7a1e4cb8c72acdf386e06f71971aa34add9c43e66ac5d3dc620940b45c1db"
+    },
+    {
+      "archive": "Server v3.2.1.zip",
+      "member": "VVSW.Controls.dll",
+      "path": "vendor/server/VVSW.Controls.dll",
+      "bytes": 67584,
+      "sha256": "26f20d59b254353ea7199f3b1098fb78eae68c125b991c641e2e3d3203ebbb7c"
+    },
+    {
+      "archive": "Server v3.2.1.zip",
+      "member": "VVSW.Model.dll",
+      "path": "vendor/server/VVSW.Model.dll",
+      "bytes": 37376,
+      "sha256": "a8ad22443da5d6456d1a7365e15783afba1d7a73f2c51b395972192c70022929"
+    },
+    {
+      "archive": "Map generator.zip",
+      "member": "Map generator/MapGenerator.exe",
+      "path": "vendor/map-generator/MapGenerator.exe",
+      "bytes": 7168,
+      "sha256": "3eb8006175d5f6efa5b03b1145b179dd09332c312b952b7863908552e5136a56"
+    },
+    {
+      "archive": "Map generator.zip",
+      "member": "Map generator/testmap2.xml",
+      "path": "vendor/map-generator/testmap2.xml",
+      "bytes": 344,
+      "sha256": "e6d200ed046c62b42f71cfde13f11231bcdc4d7d256c9593938d0b05d55ede10"
+    },
+    {
+      "archive": "Map generator.zip",
+      "member": "Map generator/thetrap.xml",
+      "path": "vendor/map-generator/thetrap.xml",
+      "bytes": 297,
+      "sha256": "4a5bee60b38e3d8741f12d6ca1ac70a2d564a4420196bd11e71af8d90c09e7fe"
+    }
+  ]
+}

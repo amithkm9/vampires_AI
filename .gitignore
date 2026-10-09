@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+tmp/
+.env
+.env.*
+!.env.example
+# Downloaded literature stays local; citations and source provenance are versioned.
+/sources/papers/*.pdf
