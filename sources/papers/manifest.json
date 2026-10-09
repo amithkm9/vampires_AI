@@ -1,0 +1,16 @@
+[
+  {
+    "path": "sources/papers/lanctot-2013-monte-carlo-star-minimax.pdf",
+    "url": "https://www.ijcai.org/papers13/Papers/IJCAI13-093.pdf",
+    "accessed": "2026-10-09",
+    "bytes": 546196,
+    "sha256": "33177c62a3f3ba4fde25c5f808e250f824d2afd8c6dae344f561303c81c7b235"
+  },
+  {
+    "path": "sources/papers/ramanujan-2010-adversarial-search-spaces.pdf",
+    "url": "https://ojs.aaai.org/index.php/ICAPS/article/download/13437/13286/16955",
+    "accessed": "2026-10-09",
+    "bytes": 683979,
+    "sha256": "0626572c34614f0708a422a650507576a2e21285d86d7ebbfb2b9b150431f534"
+  }
+]

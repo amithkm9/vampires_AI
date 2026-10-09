@@ -1,0 +1,1010 @@
+{
+  "generated_utc": "2026-10-09T08:07:13.880650+00:00",
+  "python": "3.14.6",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "seed": null,
+  "method": "Exact rational battle enumeration; exhaustive local reply audit; optimistic house-order enumeration.",
+  "limits": "Not full-game search; no opponent in route estimates; no server parity or CTI timing claim; draws unresolved.",
+  "configuration": {
+    "strict_move_record_limit": true,
+    "trap_openings": "whole group only",
+    "trap_replies": "all legal one-record moves, including every partial amount"
+  },
+  "source_sha256": {
+    "tools/analyze_maps.py": "6a05e47034ecea1069e91abc33734842877d269408e38d2a5c768b731c83e54a",
+    "src/vampires/simulation.py": "eab74aaaf6e03be2243db26575e0f774fe1e222b5c90d1879cee50c788e8c8d6",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63"
+  },
+  "maps": {
+    "thetrap": {
+      "sha256": "4a5bee60b38e3d8741f12d6ca1ac70a2d564a4420196bd11e71af8d90c09e7fe",
+      "rows": 5,
+      "columns": 10,
+      "total_population_including_humans": 17,
+      "houses": [
+        {
+          "position": [
+            2,
+            2
+          ],
+          "humans": 4
+        },
+        {
+          "position": [
+            9,
+            0
+          ],
+          "humans": 2
+        },
+        {
+          "position": [
+            9,
+            2
+          ],
+          "humans": 1
+        },
+        {
+          "position": [
+            9,
+            4
+          ],
+          "humans": 2
+        }
+      ],
+      "distances": {
+        "vampires": [
+          {
+            "house": [
+              2,
+              2
+            ],
+            "humans": 4,
+            "own_turn_lower_bound": 2
+          },
+          {
+            "house": [
+              9,
+              0
+            ],
+            "humans": 2,
+            "own_turn_lower_bound": 5
+          },
+          {
+            "house": [
+              9,
+              2
+            ],
+            "humans": 1,
+            "own_turn_lower_bound": 5
+          },
+          {
+            "house": [
+              9,
+              4
+            ],
+            "humans": 2,
+            "own_turn_lower_bound": 5
+          }
+        ],
+        "werewolves": [
+          {
+            "house": [
+              2,
+              2
+            ],
+            "humans": 4,
+            "own_turn_lower_bound": 2
+          },
+          {
+            "house": [
+              9,
+              0
+            ],
+            "humans": 2,
+            "own_turn_lower_bound": 5
+          },
+          {
+            "house": [
+              9,
+              2
+            ],
+            "humans": 1,
+            "own_turn_lower_bound": 5
+          },
+          {
+            "house": [
+              9,
+              4
+            ],
+            "humans": 2,
+            "own_turn_lower_bound": 5
+          }
+        ]
+      },
+      "whole_group_opening_audit": {
+        "vampires": [
+          {
+            "move": [
+              4,
+              3,
+              4,
+              3,
+              2
+            ],
+            "distance_to_four_humans": 1,
+            "max_next_reply_extinction_probability": {
+              "exact": "17/32",
+              "decimal": 0.53125
+            },
+            "replies_attaining_max": [
+              [
+                4,
+                1,
+                4,
+                3,
+                2
+              ]
+            ]
+          },
+          {
+            "move": [
+              4,
+              3,
+              4,
+              4,
+              2
+            ],
+            "distance_to_four_humans": 2,
+            "max_next_reply_extinction_probability": {
+              "exact": "17/32",
+              "decimal": 0.53125
+            },
+            "replies_attaining_max": [
+              [
+                4,
+                1,
+                4,
+                4,
+                2
+              ]
+            ]
+          },
+          {
+            "move": [
+              4,
+              3,
+              4,
+              5,
+              2
+            ],
+            "distance_to_four_humans": 3,
+            "max_next_reply_extinction_probability": {
+              "exact": "17/32",
+              "decimal": 0.53125
+            },
+            "replies_attaining_max": [
+              [
+                4,
+                1,
+                4,
+                5,
+                2
+              ]
+            ]
+          },
+          {
+            "move": [
+              4,
+              3,
+              4,
+              3,
+              3
+            ],
+            "distance_to_four_humans": 1,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              3,
+              4,
+              5,
+              3
+            ],
+            "distance_to_four_humans": 3,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              3,
+              4,
+              3,
+              4
+            ],
+            "distance_to_four_humans": 2,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              3,
+              4,
+              4,
+              4
+            ],
+            "distance_to_four_humans": 2,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              3,
+              4,
+              5,
+              4
+            ],
+            "distance_to_four_humans": 3,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          }
+        ],
+        "werewolves": [
+          {
+            "move": [
+              4,
+              1,
+              4,
+              3,
+              0
+            ],
+            "distance_to_four_humans": 2,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              1,
+              4,
+              4,
+              0
+            ],
+            "distance_to_four_humans": 2,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              1,
+              4,
+              5,
+              0
+            ],
+            "distance_to_four_humans": 3,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              1,
+              4,
+              3,
+              1
+            ],
+            "distance_to_four_humans": 1,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              1,
+              4,
+              5,
+              1
+            ],
+            "distance_to_four_humans": 3,
+            "max_next_reply_extinction_probability": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "replies_attaining_max": []
+          },
+          {
+            "move": [
+              4,
+              1,
+              4,
+              3,
+              2
+            ],
+            "distance_to_four_humans": 1,
+            "max_next_reply_extinction_probability": {
+              "exact": "17/32",
+              "decimal": 0.53125
+            },
+            "replies_attaining_max": [
+              [
+                4,
+                3,
+                4,
+                3,
+                2
+              ]
+            ]
+          },
+          {
+            "move": [
+              4,
+              1,
+              4,
+              4,
+              2
+            ],
+            "distance_to_four_humans": 2,
+            "max_next_reply_extinction_probability": {
+              "exact": "17/32",
+              "decimal": 0.53125
+            },
+            "replies_attaining_max": [
+              [
+                4,
+                3,
+                4,
+                4,
+                2
+              ]
+            ]
+          },
+          {
+            "move": [
+              4,
+              1,
+              4,
+              5,
+              2
+            ],
+            "distance_to_four_humans": 3,
+            "max_next_reply_extinction_probability": {
+              "exact": "17/32",
+              "decimal": 0.53125
+            },
+            "replies_attaining_max": [
+              [
+                4,
+                3,
+                4,
+                5,
+                2
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "testmap2": {
+      "sha256": "e6d200ed046c62b42f71cfde13f11231bcdc4d7d256c9593938d0b05d55ede10",
+      "rows": 15,
+      "columns": 29,
+      "total_population_including_humans": 52,
+      "houses": [
+        {
+          "position": [
+            0,
+            14
+          ],
+          "humans": 2
+        },
+        {
+          "position": [
+            10,
+            3
+          ],
+          "humans": 4
+        },
+        {
+          "position": [
+            14,
+            7
+          ],
+          "humans": 20
+        },
+        {
+          "position": [
+            18,
+            11
+          ],
+          "humans": 4
+        },
+        {
+          "position": [
+            28,
+            0
+          ],
+          "humans": 2
+        }
+      ],
+      "distances": {
+        "vampires": [
+          {
+            "house": [
+              0,
+              14
+            ],
+            "humans": 2,
+            "own_turn_lower_bound": 28
+          },
+          {
+            "house": [
+              10,
+              3
+            ],
+            "humans": 4,
+            "own_turn_lower_bound": 18
+          },
+          {
+            "house": [
+              14,
+              7
+            ],
+            "humans": 20,
+            "own_turn_lower_bound": 14
+          },
+          {
+            "house": [
+              18,
+              11
+            ],
+            "humans": 4,
+            "own_turn_lower_bound": 10
+          },
+          {
+            "house": [
+              28,
+              0
+            ],
+            "humans": 2,
+            "own_turn_lower_bound": 14
+          }
+        ],
+        "werewolves": [
+          {
+            "house": [
+              0,
+              14
+            ],
+            "humans": 2,
+            "own_turn_lower_bound": 14
+          },
+          {
+            "house": [
+              10,
+              3
+            ],
+            "humans": 4,
+            "own_turn_lower_bound": 10
+          },
+          {
+            "house": [
+              14,
+              7
+            ],
+            "humans": 20,
+            "own_turn_lower_bound": 14
+          },
+          {
+            "house": [
+              18,
+              11
+            ],
+            "humans": 4,
+            "own_turn_lower_bound": 18
+          },
+          {
+            "house": [
+              28,
+              0
+            ],
+            "humans": 2,
+            "own_turn_lower_bound": 28
+          }
+        ]
+      },
+      "outside_center_humans": 12,
+      "optimistic_unsplit_center_routes": {
+        "vampires": {
+          "total_feasible_house_orders": 36,
+          "best": [
+            {
+              "arrival_own_turn_lower_bound": 37,
+              "captures": [
+                {
+                  "position": [
+                    28,
+                    0
+                  ],
+                  "humans": 2,
+                  "arrival_own_turn_lower_bound": 14,
+                  "population_after": 12
+                },
+                {
+                  "position": [
+                    18,
+                    11
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 25,
+                  "population_after": 16
+                },
+                {
+                  "position": [
+                    10,
+                    3
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 33,
+                  "population_after": 20
+                },
+                {
+                  "position": [
+                    14,
+                    7
+                  ],
+                  "humans": 20,
+                  "arrival_own_turn_lower_bound": 37,
+                  "population_after": 40
+                }
+              ]
+            },
+            {
+              "arrival_own_turn_lower_bound": 43,
+              "captures": [
+                {
+                  "position": [
+                    18,
+                    11
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 10,
+                  "population_after": 14
+                },
+                {
+                  "position": [
+                    0,
+                    14
+                  ],
+                  "humans": 2,
+                  "arrival_own_turn_lower_bound": 28,
+                  "population_after": 16
+                },
+                {
+                  "position": [
+                    10,
+                    3
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 39,
+                  "population_after": 20
+                },
+                {
+                  "position": [
+                    14,
+                    7
+                  ],
+                  "humans": 20,
+                  "arrival_own_turn_lower_bound": 43,
+                  "population_after": 40
+                }
+              ]
+            },
+            {
+              "arrival_own_turn_lower_bound": 43,
+              "captures": [
+                {
+                  "position": [
+                    18,
+                    11
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 10,
+                  "population_after": 14
+                },
+                {
+                  "position": [
+                    10,
+                    3
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 18,
+                  "population_after": 18
+                },
+                {
+                  "position": [
+                    0,
+                    14
+                  ],
+                  "humans": 2,
+                  "arrival_own_turn_lower_bound": 29,
+                  "population_after": 20
+                },
+                {
+                  "position": [
+                    14,
+                    7
+                  ],
+                  "humans": 20,
+                  "arrival_own_turn_lower_bound": 43,
+                  "population_after": 40
+                }
+              ]
+            }
+          ]
+        },
+        "werewolves": {
+          "total_feasible_house_orders": 36,
+          "best": [
+            {
+              "arrival_own_turn_lower_bound": 37,
+              "captures": [
+                {
+                  "position": [
+                    0,
+                    14
+                  ],
+                  "humans": 2,
+                  "arrival_own_turn_lower_bound": 14,
+                  "population_after": 12
+                },
+                {
+                  "position": [
+                    10,
+                    3
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 25,
+                  "population_after": 16
+                },
+                {
+                  "position": [
+                    18,
+                    11
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 33,
+                  "population_after": 20
+                },
+                {
+                  "position": [
+                    14,
+                    7
+                  ],
+                  "humans": 20,
+                  "arrival_own_turn_lower_bound": 37,
+                  "population_after": 40
+                }
+              ]
+            },
+            {
+              "arrival_own_turn_lower_bound": 43,
+              "captures": [
+                {
+                  "position": [
+                    10,
+                    3
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 10,
+                  "population_after": 14
+                },
+                {
+                  "position": [
+                    0,
+                    14
+                  ],
+                  "humans": 2,
+                  "arrival_own_turn_lower_bound": 21,
+                  "population_after": 16
+                },
+                {
+                  "position": [
+                    18,
+                    11
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 39,
+                  "population_after": 20
+                },
+                {
+                  "position": [
+                    14,
+                    7
+                  ],
+                  "humans": 20,
+                  "arrival_own_turn_lower_bound": 43,
+                  "population_after": 40
+                }
+              ]
+            },
+            {
+              "arrival_own_turn_lower_bound": 43,
+              "captures": [
+                {
+                  "position": [
+                    10,
+                    3
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 10,
+                  "population_after": 14
+                },
+                {
+                  "position": [
+                    18,
+                    11
+                  ],
+                  "humans": 4,
+                  "arrival_own_turn_lower_bound": 18,
+                  "population_after": 18
+                },
+                {
+                  "position": [
+                    28,
+                    0
+                  ],
+                  "humans": 2,
+                  "arrival_own_turn_lower_bound": 29,
+                  "population_after": 20
+                },
+                {
+                  "position": [
+                    14,
+                    7
+                  ],
+                  "humans": 20,
+                  "arrival_own_turn_lower_bound": 43,
+                  "population_after": 40
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "battles": [
+    {
+      "attackers": 1,
+      "defenders": 1,
+      "humans": false,
+      "successor_count": 3,
+      "expected_attacking_survivors": {
+        "exact": "1/4",
+        "decimal": 0.25
+      },
+      "attacker_extinction_probability": {
+        "exact": "3/4",
+        "decimal": 0.75
+      },
+      "both_extinct_probability": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "0",
+        "decimal": 0.0
+      }
+    },
+    {
+      "attackers": 4,
+      "defenders": 4,
+      "humans": false,
+      "successor_count": 9,
+      "expected_attacking_survivors": {
+        "exact": "1",
+        "decimal": 1.0
+      },
+      "attacker_extinction_probability": {
+        "exact": "17/32",
+        "decimal": 0.53125
+      },
+      "both_extinct_probability": {
+        "exact": "1/16",
+        "decimal": 0.0625
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "0",
+        "decimal": 0.0
+      }
+    },
+    {
+      "attackers": 10,
+      "defenders": 20,
+      "humans": true,
+      "successor_count": 51,
+      "expected_attacking_survivors": {
+        "exact": "15/8",
+        "decimal": 1.875
+      },
+      "attacker_extinction_probability": {
+        "exact": "3458970404952635577/4611686018427387904",
+        "decimal": 0.7500446455225425
+      },
+      "both_extinct_probability": {
+        "exact": "205891135240377/4611686018427387904",
+        "decimal": 4.464552322462471e-05
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "1049529442037/2305843009213693952",
+        "decimal": 4.551608404576059e-07
+      }
+    },
+    {
+      "attackers": 14,
+      "defenders": 20,
+      "humans": true,
+      "successor_count": 55,
+      "expected_attacking_survivors": {
+        "exact": "833/200",
+        "decimal": 4.165
+      },
+      "attacker_extinction_probability": {
+        "exact": "2233383517727869048002546094002506312012987423/3435973836800000000000000000000000000000000000",
+        "decimal": 0.6500001524481541
+      },
+      "both_extinct_probability": {
+        "exact": "525507380486328643625701706312012987423/3435973836800000000000000000000000000000000000",
+        "decimal": 1.529427770543636e-07
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "2899153280190608186742297112991290067621/2147483648000000000000000000000000000000000",
+        "decimal": 0.0013500234485560134
+      }
+    },
+    {
+      "attackers": 18,
+      "defenders": 20,
+      "humans": true,
+      "successor_count": 59,
+      "expected_attacking_survivors": {
+        "exact": "1539/200",
+        "decimal": 7.695
+      },
+      "attacker_extinction_probability": {
+        "exact": "302365697672063909100296162500248281348270436710129/549755813888000000000000000000000000000000000000000",
+        "decimal": 0.5500000000612343
+      },
+      "both_extinct_probability": {
+        "exact": "35091313504189511142203032281348270436710129/549755813888000000000000000000000000000000000000000",
+        "decimal": 6.383072742062633e-08
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "535624616358333034862256451251738014590018698831/5497558138880000000000000000000000000000000000000",
+        "decimal": 0.09742955014341224
+      }
+    },
+    {
+      "attackers": 19,
+      "defenders": 20,
+      "humans": true,
+      "successor_count": 60,
+      "expected_attacking_survivors": {
+        "exact": "14079/1600",
+        "decimal": 8.799375
+      },
+      "attacker_extinction_probability": {
+        "exact": "6346860553046836709835740132163426059451437512494264678071414439/12089258196146291747061760000000000000000000000000000000000000000",
+        "decimal": 0.525000000005793
+      },
+      "both_extinct_probability": {
+        "exact": "2169927211021685360616231628723082039752494264678071414439/12089258196146291747061760000000000000000000000000000000000000000",
+        "decimal": 1.7949217196084007e-07
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "10812585031613058007294228783723766495891827578472093222754861/60446290980731458735308800000000000000000000000000000000000000",
+        "decimal": 0.17887921419462774
+      }
+    },
+    {
+      "attackers": 20,
+      "defenders": 20,
+      "humans": true,
+      "successor_count": 1,
+      "expected_attacking_survivors": {
+        "exact": "40",
+        "decimal": 40.0
+      },
+      "attacker_extinction_probability": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "both_extinct_probability": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "1",
+        "decimal": 1.0
+      }
+    },
+    {
+      "attackers": 10,
+      "defenders": 8,
+      "humans": false,
+      "successor_count": 19,
+      "expected_attacking_survivors": {
+        "exact": "45/8",
+        "decimal": 5.625
+      },
+      "attacker_extinction_probability": {
+        "exact": "1048579/4194304",
+        "decimal": 0.2500007152557373
+      },
+      "both_extinct_probability": {
+        "exact": "104979/4194304",
+        "decimal": 0.02502894401550293
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "0",
+        "decimal": 0.0
+      }
+    },
+    {
+      "attackers": 8,
+      "defenders": 10,
+      "humans": false,
+      "successor_count": 19,
+      "expected_attacking_survivors": {
+        "exact": "32/25",
+        "decimal": 1.28
+      },
+      "attacker_extinction_probability": {
+        "exact": "1184997/1953125",
+        "decimal": 0.606718464
+      },
+      "both_extinct_probability": {
+        "exact": "331122/48828125",
+        "decimal": 0.00678137856
+      },
+      "attacker_at_least_20_probability": {
+        "exact": "0",
+        "decimal": 0.0
+      }
+    }
+  ],
+  "elapsed_seconds": 0.017300583014730364
+}

@@ -1,0 +1,79 @@
+Strategy and exact map analysis verification
+Date: 2026-10-09
+Commands:
+python3 tools/analyze_maps.py --output reports/map-analysis-2026-10-09.json
+PYTHONPATH=src python3 -m unittest discover -s tests -v
+
+Saved exact map analysis to reports/map-analysis-2026-10-09.json; 0.017s
+test_equal_humans_convert_without_random_battle (test_foundations.BattleTests.test_equal_humans_convert_without_random_battle) ... ok
+test_equal_monster_groups_are_random (test_foundations.BattleTests.test_equal_monster_groups_are_random) ... ok
+test_human_survivors_are_converted_only_when_attackers_win (test_foundations.BattleTests.test_human_survivors_are_converted_only_when_attackers_win) ... ok
+test_humans_have_no_guaranteed_defender_ratio (test_foundations.BattleTests.test_humans_have_no_guaranteed_defender_ratio) ... ok
+test_invalid_battle_inputs (test_foundations.BattleTests.test_invalid_battle_inputs) ... ok
+test_monster_guarantee_at_exact_three_to_two_ratio (test_foundations.BattleTests.test_monster_guarantee_at_exact_three_to_two_ratio) ... ok
+test_random_probability_on_either_side_of_equal (test_foundations.BattleTests.test_random_probability_on_either_side_of_equal) ... ok
+test_seeded_sampling_and_mutually_exclusive_survivors (test_foundations.BattleTests.test_seeded_sampling_and_mutually_exclusive_survivors) ... ok
+test_eight_neighbors_interior_three_at_corner (test_foundations.BoardTests.test_eight_neighbors_interior_three_at_corner) ... ok
+test_invalid_dimensions (test_foundations.BoardTests.test_invalid_dimensions) ... ok
+test_invalid_population_or_mixed_cell (test_foundations.BoardTests.test_invalid_population_or_mixed_cell) ... ok
+test_invalid_update_does_not_partially_mutate_board (test_foundations.BoardTests.test_invalid_update_does_not_partially_mutate_board) ... ok
+test_rows_and_columns_are_not_transposed (test_foundations.BoardTests.test_rows_and_columns_are_not_transposed) ... ok
+test_supplied_rectangular_map_and_coordinates (test_foundations.BoardTests.test_supplied_rectangular_map_and_coordinates) ... ok
+test_supplied_trap_map (test_foundations.BoardTests.test_supplied_trap_map) ... ok
+test_updates_replace_counts_and_clear_cells (test_foundations.BoardTests.test_updates_replace_counts_and_clear_cells) ... ok
+test_empty_or_oversized_move_packet_rejected (test_foundations.ProtocolTests.test_empty_or_oversized_move_packet_rejected) ... ok
+test_eof_in_header_and_payload_raises (test_foundations.ProtocolTests.test_eof_in_header_and_payload_raises) ... ok
+test_fragmented_and_coalesced_packets (test_foundations.ProtocolTests.test_fragmented_and_coalesced_packets) ... ok
+test_move_byte_order (test_foundations.ProtocolTests.test_move_byte_order) ... ok
+test_name_ascii_and_one_byte_length (test_foundations.ProtocolTests.test_name_ascii_and_one_byte_length) ... ok
+test_persistent_socket_handshake_two_games_and_bye (test_foundations.ProtocolTests.test_persistent_socket_handshake_two_games_and_bye) ... ok
+test_send_validates_before_transmitting (test_foundations.ProtocolTests.test_send_validates_before_transmitting) ... ok
+test_unknown_and_non_ascii_commands (test_foundations.ProtocolTests.test_unknown_and_non_ascii_commands) ... ok
+test_zero_length_read (test_foundations.ProtocolTests.test_zero_length_read) ... ok
+test_all_eight_directions_and_partial_moves (test_foundations.RulesTests.test_all_eight_directions_and_partial_moves) ... ok
+test_either_species_can_be_ours (test_foundations.RulesTests.test_either_species_can_be_ours) ... ok
+test_risky_attacks_are_legal (test_foundations.RulesTests.test_risky_attacks_are_legal) ... ok
+test_rule_1_reject_empty_ply (test_foundations.RulesTests.test_rule_1_reject_empty_ply) ... ok
+test_rule_2_reject_opponent_human_and_empty_sources (test_foundations.RulesTests.test_rule_2_reject_opponent_human_and_empty_sources) ... ok
+test_rule_3_aggregate_outgoing_population (test_foundations.RulesTests.test_rule_3_aggregate_outgoing_population) ... ok
+test_rule_4_reject_non_adjacent_stay_and_out_of_bounds (test_foundations.RulesTests.test_rule_4_reject_non_adjacent_stay_and_out_of_bounds) ... ok
+test_rule_5_reject_chaining_in_either_record_order (test_foundations.RulesTests.test_rule_5_reject_chaining_in_either_record_order) ... ok
+test_rule_5_reject_swap (test_foundations.RulesTests.test_rule_5_reject_swap) ... ok
+test_rule_6_reject_zero_and_invalid_move_counts (test_foundations.RulesTests.test_rule_6_reject_zero_and_invalid_move_counts) ... ok
+test_shared_destination_allows_merging (test_foundations.RulesTests.test_shared_destination_allows_merging) ... ok
+test_split_budget_and_conservative_record_limit (test_foundations.RulesTests.test_split_budget_and_conservative_record_limit) ... ok
+test_bye_is_terminal (test_foundations.SessionTests.test_bye_is_terminal) ... ok
+test_end_discards_home_houses_and_initialization (test_foundations.SessionTests.test_end_discards_home_houses_and_initialization) ... ok
+test_home_must_identify_our_species (test_foundations.SessionTests.test_home_must_identify_our_species) ... ok
+test_reject_update_before_initialization (test_foundations.SessionTests.test_reject_update_before_initialization) ... ok
+test_combat_initiative_is_not_symmetric (test_simulation.ExactBattleTests.test_combat_initiative_is_not_symmetric) ... ok
+test_equal_four_battle_has_empty_outcome_from_both_branches (test_simulation.ExactBattleTests.test_equal_four_battle_has_empty_outcome_from_both_branches) ... ok
+test_human_threshold_discontinuity (test_simulation.ExactBattleTests.test_human_threshold_discontinuity) ... ok
+test_small_distributions_normalize_and_match_analytic_expectations (test_simulation.ExactBattleTests.test_small_distributions_normalize_and_match_analytic_expectations) ... ok
+test_chebyshev_distance_counts_diagonals (test_simulation.MapAnalysisTests.test_chebyshev_distance_counts_diagonals) ... ok
+test_forced_battle_proves_universal_win_guarantee_impossible (test_simulation.MapAnalysisTests.test_forced_battle_proves_universal_win_guarantee_impossible) ... ok
+test_large_map_resource_bottleneck_and_optimistic_route (test_simulation.MapAnalysisTests.test_large_map_resource_bottleneck_and_optimistic_route) ... ok
+test_trap_safe_and_exposed_openings_for_both_species (test_simulation.MapAnalysisTests.test_trap_safe_and_exposed_openings_for_both_species) ... ok
+test_friendly_merge (test_simulation.SingleMoveTests.test_friendly_merge) ... ok
+test_human_conversion_preserves_total_population (test_simulation.SingleMoveTests.test_human_conversion_preserves_total_population) ... ok
+test_monster_threshold_and_terminal_extinction (test_simulation.SingleMoveTests.test_monster_threshold_and_terminal_extinction) ... ok
+test_overflow_is_explicit_instead_of_clipping_or_losing_probability_mass (test_simulation.SingleMoveTests.test_overflow_is_explicit_instead_of_clipping_or_losing_probability_mass) ... ok
+test_partial_move_preserves_population_and_original_board (test_simulation.SingleMoveTests.test_partial_move_preserves_population_and_original_board) ... ok
+test_random_human_defenders_stay_human (test_simulation.SingleMoveTests.test_random_human_defenders_stay_human) ... ok
+test_single_record_candidates_include_every_partial_amount (test_simulation.SingleMoveTests.test_single_record_candidates_include_every_partial_amount) ... ok
+
+----------------------------------------------------------------------
+Ran 56 tests in 0.023s
+
+OK
+
+Scope:
+Exact rational single-battle and one-record transition model.
+Trap analysis covers all whole-stack first moves and all legal immediate one-record replies.
+Capture-route enumeration ignores opposition and incidental occupancy; times are lower bounds in an unsplit model.
+No sampling; random seed not applicable.
+56 tests passed, including 288 small combat distributions inside one test.
+All 13 original/extracted material hashes were rechecked.
+Primary research PDFs were downloaded and verified as valid PDFs; source hashes are in sources/papers/manifest.json.
+No playable search engine, live-search timing benchmark, official-server test, or match win rate is claimed.
+
