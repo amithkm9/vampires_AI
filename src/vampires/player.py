@@ -49,9 +49,12 @@ def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotoni
                           deadline=start + 2.0, clock=clock)
         turns += 1
         LOG.info("turn=%d species=%s depth=%d selected_depth=%d nodes=%d selective=%d "
-                 "unsupported=%d search_timeout=%s elapsed=%.4fs moves=%s",
+                 "unsupported=%d bounded=%d generation_partial=%d certificate=%s "
+                 "value_bounds=[%.5f,%.5f] search_timeout=%s elapsed=%.4fs moves=%s",
                  turns, session.species.value, decision.completed_depth, decision.selected_depth,
                  decision.nodes, decision.selective_nodes, decision.unsupported_actions,
+                 decision.bounded_actions, decision.truncated_generations, decision.preserved_dominance,
+                 decision.value_lower, decision.value_upper,
                  decision.timed_out, clock() - start,
                  [move.as_tuple() for move in decision.moves])
     return SessionResult(turns, games)
