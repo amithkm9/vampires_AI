@@ -1,0 +1,54 @@
+{
+  "started_utc": "2026-10-11T16:14:08.881260+00:00",
+  "baseline_revision": "2a08829b1935a80c3c11a37ecea5efb089425268",
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "cpu_count": 14,
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 tools/benchmark_strength.py --output experiments/2026-10-11-strength/pilot-01",
+  "budget_seconds": 0.03,
+  "max_plies": 60,
+  "search_config": {
+    "max_depth": 3,
+    "candidates": 64,
+    "per_group": 12,
+    "max_outcomes": 512,
+    "cache_entries": 10000,
+    "preserve_dominance": true
+  },
+  "source_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/certificates.py": "18cccf7cff8fb0d87d1aac0a185bfdea67bce7d9698d56ee04e7fea694283963",
+    "src/vampires/evaluation.py": "f37b285f369cc6efb2f7db050142d9d1674d43428af4dd8708fa2680bd2a7d9e",
+    "src/vampires/growth.py": "92baa8fa605660360ba23bc7821b35e02d21cf0f062725f8cd418cee48d860b8",
+    "src/vampires/mcts.py": "f4b0fc7f1f41d7cdbc7c3ab38ed0dbcd7f85dd5b766ed4d6ece243bdfbeb7961",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/player.py": "d651542225e764107d0e08e0f492f7bdbfb7244a27ddb151968f4049953c0f9d",
+    "src/vampires/protocol.py": "2f9a985adbb2f871e459d49f202a00598136d4564313f94e24e58f3f0cca7355",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "41f49fb8d07743e019cb256204ac5cfbea1bbc381b4f3f5d05a96aca9ea8e6bd",
+    "src/vampires/simulation.py": "b18a97c7519a1eab6cf401272a971bfe49003a78206d5f0580679c8a7f6f0460",
+    "src/vampires/turns.py": "6e3cc1de03ac37db0925475dc4ae2b4a9449c1a9fe5f836124df9289c206bc2f",
+    "tools/benchmark_strength.py": "fc31ca25886583e00e1e7e0081b6847746fb14b03841df442cc6553e54438e1c"
+  },
+  "map_sha256": {
+    "thetrap": "b77fb56e73a5dda64919c283dbdeeaaf74b7ac3ae50d420a37f7efcf2c794dc0",
+    "testmap2": "6e68efcbaa5a0a8df78383de842f25b90d174ea3d7cbfd38723c7d0524a59bde",
+    "generated_71": "ee716708f12f5ace583bb3f2bea43508c44479522b00975e0d5392f21b5d5207",
+    "generated_83": "e336bfd772a6c3b88f6f6a3d878a78ee204a30ccf867d85d7c8b925f4ba3ce95"
+  },
+  "limits": "Local shared model, finite-ply proxy, low time budget, small map set; no official-server/CTI or tournament claim. Pair bootstrap is conditional on the observed map/seed clusters; correlated maps and timing variation limit inference.",
+  "baseline_source_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/evaluation.py": "f37b285f369cc6efb2f7db050142d9d1674d43428af4dd8708fa2680bd2a7d9e",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/player.py": "8d5bc0989854632ab9f0b6f95743323f7a354feeb274d979c8a6f2ac441ccb72",
+    "src/vampires/protocol.py": "2f9a985adbb2f871e459d49f202a00598136d4564313f94e24e58f3f0cca7355",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "92f2aece0f9721afaceb7759fde97da073eb2bb5130dfe3f1d0d090fcc82649e",
+    "src/vampires/simulation.py": "45f3b11ea47372333767f201984ced30ac07f4dbb16fe4be6b105f151f1a118e",
+    "src/vampires/turns.py": "aa20bf9e8906564858a8d5cdaa3dd91fa3fc5b9564b40eb7ce0948dfcfb394cd"
+  }
+}
