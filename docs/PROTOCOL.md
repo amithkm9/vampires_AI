@@ -38,8 +38,11 @@ An empty initial UPD still signals our turn. MAP alone does not. Treat UPD entri
 - `protocol.read_message` reads only the required bytes, so coalesced packets remain aligned.
 - `protocol.Client` uses `sendall` and validates moves before transmission.
 - `model.GameSession.apply` enforces initialization order, identifies our species from HME/MAP, and handles multiple games.
-- `ConnectionClosed`, `ProtocolError`, and state validation errors remain explicit. The future launcher must catch and log them appropriately.
+- `ConnectionClosed`, `ProtocolError`, and state validation errors remain explicit. `player.main` logs them and exits nonzero; it does not silently reconnect into an unknown match.
+- `read_message` timestamps an UPD immediately after recognizing its header. The live client shares a two-second absolute deadline across payload fragments and restores the socket's previous timeout afterward.
+- `player.play` includes update parsing in the search budget and passes the turn deadline to `Client.send_moves`. Late sends are rejected, and `sendall` has a remaining-time timeout. Waiting for other commands remains separate from our turn deadline.
+- `run.py` launches from any working directory and accepts optional settings followed by the server IP and port. The client sends its name once per connection and preserves the connection across END.
 
 ## Integration still required
 
-The test fixture validates packet bytes and two game resets over a local socket pair. The official server, TCP connection setup on CTI, search/decision loop, command-line launcher, disconnect policy, and end-to-end two-second timing still need verification. The connection's read wait is separate from our computation deadline: waiting for an opponent or a second player can legitimately take longer than two seconds.
+Socket-pair tests validate fragmented packets and game resets. `tools/check_player.py` additionally launches the real command in another directory, connects over loopback TCP, completes both species on both supplied maps, verifies legal MOV packets, and checks clean BYE exit. Its simulator is our own and cannot validate official-server parity. Official-server communication, TCP setup on CTI, and CTI end-to-end timing still need verification. Waiting for an opponent or a second player can legitimately take longer than two seconds.

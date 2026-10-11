@@ -35,7 +35,7 @@ Our representation stores resolved occupied cells and treats missing entries as 
 
 These rules are on p. 3. Moving part of a population is permitted; the remainder stays. Attacking a stronger population is legal and can be strategically poor; uncertainty does not make the move invalid. Multiple sources may target one cell under the six rules, but exact combat aggregation remains an integration question.
 
-`rules.validate_moves` enforces these rules against the pre-move board. It also conservatively enforces the p. 6 move-record/group limit by default.
+`rules.validate_moves` enforces these rules against the pre-move board. It also conservatively enforces the p. 6 move-record/group limit by default. `turns.candidate_turns` generates a bounded live set with one outgoing record per source; `turns.exhaustive_turns` covers canonical wider splits on small positions within the same record limit. All outgoing counts are removed before any arrivals in `simulation.turn_outcomes`.
 
 ## Combat
 
@@ -64,13 +64,15 @@ END clears game state while retaining the connection for a new game. BYE ends th
 
 | Topic | Evidence | Current decision or required check |
 | --- | --- | --- |
-| Turn time | Brief p. 8 says 2 seconds; config says 5 | Obey 2 seconds. Initial planned search budget around 1.5 seconds must be measured and adjusted on CTI |
+| Turn time | Brief p. 8 says 2 seconds; config says 5 | Obey 2 seconds. The launcher defaults to 1.25 seconds of search, permits at most 1.5, and timestamps UPD before reading its payload. Receive/send use the two-second absolute deadline. CTI measurement is still required |
 | Zero moves | Rule 1 requires a movement; p. 6 MOV describes `0 <= n` | Never send an empty turn during a playable state |
 | Splitting and record count | p. 3 allows partial movements and budgets multiple moves; p. 6 says record count is at most the number of groups | A partial move to one destination with creatures left behind is permitted and implemented. Default validation retains the conservative total record limit; wider splitting needs clarification or server evidence |
-| Simultaneous arrivals | Multiple sources sharing a destination are not prohibited by the six rules | Verify whether the server aggregates arrivals before combat and whether move order changes results |
+| Simultaneous arrivals | Multiple sources sharing a destination are not prohibited by the six rules | Empty/friendly arrivals are merged locally. Shared contested destinations raise `AmbiguousBattle` by default and are excluded from live candidates. Offline `shared_target="aggregate"` explicitly assumes combined arrivals before one battle. Verify actual server behavior |
 | Population overflow | Packet fields are single bytes, but merges/conversions can theoretically exceed 255 | The reference simulator rejects unsupported successors explicitly. Supplied maps have only 17 and 52 total creatures including humans, so cannot overflow under the brief; arbitrary-map server behavior remains unresolved |
-| Victory and ties | Dominant species wins; exact ties and simultaneous extinction are unstated | A battle can leave both sides empty. Keep this distinct from a definite loss/win in analysis; check the server before assigning terminal score |
+| Victory and ties | Dominant species wins; exact ties and simultaneous extinction are unstated | The baseline assigns both-extinct states a neutral score of 0 as an explicit model convention, not a verified server draw. Lone surviving species scores +1/-1. The search receives no daylight/ply-cap countdown; check server behavior |
 | Random-formula constant | p. 4 mentions `C` in prose but prints an explicit formula | Use the explicit formula together with p. 3's 1.5 thresholds |
 | GUI setting names | p. 9 uses generic Ip/Port/Trace labels; archive uses ServerIP/ServerPort/DebugMode | Use the actual supplied config keys when preparing a working server copy |
 
 These are engineering decisions, not additional instructor rules. Update this table when an instructor clarification or official-server observation resolves an issue.
+
+Distinct simultaneous battles use independent draws in the local joint distribution. The Cartesian product is exact under that assumption. If its configured size limit is exceeded, `OutcomeLimit` aborts the action; no probability tail is silently discarded or renormalized. The baseline search logs skipped unsupported actions, so its values apply only to the retained model. Overflow, branch limits, and unknown shared-target combat are model limitations, not extra legal-move prohibitions in the brief.

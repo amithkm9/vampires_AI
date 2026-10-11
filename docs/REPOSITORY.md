@@ -35,4 +35,23 @@ git rev-parse HEAD
 git ls-remote origin refs/heads/main
 ```
 
-The initial history contains eight commits. After a successful push, the two head hashes should match and the working tree should be clean. Future development should use ordinary new commits; the helper is limited to the initial eight-commit publication plan.
+The initial history contains eight commits. After a successful push, the two head hashes should match and the working tree should be clean. Future development uses ordinary new commits; the helper is limited to the initial eight-commit publication plan.
+
+## Playable-baseline update, 2026-10-11
+
+This update adds 10 meaningful commits on top of the original eight, without rewriting their history:
+
+1. Cooperative monotonic search deadlines.
+2. Exact joint-turn simulation and explicit model limits.
+3. Legal combined-turn generation and edge-case tests.
+4. Bounded board evaluation and human-house races.
+5. Opponent-aware expectiminimax and tactical/deadline tests.
+6. Absolute deadlines for UPD reads and MOV sends.
+7. Persistent player loop and portable launcher.
+8. Local TCP match harness and client lifecycle tests.
+9. Reproducible smoke/stress checks and validation records.
+10. Launch documentation, implementation notes, rules, and next-work checklist.
+
+Before this update, `PYTHONPATH=src python3 -m unittest discover -s tests -q` passed all 105 tests in 0.578 seconds. All 13 original material hashes matched, as did the source hashes in the three October 9 smoke/stress JSON records. Those records describe the earlier runs; publishing them does not imply new official-server or CTI validation.
+
+Use `git rev-list --count HEAD` to inspect the total history (18 commits at this update), and the commands above to verify remote synchronization. Do not use the initial-publication helper for subsequent development commits.

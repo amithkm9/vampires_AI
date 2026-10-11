@@ -2,6 +2,24 @@
 
 Work from top to bottom. A checked task has evidence in the files or verification record; a phase is complete only after its acceptance condition in [the roadmap](docs/planning/ROADMAP.md) passes.
 
+## Active build: first playable baseline
+
+1. [x] Implement legal combined turns, a mandatory-move fallback, and independent small-board enumeration checks.
+2. [x] Extend exact transitions to joint turns; reject unverified shared-target battles by default and make branch/overflow limits explicit.
+3. [x] Implement bounded evaluation and opponent-aware expectiminimax, with deadline checks inside expensive work.
+4. [x] Integrate the persistent protocol loop and a launcher whose last arguments are IP address and port.
+5. [x] Exercise complete local harness matches, both species, restart, disconnects, malformed input, and deadline fallback.
+6. [x] Record evidence, limitations, and the next improvement tasks. Official-server and CTI checks remain separate acceptance gates.
+
+## Next build priorities
+
+1. [ ] Make candidate generation retain useful partial results when crowded boards exhaust its budget; measure opponent-reply coverage against the exhaustive small-board oracle.
+2. [ ] Replace skipped over-limit chance actions with explicit value bounds or a measured sampled mode; avoid optimistic estimates caused by missing opponent replies.
+3. [ ] Add multi-house growth and denial analysis, including the central-house bottleneck and the dominant-stack preservation certificate.
+4. [ ] Verify shared-target attacks, wider splitting, overflow, and both-extinct outcomes on the official server; then extend the live candidate set.
+5. [ ] Rehearse the exact launch command on CTI and measure receive/search/send timing there.
+6. [ ] Start paired strength benchmarks, ablations, and the sampled-search/MCTS comparison. Keep integration smoke results separate from win-rate claims.
+
 ## Phase 0 Understand and organize
 
 - [x] Inventory all inputs and inspect ZIP members before extraction.
@@ -26,15 +44,15 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 ## Phase 2 Implement candidate turns and the forward model
 
 - [x] Enumerate all one-record turns, including every partial movement amount.
-- [ ] Generate a small, useful set of legal combined turns.
-- [ ] Preserve a cheap legal fallback whenever a turn is playable.
+- [x] Generate a small, useful set of legal combined turns.
+- [x] Preserve a cheap legal fallback whenever a turn is playable.
 - [x] Apply one-record moves without mutating the original board.
 - [x] Model single-record movement to empty cells, partial movement, and friendly merging.
 - [x] Enumerate exact enemy/human battle branches using rational probabilities.
-- [ ] Extend outgoing budgets and transitions to complete multi-record turns.
+- [x] Extend outgoing budgets and transitions to complete multi-record turns under an explicit shared-target policy.
 - [ ] Verify same-target aggregation and resolution order against the official server before claiming exact multi-group simulation.
 - [x] Keep uncertain single-battle outcomes explicit; never round survivors into an expected board.
-- [x] Test single-move conservation, conversion, extinction, and explicit rejection of possible overflow.
+- [x] Test single/joint-move conservation, conversion, extinction, input isolation, exact chance products, and explicit overflow/branch rejection.
 - [ ] Resolve official-server overflow and both-species-extinct behavior; verify multi-record cases.
 
 ## Strategy analysis and decision evidence
@@ -50,23 +68,26 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 
 ## Phase 3 Produce the first playable opponent-aware AI
 
-- [ ] Implement evaluation: population advantage, reachable humans, immediate threats, and vulnerable groups.
-- [ ] Implement at least our move followed by an opponent reply, with documented handling of chance.
-- [ ] Demonstrate a tactical case where opponent lookahead changes the selected move.
-- [ ] Add a CLI with address and port as the final arguments and a valid ASCII team name.
-- [ ] Connect NME, initialization, UPD, decision, validation, MOV, END, and BYE in one process.
-- [ ] Play a full match in a protocol harness, then against the official server as soon as access exists.
-- [ ] Save enough logs to diagnose invalid moves, disconnects, and timing failures.
+- [x] Implement evaluation: population advantage, current-stack house races, immediate threats, and vulnerable groups. Safe routes and multi-house growth remain future work.
+- [x] Implement at least our move followed by an opponent reply, with documented handling of chance.
+- [x] Demonstrate a tactical case where opponent lookahead changes the selected move.
+- [x] Add a CLI with address and port as the final arguments and a valid ASCII team name.
+- [x] Connect NME, initialization, UPD, decision, validation, MOV, END, and BYE in one process.
+- [x] Play complete local TCP harness matches on both maps as both species, including END/restart and BYE.
+- [ ] Play against the official server as soon as access exists.
+- [x] Log turn depth, nodes, selective/unsupported actions, timing, moves, and explicit protocol failures.
 
 ## Phase 4 Improve search within two seconds
 
-- [ ] Add a monotonic clock deadline and return the last completed result or legal fallback.
-- [ ] Start with an internal search budget below two seconds; measure send/update overhead on CTI.
-- [ ] Implement deeper search and move ordering ourselves after the baseline works.
-- [ ] If needed, implement our own cache of evaluated positions and bounded action candidates.
-- [ ] Evaluate permitted one-destination partial splits; expand multiple outgoing records only after the record limit is resolved.
-- [ ] Stress-test busy boards, many groups, and stochastic branches.
-- [ ] Record worst-case response time and repeated deadline behavior.
+- [x] Add a monotonic clock deadline and return the last completed result or legal fallback.
+- [x] Use a 1.25-second default search budget and time UPD parsing through MOV transmission.
+- [ ] Measure receive/send/update overhead and deadline behavior on CTI.
+- [x] Implement deeper search and move ordering ourselves: iterative depth, exact chance values, and cheap move priorities.
+- [x] Implement a bounded per-search cache and bounded action candidates.
+- [x] Evaluate permitted one-destination partial splits; support wider splitting in the offline oracle within the conservative record limit.
+- [ ] Extend live wider splitting only after server verification and measured pruning coverage.
+- [x] Stress-test busy boards, many groups, byte-boundary populations, and stochastic branches locally.
+- [x] Record the observed maximum response and deadline behavior for the tested local cases; no universal timing bound claimed.
 
 ## Phase 5 Validate the official server and CTI launch
 
@@ -103,6 +124,7 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 - [x] Organize the initial project into eight meaningful commit groups.
 - [x] Verify original material hashes and rerun all 56 tests before publication.
 - [x] Publish to `amithkm9/vampires_AI` using standard Git and configure `main` to track `origin/main`.
+- [x] Organize the playable baseline into 10 additional meaningful commits and rerun all 105 tests before publication on 2026-10-11.
 
 ## Information to confirm
 

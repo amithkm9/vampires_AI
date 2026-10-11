@@ -8,9 +8,9 @@ No calendar dates are assumed. Add them after the submission date, tournament da
 | --- | --- | --- | --- |
 | 0 Understand and organize | Preserved materials, audit, rules, roadmap | Every source inventoried; brief and supplied text files read; originals verified | Complete |
 | 1 Establish foundations | Packet codec, state model, move rules, battle helpers | Rule boundary tests and persistent mock protocol exchange pass | Complete: 41 tests |
-| 2 Build a forward model | Legal candidate turns and simulated successors | Known movement/conversion/battle cases match expected results; uncertain server behavior remains explicit | In progress: exact one-record model; 56 total tests |
-| 3 Make the first player | Small opponent-aware search and complete launcher | Autonomous harness match; a demonstrated opponent-reply decision; correct restart and shutdown | Pending |
-| 4 Improve search and timing | Bounded deeper search with a fallback | Tactical improvement over baseline and measured response headroom below 2 seconds | Pending |
+| 2 Build a forward model | Legal candidate turns and simulated successors | Known movement/conversion/battle cases match expected results; uncertain server behavior remains explicit | Local model complete; shared-target parity pending; 105 total tests |
+| 3 Make the first player | Small opponent-aware search and complete launcher | Autonomous harness match; a demonstrated opponent-reply decision; correct restart and shutdown | Local baseline complete; official-server check pending |
+| 4 Improve search and timing | Bounded deeper search with a fallback | Tactical improvement over baseline and measured response headroom below 2 seconds | Initial depth/deadline/cache implemented; local timing recorded; tuning and CTI pending |
 | 5 Validate deployment | Official-server and CTI rehearsal | Exact launch command works; both species complete matches; no protocol or legality failures | Pending; start environment work early |
 | 6 Measure strength | Paired benchmark records and final strategy choice | Reproducible comparisons, side swaps, failure counts, timing, and ablations | Pending |
 | 7 Explain and submit | Source package, report, five-minute presentation | Clean CTI rehearsal, algorithms mapped to code, required deliveries completed on time | Pending |
@@ -53,4 +53,4 @@ Plan the five-minute presentation around the strategic idea, one understandable 
 
 ## Immediate next task
 
-Single-move generation and exact transitions are implemented and tested. Complete legal joint-turn handling, then integrate a shallow opponent-aware baseline with the race/denial features specified in [the tournament strategy design](../STRATEGY.md). The [map analysis](../../reports/map-analysis-2026-10-09.md) supplies concrete tactical and resource regressions for the evaluator.
+The joint model, shallow opponent-aware baseline, and launcher are implemented. See [implementation details](../IMPLEMENTATION.md) and [baseline verification](../../reports/baseline-verification-2026-10-09.md). Improve crowded-board candidate generation and large chance-action handling next, then add multi-house growth/denial and dominant-stack preservation. Obtain official-server and CTI evidence in parallel with that work. The [map analysis](../../reports/map-analysis-2026-10-09.md) supplies concrete tactical and resource regressions; it does not establish optimal full-game play.

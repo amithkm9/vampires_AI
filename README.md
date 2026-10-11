@@ -2,15 +2,26 @@
 
 Build an AI for the Foundation of AI tournament. The game is a fully observable grid contest: convert humans, grow your species, anticipate the opponent, and finish with the dominant population. Battles can be random. Each turn must be sent to the supplied server within **two seconds**.
 
-The supplied materials have been organized and the first implementation milestone is complete. The project contains a tested protocol, board model, move validator, exact single-move simulator, and reproducible map analysis. **There is no playable strategy or tournament launcher yet.**
+The project now has a **playable opponent-aware baseline**: legal combined turns, exact battle probabilities, bounded expectiminimax, a deadline fallback, and a persistent TCP launcher. It passes 105 tests and local TCP matches on both supplied maps as both species. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
 
 ## Start here
 
 1. Read [the course rules and implementation decisions](docs/RULES.md).
 2. Follow [the roadmap from setup to submission](docs/planning/ROADMAP.md).
-3. Work through [the live task list](TODO.md), starting at Phase 2.
+3. Work through [the live task list](TODO.md), starting with the next build priorities.
 4. Read [the current status](STATUS.md) before resuming work.
 5. Read [the tournament algorithm design](docs/STRATEGY.md) and [exact map findings](reports/map-analysis-2026-10-09.md) before implementing search.
+6. Read [the baseline implementation and limitations](docs/IMPLEMENTATION.md) to distinguish implemented behavior from planned improvements.
+
+## Launch the player
+
+Requires Python 3.10 or newer and the standard library only. Put the server IP and port last:
+
+```sh
+python3 run.py --name vampires_AI --budget 1.25 --depth 3 127.0.0.1 5555
+```
+
+Replace the example IP/port with the official server's values. From another directory, use the absolute path to `run.py`; no `PYTHONPATH` setup is needed. The default search budget is 1.25 seconds inside the brief's two-second turn deadline. Timing on CTI remains unmeasured. Diagnostics go to stderr; `--quiet` suppresses routine turn logs.
 
 ## What was supplied
 
@@ -34,10 +45,14 @@ Original file contents were preserved; only their locations changed. See the [so
 | `src/vampires/model.py` | Board, XML map loading, species identity, and game reset |
 | `src/vampires/protocol.py` | Exact TCP reads, packet parsing, complete sends, validated MOV packets |
 | `src/vampires/rules.py` | All six move rules, combat probabilities, expected survivors, battle sampling |
-| `src/vampires/simulation.py` | Exact rational battle outcomes and one-record turn transitions |
-| `tests/test_foundations.py`, `tests/test_simulation.py` | 56 tests, including a persistent local socket exchange and tactical/map regressions |
+| `src/vampires/simulation.py` | Exact rational single/joint-turn transitions; explicit ambiguity, overflow, and branch limits |
+| `src/vampires/turns.py` | Legal fallback, bounded joint candidates, exhaustive small-position oracle |
+| `src/vampires/evaluation.py`, `search.py`, `budget.py` | Bounded evaluation, iterative expectiminimax, per-search cache, cooperative deadlines |
+| `src/vampires/player.py`, `run.py` | Persistent game loop and launch command |
+| `tests/` | 105 tests covering rules, transitions, tactics, deadlines, and protocol lifecycle |
 | `tools/inspect_map.py` | Read a map without running the Windows generator |
 | `tools/analyze_maps.py` | Reproduce exact local reply risks and optimistic capture-route calculations |
+| `tools/check_player.py`, `tools/check_search.py` | Reproducible local TCP matches and synthetic timing checks |
 
 All working Python code uses the standard library. The current syntax targets Python 3.10 or newer; local validation used Python 3.14.6. Confirm the Python version available on CTI before selecting the final runtime. No dependency installation is needed for the current code.
 
@@ -48,11 +63,13 @@ PYTHONPATH=src python3 -m unittest discover -s tests -v
 python3 tools/inspect_map.py maps/testmap2.xml
 python3 tools/inspect_map.py maps/thetrap.xml
 python3 tools/analyze_maps.py --output reports/map-analysis-2026-10-09.json
+python3 tools/check_player.py --output reports/player-smoke-2026-10-09.json
+python3 tools/check_search.py --output reports/search-stress-2026-10-09.json
 ```
 
 On Windows PowerShell, set `$env:PYTHONPATH = "src"` and use `python -m unittest discover -s tests -v`.
 
-The server executables target Windows .NET Framework; they have not been run here. The local socket test checks our protocol against a small fixture, not against the official server. The future tournament command must accept the server address and port as its final two arguments (brief p. 9).
+The server executables target Windows .NET Framework; they have not been run here. The local harness checks our protocol and launcher against a fixture sharing our simulator, not against the official server. Shared-target combat is excluded from live candidates pending verification. See [the validation record](reports/baseline-verification-2026-10-09.md) for evidence and limits.
 
 ## Completion requirements
 
