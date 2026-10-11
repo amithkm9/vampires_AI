@@ -1,7 +1,8 @@
 """Binary TCP protocol from the brief, pages 5-8. No game strategy lives here."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import socket
+from time import monotonic
 from .rules import Move, validate_moves
 
 
@@ -17,22 +18,33 @@ class ConnectionClosed(EOFError):
 class Message:
     command: str
     payload: tuple = ()
+    received_at: float | None = field(default=None, compare=False)
 
 
-def recv_exact(connection, size):
+def recv_exact(connection, size, *, deadline=None, clock=monotonic):
     """TCP may split or combine packets; EOF must not create an infinite loop."""
     if type(size) is not int or size < 0:
         raise ValueError("Receive size must be a nonnegative integer")
+    original_timeout = connection.gettimeout() if deadline is not None else None
     data = bytearray()
-    while len(data) < size:
-        chunk = connection.recv(size - len(data))
-        if not chunk:
-            raise ConnectionClosed(f"Connection closed after {len(data)} of {size} bytes")
-        data.extend(chunk)
-    return bytes(data)
+    try:
+        while len(data) < size:
+            if deadline is not None:
+                remaining = deadline - clock()
+                if remaining <= 0:
+                    raise TimeoutError("Turn deadline expired while receiving UPD")
+                connection.settimeout(remaining if original_timeout is None else min(remaining, original_timeout))
+            chunk = connection.recv(size - len(data))
+            if not chunk:
+                raise ConnectionClosed(f"Connection closed after {len(data)} of {size} bytes")
+            data.extend(chunk)
+        return bytes(data)
+    finally:
+        if deadline is not None:
+            connection.settimeout(original_timeout)
 
 
-def read_message(connection):
+def read_message(connection, *, turn_timeout=None, clock=monotonic):
     raw = recv_exact(connection, 3)
     try:
         command = raw.decode("ascii")
@@ -43,11 +55,13 @@ def read_message(connection):
     if command in ("SET", "HME"):
         return Message(command, tuple(recv_exact(connection, 2)))
     if command in ("HUM", "MAP", "UPD"):
-        count = recv_exact(connection, 1)[0]
+        received_at = clock() if command == "UPD" else None
+        deadline = received_at + turn_timeout if received_at is not None and turn_timeout is not None else None
+        count = recv_exact(connection, 1, deadline=deadline, clock=clock)[0]
         width = 2 if command == "HUM" else 5
-        body = recv_exact(connection, count * width)
+        body = recv_exact(connection, count * width, deadline=deadline, clock=clock)
         return Message(command, tuple(tuple(body[i:i + width])
-                                      for i in range(0, len(body), width)))
+                                      for i in range(0, len(body), width)), received_at)
     raise ProtocolError(f"Unknown command: {command!r}")
 
 
@@ -83,14 +97,26 @@ class Client:
         return cls(connection)
 
     def receive(self):
-        return read_message(self.connection)
+        return read_message(self.connection, turn_timeout=2.0)
 
     def send_name(self, name):
         self.connection.sendall(encode_name(name))
 
-    def send_moves(self, board, species, moves):
+    def send_moves(self, board, species, moves, *, deadline=None, clock=monotonic):
         moves = validate_moves(board, species, moves)
-        self.connection.sendall(encode_moves(moves))
+        packet = encode_moves(moves)
+        if deadline is None:
+            self.connection.sendall(packet)
+            return
+        remaining = deadline - clock()
+        if remaining <= 0:
+            raise TimeoutError("Turn deadline expired before sending MOV")
+        original_timeout = self.connection.gettimeout()
+        try:
+            self.connection.settimeout(remaining if original_timeout is None else min(remaining, original_timeout))
+            self.connection.sendall(packet)
+        finally:
+            self.connection.settimeout(original_timeout)
 
     def close(self):
         self.connection.close()
