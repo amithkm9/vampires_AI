@@ -13,12 +13,23 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 
 ## Next build priorities
 
-1. [ ] Make candidate generation retain useful partial results when crowded boards exhaust its budget; measure opponent-reply coverage against the exhaustive small-board oracle.
-2. [ ] Replace skipped over-limit chance actions with explicit value bounds or a measured sampled mode; avoid optimistic estimates caused by missing opponent replies.
-3. [ ] Add multi-house growth and denial analysis, including the central-house bottleneck and the dominant-stack preservation certificate.
+1. [ ] Measure opponent-reply coverage against the exhaustive small-board oracle; preserve tactically critical replies under candidate pruning.
+2. [ ] Refine wide chance intervals at the root and compare sparse-sampled expectiminimax under the normal budget.
+3. [ ] Add interception and contested-route checks to the experimental growth planner; measure benefit versus lost search depth.
 4. [ ] Verify shared-target attacks, wider splitting, overflow, and both-extinct outcomes on the official server; then extend the live candidate set.
 5. [ ] Rehearse the exact launch command on CTI and measure receive/search/send timing there.
-6. [ ] Start paired strength benchmarks, ablations, and the sampled-search/MCTS comparison. Keep integration smoke results separate from win-rate claims.
+6. [ ] Expand paired benchmarks to stronger opponents, new map families, normal budgets, and feature ablations before selecting the final engine.
+
+## Strength audit completed on 2026-10-11
+
+- [x] Retain useful partial candidate generation and cap joint-combination work.
+- [x] Replace silent removal of large chance actions with explicit unvisited-mass bounds.
+- [x] Implement and test conditional dominant-stack preservation.
+- [x] Implement experimental multi-house reachability with exclusive house credit and central-house denial regression.
+- [x] Implement a seeded sampled adversarial UCT challenger using integer battle outcomes.
+- [x] Compare all three variants against the immutable published baseline: 108 local matches across two budgets and two horizons, both species.
+- [x] Preserve raw records, negative results, configurations, source/map hashes, and limitations in the [experiment record](experiments/2026-10-11-strength/EXPERIMENT.md).
+- [x] Pass 122 tests. Keep growth and UCT experimental because the comparison does not establish a decisive improvement.
 
 ## Phase 0 Understand and organize
 
@@ -61,14 +72,14 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 - [x] Audit safe and exposed trap-map approaches against every legal immediate one-record reply.
 - [x] Verify the central-house resource bottleneck, exact battle expectations, and optimistic route bounds.
 - [x] Save a bounded primary-literature comparison, source matrix, and algorithm design in `docs/STRATEGY.md`.
-- [ ] Implement capture-race and denial features without double-counting humans.
+- [x] Prototype capture-race and denial features without double-counting human credit; validate contested routes before promoting them.
 - [ ] Preserve all tactical replies on small positions; measure effects of candidate pruning on larger ones.
-- [ ] Compare exact/bounded and sampled expectiminimax with a tactical MCTS challenger under equal budgets.
-- [ ] Implement and test the dominant-stack preservation certificate.
+- [x] Run an initial equal-budget bounded-search/basic-UCT comparison; stronger sampled expectiminimax and tactical MCTS remain future work.
+- [x] Implement and test the dominant-stack preservation certificate.
 
 ## Phase 3 Produce the first playable opponent-aware AI
 
-- [x] Implement evaluation: population advantage, current-stack house races, immediate threats, and vulnerable groups. Safe routes and multi-house growth remain future work.
+- [x] Implement evaluation: population advantage, current-stack house races, immediate threats, and vulnerable groups. Safe routes remain future work; multi-house growth is experimental.
 - [x] Implement at least our move followed by an opponent reply, with documented handling of chance.
 - [x] Demonstrate a tactical case where opponent lookahead changes the selected move.
 - [x] Add a CLI with address and port as the final arguments and a valid ASCII team name.
@@ -102,8 +113,8 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 ## Phase 6 Measure and improve playing strength
 
 - [ ] Build a small random/legal and greedy comparison player for experiments only.
-- [ ] Benchmark paired games with sides swapped on both supplied maps and additional varied maps.
-- [ ] Record seeds, map, species, opponent, algorithm settings, win/loss/draw, failures, and timing.
+- [x] Run initial paired games with species swapped on both supplied maps and two generated maps; expand coverage before final selection.
+- [x] Record seeds, map, species, opponent, algorithm settings, win/loss/draw, failures, and timing.
 - [ ] Run ablations for lookahead, human capture terms, threat terms, and optional splitting.
 - [ ] Inspect losses and improve the demonstrated weakness; keep the prior working baseline.
 - [ ] Choose the final configuration using reproducible evidence.
@@ -125,6 +136,7 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 - [x] Verify original material hashes and rerun all 56 tests before publication.
 - [x] Publish to `amithkm9/vampires_AI` using standard Git and configure `main` to track `origin/main`.
 - [x] Organize the playable baseline into 10 additional meaningful commits and rerun all 105 tests before publication on 2026-10-11.
+- [x] Organize the strength audit, algorithms, 122-test regression suite, and 108-match evidence into 20 additional meaningful commits; retain frequent focused commits as a project convention.
 
 ## Information to confirm
 

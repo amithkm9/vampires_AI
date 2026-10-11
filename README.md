@@ -2,7 +2,7 @@
 
 Build an AI for the Foundation of AI tournament. The game is a fully observable grid contest: convert humans, grow your species, anticipate the opponent, and finish with the dominant population. Battles can be random. Each turn must be sent to the supplied server within **two seconds**.
 
-The project now has a **playable opponent-aware baseline**: legal combined turns, exact battle probabilities, bounded expectiminimax, a deadline fallback, and a persistent TCP launcher. It passes 105 tests and local TCP matches on both supplied maps as both species. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
+The project now has a **playable opponent-aware search engine**: legal combined turns, exact battle probabilities with bounds on unexpanded outcomes, partial candidate generation, dominant-stack preservation, a deadline fallback, and a persistent TCP launcher. It passes 122 tests. An initial 108-match comparison does **not** establish a decisive advantage over the published baseline. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
 
 ## Start here
 
@@ -12,6 +12,7 @@ The project now has a **playable opponent-aware baseline**: legal combined turns
 4. Read [the current status](STATUS.md) before resuming work.
 5. Read [the tournament algorithm design](docs/STRATEGY.md) and [exact map findings](reports/map-analysis-2026-10-09.md) before implementing search.
 6. Read [the baseline implementation and limitations](docs/IMPLEMENTATION.md) to distinguish implemented behavior from planned improvements.
+7. Read [the strength audit](docs/STRENGTH_AUDIT.md) and [all comparison results](experiments/2026-10-11-strength/EXPERIMENT.md) before choosing an experimental engine.
 
 ## Launch the player
 
@@ -45,14 +46,17 @@ Original file contents were preserved; only their locations changed. See the [so
 | `src/vampires/model.py` | Board, XML map loading, species identity, and game reset |
 | `src/vampires/protocol.py` | Exact TCP reads, packet parsing, complete sends, validated MOV packets |
 | `src/vampires/rules.py` | All six move rules, combat probabilities, expected survivors, battle sampling |
-| `src/vampires/simulation.py` | Exact rational single/joint-turn transitions; explicit ambiguity, overflow, and branch limits |
+| `src/vampires/simulation.py` | Exact rational reference and streaming transitions; integer battle sampling; explicit ambiguity and overflow limits |
 | `src/vampires/turns.py` | Legal fallback, bounded joint candidates, exhaustive small-position oracle |
 | `src/vampires/evaluation.py`, `search.py`, `budget.py` | Bounded evaluation, iterative expectiminimax, per-search cache, cooperative deadlines |
+| `src/vampires/certificates.py` | Preserves an intact stack whose dominance follows conditionally from the written rules |
+| `src/vampires/growth.py`, `mcts.py` | Experimental multi-house planning and sampled adversarial UCT; neither is the live default |
 | `src/vampires/player.py`, `run.py` | Persistent game loop and launch command |
-| `tests/` | 105 tests covering rules, transitions, tactics, deadlines, and protocol lifecycle |
+| `tests/` | 122 tests covering rules, transitions, chance bounds, tactics, deadlines, and protocol lifecycle |
 | `tools/inspect_map.py` | Read a map without running the Windows generator |
 | `tools/analyze_maps.py` | Reproduce exact local reply risks and optimistic capture-route calculations |
 | `tools/check_player.py`, `tools/check_search.py` | Reproducible local TCP matches and synthetic timing checks |
+| `tools/benchmark_strength.py`, `tools/benchmark_long.py` | Paired engine comparisons against the immutable published baseline, with raw records and provenance |
 
 All working Python code uses the standard library. The current syntax targets Python 3.10 or newer; local validation used Python 3.14.6. Confirm the Python version available on CTI before selecting the final runtime. No dependency installation is needed for the current code.
 

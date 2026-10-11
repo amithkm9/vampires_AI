@@ -16,6 +16,7 @@ Before continuing, read `README.md`, `STATUS.md`, `TODO.md`, and `docs/RULES.md`
 
 ## Workspace conventions
 
+- Keep completed work in frequent, small, meaningful Git commits with descriptive messages. Separate distinct features, tests, experiments, and documentation when their dependencies permit.
 - Preserve `materials/archives/`, original files in `vendor/`, and the reference PDF. Edit working source under `src/` and working map copies under `maps/`.
 - Use `materials/manifest.json` to verify original material integrity.
 - Update `TODO.md` and `STATUS.md` when a milestone changes. Record validation commands and material limitations.

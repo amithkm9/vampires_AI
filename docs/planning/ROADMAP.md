@@ -8,11 +8,11 @@ No calendar dates are assumed. Add them after the submission date, tournament da
 | --- | --- | --- | --- |
 | 0 Understand and organize | Preserved materials, audit, rules, roadmap | Every source inventoried; brief and supplied text files read; originals verified | Complete |
 | 1 Establish foundations | Packet codec, state model, move rules, battle helpers | Rule boundary tests and persistent mock protocol exchange pass | Complete: 41 tests |
-| 2 Build a forward model | Legal candidate turns and simulated successors | Known movement/conversion/battle cases match expected results; uncertain server behavior remains explicit | Local model complete; shared-target parity pending; 105 total tests |
+| 2 Build a forward model | Legal candidate turns and simulated successors | Known movement/conversion/battle cases match expected results; uncertain server behavior remains explicit | Local model complete; shared-target parity pending; 122 total tests |
 | 3 Make the first player | Small opponent-aware search and complete launcher | Autonomous harness match; a demonstrated opponent-reply decision; correct restart and shutdown | Local baseline complete; official-server check pending |
-| 4 Improve search and timing | Bounded deeper search with a fallback | Tactical improvement over baseline and measured response headroom below 2 seconds | Initial depth/deadline/cache implemented; local timing recorded; tuning and CTI pending |
+| 4 Improve search and timing | Bounded deeper search with a fallback | Tactical improvement over baseline and measured response headroom below 2 seconds | Chance bounds, partial generation, and dominance preservation implemented; decisive match improvement and CTI pending |
 | 5 Validate deployment | Official-server and CTI rehearsal | Exact launch command works; both species complete matches; no protocol or legality failures | Pending; start environment work early |
-| 6 Measure strength | Paired benchmark records and final strategy choice | Reproducible comparisons, side swaps, failure counts, timing, and ablations | Pending |
+| 6 Measure strength | Paired benchmark records and final strategy choice | Reproducible comparisons, side swaps, failure counts, timing, and ablations | Initial 108 matches recorded; broader opponents, ablations, and final selection pending |
 | 7 Explain and submit | Source package, report, five-minute presentation | Clean CTI rehearsal, algorithms mapped to code, required deliveries completed on time | Pending |
 
 ## Phase 2 Forward model
@@ -53,4 +53,4 @@ Plan the five-minute presentation around the strategic idea, one understandable 
 
 ## Immediate next task
 
-The joint model, shallow opponent-aware baseline, and launcher are implemented. See [implementation details](../IMPLEMENTATION.md) and [baseline verification](../../reports/baseline-verification-2026-10-09.md). Improve crowded-board candidate generation and large chance-action handling next, then add multi-house growth/denial and dominant-stack preservation. Obtain official-server and CTI evidence in parallel with that work. The [map analysis](../../reports/map-analysis-2026-10-09.md) supplies concrete tactical and resource regressions; it does not establish optimal full-game play.
+The joint model, launcher, partial generation, chance bounds, and dominant-stack preservation are implemented. Growth planning and basic UCT have been compared experimentally; neither has enough evidence for promotion. See [implementation details](../IMPLEMENTATION.md) and [the strength audit](../STRENGTH_AUDIT.md). Next measure tactical candidate coverage, refine uncertain root decisions, and add interception to growth planning. Obtain official-server and CTI evidence alongside broader normal-budget benchmarks. The [map analysis](../../reports/map-analysis-2026-10-09.md) supplies concrete tactical and resource regressions; it does not establish optimal full-game play.

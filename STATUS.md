@@ -4,7 +4,7 @@ Updated: 2026-10-11.
 
 ## Current milestone
 
-Phases 0 and 1 are complete. The local Phase 2 forward model and Phase 3 playable baseline are implemented, with initial Phase 4 deadline/depth control. The full suite passes **105 tests**. **The player now completes autonomous local TCP matches; official-server parity, CTI deployment, and competitive strength remain unverified.**
+Phases 0 and 1 are complete. The local Phase 2 forward model and Phase 3 playable baseline are implemented, with Phase 4 chance bounds, partial generation, and dominant-stack preservation. Phase 6 has initial comparative evidence. The full suite passes **122 tests**. **The player completes local TCP matches, but 108 comparative matches do not establish a decisive improvement over the published baseline. Official-server parity, CTI deployment, and strength against tournament opponents remain unverified.**
 
 Completed work:
 
@@ -22,11 +22,15 @@ Completed work:
 - Verified the trap regression: vampire one-ply evaluation selects the exposed approach; two-ply opponent lookahead selects the safe approach. Both species select their safe approach at two plies.
 - Added `run.py` and the persistent client loop: name once, authoritative updates, validated MOV, END reset, BYE exit, and error diagnostics. UPD payload reads and MOV sends share the two-second turn deadline.
 - Passed eight local TCP harness matches across two configurations, covering both supplied maps and species, 80 AI turns total, and launch from an unrelated working directory. Four matches ended by extinction and four at the harness ply cap. These are integration smoke tests, not competitive benchmarks.
-- Passed eight synthetic search timing probes, including crowded boards and byte-boundary populations. Under the 0.05-second stress budget, crowded boards used the legality fallback; this is a known search-quality limitation.
+- The earlier baseline passed eight synthetic search timing probes, including crowded boards and byte-boundary populations. Its crowded-board generation could consume the budget and leave only the legality fallback; this prompted the current partial-generation change.
+- Streamed exact chance outcomes and retained unvisited probability mass as intervals instead of dropping large actions. Added bounded partial generation and conditional dominant-stack preservation.
+- Added experimental multi-house growth/denial and seeded adversarial UCT, with 17 additional tests for transitions, bounds, planning, and preservation. Both alternatives remain outside the live default.
+- Ran 108 paired local matches against immutable revision `2a08829b1935a80c3c11a37ecea5efb089425268`, covering two budgets, two horizons, both species, supplied maps, and two generated maps. Preserved all results, including negative ones. At 0.1 seconds/60 plies, bounded search scored 2 wins/12 draws/2 losses; growth scored 4/10/2; UCT scored 0/2/14. At 200 plies on supplied maps, bounded and growth both scored 1/2/1. These small comparisons do not establish superiority.
+- Rechecked the normal launcher with four local TCP matches and 30 AI turns at a 1.25-second search budget; maximum observed response 1.250434 seconds. Both maps/species, persistent connection, unrelated launch directory, legal MOV, and clean BYE passed.
 
 ## Next work
 
-Prioritize the next build in [TODO.md](TODO.md): make candidate generation return useful partial work on crowded boards; replace skipped large chance distributions with bounded handling; implement multi-house growth/denial and dominant-stack preservation; and obtain official-server/CTI evidence. The [implementation notes](docs/IMPLEMENTATION.md) describe the current baseline. Sampled search and MCTS remain planned comparisons.
+Prioritize the next build in [TODO.md](TODO.md): measure tactical opponent-reply coverage, refine wide root intervals, account for interception in growth plans, and obtain official-server/CTI evidence. Expand normal-budget comparisons and ablations before selecting a final engine. The [strength audit](docs/STRENGTH_AUDIT.md), [implementation notes](docs/IMPLEMENTATION.md), and [experiment record](experiments/2026-10-11-strength/EXPERIMENT.md) distinguish implemented behavior from remaining work. Keep bounded expectiminimax as the default; the basic UCT and growth experiments do not justify promotion.
 
 ## Repository publication
 
@@ -35,6 +39,8 @@ Repository: https://github.com/amithkm9/vampires_AI. The initial project history
 Before publication, all 56 tests passed again and all 13 original/extracted material hashes matched. Downloaded research PDFs remain excluded; their citations and provenance are versioned. See [the repository instructions](docs/REPOSITORY.md) for verification commands. Publication does not change the unfinished gameplay and official-server validation milestones.
 
 The playable-baseline update is organized into **10 additional commits**, preserving the original eight: deadlines; joint simulation; turn generation/tests; evaluation; search/tests; protocol timing; launcher; TCP harness/tests; validation records; and documentation. Pre-publication validation on 2026-10-11 passed all 105 tests in 0.578 seconds. All 13 original material hashes and all source hashes in the saved smoke/stress records matched. The October 9 integration records remain historical evidence; those matches were not rerun for this publication.
+
+The strength-audit update is organized into **20 additional commits**: streaming simulation; partial generation; dominance preservation; chance-bounded search; experimental growth; experimental UCT; regression tests; player diagnostics; two benchmark tools; three complete experiment runs; experiment interpretation; stress evidence; TCP evidence; rule decisions; implementation notes; strength/strategy audit; and project guidance/status. These preserve the existing 18 commits and the exact benchmarked runtime sources. The standing preference is frequent, small, meaningful commits, recorded in `AGENTS.md`.
 
 ## Validation
 
@@ -48,7 +54,17 @@ python3 tools/check_player.py --budget 1.25 --depth 3 --max-plies 20 --output re
 python3 tools/check_search.py --output reports/search-stress-2026-10-09.json
 ```
 
-The full 105-test run passed on Python 3.14.6, and all 13 original/extracted material hashes were verified again. See [the baseline verification record](reports/baseline-verification-2026-10-09.md), the linked JSON records, and the retained earlier foundation/map-analysis records. The normal-configuration harness observed a maximum response of 1.25023 seconds across 30 AI turns on this Mac. This is finite local evidence, not a CTI or universal deadline guarantee.
+Those October 9 records describe the historical baseline. Current validation on Python 3.14.6 passed 122 tests in 0.635 seconds. All 13 original material hashes, all three experiment source records, and the two new smoke/stress source records match their saved hashes. New commands:
+
+```sh
+python3 tools/check_search.py --output reports/search-stress-2026-10-11.json
+python3 tools/check_player.py --budget 1.25 --depth 3 --max-plies 20 --output reports/player-strength-smoke-2026-10-11.json
+python3 tools/benchmark_strength.py --output experiments/2026-10-11-strength/pilot-01
+python3 tools/benchmark_strength.py --budget .1 --output experiments/2026-10-11-strength/pilot-02
+python3 tools/benchmark_long.py --output experiments/2026-10-11-strength/long-01
+```
+
+Use fresh output paths for reruns; the benchmark deliberately refuses to replace raw records. See [the experiment record](experiments/2026-10-11-strength/EXPERIMENT.md) for exact results and the overlapping-probe caveat on pilot 01. The [normal-budget TCP check](reports/player-strength-smoke-2026-10-11.json) observed a maximum response of 1.250434 seconds across 30 AI turns on this Mac. This is finite local evidence, not a CTI or universal deadline guarantee.
 
 ## Open dependencies
 
@@ -57,4 +73,4 @@ The full 105-test run passed on Python 3.14.6, and all 13 original/extracted mat
 - Official-server validation: this Mac has no `dotnet`, `mono`, or `wine` command available. The supplied server targets .NET Framework 4.5 on Windows.
 - Clarification of the move-record/group limit and same-target combat resolution. See [the rule decisions](docs/RULES.md).
 
-There is no measured competitive playing strength, official-server parity, CTI launch check, final course report, or presentation yet. Shared-target battles, overflow, and simultaneous extinction remain unresolved server behaviors. Candidate pruning and outcome limits can omit important actions. Local exact probabilities and tactical regressions are not full-game solutions.
+There is preliminary strength evidence against one historical engine, but no demonstrated superiority against strong tournament opponents, official-server parity, CTI launch check, final course report, or presentation yet. Shared-target battles, overflow, and simultaneous extinction remain unresolved server behaviors. Candidate pruning can omit important actions; chance intervals can remain too wide for useful decisions. Local exact probabilities and tactical regressions are not full-game solutions.
