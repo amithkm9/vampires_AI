@@ -60,6 +60,8 @@ The short-budget bounded gain did not persist at the larger budget. Growth's sma
 
 Keep bounded expectiminimax for its explicit uncertainty handling and generation fixes, while treating its competitive superiority as unproven. The 122 tests and four new normal-budget TCP smoke matches support correctness/integration, not a tournament-strength claim. Normal-budget head-to-head comparison and official-server/CTI checks remain necessary.
 
+A subsequent [replay audit](../reports/replay-analysis-2026-10-11.md) reconstructed all 108 games. The default engine's three trap losses at 0.1 seconds involved no monster or random combat: vampires collected four humans, werewolves collected five, and the result was 8–9 at the local cap. The 200-ply loss contained 160 repeated-state visits. This makes final-outcome handling, capture denial, and unfinished root comparison concrete improvement targets. It does not prove that an alternative policy forces a win. Follow [the next-algorithm plan](NEXT_ALGORITHM.md) for implementation order and acceptance checks.
+
 ## Remaining work before calling it tournament ready
 
 1. Verify the server's shared-target attacks, wider splits, overflow, both-extinct outcomes, and exact CTI launch environment.

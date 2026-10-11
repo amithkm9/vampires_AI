@@ -13,12 +13,23 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 
 ## Next build priorities
 
-1. [ ] Measure opponent-reply coverage against the exhaustive small-board oracle; preserve tactically critical replies under candidate pruning.
-2. [ ] Refine wide chance intervals at the root and compare sparse-sampled expectiminimax under the normal budget.
-3. [ ] Add interception and contested-route checks to the experimental growth planner; measure benefit versus lost search depth.
-4. [ ] Verify shared-target attacks, wider splitting, overflow, and both-extinct outcomes on the official server; then extend the live candidate set.
-5. [ ] Rehearse the exact launch command on CTI and measure receive/search/send timing there.
-6. [ ] Expand paired benchmarks to stronger opponents, new map families, normal budgets, and feature ablations before selecting the final engine.
+Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md), using [verified replay findings](reports/replay-analysis-2026-10-11.md) to prioritize changes.
+
+1. [ ] Add exact finite-horizon outcome references and repetition diagnostics; distinguish a known cutoff from the live protocol's unknown remaining horizon. Preserve leading/drawing repetitions when appropriate.
+2. [ ] Measure tactical value lost through candidate pruning against the exhaustive small-board oracle; protect critical opponent replies and compare serious root actions before deep refinement.
+3. [ ] Refine competing root chance intervals and add bounded tactical extensions; compare sparse-sampled expectiminimax under the normal budget.
+4. [ ] Add interception and contested-route checks to the growth planner; explicitly test the trap's four-versus-five human race and the large map's central-house denial.
+5. [ ] Verify shared-target attacks, wider splitting, overflow, and both-extinct outcomes on the official server; then extend the live candidate set.
+6. [ ] Rehearse the exact launch command on CTI and measure receive/search/send timing there.
+7. [ ] Expand paired benchmarks to stronger opponents, new map families, normal budgets, and feature ablations before selecting the final engine.
+
+## Replay diagnosis completed on 2026-10-11
+
+- [x] Reconstruct all 108 stored matches and 6778 plies with recorded moves/seeds, verifying final outcomes and input/source hashes.
+- [x] Preserve per-match combat events, repeated states, and first trailing/unfinished-search positions with a reusable replay tool.
+- [x] Identify three default-engine trap losses at 0.1 seconds without monster or random combat; record the 8–9 resource outcome and repeated-state behavior.
+- [x] Turn those observations into prioritized methods and acceptance checks. Do not label the losses proven avoidable without counterfactual/adversarial analysis.
+- [ ] Compare alternative decisions from the recorded resource-race positions under opponent responses; create regression fixtures for any demonstrated avoidable mistake.
 
 ## Strength audit completed on 2026-10-11
 

@@ -27,10 +27,11 @@ Completed work:
 - Added experimental multi-house growth/denial and seeded adversarial UCT, with 17 additional tests for transitions, bounds, planning, and preservation. Both alternatives remain outside the live default.
 - Ran 108 paired local matches against immutable revision `2a08829b1935a80c3c11a37ecea5efb089425268`, covering two budgets, two horizons, both species, supplied maps, and two generated maps. Preserved all results, including negative ones. At 0.1 seconds/60 plies, bounded search scored 2 wins/12 draws/2 losses; growth scored 4/10/2; UCT scored 0/2/14. At 200 plies on supplied maps, bounded and growth both scored 1/2/1. These small comparisons do not establish superiority.
 - Rechecked the normal launcher with four local TCP matches and 30 AI turns at a 1.25-second search budget; maximum observed response 1.250434 seconds. Both maps/species, persistent connection, unrelated launch directory, legal MOV, and clean BYE passed.
+- Added replay diagnostics and reconstructed the same 108 matches/6778 plies without rerunning search. All recorded outcomes matched. The default engine's three trap losses at the 0.1-second budget had no monster/random battles and ended 8–9; the long loss revisited states on 160 of 200 plies. This motivates outcome/horizon handling, resource denial, and root comparison, without proving that the starting position or any particular move was avoidably lost. See [the replay findings](reports/replay-analysis-2026-10-11.md).
 
 ## Next work
 
-Prioritize the next build in [TODO.md](TODO.md): measure tactical opponent-reply coverage, refine wide root intervals, account for interception in growth plans, and obtain official-server/CTI evidence. Expand normal-budget comparisons and ablations before selecting a final engine. The [strength audit](docs/STRENGTH_AUDIT.md), [implementation notes](docs/IMPLEMENTATION.md), and [experiment record](experiments/2026-10-11-strength/EXPERIMENT.md) distinguish implemented behavior from remaining work. Keep bounded expectiminimax as the default; the basic UCT and growth experiments do not justify promotion.
+Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md) and [TODO.md](TODO.md): add finite-horizon outcome references and repetition diagnostics, measure tactical opponent-reply coverage, compare root moves before deep refinement, and account for interception/resource denial in growth plans. Obtain official-server/CTI evidence alongside normal-budget comparisons and ablations. The [strength audit](docs/STRENGTH_AUDIT.md), [implementation notes](docs/IMPLEMENTATION.md), and [experiment record](experiments/2026-10-11-strength/EXPERIMENT.md) distinguish implemented behavior from remaining work. Keep bounded expectiminimax as the default; the basic UCT and growth experiments do not justify promotion. The replay update changes diagnostics and planning only; the previously validated 122-test runtime is unchanged.
 
 ## Repository publication
 
@@ -65,6 +66,8 @@ python3 tools/benchmark_long.py --output experiments/2026-10-11-strength/long-01
 ```
 
 Use fresh output paths for reruns; the benchmark deliberately refuses to replace raw records. See [the experiment record](experiments/2026-10-11-strength/EXPERIMENT.md) for exact results and the overlapping-probe caveat on pilot 01. The [normal-budget TCP check](reports/player-strength-smoke-2026-10-11.json) observed a maximum response of 1.250434 seconds across 30 AI turns on this Mac. This is finite local evidence, not a CTI or universal deadline guarantee.
+
+Replay validation: `python3 tools/analyze_replays.py --output reports/replay-analysis-2026-10-11.json` matched all 108 stored games and 6778 plies. These are diagnostics of existing data, not additional trials. No new runtime or competitive match result is implied.
 
 ## Open dependencies
 

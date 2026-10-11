@@ -13,6 +13,7 @@ The project now has a **playable opponent-aware search engine**: legal combined 
 5. Read [the tournament algorithm design](docs/STRATEGY.md) and [exact map findings](reports/map-analysis-2026-10-09.md) before implementing search.
 6. Read [the baseline implementation and limitations](docs/IMPLEMENTATION.md) to distinguish implemented behavior from planned improvements.
 7. Read [the strength audit](docs/STRENGTH_AUDIT.md) and [all comparison results](experiments/2026-10-11-strength/EXPERIMENT.md) before choosing an experimental engine.
+8. Follow [the next algorithm improvements](docs/NEXT_ALGORITHM.md), prioritized from [verified match replays](reports/replay-analysis-2026-10-11.md).
 
 ## Launch the player
 
@@ -57,6 +58,7 @@ Original file contents were preserved; only their locations changed. See the [so
 | `tools/analyze_maps.py` | Reproduce exact local reply risks and optimistic capture-route calculations |
 | `tools/check_player.py`, `tools/check_search.py` | Reproducible local TCP matches and synthetic timing checks |
 | `tools/benchmark_strength.py`, `tools/benchmark_long.py` | Paired engine comparisons against the immutable published baseline, with raw records and provenance |
+| `tools/analyze_replays.py` | Reconstruct stored matches and diagnose combat, repetition, resource deficits, and unfinished root comparisons |
 
 All working Python code uses the standard library. The current syntax targets Python 3.10 or newer; local validation used Python 3.14.6. Confirm the Python version available on CTI before selecting the final runtime. No dependency installation is needed for the current code.
 
