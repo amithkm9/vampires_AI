@@ -6,14 +6,16 @@ prove full-game optimality. No AI/search/tree/graph library is used.
 """
 
 from dataclasses import dataclass
+from fractions import Fraction
 from math import isfinite
 from time import monotonic
 
 from .budget import Deadline, SearchTimeout
+from .certificates import preserving_turn
 from .evaluation import evaluate, terminal_value
 from .model import Species
 from .rules import validate_moves
-from .simulation import AmbiguousBattle, OutcomeLimit, UnsupportedPopulation, turn_outcomes
+from .simulation import AmbiguousBattle, UnsupportedPopulation, iter_turn_outcomes
 from .turns import candidate_turns, fallback_turn
 
 
@@ -24,6 +26,7 @@ class SearchConfig:
     per_group: int = 12
     max_outcomes: int = 512
     cache_entries: int = 10000
+    preserve_dominance: bool = True
 
     def __post_init__(self):
         for field in ("max_depth", "candidates", "per_group", "max_outcomes", "cache_entries"):
@@ -47,6 +50,29 @@ class Decision:
     unsupported_actions: int
     timed_out: bool
     elapsed_seconds: float
+    value_lower: float = -1.0
+    value_upper: float = 1.0
+    bounded_actions: int = 0
+    truncated_generations: int = 0
+    preserved_dominance: bool = False
+
+
+@dataclass(frozen=True)
+class Bounds:
+    lower: float
+    upper: float
+
+    @property
+    def point(self):
+        return (self.lower + self.upper) / 2 if self.upper - self.lower < 1e-9 else None
+
+
+def chance_bounds(lower_sum, upper_sum, visited_mass):
+    """Unvisited mass retains [-1,1]; never renormalize a probability prefix."""
+    remaining = float(1 - visited_mass)
+    # Small outward padding covers accumulated binary-float expectation rounding.
+    return Bounds(max(-1., lower_sum - remaining - 1e-12),
+                  min(1., upper_sum + remaining + 1e-12))
 
 
 def state_key(board):
@@ -56,12 +82,12 @@ def state_key(board):
 
 def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
                 config=None, clock=monotonic, evaluator=evaluate):
-    """Return a validated legal turn; start at two plies unless depth=1 is explicit.
+    """Iterative expectiminimax with conservative bounds for unexpanded chance.
 
-    A partial root iteration never replaces a completed shallower iteration.
-    If no iteration completes, retain the best FULLY evaluated root action from
-    the initial two-ply attempt, or the legality fallback if none completes.
-    No partially expanded chance node is ever assigned a finished score.
+    Root selection maximizes the lower bound, breaking ties by upper bound.
+    Bounds apply to the retained candidate tree and finite-depth evaluator, not
+    all legal actions or full-game win probability. Unknown model actions remain
+    [-1,1]. Interrupted deeper iterations cannot replace a finished iteration.
     """
     if not isfinite(time_budget) or time_budget < 0:
         raise ValueError("time_budget must be finite and nonnegative")
@@ -71,95 +97,120 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
     species = Species(species)
     started = clock()
     deadline = Deadline(started + time_budget if expires_at is None else expires_at, clock)
-    fallback = fallback_turn(board, species)
-    best, best_value = fallback, None
+    best = fallback_turn(board, species)
+    best_bounds = Bounds(-1., 1.)
     completed_depth = selected_depth = evaluated_roots = 0
     nodes = chance_count = selective_nodes = unsupported_actions = 0
-    timed_out = False
+    bounded_actions = truncated_generations = 0
+    timed_out = preserved = False
     cache = {}
 
     def leaf(position, side):
         value = evaluator(position, species, side, check=deadline.check)
         if not isfinite(value) or not -1 <= value <= 1:
             raise ValueError("Evaluation must be finite and in [-1, 1]")
-        return value
+        return Bounds(value, value)
 
-    def action_value(position, side, turn, depth):
-        nonlocal chance_count
-        outcomes = turn_outcomes(position, side, turn, max_outcomes=config.max_outcomes,
-                                 check=deadline.check)
-        value = 0.0
-        for outcome in outcomes:
-            deadline.check()
-            chance_count += 1
-            value += float(outcome.probability) * visit(outcome.board, side.opponent, depth - 1)
-        return value
+    def action_value(position, side, turn, depth, incumbent=None):
+        nonlocal chance_count, bounded_actions, unsupported_actions
+        low = high = 0.0
+        mass = Fraction(0)
+        try:
+            stream = iter_turn_outcomes(position, side, turn, check=deadline.check)
+            for index, outcome in enumerate(stream):
+                deadline.check()
+                if index >= config.max_outcomes:
+                    break
+                child = visit(outcome.board, side.opponent, depth - 1)
+                chance_count += 1
+                mass += outcome.probability
+                low += float(outcome.probability) * child.lower
+                high += float(outcome.probability) * child.upper
+                bounds = chance_bounds(low, high, mass)
+                if incumbent is not None:
+                    if side == species and bounds.upper < incumbent.lower:
+                        break
+                    if side != species and bounds.lower > incumbent.upper:
+                        break
+        except (AmbiguousBattle, UnsupportedPopulation):
+            unsupported_actions += 1
+            return Bounds(-1., 1.)
+        result = chance_bounds(low, high, mass)
+        if result.point is None:
+            bounded_actions += 1
+        return result
 
     def candidates(position, side):
-        nonlocal selective_nodes
+        nonlocal selective_nodes, truncated_generations
+        # Spend at most 3% of the original budget on any one generation call.
+        local = Deadline(min(deadline.expires_at, clock() + max(.0002, .03 * time_budget)), clock)
         result = candidate_turns(position, side, limit=config.candidates,
-                                 per_group=config.per_group, check=deadline.check)
+                                 per_group=config.per_group, check=local.check, allow_partial=True)
         selective_nodes += int(result.selective)
+        truncated_generations += int(result.truncated)
         return result.turns
 
     def visit(position, side, depth):
-        nonlocal nodes, unsupported_actions
+        nonlocal nodes
         deadline.check()
         nodes += 1
         terminal = terminal_value(position, species)
         if terminal is not None:
-            return terminal
+            return Bounds(terminal, terminal)
         if depth == 0:
             return leaf(position, side)
         key = (state_key(position), side, depth)
         if key in cache:
             return cache[key]
-        maximizing = side == species
         value = None
         for turn in candidates(position, side):
-            try:
-                score = action_value(position, side, turn, depth)
-            except (AmbiguousBattle, OutcomeLimit, UnsupportedPopulation):
-                unsupported_actions += 1
-                continue
-            if value is None or (score > value if maximizing else score < value):
-                value = score
-        # No fabricated pass or terminal result: the unsupported/no-action state
-        # receives a heuristic leaf value, and limitations remain in diagnostics.
+            child = action_value(position, side, turn, depth, value)
+            if value is None:
+                value = child
+            elif side == species:
+                value = Bounds(max(value.lower, child.lower), max(value.upper, child.upper))
+            else:
+                value = Bounds(min(value.lower, child.lower), min(value.upper, child.upper))
         if value is None:
-            value = leaf(position, side)
+            value = Bounds(-1., 1.)
         if len(cache) < config.cache_entries:
             cache[key] = value
         return value
 
     try:
         deadline.check()
-        roots = candidates(board, species)
-        for depth in range(min(2, config.max_depth), config.max_depth + 1):
-            iteration_best, iteration_value = None, None
-            count = 0
-            for turn in roots:
-                deadline.check()
-                try:
-                    value = action_value(board, species, turn, depth)
-                except (AmbiguousBattle, OutcomeLimit, UnsupportedPopulation):
-                    unsupported_actions += 1
-                    continue
-                count += 1
-                if iteration_value is None or value > iteration_value:
-                    iteration_best, iteration_value = turn, value
-                if completed_depth == 0:
-                    best, best_value = iteration_best, iteration_value
-                    selected_depth, evaluated_roots = depth, count
-            if iteration_best is None:
-                break
-            best, best_value = iteration_best, iteration_value
-            completed_depth = selected_depth = depth
-            evaluated_roots = count
-            roots = (best,) + tuple(turn for turn in roots if turn != best)
+        certified = preserving_turn(board, species, check=deadline.check) if config.preserve_dominance else None
+        if certified:
+            best, preserved = certified, True
+            # A conditional strategy certificate is not a terminal game result.
+            best_bounds = Bounds(.95, .95)
+        else:
+            roots = candidates(board, species)
+            if roots:
+                best = roots[0]  # Retain useful generation even if search cannot finish an action.
+            for depth in range(min(2, config.max_depth), config.max_depth + 1):
+                iteration_best = iteration_bounds = None
+                count = 0
+                for turn in roots:
+                    deadline.check()
+                    bounds = action_value(board, species, turn, depth, iteration_bounds)
+                    count += 1
+                    if (iteration_bounds is None or
+                            (bounds.lower, bounds.upper) > (iteration_bounds.lower, iteration_bounds.upper)):
+                        iteration_best, iteration_bounds = turn, bounds
+                    if completed_depth == 0:
+                        best, best_bounds = iteration_best, iteration_bounds
+                        selected_depth, evaluated_roots = depth, count
+                if iteration_best is None:
+                    break
+                best, best_bounds = iteration_best, iteration_bounds
+                completed_depth = selected_depth = depth
+                evaluated_roots = count
+                roots = (best,) + tuple(turn for turn in roots if turn != best)
     except SearchTimeout:
         timed_out = True
     validate_moves(board, species, best)
-    return Decision(best, best_value, completed_depth, selected_depth, evaluated_roots,
+    return Decision(best, best_bounds.point, completed_depth, selected_depth, evaluated_roots,
                     nodes, chance_count, selective_nodes, unsupported_actions, timed_out,
-                    clock() - started)
+                    clock() - started, best_bounds.lower, best_bounds.upper, bounded_actions,
+                    truncated_generations, preserved)

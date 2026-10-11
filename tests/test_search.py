@@ -128,12 +128,15 @@ class SearchTests(unittest.TestCase):
         validate_moves(board, V, result.moves)
         self.assertEqual(result.completed_depth, 0)
 
-    def test_unsupported_distribution_retains_legal_fallback_and_diagnostic(self):
+    def test_large_distribution_retains_unvisited_mass_in_value_bounds(self):
         board = Board(1, 2, {(0, 0): Cell(vampires=1), (1, 0): Cell(werewolves=1)})
         result = choose_turn(board, V, time_budget=10, config=SearchConfig(max_outcomes=1))
-        self.assertEqual(result.unsupported_actions, 1)
+        self.assertEqual(result.unsupported_actions, 0)
+        self.assertGreater(result.bounded_actions, 0)
         self.assertIsNone(result.value)
-        self.assertEqual(result.completed_depth, 0)
+        self.assertEqual(result.completed_depth, 3)
+        self.assertAlmostEqual(result.value_lower, -.5)
+        self.assertAlmostEqual(result.value_upper, .5)
         validate_moves(board, V, result.moves)
 
     def test_input_is_not_mutated_and_repeated_search_is_deterministic(self):
