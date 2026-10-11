@@ -10,7 +10,7 @@ from math import comb
 
 from .budget import checkpoint
 from .model import Board, Cell, Species
-from .rules import Move, battle_odds, validate_moves
+from .rules import Move, battle_odds, sample_battle, validate_moves
 
 
 class UnsupportedPopulation(ValueError):
@@ -182,3 +182,92 @@ def turn_outcomes(board, species, moves, *, shared_target="reject",
         checkpoint(check)
         result.append(Outcome(probability, Board(board.rows, board.columns, cells)))
     return tuple(result)
+
+
+def _live_layout(board, species, moves, check):
+    """Factor a live turn without allocating its Cartesian product of outcomes."""
+    checkpoint(check)
+    species = Species(species)
+    moves = validate_moves(board, species, moves)
+    outgoing, arrivals, records = {}, {}, {}
+    for move in moves:
+        checkpoint(check)
+        outgoing[move.source] = outgoing.get(move.source, 0) + move.count
+        arrivals[move.target] = arrivals.get(move.target, 0) + move.count
+        records[move.target] = records.get(move.target, 0) + 1
+    base = dict(board.cells)
+    for source, count in outgoing.items():
+        left = board.at(source).count(species) - count
+        base.pop(source)
+        if left:
+            base[source] = Cell(**{species.value: left})
+    targets = []
+    for position, incoming in sorted(arrivals.items()):
+        checkpoint(check)
+        defender = board.at(position)
+        contested = defender.humans or defender.count(species.opponent)
+        if contested and records[position] > 1:
+            raise AmbiguousBattle("Shared-target combat is unverified")
+        possible = incoming + defender.humans + defender.count(species)
+        if possible > 255:
+            raise UnsupportedPopulation("Possible live successor exceeds 255")
+        base.pop(position, None)
+        targets.append((position, incoming, defender))
+    return species, base, targets
+
+
+def iter_turn_outcomes(board, species, moves, *, check=None):
+    """Stream exact outcomes. Stopping early leaves explicit unvisited mass.
+
+    Each cell's outcomes are ordered by probability; traversal is a depth-first
+    Cartesian product, not a globally probability-sorted joint distribution.
+    The separate eager implementation remains a regression reference.
+    """
+    species, base, targets = _live_layout(board, species, moves, check)
+    factors = []
+    for position, incoming, target in targets:
+        checkpoint(check)
+        defenders = target.humans or target.count(species.opponent)
+        counts = (battle_distribution(incoming, defenders, humans=bool(target.humans), check=check)
+                  if defenders else {(incoming + target.count(species), 0): Fraction(1)})
+        field = "humans" if target.humans else species.opponent.value
+        choices = []
+        for (a, d), probability in sorted(counts.items(), key=lambda item: (-item[1], item[0])):
+            checkpoint(check)
+            choices.append((probability, Cell(**{species.value: a}) if a else
+                            Cell(**{field: d}) if d else Cell()))
+        factors.append((position, choices))
+
+    def visit(index, probability):
+        checkpoint(check)
+        if index == len(factors):
+            yield Outcome(probability, Board(board.rows, board.columns, base))
+            return
+        position, choices = factors[index]
+        for chance, cell in choices:
+            checkpoint(check)
+            if cell.empty:
+                base.pop(position, None)
+            else:
+                base[position] = cell
+            yield from visit(index + 1, probability * chance)
+        base.pop(position, None)
+
+    yield from visit(0, Fraction(1))
+
+
+def sample_turn(board, species, moves, rng, *, check=None):
+    """Sample actual integer successors; never replace chance by expected counts."""
+    species, cells, targets = _live_layout(board, species, moves, check)
+    for position, incoming, target in targets:
+        checkpoint(check)
+        defenders = target.humans or target.count(species.opponent)
+        if defenders:
+            a, d = sample_battle(incoming, defenders, rng, humans=bool(target.humans))
+        else:
+            a, d = incoming + target.count(species), 0
+        if a:
+            cells[position] = Cell(**{species.value: a})
+        elif d:
+            cells[position] = Cell(**{"humans" if target.humans else species.opponent.value: d})
+    return Board(board.rows, board.columns, cells)
