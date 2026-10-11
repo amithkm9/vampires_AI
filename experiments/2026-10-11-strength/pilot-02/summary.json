@@ -1,0 +1,83 @@
+{
+  "elapsed_seconds": 243.12595391704235,
+  "engines": {
+    "bounded": {
+      "games": 16,
+      "pairs": 8,
+      "wins": 2,
+      "draws": 12,
+      "losses": 2,
+      "paired_score": 0.5,
+      "paired_score_bootstrap_95": [
+        0.5,
+        0.5
+      ],
+      "pair_scores": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "failures": 0,
+      "max_response_seconds": 0.10261995904147625,
+      "completed_depth_zero": 25,
+      "certificate_turns": 0
+    },
+    "growth": {
+      "games": 16,
+      "pairs": 8,
+      "wins": 4,
+      "draws": 10,
+      "losses": 2,
+      "paired_score": 0.5625,
+      "paired_score_bootstrap_95": [
+        0.5,
+        0.65625
+      ],
+      "pair_scores": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.75,
+        0.75
+      ],
+      "failures": 0,
+      "max_response_seconds": 0.1004500410053879,
+      "completed_depth_zero": 120,
+      "certificate_turns": 22
+    },
+    "uct": {
+      "games": 16,
+      "pairs": 8,
+      "wins": 0,
+      "draws": 2,
+      "losses": 14,
+      "paired_score": 0.0625,
+      "paired_score_bootstrap_95": [
+        0.0,
+        0.125
+      ],
+      "pair_scores": [
+        0.0,
+        0.0,
+        0.25,
+        0.25,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "failures": 0,
+      "max_response_seconds": 0.12579179205931723,
+      "completed_depth_zero": 0,
+      "certificate_turns": 0
+    }
+  }
+}
