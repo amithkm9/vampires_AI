@@ -2,7 +2,7 @@
 
 Design date: 2026-10-09. The proposed main engine is **iterative-deepening expectiminimax with a model of human-capture races, explicit tactical replies, and exact or bounded chance outcomes**. Implement it ourselves. Compare a sampled variant and MCTS experimentally before selecting the final engine. This is a design supported by rule analysis and local calculations, not a proven tournament winner.
 
-Implementation update: the first exact-chance expectiminimax baseline, bounded joint candidates, simple current-stack house races, and deadline-aware launcher now exist. See [the implementation notes](IMPLEMENTATION.md) and [verification record](../reports/baseline-verification-2026-10-09.md). Multi-house growth/denial, bounded chance pruning, sampled search, MCTS, and the dominant-stack preservation certificate below remain planned. Do not read those design sections as claims of implemented behavior.
+Implementation update, 2026-10-11: bounded expectiminimax now streams exact chance outcomes, retains intervals for unvisited mass, preserves partial candidate generation, and protects conditionally dominant stacks. Multi-house growth/denial and basic sampled adversarial UCT exist as experimental alternatives. The 108-match comparison does not establish a decisive winner; growth and UCT remain outside the live default. See [implementation details](IMPLEMENTATION.md), [the strength audit](STRENGTH_AUDIT.md), and [all experimental results](../experiments/2026-10-11-strength/EXPERIMENT.md). Contested route safety, sampled expectiminimax, stronger tactical MCTS, and official-server/CTI checks remain planned. The design sections below are not claims that all proposed features are implemented.
 
 ## What winning optimally means
 
