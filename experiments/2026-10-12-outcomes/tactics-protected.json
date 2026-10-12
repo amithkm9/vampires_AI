@@ -1,0 +1,9577 @@
+{
+  "generated_utc": "2026-10-12T07:58:22.332599+00:00",
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "revision": "2586990c41eb68378dd2ab7aa25628918a74a947",
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 tools/check_tactics.py --protect-tactics --output experiments/2026-10-12-outcomes/tactics-protected.json",
+  "source_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/certificates.py": "18cccf7cff8fb0d87d1aac0a185bfdea67bce7d9698d56ee04e7fea694283963",
+    "src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+    "src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+    "src/vampires/growth.py": "92baa8fa605660360ba23bc7821b35e02d21cf0f062725f8cd418cee48d860b8",
+    "src/vampires/history.py": "582ee40b7b118c1061d283926c526ec91bf85ff9dd44ef8a5a20ec2bfee0d27b",
+    "src/vampires/mcts.py": "21be096d96acead45e6b269bff8eb7548ef97e47068fa6cba972b90e9258989f",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/player.py": "cbd85b746f677922958d5cded6d3a3e0850aa73089f07f29d854adb3281c4740",
+    "src/vampires/protocol.py": "2f9a985adbb2f871e459d49f202a00598136d4564313f94e24e58f3f0cca7355",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "987858b41ba90c0fb806920d7daec8419f885947867fd0764c04231a1f306594",
+    "src/vampires/simulation.py": "b18a97c7519a1eab6cf401272a971bfe49003a78206d5f0580679c8a7f6f0460",
+    "src/vampires/turns.py": "b7b7047d9fd545689f74d42917bc905704ba8e88a5c3a8d71b4601e10f6f8f8b",
+    "tools/check_tactics.py": "3ffe0646c70f9d9aed699729ec9eda85be91f4e6a3c2bf2cfbf5ed0c8f537c80"
+  },
+  "seed_range": [
+    1201,
+    1208
+  ],
+  "seconds_per_case": 5,
+  "protect_tactics": true,
+  "elapsed_seconds": 1.939675375004299,
+  "limits": "Exact finite-horizon DEVELOPMENT positions under offline shared-target aggregation and independent combat. Equal populations are a draw convention. Selective tree uses live generation without wall-clock truncation. Regret is expected match-score loss, not a tournament win rate. Incomplete cases are unsolved.",
+  "records": [
+    {
+      "position": "trailing_gamble",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 10,
+      "retained_root_turns": 10,
+      "reference_states": 23,
+      "restricted_states": 23,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "11/729",
+            "decimal": 0.015089163237311385
+          },
+          "draw": {
+            "exact": "40/729",
+            "decimal": 0.05486968449931413
+          },
+          "loss": {
+            "exact": "226/243",
+            "decimal": 0.9300411522633745
+          },
+          "score": {
+            "exact": "31/729",
+            "decimal": 0.04252400548696845
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "11/729",
+            "decimal": 0.015089163237311385
+          },
+          "draw": {
+            "exact": "40/729",
+            "decimal": 0.05486968449931413
+          },
+          "loss": {
+            "exact": "226/243",
+            "decimal": 0.9300411522633745
+          },
+          "score": {
+            "exact": "31/729",
+            "decimal": 0.04252400548696845
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "11/729",
+            "decimal": 0.015089163237311385
+          },
+          "draw": {
+            "exact": "40/729",
+            "decimal": 0.05486968449931413
+          },
+          "loss": {
+            "exact": "226/243",
+            "decimal": 0.9300411522633745
+          },
+          "score": {
+            "exact": "31/729",
+            "decimal": 0.04252400548696845
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0010745410108938813
+    },
+    {
+      "position": "trailing_gamble",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 10,
+      "retained_root_turns": 8,
+      "reference_states": 23,
+      "restricted_states": 23,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "11/729",
+            "decimal": 0.015089163237311385
+          },
+          "draw": {
+            "exact": "40/729",
+            "decimal": 0.05486968449931413
+          },
+          "loss": {
+            "exact": "226/243",
+            "decimal": 0.9300411522633745
+          },
+          "score": {
+            "exact": "31/729",
+            "decimal": 0.04252400548696845
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "11/729",
+            "decimal": 0.015089163237311385
+          },
+          "draw": {
+            "exact": "40/729",
+            "decimal": 0.05486968449931413
+          },
+          "loss": {
+            "exact": "226/243",
+            "decimal": 0.9300411522633745
+          },
+          "score": {
+            "exact": "31/729",
+            "decimal": 0.04252400548696845
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "11/729",
+            "decimal": 0.015089163237311385
+          },
+          "draw": {
+            "exact": "40/729",
+            "decimal": 0.05486968449931413
+          },
+          "loss": {
+            "exact": "226/243",
+            "decimal": 0.9300411522633745
+          },
+          "score": {
+            "exact": "31/729",
+            "decimal": 0.04252400548696845
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0008110000053420663
+    },
+    {
+      "position": "trailing_gamble",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 9,
+      "retained_root_turns": 9,
+      "reference_states": 13,
+      "restricted_states": 13,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          3,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0005761659704148769
+    },
+    {
+      "position": "trailing_gamble",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 9,
+      "retained_root_turns": 8,
+      "reference_states": 13,
+      "restricted_states": 12,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          3,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0005400000372901559
+    },
+    {
+      "position": "preserve_lead",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 15,
+      "reference_states": 47,
+      "restricted_states": 47,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            1,
+            0,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            3,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          3,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0014761249767616391
+    },
+    {
+      "position": "preserve_lead",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 8,
+      "reference_states": 47,
+      "restricted_states": 19,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            1,
+            0,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            3,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          3,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": "ranking_or_combination_cap",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.00107179197948426
+    },
+    {
+      "position": "preserve_lead",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 6,
+      "retained_root_turns": 6,
+      "reference_states": 6,
+      "restricted_states": 6,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            2,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0003343750722706318
+    },
+    {
+      "position": "preserve_lead",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 6,
+      "retained_root_turns": 6,
+      "reference_states": 6,
+      "restricted_states": 6,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            2,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.00031929207034409046
+    },
+    {
+      "position": "preserve_draw",
+      "board": {
+        "rows": 1,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 1,
+      "retained_root_turns": 1,
+      "reference_states": 4,
+      "restricted_states": 4,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0002009579911828041
+    },
+    {
+      "position": "preserve_draw",
+      "board": {
+        "rows": 1,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 1,
+      "retained_root_turns": 1,
+      "reference_states": 4,
+      "restricted_states": 4,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.00020062504336237907
+    },
+    {
+      "position": "preserve_draw",
+      "board": {
+        "rows": 1,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 1,
+      "retained_root_turns": 1,
+      "reference_states": 4,
+      "restricted_states": 4,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          0,
+          1,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.00019937509205192327
+    },
+    {
+      "position": "preserve_draw",
+      "board": {
+        "rows": 1,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 1,
+      "retained_root_turns": 1,
+      "reference_states": 4,
+      "restricted_states": 4,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "draw": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "loss": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          0,
+          1,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0001953750615939498
+    },
+    {
+      "position": "shared_capture",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 30,
+      "retained_root_turns": 25,
+      "reference_states": 101,
+      "restricted_states": 91,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "decision_regret": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.00451766699552536
+    },
+    {
+      "position": "shared_capture",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 30,
+      "retained_root_turns": 8,
+      "reference_states": 101,
+      "restricted_states": 23,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "decision_regret": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0024775000056251884
+    },
+    {
+      "position": "shared_capture",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 9,
+      "retained_root_turns": 9,
+      "reference_states": 26,
+      "restricted_states": 26,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            3,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            3,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          3,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0009442500304430723
+    },
+    {
+      "position": "shared_capture",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "remaining_plies": 1,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 9,
+      "retained_root_turns": 8,
+      "reference_states": 26,
+      "restricted_states": 18,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            3,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            3,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          3,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0008380420040339231
+    },
+    {
+      "position": "shared_attack",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 54,
+      "retained_root_turns": 44,
+      "reference_states": 785,
+      "restricted_states": 675,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "6475/7776",
+            "decimal": 0.832690329218107
+          },
+          "draw": {
+            "exact": "755/7776",
+            "decimal": 0.09709362139917696
+          },
+          "loss": {
+            "exact": "91/1296",
+            "decimal": 0.07021604938271606
+          },
+          "score": {
+            "exact": "13705/15552",
+            "decimal": 0.8812371399176955
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "20075/32768",
+            "decimal": 0.612640380859375
+          },
+          "draw": {
+            "exact": "3405/32768",
+            "decimal": 0.103912353515625
+          },
+          "loss": {
+            "exact": "1161/4096",
+            "decimal": 0.283447265625
+          },
+          "score": {
+            "exact": "43555/65536",
+            "decimal": 0.6645965576171875
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "20075/32768",
+            "decimal": 0.612640380859375
+          },
+          "draw": {
+            "exact": "3405/32768",
+            "decimal": 0.103912353515625
+          },
+          "loss": {
+            "exact": "1161/4096",
+            "decimal": 0.283447265625
+          },
+          "score": {
+            "exact": "43555/65536",
+            "decimal": 0.6645965576171875
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "3450055/15925248",
+        "decimal": 0.21664058230050798
+      },
+      "decision_regret": {
+        "exact": "3450055/15925248",
+        "decimal": 0.21664058230050798
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.04060900001786649
+    },
+    {
+      "position": "shared_attack",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 54,
+      "retained_root_turns": 8,
+      "reference_states": 785,
+      "restricted_states": 85,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "6475/7776",
+            "decimal": 0.832690329218107
+          },
+          "draw": {
+            "exact": "755/7776",
+            "decimal": 0.09709362139917696
+          },
+          "loss": {
+            "exact": "91/1296",
+            "decimal": 0.07021604938271606
+          },
+          "score": {
+            "exact": "13705/15552",
+            "decimal": 0.8812371399176955
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "20075/32768",
+            "decimal": 0.612640380859375
+          },
+          "draw": {
+            "exact": "3405/32768",
+            "decimal": 0.103912353515625
+          },
+          "loss": {
+            "exact": "1161/4096",
+            "decimal": 0.283447265625
+          },
+          "score": {
+            "exact": "43555/65536",
+            "decimal": 0.6645965576171875
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "20075/32768",
+            "decimal": 0.612640380859375
+          },
+          "draw": {
+            "exact": "3405/32768",
+            "decimal": 0.103912353515625
+          },
+          "loss": {
+            "exact": "1161/4096",
+            "decimal": 0.283447265625
+          },
+          "score": {
+            "exact": "43555/65536",
+            "decimal": 0.6645965576171875
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "3450055/15925248",
+        "decimal": 0.21664058230050798
+      },
+      "decision_regret": {
+        "exact": "3450055/15925248",
+        "decimal": 0.21664058230050798
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.02365937503054738
+    },
+    {
+      "position": "shared_attack",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 15,
+      "reference_states": 845,
+      "restricted_states": 717,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.04484937503002584
+    },
+    {
+      "position": "shared_attack",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 8,
+      "reference_states": 845,
+      "restricted_states": 78,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.027071000076830387
+    },
+    {
+      "position": "escape_and_reinforce",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 10,
+      "retained_root_turns": 10,
+      "reference_states": 1493,
+      "restricted_states": 1102,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1/729",
+            "decimal": 0.0013717421124828531
+          },
+          "draw": {
+            "exact": "10/729",
+            "decimal": 0.013717421124828532
+          },
+          "loss": {
+            "exact": "718/729",
+            "decimal": 0.9849108367626886
+          },
+          "score": {
+            "exact": "2/243",
+            "decimal": 0.00823045267489712
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1/729",
+            "decimal": 0.0013717421124828531
+          },
+          "draw": {
+            "exact": "10/729",
+            "decimal": 0.013717421124828532
+          },
+          "loss": {
+            "exact": "718/729",
+            "decimal": 0.9849108367626886
+          },
+          "score": {
+            "exact": "2/243",
+            "decimal": 0.00823045267489712
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1/729",
+            "decimal": 0.0013717421124828531
+          },
+          "draw": {
+            "exact": "10/729",
+            "decimal": 0.013717421124828532
+          },
+          "loss": {
+            "exact": "718/729",
+            "decimal": 0.9849108367626886
+          },
+          "score": {
+            "exact": "2/243",
+            "decimal": 0.00823045267489712
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          2,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.06599454092793167
+    },
+    {
+      "position": "escape_and_reinforce",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 10,
+      "retained_root_turns": 8,
+      "reference_states": 1493,
+      "restricted_states": 230,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1/729",
+            "decimal": 0.0013717421124828531
+          },
+          "draw": {
+            "exact": "10/729",
+            "decimal": 0.013717421124828532
+          },
+          "loss": {
+            "exact": "718/729",
+            "decimal": 0.9849108367626886
+          },
+          "score": {
+            "exact": "2/243",
+            "decimal": 0.00823045267489712
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1/729",
+            "decimal": 0.0013717421124828531
+          },
+          "draw": {
+            "exact": "10/729",
+            "decimal": 0.013717421124828532
+          },
+          "loss": {
+            "exact": "718/729",
+            "decimal": 0.9849108367626886
+          },
+          "score": {
+            "exact": "2/243",
+            "decimal": 0.00823045267489712
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1/729",
+            "decimal": 0.0013717421124828531
+          },
+          "draw": {
+            "exact": "10/729",
+            "decimal": 0.013717421124828532
+          },
+          "loss": {
+            "exact": "718/729",
+            "decimal": 0.9849108367626886
+          },
+          "score": {
+            "exact": "2/243",
+            "decimal": 0.00823045267489712
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          2,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.04516658291686326
+    },
+    {
+      "position": "escape_and_reinforce",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 48,
+      "retained_root_turns": 36,
+      "reference_states": 1506,
+      "restricted_states": 1142,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          3,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.07434987497981638
+    },
+    {
+      "position": "escape_and_reinforce",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 48,
+      "retained_root_turns": 8,
+      "reference_states": 1506,
+      "restricted_states": 61,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          3,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.04312587506137788
+    },
+    {
+      "position": "joint_resource_race",
+      "board": {
+        "rows": 2,
+        "columns": 4,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            4
+          ],
+          [
+            2,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            3,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 81,
+      "retained_root_turns": 64,
+      "reference_states": 5597,
+      "restricted_states": 3891,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            3,
+            0,
+            3,
+            2,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            0,
+            1
+          ],
+          [
+            3,
+            0,
+            3,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          3,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.23702933301683515
+    },
+    {
+      "position": "joint_resource_race",
+      "board": {
+        "rows": 2,
+        "columns": 4,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            4
+          ],
+          [
+            2,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            3,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 81,
+      "retained_root_turns": 8,
+      "reference_states": 5597,
+      "restricted_states": 67,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            3,
+            0,
+            3,
+            2,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            0,
+            1
+          ],
+          [
+            3,
+            0,
+            3,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          3,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.1430831670295447
+    },
+    {
+      "position": "joint_resource_race",
+      "board": {
+        "rows": 2,
+        "columns": 4,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            4
+          ],
+          [
+            2,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            3,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 20,
+      "retained_root_turns": 20,
+      "reference_states": 5395,
+      "restricted_states": 4038,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            2,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          3,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.21506916696671396
+    },
+    {
+      "position": "joint_resource_race",
+      "board": {
+        "rows": 2,
+        "columns": 4,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            4
+          ],
+          [
+            2,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            3,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 20,
+      "retained_root_turns": 8,
+      "reference_states": 5395,
+      "restricted_states": 94,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            2,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          3,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.12589291692711413
+    },
+    {
+      "position": "generated_1201",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 61,
+      "retained_root_turns": 44,
+      "reference_states": 412,
+      "restricted_states": 297,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            1,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            2,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.0186980830039829
+    },
+    {
+      "position": "generated_1201",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 61,
+      "retained_root_turns": 8,
+      "reference_states": 412,
+      "restricted_states": 25,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            1,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            2,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "ranking_or_combination_cap",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.011133374995552003
+    },
+    {
+      "position": "generated_1201",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 3,
+      "retained_root_turns": 3,
+      "reference_states": 150,
+      "restricted_states": 94,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.005048457998782396
+    },
+    {
+      "position": "generated_1201",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 3,
+      "retained_root_turns": 3,
+      "reference_states": 150,
+      "restricted_states": 12,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.003611624939367175
+    },
+    {
+      "position": "generated_1202",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            0,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 14,
+      "reference_states": 324,
+      "restricted_states": 320,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "draw": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "loss": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "draw": {
+            "exact": "9/256",
+            "decimal": 0.03515625
+          },
+          "loss": {
+            "exact": "123/128",
+            "decimal": 0.9609375
+          },
+          "score": {
+            "exact": "11/512",
+            "decimal": 0.021484375
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "draw": {
+            "exact": "9/256",
+            "decimal": 0.03515625
+          },
+          "loss": {
+            "exact": "123/128",
+            "decimal": 0.9609375
+          },
+          "score": {
+            "exact": "11/512",
+            "decimal": 0.021484375
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "245/512",
+        "decimal": 0.478515625
+      },
+      "decision_regret": {
+        "exact": "245/512",
+        "decimal": 0.478515625
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.016426207963377237
+    },
+    {
+      "position": "generated_1202",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            0,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 8,
+      "reference_states": 324,
+      "restricted_states": 218,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "draw": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "loss": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "score": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "draw": {
+            "exact": "9/256",
+            "decimal": 0.03515625
+          },
+          "loss": {
+            "exact": "123/128",
+            "decimal": 0.9609375
+          },
+          "score": {
+            "exact": "11/512",
+            "decimal": 0.021484375
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "draw": {
+            "exact": "9/256",
+            "decimal": 0.03515625
+          },
+          "loss": {
+            "exact": "123/128",
+            "decimal": 0.9609375
+          },
+          "score": {
+            "exact": "11/512",
+            "decimal": 0.021484375
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "245/512",
+        "decimal": 0.478515625
+      },
+      "decision_regret": {
+        "exact": "245/512",
+        "decimal": 0.478515625
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.01327441690955311
+    },
+    {
+      "position": "generated_1202",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            0,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 10,
+      "retained_root_turns": 10,
+      "reference_states": 343,
+      "restricted_states": 334,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            2,
+            2,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            2,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": {
+        "board": {
+          "rows": 2,
+          "columns": 3,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              2,
+              1,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "to_move": "vampires",
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "reason": "unverified_shared_target",
+        "branch_probability": {
+          "exact": "1",
+          "decimal": 1.0
+        },
+        "weighted_score_gap": {
+          "exact": "1/2",
+          "decimal": 0.5
+        }
+      },
+      "elapsed_seconds": 0.016729041934013367
+    },
+    {
+      "position": "generated_1202",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            0,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 10,
+      "retained_root_turns": 8,
+      "reference_states": 343,
+      "restricted_states": 131,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            2,
+            2,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            2,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": {
+        "board": {
+          "rows": 2,
+          "columns": 3,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              2,
+              1,
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        "to_move": "vampires",
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "reason": "unverified_shared_target",
+        "branch_probability": {
+          "exact": "1",
+          "decimal": 1.0
+        },
+        "weighted_score_gap": {
+          "exact": "1/2",
+          "decimal": 0.5
+        }
+      },
+      "elapsed_seconds": 0.011462792055681348
+    },
+    {
+      "position": "generated_1203",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 61,
+      "retained_root_turns": 40,
+      "reference_states": 1575,
+      "restricted_states": 1233,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            2,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "718/729",
+            "decimal": 0.9849108367626886
+          },
+          "draw": {
+            "exact": "10/729",
+            "decimal": 0.013717421124828532
+          },
+          "loss": {
+            "exact": "1/729",
+            "decimal": 0.0013717421124828531
+          },
+          "score": {
+            "exact": "241/243",
+            "decimal": 0.9917695473251029
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "718/729",
+            "decimal": 0.9849108367626886
+          },
+          "draw": {
+            "exact": "10/729",
+            "decimal": 0.013717421124828532
+          },
+          "loss": {
+            "exact": "1/729",
+            "decimal": 0.0013717421124828531
+          },
+          "score": {
+            "exact": "241/243",
+            "decimal": 0.9917695473251029
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "2/243",
+        "decimal": 0.00823045267489712
+      },
+      "decision_regret": {
+        "exact": "2/243",
+        "decimal": 0.00823045267489712
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.08462400001008064
+    },
+    {
+      "position": "generated_1203",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 61,
+      "retained_root_turns": 8,
+      "reference_states": 1575,
+      "restricted_states": 279,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            1
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "draw": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "15/16",
+            "decimal": 0.9375
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "draw": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "15/16",
+            "decimal": 0.9375
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "1/16",
+        "decimal": 0.0625
+      },
+      "decision_regret": {
+        "exact": "1/16",
+        "decimal": 0.0625
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.05073658307082951
+    },
+    {
+      "position": "generated_1203",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 6,
+      "retained_root_turns": 6,
+      "reference_states": 1000,
+      "restricted_states": 760,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            2,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "loss": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "score": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            2,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "loss": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "score": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "loss": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "score": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "5893/11390625",
+        "decimal": 0.000517355281207133
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": {
+        "board": {
+          "rows": 2,
+          "columns": 3,
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0,
+              5
+            ],
+            [
+              2,
+              0,
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        "to_move": "vampires",
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            1
+          ]
+        ],
+        "reason": "unverified_shared_target",
+        "branch_probability": {
+          "exact": "1/729",
+          "decimal": 0.0013717421124828531
+        },
+        "weighted_score_gap": {
+          "exact": "5893/11390625",
+          "decimal": 0.000517355281207133
+        }
+      },
+      "elapsed_seconds": 0.05702779092825949
+    },
+    {
+      "position": "generated_1203",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 6,
+      "retained_root_turns": 6,
+      "reference_states": 1000,
+      "restricted_states": 204,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            2,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "loss": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "score": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            2,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "loss": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "score": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "loss": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "score": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "5893/11390625",
+        "decimal": 0.000517355281207133
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": {
+        "board": {
+          "rows": 2,
+          "columns": 3,
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0,
+              5
+            ],
+            [
+              2,
+              0,
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        "to_move": "vampires",
+        "moves": [
+          [
+            1,
+            0,
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            1
+          ]
+        ],
+        "reason": "unverified_shared_target",
+        "branch_probability": {
+          "exact": "1/729",
+          "decimal": 0.0013717421124828531
+        },
+        "weighted_score_gap": {
+          "exact": "5893/11390625",
+          "decimal": 0.000517355281207133
+        }
+      },
+      "elapsed_seconds": 0.041802958003245294
+    },
+    {
+      "position": "generated_1204",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 30,
+      "retained_root_turns": 27,
+      "reference_states": 558,
+      "restricted_states": 406,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            2,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.02650924993213266
+    },
+    {
+      "position": "generated_1204",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 30,
+      "retained_root_turns": 8,
+      "reference_states": 558,
+      "restricted_states": 88,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            2,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.016523291007615626
+    },
+    {
+      "position": "generated_1204",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 9,
+      "retained_root_turns": 9,
+      "reference_states": 465,
+      "restricted_states": 365,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            0,
+            2,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          0,
+          2,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.020256041083484888
+    },
+    {
+      "position": "generated_1204",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 9,
+      "retained_root_turns": 8,
+      "reference_states": 465,
+      "restricted_states": 95,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            0,
+            2,
+            2,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          0,
+          2,
+          2,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.01394650002475828
+    },
+    {
+      "position": "generated_1205",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 54,
+      "retained_root_turns": 44,
+      "reference_states": 583,
+      "restricted_states": 491,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            2,
+            2,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.028601667028851807
+    },
+    {
+      "position": "generated_1205",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 54,
+      "retained_root_turns": 8,
+      "reference_states": 583,
+      "restricted_states": 33,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            2,
+            2,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "ranking_or_combination_cap",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.016025250079110265
+    },
+    {
+      "position": "generated_1205",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 5,
+      "retained_root_turns": 5,
+      "reference_states": 431,
+      "restricted_states": 359,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.01788033393677324
+    },
+    {
+      "position": "generated_1205",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 5,
+      "retained_root_turns": 5,
+      "reference_states": 431,
+      "restricted_states": 51,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "score": {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.01204866694752127
+    },
+    {
+      "position": "generated_1206",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 14,
+      "reference_states": 182,
+      "restricted_states": 178,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "123/128",
+            "decimal": 0.9609375
+          },
+          "draw": {
+            "exact": "9/256",
+            "decimal": 0.03515625
+          },
+          "loss": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "score": {
+            "exact": "501/512",
+            "decimal": 0.978515625
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "123/128",
+            "decimal": 0.9609375
+          },
+          "draw": {
+            "exact": "9/256",
+            "decimal": 0.03515625
+          },
+          "loss": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "score": {
+            "exact": "501/512",
+            "decimal": 0.978515625
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "11/512",
+        "decimal": 0.021484375
+      },
+      "decision_regret": {
+        "exact": "11/512",
+        "decimal": 0.021484375
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.008577374974265695
+    },
+    {
+      "position": "generated_1206",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 8,
+      "reference_states": 182,
+      "restricted_states": 106,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "123/128",
+            "decimal": 0.9609375
+          },
+          "draw": {
+            "exact": "9/256",
+            "decimal": 0.03515625
+          },
+          "loss": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "score": {
+            "exact": "501/512",
+            "decimal": 0.978515625
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "123/128",
+            "decimal": 0.9609375
+          },
+          "draw": {
+            "exact": "9/256",
+            "decimal": 0.03515625
+          },
+          "loss": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "score": {
+            "exact": "501/512",
+            "decimal": 0.978515625
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "11/512",
+        "decimal": 0.021484375
+      },
+      "decision_regret": {
+        "exact": "11/512",
+        "decimal": 0.021484375
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.006514833075925708
+    },
+    {
+      "position": "generated_1206",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 3,
+      "retained_root_turns": 3,
+      "reference_states": 122,
+      "restricted_states": 117,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            1,
+            2,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "loss": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "score": {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            1,
+            2,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "loss": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "score": {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "loss": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "score": {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.004951833048835397
+    },
+    {
+      "position": "generated_1206",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 3,
+      "retained_root_turns": 3,
+      "reference_states": 122,
+      "restricted_states": 71,
+      "optimal": {
+        "moves": [
+          [
+            2,
+            1,
+            1,
+            2,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "loss": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "score": {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            2,
+            1,
+            1,
+            2,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "loss": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "score": {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "draw": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "loss": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "score": {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.004113374976441264
+    },
+    {
+      "position": "generated_1207",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 13,
+      "reference_states": 683,
+      "restricted_states": 667,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "116759/11943936",
+            "decimal": 0.009775588214806242
+          },
+          "draw": {
+            "exact": "672385/11943936",
+            "decimal": 0.05629509401256001
+          },
+          "loss": {
+            "exact": "464783/497664",
+            "decimal": 0.9339293177726338
+          },
+          "score": {
+            "exact": "905903/23887872",
+            "decimal": 0.03792313522108625
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "2935/31850496",
+            "decimal": 9.214927139596194e-05
+          },
+          "draw": {
+            "exact": "82595/31850496",
+            "decimal": 0.0025932092234921553
+          },
+          "loss": {
+            "exact": "5294161/5308416",
+            "decimal": 0.9973146415051118
+          },
+          "score": {
+            "exact": "88465/63700992",
+            "decimal": 0.0013887538831420397
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "2935/31850496",
+            "decimal": 9.214927139596194e-05
+          },
+          "draw": {
+            "exact": "82595/31850496",
+            "decimal": 0.0025932092234921553
+          },
+          "loss": {
+            "exact": "5294161/5308416",
+            "decimal": 0.9973146415051118
+          },
+          "score": {
+            "exact": "88465/63700992",
+            "decimal": 0.0013887538831420397
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "6981829/191102976",
+        "decimal": 0.03653438133794421
+      },
+      "decision_regret": {
+        "exact": "6981829/191102976",
+        "decimal": 0.03653438133794421
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.03364004206378013
+    },
+    {
+      "position": "generated_1207",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 8,
+      "reference_states": 683,
+      "restricted_states": 314,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "116759/11943936",
+            "decimal": 0.009775588214806242
+          },
+          "draw": {
+            "exact": "672385/11943936",
+            "decimal": 0.05629509401256001
+          },
+          "loss": {
+            "exact": "464783/497664",
+            "decimal": 0.9339293177726338
+          },
+          "score": {
+            "exact": "905903/23887872",
+            "decimal": 0.03792313522108625
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "2935/31850496",
+            "decimal": 9.214927139596194e-05
+          },
+          "draw": {
+            "exact": "82595/31850496",
+            "decimal": 0.0025932092234921553
+          },
+          "loss": {
+            "exact": "5294161/5308416",
+            "decimal": 0.9973146415051118
+          },
+          "score": {
+            "exact": "88465/63700992",
+            "decimal": 0.0013887538831420397
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "2935/31850496",
+            "decimal": 9.214927139596194e-05
+          },
+          "draw": {
+            "exact": "82595/31850496",
+            "decimal": 0.0025932092234921553
+          },
+          "loss": {
+            "exact": "5294161/5308416",
+            "decimal": 0.9973146415051118
+          },
+          "score": {
+            "exact": "88465/63700992",
+            "decimal": 0.0013887538831420397
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "6981829/191102976",
+        "decimal": 0.03653438133794421
+      },
+      "decision_regret": {
+        "exact": "6981829/191102976",
+        "decimal": 0.03653438133794421
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.025209959014318883
+    },
+    {
+      "position": "generated_1207",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 15,
+      "reference_states": 673,
+      "restricted_states": 645,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "3/8",
+        "decimal": 0.375
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          2,
+          0,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": {
+        "board": {
+          "rows": 2,
+          "columns": 3,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              3,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              1,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "to_move": "vampires",
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "reason": "unverified_shared_target",
+        "branch_probability": {
+          "exact": "1",
+          "decimal": 1.0
+        },
+        "weighted_score_gap": {
+          "exact": "3/8",
+          "decimal": 0.375
+        }
+      },
+      "elapsed_seconds": 0.0371741660637781
+    },
+    {
+      "position": "generated_1207",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 15,
+      "retained_root_turns": 8,
+      "reference_states": 673,
+      "restricted_states": 171,
+      "optimal": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            1,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "3/8",
+        "decimal": 0.375
+      },
+      "most_optimistic_action": [
+        [
+          1,
+          1,
+          2,
+          0,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": {
+        "board": {
+          "rows": 2,
+          "columns": 3,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              3,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              1,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "to_move": "vampires",
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "reason": "unverified_shared_target",
+        "branch_probability": {
+          "exact": "1",
+          "decimal": 1.0
+        },
+        "weighted_score_gap": {
+          "exact": "3/8",
+          "decimal": 0.375
+        }
+      },
+      "elapsed_seconds": 0.021235082997009158
+    },
+    {
+      "position": "generated_1208",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 54,
+      "retained_root_turns": 44,
+      "reference_states": 1306,
+      "restricted_states": 1016,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1805/2048",
+            "decimal": 0.88134765625
+          },
+          "draw": {
+            "exact": "405/4096",
+            "decimal": 0.098876953125
+          },
+          "loss": {
+            "exact": "81/4096",
+            "decimal": 0.019775390625
+          },
+          "score": {
+            "exact": "7625/8192",
+            "decimal": 0.9307861328125
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1805/2048",
+            "decimal": 0.88134765625
+          },
+          "draw": {
+            "exact": "405/4096",
+            "decimal": 0.098876953125
+          },
+          "loss": {
+            "exact": "81/4096",
+            "decimal": 0.019775390625
+          },
+          "score": {
+            "exact": "7625/8192",
+            "decimal": 0.9307861328125
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "567/8192",
+        "decimal": 0.0692138671875
+      },
+      "decision_regret": {
+        "exact": "567/8192",
+        "decimal": 0.0692138671875
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.060289541026577353
+    },
+    {
+      "position": "generated_1208",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "vampires",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 54,
+      "retained_root_turns": 8,
+      "reference_states": 1306,
+      "restricted_states": 120,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            1,
+            1
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1805/2048",
+            "decimal": 0.88134765625
+          },
+          "draw": {
+            "exact": "405/4096",
+            "decimal": 0.098876953125
+          },
+          "loss": {
+            "exact": "81/4096",
+            "decimal": 0.019775390625
+          },
+          "score": {
+            "exact": "7625/8192",
+            "decimal": 0.9307861328125
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "1805/2048",
+            "decimal": 0.88134765625
+          },
+          "draw": {
+            "exact": "405/4096",
+            "decimal": 0.098876953125
+          },
+          "loss": {
+            "exact": "81/4096",
+            "decimal": 0.019775390625
+          },
+          "score": {
+            "exact": "7625/8192",
+            "decimal": 0.9307861328125
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "567/8192",
+        "decimal": 0.0692138671875
+      },
+      "decision_regret": {
+        "exact": "567/8192",
+        "decimal": 0.0692138671875
+      },
+      "largest_reply_optimism": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          0,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "missing_optimal_root_reason": "unverified_shared_target",
+      "missing_reply_example": null,
+      "elapsed_seconds": 0.03470279206521809
+    },
+    {
+      "position": "generated_1208",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 64,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 9,
+      "retained_root_turns": 9,
+      "reference_states": 1169,
+      "restricted_states": 976,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "9279/15625",
+            "decimal": 0.593856
+          },
+          "draw": {
+            "exact": "906/15625",
+            "decimal": 0.057984
+          },
+          "loss": {
+            "exact": "1088/3125",
+            "decimal": 0.34816
+          },
+          "score": {
+            "exact": "9732/15625",
+            "decimal": 0.622848
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "9279/15625",
+            "decimal": 0.593856
+          },
+          "draw": {
+            "exact": "906/15625",
+            "decimal": 0.057984
+          },
+          "loss": {
+            "exact": "1088/3125",
+            "decimal": 0.34816
+          },
+          "score": {
+            "exact": "9732/15625",
+            "decimal": 0.622848
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "5893/15625",
+        "decimal": 0.377152
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          3,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": {
+        "board": {
+          "rows": 2,
+          "columns": 3,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              5
+            ],
+            [
+              2,
+              1,
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        "to_move": "vampires",
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            1,
+            0
+          ]
+        ],
+        "reason": "unverified_shared_target",
+        "branch_probability": {
+          "exact": "1",
+          "decimal": 1.0
+        },
+        "weighted_score_gap": {
+          "exact": "5893/15625",
+          "decimal": 0.377152
+        }
+      },
+      "elapsed_seconds": 0.05608329107053578
+    },
+    {
+      "position": "generated_1208",
+      "board": {
+        "rows": 2,
+        "columns": 3,
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            0
+          ]
+        ]
+      },
+      "remaining_plies": 2,
+      "species": "werewolves",
+      "candidate_limit": 8,
+      "max_states_per_solver": 20000,
+      "complete": true,
+      "legal_root_turns": 9,
+      "retained_root_turns": 8,
+      "reference_states": 1169,
+      "restricted_states": 196,
+      "optimal": {
+        "moves": [
+          [
+            0,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "outcome": {
+          "win": {
+            "exact": "9279/15625",
+            "decimal": 0.593856
+          },
+          "draw": {
+            "exact": "906/15625",
+            "decimal": 0.057984
+          },
+          "loss": {
+            "exact": "1088/3125",
+            "decimal": 0.34816
+          },
+          "score": {
+            "exact": "9732/15625",
+            "decimal": 0.622848
+          }
+        }
+      },
+      "selected": {
+        "moves": [
+          [
+            0,
+            1,
+            3,
+            1,
+            0
+          ]
+        ],
+        "predicted": {
+          "win": {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          "draw": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "loss": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "score": {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        },
+        "actual": {
+          "win": {
+            "exact": "9279/15625",
+            "decimal": 0.593856
+          },
+          "draw": {
+            "exact": "906/15625",
+            "decimal": 0.057984
+          },
+          "loss": {
+            "exact": "1088/3125",
+            "decimal": 0.34816
+          },
+          "score": {
+            "exact": "9732/15625",
+            "decimal": 0.622848
+          }
+        }
+      },
+      "root_omission_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "decision_regret": {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      "largest_reply_optimism": {
+        "exact": "5893/15625",
+        "decimal": 0.377152
+      },
+      "most_optimistic_action": [
+        [
+          0,
+          1,
+          3,
+          1,
+          0
+        ]
+      ],
+      "missing_optimal_root_reason": null,
+      "missing_reply_example": {
+        "board": {
+          "rows": 2,
+          "columns": 3,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              5
+            ],
+            [
+              2,
+              1,
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        "to_move": "vampires",
+        "moves": [
+          [
+            0,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            2,
+            1,
+            0
+          ]
+        ],
+        "reason": "unverified_shared_target",
+        "branch_probability": {
+          "exact": "1",
+          "decimal": 1.0
+        },
+        "weighted_score_gap": {
+          "exact": "5893/15625",
+          "decimal": 0.377152
+        }
+      },
+      "elapsed_seconds": 0.03910724993329495
+    }
+  ]
+}
