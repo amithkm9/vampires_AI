@@ -39,7 +39,7 @@ An empty initial UPD still signals our turn. MAP alone does not. Treat UPD entri
 - `protocol.Client` uses `sendall` and validates moves before transmission.
 - `model.GameSession.apply` enforces initialization order, identifies our species from HME/MAP, and handles multiple games.
 - `ConnectionClosed`, `ProtocolError`, and state validation errors remain explicit. `player.main` logs them and exits nonzero; it does not silently reconnect into an unknown match.
-- `read_message` timestamps an UPD immediately after recognizing its header. The live client shares a two-second absolute deadline across payload fragments and restores the socket's previous timeout afterward.
+- `read_message` timestamps the first `U` byte of UPD. The remaining header and payload fragments share one two-second absolute deadline; completed reads are also checked for lateness. Socket timeouts restore after success or failure. Non-UPD waiting is not charged as our turn.
 - `player.play` includes update parsing in the search budget and passes the turn deadline to `Client.send_moves`. Late sends are rejected, and `sendall` has a remaining-time timeout. Waiting for other commands remains separate from our turn deadline.
 - `run.py` launches from any working directory and accepts optional settings followed by the server IP and port. The client sends its name once per connection and preserves the connection across END.
 
