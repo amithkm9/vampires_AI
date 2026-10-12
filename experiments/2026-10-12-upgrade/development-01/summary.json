@@ -1,0 +1,93 @@
+{
+  "elapsed_seconds": 67.95824025000911,
+  "engines": {
+    "balanced": {
+      "games": 8,
+      "pairs": 4,
+      "wins": 0,
+      "draws": 3,
+      "losses": 5,
+      "paired_score": 0.1875,
+      "paired_score_bootstrap_95": [
+        0.0,
+        0.375
+      ],
+      "pair_scores": [
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "failures": 0,
+      "max_response_seconds": 0.05072133301291615,
+      "completed_depth_zero": 26,
+      "certificate_turns": 0
+    },
+    "balanced_resources": {
+      "games": 8,
+      "pairs": 4,
+      "wins": 1,
+      "draws": 2,
+      "losses": 5,
+      "paired_score": 0.25,
+      "paired_score_bootstrap_95": [
+        0.0,
+        0.5
+      ],
+      "pair_scores": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "failures": 0,
+      "max_response_seconds": 0.05196062498725951,
+      "completed_depth_zero": 85,
+      "certificate_turns": 0
+    },
+    "portfolio": {
+      "games": 8,
+      "pairs": 4,
+      "wins": 3,
+      "draws": 2,
+      "losses": 3,
+      "paired_score": 0.5,
+      "paired_score_bootstrap_95": [
+        0.125,
+        0.875
+      ],
+      "pair_scores": [
+        1.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "failures": 0,
+      "max_response_seconds": 0.05036462494172156,
+      "completed_depth_zero": 77,
+      "certificate_turns": 0
+    },
+    "resources": {
+      "games": 8,
+      "pairs": 4,
+      "wins": 2,
+      "draws": 3,
+      "losses": 3,
+      "paired_score": 0.4375,
+      "paired_score_bootstrap_95": [
+        0.125,
+        0.6875
+      ],
+      "pair_scores": [
+        0.0,
+        0.5,
+        0.75,
+        0.5
+      ],
+      "failures": 0,
+      "max_response_seconds": 0.05067158304154873,
+      "completed_depth_zero": 95,
+      "certificate_turns": 0
+    }
+  }
+}

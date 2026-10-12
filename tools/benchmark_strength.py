@@ -46,15 +46,15 @@ def generated(seed):
     return Board(6, 7, cells)
 
 
-def load_baseline(directory):
-    paths = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", BASELINE, "src/vampires"], cwd=ROOT, text=True).splitlines()
+def load_baseline(directory, revision=BASELINE):
+    paths = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", revision, "src/vampires"], cwd=ROOT, text=True).splitlines()
     package = Path(directory) / "baseline_vampires"
     package.mkdir()
     hashes = {}
     for path in paths:
         if not path.endswith(".py"):
             continue
-        data = subprocess.check_output(["git", "show", BASELINE + ":" + path], cwd=ROOT)
+        data = subprocess.check_output(["git", "show", revision + ":" + path], cwd=ROOT)
         (package / Path(path).name).write_bytes(data)
         hashes[path] = hashlib.sha256(data).hexdigest()
     spec = importlib.util.spec_from_file_location("baseline_vampires", package / "__init__.py",
