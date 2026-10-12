@@ -7,9 +7,10 @@ from math import isfinite
 from time import monotonic
 
 from .model import GameSession
+from .engines import ENGINE_NAMES, choose_engine
 from .history import PositionHistory
 from .protocol import Client, ConnectionClosed, encode_name
-from .search import SearchConfig, choose_turn
+from .search import SearchConfig
 
 LOG = logging.getLogger(__name__)
 
@@ -22,18 +23,22 @@ class SessionResult:
     trailing_repeated_turns: int = 0
 
 
-def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotonic):
+def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotonic, engine="baseline"):
     """Run until BYE; only authoritative MAP/UPD packets alter our game state.
 
-    Timing starts when the UPD header is recognized, including payload parsing,
+    Timing starts when the first UPD byte is received, including header/payload parsing,
     updates, generation, search, validation, and transmission. Search reserves
     at least half a second of the brief's two-second limit for other work.
     This is cooperative timing, not a hard real-time or CTI guarantee.
     """
     if not isfinite(budget) or not 0 < budget <= 1.5:
         raise ValueError("Search budget must be finite and in (0, 1.5] seconds")
+    if engine not in ENGINE_NAMES:
+        raise ValueError(f"Unknown engine: {engine}")
     encode_name(name)
     config = config or SearchConfig()
+    if config.max_depth < 2:
+        raise ValueError("The live player must consider opponent replies (depth >= 2)")
     client.send_name(name)
     session = GameSession()
     history = PositionHistory()
@@ -42,33 +47,37 @@ def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotoni
     while not session.closed:
         message = client.receive()
         start = message.received_at if message.received_at is not None else clock()
+        initialized = session.species is not None
         ready = session.apply(message)
         if message.command in ("END", "BYE"):
             history.clear()
         if message.command == "END":
-            games += 1
+            games += int(initialized)
             LOG.info("game ended; waiting for the next SET")
         if not ready:
             continue
         repetition = history.observe(session.board, session.species)
         repeated_turns += repetition.visits > 1
         trailing_repeated_turns += repetition.review_trailing_cycle
-        decision = choose_turn(session.board, session.species, expires_at=start + budget,
-                               time_budget=budget, config=config, clock=clock)
+        decision = choose_engine(session.board, session.species, engine=engine, expires_at=start + budget,
+                                 time_budget=budget, config=config, clock=clock)
         client.send_moves(session.board, session.species, decision.moves,
                           deadline=start + 2.0, clock=clock)
         turns += 1
-        LOG.info("turn=%d species=%s depth=%d selected_depth=%d nodes=%d selective=%d "
+        LOG.info("turn=%d species=%s engine=%s depth=%d selected_depth=%d nodes=%d selective=%d "
                  "unsupported=%d bounded=%d generation_partial=%d certificate=%s "
                  "value_bounds=[%.5f,%.5f] search_timeout=%s elapsed=%.4fs "
-                 "visits=%d cycle_updates=%s standing=%s trailing_cycle=%s horizon=unknown moves=%s",
-                 turns, session.species.value, decision.completed_depth, decision.selected_depth,
+                 "visits=%d cycle_updates=%s standing=%s trailing_cycle=%s horizon=unknown "
+                 "root_started=%d root_updates=%d moves=%s",
+                 turns, session.species.value, engine, decision.completed_depth, decision.selected_depth,
                  decision.nodes, decision.selective_nodes, decision.unsupported_actions,
                  decision.bounded_actions, decision.truncated_generations, decision.preserved_dominance,
                  decision.value_lower, decision.value_upper,
                  decision.timed_out, clock() - start,
                  repetition.visits, repetition.cycle_updates, repetition.standing,
                  repetition.review_trailing_cycle,
+                 getattr(decision, "root_started", decision.evaluated_root_actions),
+                 getattr(decision, "root_updates", 0),
                  [move.as_tuple() for move in decision.moves])
     return SessionResult(turns, games, repeated_turns, trailing_repeated_turns)
 
@@ -76,6 +85,8 @@ def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotoni
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Opponent-aware Vampires vs Werewolves baseline")
     parser.add_argument("--name", default="vampires_AI", help="ASCII team name (1..255 bytes)")
+    parser.add_argument("--engine", choices=ENGINE_NAMES, default="baseline",
+                        help="search variant; alternatives remain experimental")
     parser.add_argument("--budget", type=float, default=1.25, help="search seconds, >0 and <=1.5")
     parser.add_argument("--depth", type=int, default=3, help="maximum depth, 2..8 player turns")
     parser.add_argument("--candidates", type=int, default=64, help="maximum retained turns per node")
@@ -98,7 +109,7 @@ def main(argv=None):
                         format="%(levelname)s %(message)s")
     try:
         with Client.connect(args.host, args.port) as client:
-            result = play(client, name=args.name, budget=args.budget, config=config)
+            result = play(client, name=args.name, budget=args.budget, config=config, engine=args.engine)
         LOG.info("BYE received: %d games, %d turns", result.games, result.turns)
         return 0
     except (ConnectionClosed, OSError, ValueError) as exc:

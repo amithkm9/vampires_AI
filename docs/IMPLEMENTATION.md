@@ -38,7 +38,7 @@ Before search, a stack with `N > enemy_total + humans` and `2*N >= 3*(enemy_tota
 
 ## Deadline and partial work
 
-The protocol records the time when the UPD header is recognized, before reading its payload. The default search expiry is that time plus 1.25 seconds; the CLI allows at most 1.5 seconds. Payload reads and MOV transmission share the two-second absolute turn expiry. Socket timeouts are restored so opponent waiting is not confused with our turn deadline.
+The protocol records the first `U` byte of UPD, before completing its header or payload. The default search expiry is that time plus 1.25 seconds; the CLI allows at most 1.5 seconds. Header/payload reads and MOV transmission share the two-second absolute turn expiry. Socket timeouts are restored so opponent waiting is not confused with our turn deadline. This local timestamp cannot account for network delay before that byte arrives.
 
 Search begins at two plies. Once a complete root iteration exists, an interrupted deeper iteration cannot replace it. Before the first iteration completes, the engine may retain the best fully evaluated root action from that first iteration. If none completes, it uses the best ranked generated turn, or the legal fallback if generation returned nothing. A partially enumerated chance distribution retains an explicit interval and is never renormalized into a complete point estimate.
 

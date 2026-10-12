@@ -13,8 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from vampires.model import Board, Cell, Species
+from vampires.engines import ENGINE_NAMES, choose_engine
 from vampires.rules import validate_moves
-from vampires.search import SearchConfig, choose_turn
+from vampires.search import SearchConfig
 
 
 def positions():
@@ -33,6 +34,7 @@ def positions():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--budget", type=float, default=.05)
+    parser.add_argument("--engine", choices=ENGINE_NAMES, default="baseline")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     config = SearchConfig()
@@ -40,7 +42,7 @@ def main():
     for name, board in positions().items():
         cells = [(x, y, c.humans, c.vampires, c.werewolves) for (x, y), c in sorted(board.cells.items())]
         for species in Species:
-            decision = choose_turn(board, species, time_budget=args.budget, config=config)
+            decision = choose_engine(board, species, engine=args.engine, time_budget=args.budget, config=config)
             validate_moves(board, species, decision.moves)
             if decision.elapsed_seconds >= 2:
                 raise AssertionError(f"Local search exceeded two seconds: {name}, {species.value}")
@@ -50,7 +52,7 @@ def main():
     paths = sorted((ROOT / "src/vampires").glob("*.py")) + [Path(__file__)]
     report = {"generated_utc": datetime.now(timezone.utc).isoformat(),
               "python": platform.python_version(), "platform": platform.platform(),
-              "configuration": {"budget_seconds": args.budget, **asdict(config)},
+              "configuration": {"budget_seconds": args.budget, "engine": args.engine, **asdict(config)},
               "source_sha256": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
               "limits": "Synthetic local timing probes, not worst-case guarantees, CTI timings, or match-strength measurements.",
               "results": results}

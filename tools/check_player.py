@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from vampires.model import Cell, Species, load_map
+from vampires.engines import ENGINE_NAMES
 from vampires.protocol import recv_exact
 from vampires.rules import Move, validate_moves
 from vampires.simulation import single_moves, turn_outcomes
@@ -54,7 +55,7 @@ def sampled_successor(board, species, moves, rng):
     return outcomes[-1].board  # Floating-point cumulative rounding only.
 
 
-def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009):
+def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009, engine="baseline"):
     if type(max_plies) is not int or max_plies < 2:
         raise ValueError("max_plies must be at least 2")
     started = monotonic()
@@ -66,6 +67,7 @@ def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009):
             listener.settimeout(10)
             port = listener.getsockname()[1]
             command = [sys.executable, str(ROOT / "run.py"), "--name", "SmokeTest",
+                       "--engine", engine,
                        "--budget", str(budget), "--depth", str(depth), "--quiet", "127.0.0.1", str(port)]
             process = subprocess.Popen(command, cwd=cwd, stdin=subprocess.DEVNULL,
                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -136,7 +138,7 @@ def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009):
     return {"generated_utc": datetime.now(timezone.utc).isoformat(),
             "kind": "local_tcp_integration_smoke", "python": platform.python_version(),
             "platform": platform.platform(), "elapsed_seconds": monotonic() - started,
-            "configuration": {"budget_seconds": budget, "max_depth": depth, "candidates": 64,
+            "configuration": {"budget_seconds": budget, "max_depth": depth, "candidates": 64, "engine": engine,
                               "max_plies": max_plies, "opponent": "seeded random whole-group single move",
                               "shared_target_battles": "rejected", "both_extinct": "neutral model convention"},
             "source_sha256": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},
@@ -150,12 +152,13 @@ def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--budget", type=float, default=.05)
+    parser.add_argument("--engine", choices=ENGINE_NAMES, default="baseline")
     parser.add_argument("--depth", type=int, default=2)
     parser.add_argument("--max-plies", type=int, default=40)
     parser.add_argument("--seed", type=int, default=20261009)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    result = run_check(budget=args.budget, depth=args.depth, max_plies=args.max_plies, seed=args.seed)
+    result = run_check(budget=args.budget, depth=args.depth, max_plies=args.max_plies, seed=args.seed, engine=args.engine)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(result, indent=2) + "\n")
