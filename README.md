@@ -2,7 +2,7 @@
 
 Build an AI for the Foundation of AI tournament. The game is a fully observable grid contest: convert humans, grow your species, anticipate the opponent, and finish with the dominant population. Battles can be random. Each turn must be sent to the supplied server within **two seconds**.
 
-The project now has a **playable opponent-aware search engine**: legal combined turns, exact battle probabilities with bounds on unexpanded outcomes, partial candidate generation, dominant-stack preservation, a deadline fallback, and a persistent TCP launcher. It passes 146 tests. Known-cutoff outcome scoring, an exact small-position reference, and live repetition diagnostics are implemented. An initial 108-match comparison does **not** establish a decisive advantage over the published baseline. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
+The project has a **playable opponent-aware engine with 219 passing tests**. The provisional default, `cohesive_material`, combines resumable expectiminimax with intact-group action search and the baseline evaluator. It scored **4 wins, 3 draws, 1 loss** against the pre-upgrade engine in eight locked normal-budget games; this is limited local evidence. Parallel edge reviews fixed deadline, chance-cap, byte-boundary, candidate-work and history-memory defects. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
 
 ## Start here
 
@@ -15,6 +15,7 @@ The project now has a **playable opponent-aware search engine**: legal combined 
 7. Read [the strength audit](docs/STRENGTH_AUDIT.md) and [all comparison results](experiments/2026-10-11-strength/EXPERIMENT.md) before choosing an experimental engine.
 8. Follow [the next algorithm improvements](docs/NEXT_ALGORITHM.md), prioritized from [verified match replays](reports/replay-analysis-2026-10-11.md).
 9. Read [the outcome and tactical-coverage experiment](experiments/2026-10-12-outcomes/EXPERIMENT.md): known cutoffs improve some exact development decisions; attack reservation also exposes a regression and remains disabled by default.
+10. Read [the latest upgrade comparison](experiments/2026-10-12-upgrade/EXPERIMENT.md), [research rationale](docs/UPGRADE_RESEARCH.md) and [parallel edge-case audit](docs/EDGE_CASE_AUDIT.md).
 
 ## Launch the player
 
@@ -25,6 +26,8 @@ python3 run.py --name vampires_AI --budget 1.25 --depth 3 127.0.0.1 5555
 ```
 
 Replace the example IP/port with the official server's values. From another directory, use the absolute path to `run.py`; no `PYTHONPATH` setup is needed. The default search budget is 1.25 seconds inside the brief's two-second turn deadline. Timing on CTI remains unmeasured. Diagnostics go to stderr; `--quiet` suppresses routine turn logs.
+
+The default is `--engine cohesive_material`; use `--engine baseline` to select the previous sequential engine. Other selectable experiments are `balanced`, `resources`, `balanced_resources`, `portfolio` and `cohesive`. Cohesive modes omit partial-group moves for both species to reduce branching; this can miss important splits. The promoted mode keeps the original evaluator: resource projection and policy portfolios did not perform consistently enough to bundle into it.
 
 ## What was supplied
 
@@ -51,11 +54,12 @@ Original file contents were preserved; only their locations changed. See the [so
 | `src/vampires/simulation.py` | Exact rational reference and streaming transitions; integer battle sampling; explicit ambiguity and overflow limits |
 | `src/vampires/turns.py` | Legal fallback, bounded joint candidates, exhaustive small-position oracle |
 | `src/vampires/evaluation.py`, `search.py`, `budget.py` | Bounded evaluation, iterative expectiminimax, per-search cache, cooperative deadlines |
+| `src/vampires/balanced.py`, `strategy.py`, `engines.py` | Resumable root/chance search, strategic alternatives, explicit engine selection and provisional default |
 | `src/vampires/certificates.py` | Preserves an intact stack whose dominance follows conditionally from the written rules |
 | `src/vampires/growth.py`, `mcts.py` | Experimental multi-house planning and sampled adversarial UCT; neither is the live default |
 | `src/vampires/endgame.py`, `history.py` | Exact finite-horizon offline outcome reference and bounded authoritative repetition diagnostics |
 | `src/vampires/player.py`, `run.py` | Persistent game loop and launch command |
-| `tests/` | 146 tests covering rules, transitions, chance bounds, cutoff outcomes, tactical coverage, history, deadlines, and protocol lifecycle |
+| `tests/` | 219 tests covering rules, independent exact references, transitions, chance bounds, interrupted search, byte boundaries, memory, deadlines and protocol lifecycle |
 | `tools/inspect_map.py` | Read a map without running the Windows generator |
 | `tools/analyze_maps.py` | Reproduce exact local reply risks and optimistic capture-route calculations |
 | `tools/check_player.py`, `tools/check_search.py` | Reproducible local TCP matches and synthetic timing checks |

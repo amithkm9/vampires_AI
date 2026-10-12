@@ -4,7 +4,19 @@ Updated: 2026-10-12.
 
 ## Current milestone
 
-Phases 0 and 1 are complete. The local Phase 2 forward model and Phase 3 playable baseline are implemented, with Phase 4 chance bounds, partial generation, and dominant-stack preservation. Known-cutoff search, exact tiny outcome references, and repetition diagnostics are now implemented. Phase 6 has initial comparative evidence. The full suite passes **146 tests**. **The player completes local TCP matches, but 108 historical comparative matches do not establish a decisive improvement over the published baseline. Official-server parity, CTI deployment, and strength against tournament opponents remain unverified.**
+Phases 0 and 1 are complete. The local forward model, playable client, bounded search, finite-horizon references and history are implemented. The latest upgrade adds resumable search, explicit strategy alternatives and parallel edge-case repairs. The full suite passes **219 tests**. `cohesive_material` is provisionally promoted after **4 wins, 3 draws, 1 loss** in eight locked normal-budget games against the pre-upgrade engine. **Official-server parity, CTI deployment and strength against tournament opponents remain unverified.**
+
+## Resumable search and edge-hardening milestone, 2026-10-12
+
+- Pushed the prior nine commits first; remote main was verified at `d28c5179a721bb7812c14d277a5cc327c641d47c`, which is the frozen opponent for this upgrade.
+- Implemented `balanced.choose_balanced`, sharing root work and battle preparation while preserving conservative intervals, complete shallower decisions and explicit model limits. Implemented resource projection, policy portfolios and intact-group abstraction as separately selectable modes.
+- Ran 48 development games across six variants and 8 locked evaluation games, with source hashes, map/species, seeds, runtime and all losses preserved. Best development candidate `cohesive_material`: 3W/5D/0L. Locked evaluation at a 1.25-second allowance: 4W/3D/1L; supplied maps 2W/2D/0L; unseen generated maps 2W/1D/1L. Maximum candidate response 0.153828 seconds. This small sample does not establish universal superiority.
+- Promoted that exact candidate provisionally. `--engine baseline` retains the former algorithm; resource and portfolio variants remain alternatives. Intact-group abstraction explicitly omits potentially useful own/opponent splits.
+- At the user's request, three parallel reviewers found and repaired fragmented-UPD deadline accounting, chance-cap overfetch, eager preparation starving roots, byte-boundary partial-move omissions, repeated board-wide candidate validation, and history memory growth. Added independent bounded exhaustive combat/transition checks; see [edge audit](docs/EDGE_CASE_AUDIT.md).
+- Final suite: `PYTHONPATH=src python3 -m unittest discover -s tests -q`, **219 passed in 1.919 seconds** on Python 3.14.6. All 13 original/extracted material hashes match; runtime imports remain standard-library/project-only.
+- Final local TCP smoke: four matches / **31 AI turns**, both supplied maps/species, persistent restart, unrelated launch directory, legal MOV and clean BYE; maximum response **0.028358 seconds**. Loopback binding required authorized execution outside the sandbox. Record: `reports/player-upgrade-smoke-2026-10-12.json`.
+- Passed **56 search stress cases** across all seven engine modes and **24 maximum-area probes** on fully occupied 255×255 boards with zero, 0.05 and 1.25-second budgets. Largest observed search time **1.292704 seconds**; cooperative overhead can exceed the nominal search allowance while remaining below the two-second local limit. No CTI guarantee is inferred.
+- [Research synthesis](docs/UPGRADE_RESEARCH.md), [registered experiment/results](experiments/2026-10-12-upgrade/EXPERIMENT.md), and [implementation mapping](docs/IMPLEMENTATION.md) record limitations and negative ablations.
 
 ## Outcome and coverage milestone, 2026-10-12
 
@@ -43,7 +55,7 @@ Completed work:
 
 ## Next work
 
-Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md) and [TODO.md](TODO.md): protect attacks, escapes, and defensive merges together; compare root moves before deep refinement; use repetition to guide endgame/resource analysis; and account for interception/resource denial in growth plans. Exact references, known cutoff scoring, repetition diagnostics, and initial tactical-coverage measurements are complete. Obtain official-server/CTI evidence alongside normal-budget comparisons and ablations. Keep bounded expectiminimax as the default; growth, UCT, and attack reservation remain experimental. The new outcome comparisons are development evidence, not a replacement for competitive matches.
+Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md) and [TODO.md): expand the opponent league and map families, quantify the intact-group abstraction's missed split replies, test interception-aware resource plans and repetition-guided endings, and obtain official-server/CTI evidence. Root allocation and bounded exhaustive edge checks are implemented. The provisional default is cohesive_material; resource projection, portfolio, growth, UCT and attack reservation remain experiments. The 56 new games provide limited local evidence, not tournament validation.
 
 ## Repository publication
 

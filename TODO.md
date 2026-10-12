@@ -16,12 +16,25 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md), using [verified replay findings](reports/replay-analysis-2026-10-11.md) to prioritize changes.
 
 1. [x] Add exact finite-horizon outcome references, known-cutoff search, and repetition diagnostics; distinguish the live unknown horizon and avoid blanket penalties on leading/drawing repetitions. See the [outcome experiment](experiments/2026-10-12-outcomes/EXPERIMENT.md).
-2. [ ] Protect critical opponent replies and compare serious root actions before deep refinement. Initial exact coverage measurement is complete (60 two-sided cases). Attack reservation fixes two small-budget cases but displaces a defensive merge in another; cover these tactical needs together before promotion.
-3. [ ] Refine competing root chance intervals and add bounded tactical extensions; compare sparse-sampled expectiminimax under the normal budget.
+2. [ ] Extend critical opponent-reply coverage, especially splits omitted by the provisional intact-group default. Root comparison and joint attack/merge/escape proposals are implemented; complete tactical coverage remains open.
+3. [ ] Add bounded tactical extensions and compare sparse-sampled expectiminimax. Resumable root/chance refinement and preparation scheduling are implemented and tested.
 4. [ ] Add interception and contested-route checks to the growth planner; explicitly test the trap's four-versus-five human race and the large map's central-house denial.
 5. [ ] Verify shared-target attacks, wider splitting, overflow, and both-extinct outcomes on the official server; then extend the live candidate set.
 6. [ ] Rehearse the exact launch command on CTI and measure receive/search/send timing there.
 7. [ ] Expand paired benchmarks to stronger opponents, new map families, normal budgets, and feature ablations before selecting the final engine.
+
+## Upgrade and parallel edge audit completed on 2026-10-12
+
+- [x] Push all prior commits before starting the upgrade.
+- [x] Compare relevant primary research; save source matrix, search log and implementation limitations.
+- [x] Implement resumable root search, resource projection, diverse policy proposals and intact-group abstraction as separate modes.
+- [x] Run six development ablations (48 games), lock a candidate, and evaluate 8 normal-budget games with fresh map/combat seeds and both species.
+- [x] Provisionally promote cohesive_material after 4W/3D/1L; retain the prior engine and negative evidence.
+- [x] Use three agents to audit search, movement, protocol/history and combat; repair concrete defects and add independent bounded exhaustive references.
+- [x] Pass 219 tests, 56 synthetic search cases, 24 maximum-area probes and four final TCP smoke matches / 31 turns.
+- [x] Preserve original hashes and standard-library-only implementation.
+- [ ] Expand beyond one frozen opponent and one unseen map family; revisit split coverage before final tournament selection.
+- [ ] Verify official server/CTI, prepare final report and five-minute presentation, and submit source by the course deadline.
 
 ## Outcome references and tactical diagnosis completed on 2026-10-12
 
