@@ -7,7 +7,7 @@ from math import isfinite
 from time import monotonic
 
 from .model import GameSession
-from .engines import ENGINE_NAMES, choose_engine
+from .engines import DEFAULT_ENGINE, ENGINE_NAMES, choose_engine
 from .history import PositionHistory
 from .protocol import Client, ConnectionClosed, encode_name
 from .search import SearchConfig
@@ -23,7 +23,7 @@ class SessionResult:
     trailing_repeated_turns: int = 0
 
 
-def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotonic, engine="baseline"):
+def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotonic, engine=DEFAULT_ENGINE):
     """Run until BYE; only authoritative MAP/UPD packets alter our game state.
 
     Timing starts when the first UPD byte is received, including header/payload parsing,
@@ -83,10 +83,10 @@ def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotoni
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Opponent-aware Vampires vs Werewolves baseline")
+    parser = argparse.ArgumentParser(description="Opponent-aware Vampires vs Werewolves player")
     parser.add_argument("--name", default="vampires_AI", help="ASCII team name (1..255 bytes)")
-    parser.add_argument("--engine", choices=ENGINE_NAMES, default="baseline",
-                        help="search variant; alternatives remain experimental")
+    parser.add_argument("--engine", choices=ENGINE_NAMES, default=DEFAULT_ENGINE,
+                        help="search variant; default cohesive_material is provisionally promoted")
     parser.add_argument("--budget", type=float, default=1.25, help="search seconds, >0 and <=1.5")
     parser.add_argument("--depth", type=int, default=3, help="maximum depth, 2..8 player turns")
     parser.add_argument("--candidates", type=int, default=64, help="maximum retained turns per node")

@@ -8,10 +8,11 @@ from .turns import candidate_turns
 
 ENGINE_NAMES = ("baseline", "balanced", "resources", "balanced_resources", "portfolio",
                 "cohesive", "cohesive_material")
+DEFAULT_ENGINE = "cohesive_material"
 
 
-def choose_engine(board, species, *, engine="baseline", **kwargs):
-    """Keep algorithms separately selectable; baseline remains the default.
+def choose_engine(board, species, *, engine=DEFAULT_ENGINE, **kwargs):
+    """Keep algorithms separately selectable; default promotion is provisional.
 
     Every live mode searches opponent replies. 'cohesive' modes deliberately
     omit partial group moves for both sides; all other candidate limitations

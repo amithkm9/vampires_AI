@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from vampires.model import Cell, Species, load_map
-from vampires.engines import ENGINE_NAMES
+from vampires.engines import DEFAULT_ENGINE, ENGINE_NAMES
 from vampires.protocol import recv_exact
 from vampires.rules import Move, validate_moves
 from vampires.simulation import single_moves, turn_outcomes
@@ -55,7 +55,7 @@ def sampled_successor(board, species, moves, rng):
     return outcomes[-1].board  # Floating-point cumulative rounding only.
 
 
-def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009, engine="baseline"):
+def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009, engine=DEFAULT_ENGINE):
     if type(max_plies) is not int or max_plies < 2:
         raise ValueError("max_plies must be at least 2")
     started = monotonic()
@@ -152,7 +152,7 @@ def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009, engine="basel
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--budget", type=float, default=.05)
-    parser.add_argument("--engine", choices=ENGINE_NAMES, default="baseline")
+    parser.add_argument("--engine", choices=ENGINE_NAMES, default=DEFAULT_ENGINE)
     parser.add_argument("--depth", type=int, default=2)
     parser.add_argument("--max-plies", type=int, default=40)
     parser.add_argument("--seed", type=int, default=20261009)

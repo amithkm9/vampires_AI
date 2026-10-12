@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from vampires.model import Board, Cell, Species
-from vampires.engines import ENGINE_NAMES, choose_engine
+from vampires.engines import DEFAULT_ENGINE, ENGINE_NAMES, choose_engine
 from vampires.rules import validate_moves
 from vampires.search import SearchConfig
 
@@ -34,7 +34,7 @@ def positions():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--budget", type=float, default=.05)
-    parser.add_argument("--engine", choices=ENGINE_NAMES, default="baseline")
+    parser.add_argument("--engine", choices=ENGINE_NAMES, default=DEFAULT_ENGINE)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     config = SearchConfig()
