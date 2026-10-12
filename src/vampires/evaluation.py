@@ -8,7 +8,12 @@ def distance(a, b):
     return max(abs(a[0] - b[0]), abs(a[1] - b[1]))
 
 
-def terminal_value(board, perspective):
+def terminal_value(board, perspective, *, remaining_plies=None):
+    if remaining_plies == 0:
+        own = sum(board.groups(perspective).values())
+        enemy = sum(board.groups(Species(perspective).opponent).values())
+        # Known local cutoff only; the live protocol supplies no countdown.
+        return float((own > enemy) - (own < enemy))
     own = bool(board.groups(perspective))
     enemy = bool(board.groups(Species(perspective).opponent))
     if own and enemy:

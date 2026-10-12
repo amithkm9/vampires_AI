@@ -55,6 +55,7 @@ class Decision:
     bounded_actions: int = 0
     truncated_generations: int = 0
     preserved_dominance: bool = False
+    remaining_plies: int | None = None
 
 
 @dataclass(frozen=True)
@@ -81,18 +82,23 @@ def state_key(board):
 
 
 def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
-                config=None, clock=monotonic, evaluator=evaluate):
+                config=None, clock=monotonic, evaluator=evaluate, remaining_plies=None):
     """Iterative expectiminimax with conservative bounds for unexpanded chance.
 
     Root selection maximizes the lower bound, breaking ties by upper bound.
     Bounds apply to the retained candidate tree and finite-depth evaluator, not
     all legal actions or full-game win probability. Unknown model actions remain
     [-1,1]. Interrupted deeper iterations cannot replace a finished iteration.
+    A supplied remaining_plies counts ALL player moves, including this move.
+    At zero, use population-based win/draw/loss instead of a heuristic. None
+    means unknown (the live protocol default); search depth is not a game cutoff.
     """
     if not isfinite(time_budget) or time_budget < 0:
         raise ValueError("time_budget must be finite and nonnegative")
     if expires_at is not None and not isfinite(expires_at):
         raise ValueError("expires_at must be finite")
+    if remaining_plies is not None and (type(remaining_plies) is not int or remaining_plies < 1):
+        raise ValueError("A move requires a positive remaining_plies, or None for unknown")
     config = config or SearchConfig()
     species = Species(species)
     started = clock()
@@ -111,7 +117,7 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
             raise ValueError("Evaluation must be finite and in [-1, 1]")
         return Bounds(value, value)
 
-    def action_value(position, side, turn, depth, incumbent=None):
+    def action_value(position, side, turn, depth, remaining, incumbent=None):
         nonlocal chance_count, bounded_actions, unsupported_actions
         low = high = 0.0
         mass = Fraction(0)
@@ -121,7 +127,8 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
                 deadline.check()
                 if index >= config.max_outcomes:
                     break
-                child = visit(outcome.board, side.opponent, depth - 1)
+                child = visit(outcome.board, side.opponent, depth - 1,
+                              None if remaining is None else remaining - 1)
                 chance_count += 1
                 mass += outcome.probability
                 low += float(outcome.probability) * child.lower
@@ -150,21 +157,21 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
         truncated_generations += int(result.truncated)
         return result.turns
 
-    def visit(position, side, depth):
+    def visit(position, side, depth, remaining):
         nonlocal nodes
         deadline.check()
         nodes += 1
-        terminal = terminal_value(position, species)
+        terminal = terminal_value(position, species, remaining_plies=remaining)
         if terminal is not None:
             return Bounds(terminal, terminal)
         if depth == 0:
             return leaf(position, side)
-        key = (state_key(position), side, depth)
+        key = (state_key(position), side, depth, remaining)
         if key in cache:
             return cache[key]
         value = None
         for turn in candidates(position, side):
-            child = action_value(position, side, turn, depth, value)
+            child = action_value(position, side, turn, depth, remaining, value)
             if value is None:
                 value = child
             elif side == species:
@@ -179,7 +186,10 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
 
     try:
         deadline.check()
-        certified = preserving_turn(board, species, check=deadline.check) if config.preserve_dominance else None
+        # Known-horizon comparisons evaluate outcomes explicitly. The live
+        # unknown-horizon certificate remains the same conditional policy.
+        certified = (preserving_turn(board, species, check=deadline.check)
+                     if config.preserve_dominance and remaining_plies is None else None)
         if certified:
             best, preserved = certified, True
             # A conditional strategy certificate is not a terminal game result.
@@ -188,12 +198,13 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
             roots = candidates(board, species)
             if roots:
                 best = roots[0]  # Retain useful generation even if search cannot finish an action.
-            for depth in range(min(2, config.max_depth), config.max_depth + 1):
+            max_depth = min(config.max_depth, remaining_plies) if remaining_plies is not None else config.max_depth
+            for depth in range(min(2, max_depth), max_depth + 1):
                 iteration_best = iteration_bounds = None
                 count = 0
                 for turn in roots:
                     deadline.check()
-                    bounds = action_value(board, species, turn, depth, iteration_bounds)
+                    bounds = action_value(board, species, turn, depth, remaining_plies, iteration_bounds)
                     count += 1
                     if (iteration_bounds is None or
                             (bounds.lower, bounds.upper) > (iteration_bounds.lower, iteration_bounds.upper)):
@@ -213,4 +224,4 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
     return Decision(best, best_bounds.point, completed_depth, selected_depth, evaluated_roots,
                     nodes, chance_count, selective_nodes, unsupported_actions, timed_out,
                     clock() - started, best_bounds.lower, best_bounds.upper, bounded_actions,
-                    truncated_generations, preserved)
+                    truncated_generations, preserved, remaining_plies)

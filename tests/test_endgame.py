@@ -5,6 +5,7 @@ from vampires.budget import SearchTimeout
 from vampires.endgame import ExactSolver, MatchOutcome, SolverLimit
 from vampires.model import Board, Cell, Species
 from vampires.rules import Move
+from vampires.search import SearchConfig, choose_turn
 from vampires.simulation import AmbiguousBattle, single_move_outcomes, single_moves
 from vampires.turns import GenerationLimit
 
@@ -106,6 +107,52 @@ class ExactEndgameTests(unittest.TestCase):
         for horizon in (-1, True, 1.5, None):
             with self.assertRaises(ValueError):
                 self.solver().solve(Board(1, 2), V, horizon)
+
+
+class SearchHorizonTests(unittest.TestCase):
+    def test_known_final_move_takes_useful_gamble_that_heuristic_avoids(self):
+        board = Board(2, 3, {(1, 0): Cell(vampires=2), (0, 0): Cell(humans=3),
+                              (2, 1): Cell(werewolves=3)})
+        oracle = ExactSolver(V, shared_target="aggregate")
+        values = oracle.action_values(board, V, 1)
+        aware = choose_turn(board, V, remaining_plies=1, time_budget=10)
+        unaware = choose_turn(board, V, time_budget=10, config=SearchConfig(max_depth=1))
+        self.assertEqual(aware.moves[0].target, (0, 0))
+        self.assertGreater(values[aware.moves].score, values[unaware.moves].score)
+        self.assertAlmostEqual(aware.value, float(max(o.utility for o in values.values())))
+        self.assertEqual(aware.completed_depth, 1)
+        self.assertEqual(aware.remaining_plies, 1)
+        self.assertIsNone(unaware.remaining_plies)
+
+    def test_two_ply_search_matches_exact_outcomes_and_both_species(self):
+        def no_heuristic(*args, **kwargs):
+            raise AssertionError("Known cutoff within search must use outcomes")
+        for species in Species:
+            for count in (1, 2):
+                board = Board(1, 3, {(0, 0): Cell(**{species.value: count}),
+                                      (2, 0): Cell(**{species.opponent.value: 1})})
+                oracle = ExactSolver(species, shared_target="aggregate")
+                reference = oracle.solve(board, species, 2)
+                decision = choose_turn(board, species, remaining_plies=2, time_budget=10,
+                                       evaluator=no_heuristic)
+                self.assertEqual(decision.completed_depth, 2)
+                self.assertAlmostEqual(decision.value, float(reference.outcome.utility))
+                self.assertAlmostEqual(decision.value, float(oracle.action_values(board, species, 2)[decision.moves].utility))
+
+    def test_horizon_beyond_search_still_uses_heuristic_and_unknown_is_default(self):
+        board = Board(1, 5, {(0, 0): Cell(vampires=2), (4, 0): Cell(werewolves=2)})
+        config = SearchConfig(max_depth=2)
+        a = choose_turn(board, V, time_budget=10, config=config)
+        b = choose_turn(board, V, time_budget=10, config=config, remaining_plies=None)
+        c = choose_turn(board, V, time_budget=10, config=config, remaining_plies=20)
+        self.assertEqual((a.moves, a.value), (b.moves, b.value))
+        self.assertEqual((a.moves, a.value), (c.moves, c.value))
+
+    def test_ended_or_invalid_horizon_never_returns_a_move(self):
+        board = Board(1, 2, {(0, 0): Cell(vampires=1)})
+        for horizon in (0, -1, True, 1.5):
+            with self.assertRaises(ValueError):
+                choose_turn(board, V, remaining_plies=horizon)
 
 
 if __name__ == "__main__":
