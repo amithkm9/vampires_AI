@@ -7,6 +7,7 @@ prove full-game optimality. No AI/search/tree/graph library is used.
 
 from dataclasses import dataclass
 from fractions import Fraction
+from itertools import islice
 from math import isfinite
 from time import monotonic
 
@@ -36,8 +37,9 @@ class SearchConfig:
                 raise ValueError(f"{field} must be a positive integer")
         if self.max_depth > 8:
             raise ValueError("Baseline search depth is limited to 8")
-        if type(self.protect_tactics) is not bool:
-            raise ValueError("protect_tactics must be a boolean")
+        for field in ("preserve_dominance", "protect_tactics"):
+            if type(getattr(self, field)) is not bool:
+                raise ValueError(f"{field} must be a boolean")
 
 
 @dataclass(frozen=True)
@@ -126,10 +128,8 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
         mass = Fraction(0)
         try:
             stream = iter_turn_outcomes(position, side, turn, check=deadline.check)
-            for index, outcome in enumerate(stream):
+            for outcome in islice(stream, config.max_outcomes):
                 deadline.check()
-                if index >= config.max_outcomes:
-                    break
                 child = visit(outcome.board, side.opponent, depth - 1,
                               None if remaining is None else remaining - 1)
                 chance_count += 1

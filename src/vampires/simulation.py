@@ -223,10 +223,25 @@ def iter_turn_outcomes(board, species, moves, *, check=None):
     Cartesian product, not a globally probability-sorted joint distribution.
     The separate eager implementation remains a regression reference.
     """
+    for step in iter_turn_outcome_steps(board, species, moves, check=check):
+        if step is not None:
+            yield step
+
+
+def iter_turn_outcome_steps(board, species, moves, *, check=None):
+    """Yield preparation checkpoints (None), then the exact outcome stream.
+
+    A joint action can contain many expensive battles. Yield before preparing
+    each target's distribution so resumable callers can share work with other
+    actions. None carries no probability mass; ordinary transition consumers
+    should keep using iter_turn_outcomes. Individual battle arithmetic still
+    checks the caller's deadline cooperatively.
+    """
     species, base, targets = _live_layout(board, species, moves, check)
     factors = []
     for position, incoming, target in targets:
         checkpoint(check)
+        yield None
         defenders = target.humans or target.count(species.opponent)
         counts = (battle_distribution(incoming, defenders, humans=bool(target.humans), check=check)
                   if defenders else {(incoming + target.count(species), 0): Fraction(1)})

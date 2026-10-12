@@ -5,10 +5,15 @@ from .model import Species
 from .rules import Move, validate_moves
 
 
-def dominant_stack(board, species):
+def dominant_stack(board, species, *, check=None):
     species = Species(species)
-    ceiling = sum(cell.humans + cell.count(species.opponent) for cell in board.cells.values())
-    for position, count in board.groups(species).items():
+    ceiling = 0
+    for cell in board.cells.values():
+        checkpoint(check)
+        ceiling += cell.humans + cell.count(species.opponent)
+    for position, cell in board.cells.items():
+        checkpoint(check)
+        count = cell.count(species)
         if count > ceiling and 2 * count >= 3 * ceiling:
             return position, count, ceiling
     return None
@@ -23,7 +28,7 @@ def preserving_turn(board, species, *, check=None):
     """
     checkpoint(check)
     species = Species(species)
-    certificate = dominant_stack(board, species)
+    certificate = dominant_stack(board, species, check=check)
     if certificate is None:
         return None
     source, count, ceiling = certificate
@@ -35,8 +40,12 @@ def preserving_turn(board, species, *, check=None):
         if count + cell.humans + cell.count(species) > 255:
             continue
         # Prefer immediate elimination/conversion, then approach the nearest enemy.
-        gap = min((max(abs(target[0] - p[0]), abs(target[1] - p[1])) for p in enemies), default=0)
-        priority = (cell.count(species.opponent), cell.humans, -gap)
+        gap = None
+        for position in enemies:
+            checkpoint(check)
+            steps = max(abs(target[0] - position[0]), abs(target[1] - position[1]))
+            gap = steps if gap is None else min(gap, steps)
+        priority = (cell.count(species.opponent), cell.humans, -(gap or 0))
         choices.append((priority, Move(*source, count, *target)))
     if not choices:
         return None

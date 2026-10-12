@@ -16,7 +16,7 @@ from .evaluation import evaluate, terminal_value
 from .model import Species
 from .rules import validate_moves
 from .search import Bounds, Decision, SearchConfig, chance_bounds, state_key
-from .simulation import AmbiguousBattle, UnsupportedPopulation, iter_turn_outcomes
+from .simulation import AmbiguousBattle, UnsupportedPopulation, iter_turn_outcome_steps
 from .turns import candidate_turns, fallback_turn
 
 
@@ -33,8 +33,9 @@ def choose_balanced(board, species, *, time_budget=1.25, expires_at=None,
                     remaining_plies=None, generator=candidate_turns):
     """Round-robin root continuations, followed by deeper complete iterations.
 
-    A continuation yields after a leaf update or candidate generation. Expensive
-    stochastic roots therefore cannot monopolize the entire deadline. Proven
+    A continuation yields after a leaf update, candidate generation or before
+    preparing each battle distribution. Large joint actions therefore share
+    preprocessing as well as tree work with other roots. Proven
     inferior roots stop for this iteration. Interrupted deeper iterations retain
     the previous completed decision; a partial first iteration selects by lower
     bound, then upper bound. No unknown live game cutoff is inferred.
@@ -73,10 +74,19 @@ def choose_balanced(board, species, *, time_budget=1.25, expires_at=None,
         mass = Fraction(0)
         bounds = Bounds(-1., 1.)
         try:
-            for index, outcome in enumerate(iter_turn_outcomes(position, side, turn, check=deadline.check)):
-                deadline.check()
-                if index >= config.max_outcomes:
+            stream = iter_turn_outcome_steps(position, side, turn, check=deadline.check)
+            # Do not generate outcome N+1 merely to notice the N-outcome cap.
+            # Generating even one unused joint successor can consume the deadline.
+            expanded = 0
+            while expanded < config.max_outcomes:
+                try:
+                    outcome = next(stream)
+                except StopIteration:
                     break
+                deadline.check()
+                if outcome is None:
+                    yield chance_bounds(low, high, mass)
+                    continue
                 probability = float(outcome.probability)
                 for child in visit(outcome.board, side.opponent, depth - 1,
                                    None if remaining is None else remaining - 1):
@@ -90,6 +100,7 @@ def choose_balanced(board, species, *, time_budget=1.25, expires_at=None,
                         bounded_actions += int(bounds.point is None)
                         return
                 chance_count += 1
+                expanded += 1
                 mass += outcome.probability
                 low += probability * child.lower
                 high += probability * child.upper
