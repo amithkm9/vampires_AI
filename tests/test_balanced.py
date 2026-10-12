@@ -8,7 +8,7 @@ from vampires.evaluation import evaluate
 from vampires.model import Board, Cell, Species, load_map
 from vampires.rules import Move, validate_moves
 from vampires.search import SearchConfig, choose_turn, state_key
-from vampires.strategy import evaluate_resources, portfolio_turns, resource_projection
+from vampires.strategy import cohesive_turns, evaluate_resources, portfolio_turns, resource_projection
 from vampires.turns import Candidates, candidate_turns, fallback_turn
 
 V, W = Species.VAMPIRES, Species.WEREWOLVES
@@ -103,6 +103,16 @@ class BalancedTests(unittest.TestCase):
 
 
 class StrategyTests(unittest.TestCase):
+    def test_cohesive_abstraction_retains_whole_attacks_and_marks_omission(self):
+        board = Board(2, 3, {(0, 0): Cell(vampires=4), (1, 0): Cell(werewolves=5)})
+        result = cohesive_turns(board, V)
+        self.assertTrue(result.selective)
+        self.assertEqual(len(result.turns), 3)
+        self.assertIn((Move(0, 0, 4, 1, 0),), result.turns)
+        for turn in result.turns:
+            self.assertTrue(all(move.count == board.at(move.source).count(V) for move in turn))
+            validate_moves(board, V, turn)
+
     def test_resource_race_counts_house_once_and_initiative_breaks_tie(self):
         board = Board(1, 5, {(0, 0): Cell(vampires=4), (2, 0): Cell(humans=4),
                              (4, 0): Cell(werewolves=4)})

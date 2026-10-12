@@ -9,8 +9,18 @@ from math import tanh
 from .budget import SearchTimeout, checkpoint
 from .evaluation import distance, evaluate, terminal_value
 from .model import Species
-from .rules import Move, validate_moves
-from .turns import Candidates, candidate_turns, canonical, move_priority
+from .rules import Move
+from .turns import Candidates, candidate_turns, canonical, compatible_extension, move_priority
+
+
+def cohesive_turns(board, species, **kwargs):
+    """Whole-group action abstraction; omits partial moves including enemy splits.
+
+    Retains whole-group attacks, merges, retreats and joint movement. This trades
+    tactical coverage for more complete finite-depth search, not a proof that
+    splitting is inferior. Used identically for both players in experiments.
+    """
+    return candidate_turns(board, species, whole_groups=True, **kwargs)
 
 
 def resource_projection(board, to_move, *, check=None):
@@ -21,7 +31,9 @@ def resource_projection(board, to_move, *, check=None):
     and overflow is excluded. Routes can still interfere or be intercepted.
     """
     to_move = Species(to_move)
+    checkpoint(check)
     groups = {side: board.groups(side) for side in Species}
+    checkpoint(check)
     projected = {side: float(sum(group.values())) for side, group in groups.items()}
     for target, cell in board.cells.items():
         checkpoint(check)
@@ -72,27 +84,50 @@ def portfolio_turns(board, species, *, limit=64, per_group=12, check=None,
     if not base.selective or base.truncated:
         return base
     species = Species(species)
-    groups, opponents = board.groups(species), board.groups(species.opponent)
-    houses = [(p, c.humans) for p, c in board.cells.items() if c.humans]
     families = {name: [] for name in ("collect", "attack", "merge", "escape")}
     truncated = False
     try:
+        checkpoint(check)
+        groups, opponents = board.groups(species), board.groups(species.opponent)
+        houses = []
+        for position, cell in board.cells.items():
+            checkpoint(check)
+            if cell.humans:
+                houses.append((position, cell.humans))
         for policy, family in families.items():
             joint = ()
             for source, count in sorted(groups.items(), key=lambda item: (-item[1], item[0])):
                 checkpoint(check)
                 choices = []
+                targets = []
+                candidates = (houses if policy == "collect" else
+                              opponents.items() if policy == "attack" else
+                              groups.items() if policy == "merge" else ())
+                for position, population in candidates:
+                    checkpoint(check)
+                    if ((policy == "collect" and population <= count) or
+                            (policy == "attack" and 2 * count >= 3 * population) or
+                            (policy == "merge" and position != source)):
+                        targets.append(position)
                 for target in board.neighbors(source):
                     checkpoint(check)
                     move = Move(*source, count, *target)
                     gain = move_priority(board, species, move)
-                    targets = ([p for p, h in houses if h <= count] if policy == "collect" else
-                               [p for p, n in opponents.items() if 2 * count >= 3 * n] if policy == "attack" else
-                               [p for p in groups if p != source] if policy == "merge" else [])
-                    approach = -min((distance(target, p) for p in targets), default=0)
-                    danger = sum(n for p, n in opponents.items() if distance(target, p) <= 1)
-                    escape = min((distance(target, p) for p, n in opponents.items()
-                                  if 2 * n >= 3 * count), default=0)
+                    nearest = None
+                    for position in targets:
+                        checkpoint(check)
+                        steps = distance(target, position)
+                        nearest = steps if nearest is None else min(nearest, steps)
+                    approach = -(nearest or 0)
+                    danger, threat_distance = 0, None
+                    for position, population in opponents.items():
+                        checkpoint(check)
+                        steps = distance(target, position)
+                        if steps <= 1:
+                            danger += population
+                        if 2 * population >= 3 * count:
+                            threat_distance = steps if threat_distance is None else min(threat_distance, steps)
+                    escape = threat_distance or 0
                     # A local warning, not a guarantee of survival under joint replies.
                     risk = count if danger and 2 * danger >= 3 * count else 0
                     score = gain + .2 * approach - 2 * risk + (.5 * escape if policy == "escape" else 0)
@@ -100,15 +135,10 @@ def portfolio_turns(board, species, *, limit=64, per_group=12, check=None,
                 choices.sort(key=lambda item: (-item[0], item[1].as_tuple()))
                 family.extend((move,) for _, move in choices[:2])
                 for _, move in choices:
-                    proposed = canonical(joint + (move,))
-                    contested = board.at(move.target).humans or board.at(move.target).count(species.opponent)
-                    if contested and any(old.target == move.target for old in joint):
+                    checkpoint(check)
+                    if not compatible_extension(board, species, joint, move):
                         continue
-                    try:
-                        validate_moves(board, species, proposed)
-                    except ValueError:
-                        continue
-                    joint = proposed
+                    joint = canonical(joint + (move,))
                     break
             if joint:
                 family.insert(0, joint)
@@ -125,6 +155,6 @@ def portfolio_turns(board, species, *, limit=64, per_group=12, check=None,
         if len(reserved) >= limit // 2:
             break
     merged = list(dict.fromkeys(reserved[:limit // 2] + list(base.turns)))[:limit]
-    for turn in merged:
-        validate_moves(board, species, turn)
+    # Base turns and whole-source policy atoms were already checked. Re-running
+    # the board-wide validator here could overrun an already-expired deadline.
     return Candidates(tuple(merged), True, truncated)
