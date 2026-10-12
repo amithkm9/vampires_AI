@@ -116,12 +116,15 @@ class Candidates:
 
 
 def candidate_turns(board, species, *, limit=64, per_group=12, check=None,
-                    allow_partial=False, max_expansions=2048):
+                    allow_partial=False, max_expansions=2048, protect_tactics=False):
     """Combine ranked per-source choices with whole-turn rule validation.
 
     All one-record amounts are retained on a one-group count<=8 position when
     limit>=64. Larger positions use thresholds and a bounded beam. Friendly
     merges are allowed; shared contested destinations are withheld until verified.
+    Experimental protect_tactics reserves whole-group attacks with a nonzero
+    chance of success before filling the remaining budget by ordinary priority.
+    It does not protect every decisive split, escape, merge, or joint attack.
     """
     if (type(limit) is not int or limit < 1 or type(per_group) is not int or per_group < 1
             or type(max_expansions) is not int or max_expansions < 1):
@@ -132,6 +135,7 @@ def candidate_turns(board, species, *, limit=64, per_group=12, check=None,
     if not groups or board.rows * board.columns == 1:
         return Candidates((), False)
     pool = {}
+    protected = {}
     beam = [(0.0, ())]
     selective = len(groups) > 1
     truncated = False
@@ -156,6 +160,10 @@ def candidate_turns(board, species, *, limit=64, per_group=12, check=None,
                     priority = move_priority(board, species, move)
                     options.append((priority, move))
                     pool[(move,)] = priority
+                    enemy = cell.count(species.opponent)
+                    if (protect_tactics and amount == count and
+                            (cell.humans or (enemy and 2 * enemy < 3 * count))):
+                        protected[(move,)] = priority
             options.sort(key=lambda item: (-item[0], item[1].as_tuple()))
             by_source.append(options[:per_group])
             if len(pool) > limit * 4:
@@ -189,8 +197,17 @@ def candidate_turns(board, species, *, limit=64, per_group=12, check=None,
         truncated = True
     except GenerationLimit:
         truncated = True
+    # Preserve reserved moves even if intermediate pool trimming removed them.
+    pool.update(protected)
     ordered = [turn for turn, _ in ranked(pool.items())]
     selective |= truncated or len(ordered) > limit
+    if protected:
+        reserved = {turn for turn, _ in ranked(protected.items())[:limit]}
+        for turn in ordered:
+            if len(reserved) >= limit:
+                break
+            reserved.add(turn)
+        ordered = [turn for turn in ordered if turn in reserved]
     if not truncated:
         try:
             checkpoint(check)

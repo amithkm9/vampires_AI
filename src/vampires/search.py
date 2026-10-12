@@ -27,6 +27,7 @@ class SearchConfig:
     max_outcomes: int = 512
     cache_entries: int = 10000
     preserve_dominance: bool = True
+    protect_tactics: bool = False
 
     def __post_init__(self):
         for field in ("max_depth", "candidates", "per_group", "max_outcomes", "cache_entries"):
@@ -35,6 +36,8 @@ class SearchConfig:
                 raise ValueError(f"{field} must be a positive integer")
         if self.max_depth > 8:
             raise ValueError("Baseline search depth is limited to 8")
+        if type(self.protect_tactics) is not bool:
+            raise ValueError("protect_tactics must be a boolean")
 
 
 @dataclass(frozen=True)
@@ -152,7 +155,8 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
         # Spend at most 3% of the original budget on any one generation call.
         local = Deadline(min(deadline.expires_at, clock() + max(.0002, .03 * time_budget)), clock)
         result = candidate_turns(position, side, limit=config.candidates,
-                                 per_group=config.per_group, check=local.check, allow_partial=True)
+                                 per_group=config.per_group, check=local.check, allow_partial=True,
+                                 protect_tactics=config.protect_tactics)
         selective_nodes += int(result.selective)
         truncated_generations += int(result.truncated)
         return result.turns

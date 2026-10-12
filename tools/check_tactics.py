@@ -85,13 +85,14 @@ def omission_kind(board, side, turn):
     return "ranking_or_combination_cap"
 
 
-def audit(board, horizon, *, perspective=V, limit=64, seconds=5, max_states=20000):
+def audit(board, horizon, *, perspective=V, limit=64, seconds=5, max_states=20000, protect_tactics=False):
     perspective = Species(perspective)
     deadline = Deadline(monotonic() + seconds)
     reference = ExactSolver(perspective, shared_target="aggregate", max_states=max_states, check=deadline.check)
     full = reference.action_values(board, perspective, horizon)
     def retained(position, side):
-        generated = candidate_turns(position, side, limit=limit, check=deadline.check)
+        generated = candidate_turns(position, side, limit=limit, check=deadline.check,
+                                    protect_tactics=protect_tactics)
         return generated.turns
     restricted = ExactSolver(perspective, shared_target="aggregate", max_states=max_states,
                              turn_factory=retained, check=deadline.check)
@@ -131,6 +132,7 @@ def main():
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--seconds-per-case", type=float, default=5)
     parser.add_argument("--limits", type=int, nargs="+", default=[64, 8])
+    parser.add_argument("--protect-tactics", action="store_true")
     args = parser.parse_args()
     if args.output.exists():
         parser.error("Use a fresh output path; preserve original records")
@@ -145,7 +147,8 @@ def main():
                           "species": perspective.value, "candidate_limit": limit, "max_states_per_solver": 20000}
                 begin = monotonic()
                 try:
-                    record.update(audit(board, horizon, perspective=perspective, limit=limit, seconds=args.seconds_per_case))
+                    record.update(audit(board, horizon, perspective=perspective, limit=limit,
+                                        seconds=args.seconds_per_case, protect_tactics=args.protect_tactics))
                 except (SolverLimit, SearchTimeout, GenerationLimit, OutcomeLimit, UnsupportedPopulation) as exc:
                     record.update(complete=False, error=type(exc).__name__, message=str(exc))
                 record["elapsed_seconds"] = monotonic() - begin
@@ -158,6 +161,7 @@ def main():
               "command": shlex.join([sys.executable, *sys.argv]),
               "source_sha256": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
               "seed_range": [1201, 1208], "seconds_per_case": args.seconds_per_case,
+              "protect_tactics": args.protect_tactics,
               "elapsed_seconds": monotonic() - started,
               "limits": "Exact finite-horizon DEVELOPMENT positions under offline shared-target aggregation and independent combat. "
                         "Equal populations are a draw convention. Selective tree uses live generation without wall-clock truncation. "

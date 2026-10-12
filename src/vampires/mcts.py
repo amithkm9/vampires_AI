@@ -56,7 +56,8 @@ def choose_mcts(board, species, *, time_budget=1.25, seed=0, config=None,
         if key not in tree:
             local = Deadline(min(deadline.expires_at, clock() + max(.0002, .03 * time_budget)), clock)
             choices = candidate_turns(position, side, limit=config.candidates, per_group=config.per_group,
-                                      check=local.check, allow_partial=True).turns
+                                      check=local.check, allow_partial=True,
+                                      protect_tactics=config.protect_tactics).turns
             if not choices:
                 return evaluator(position, species, side, check=deadline.check)
             if len(tree) >= config.cache_entries:
