@@ -2,7 +2,7 @@
 
 Build an AI for the Foundation of AI tournament. The game is a fully observable grid contest: convert humans, grow your species, anticipate the opponent, and finish with the dominant population. Battles can be random. Each turn must be sent to the supplied server within **two seconds**.
 
-The project now has a **playable opponent-aware search engine**: legal combined turns, exact battle probabilities with bounds on unexpanded outcomes, partial candidate generation, dominant-stack preservation, a deadline fallback, and a persistent TCP launcher. It passes 122 tests. An initial 108-match comparison does **not** establish a decisive advantage over the published baseline. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
+The project now has a **playable opponent-aware search engine**: legal combined turns, exact battle probabilities with bounds on unexpanded outcomes, partial candidate generation, dominant-stack preservation, a deadline fallback, and a persistent TCP launcher. It passes 146 tests. Known-cutoff outcome scoring, an exact small-position reference, and live repetition diagnostics are implemented. An initial 108-match comparison does **not** establish a decisive advantage over the published baseline. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
 
 ## Start here
 
@@ -14,6 +14,7 @@ The project now has a **playable opponent-aware search engine**: legal combined 
 6. Read [the baseline implementation and limitations](docs/IMPLEMENTATION.md) to distinguish implemented behavior from planned improvements.
 7. Read [the strength audit](docs/STRENGTH_AUDIT.md) and [all comparison results](experiments/2026-10-11-strength/EXPERIMENT.md) before choosing an experimental engine.
 8. Follow [the next algorithm improvements](docs/NEXT_ALGORITHM.md), prioritized from [verified match replays](reports/replay-analysis-2026-10-11.md).
+9. Read [the outcome and tactical-coverage experiment](experiments/2026-10-12-outcomes/EXPERIMENT.md): known cutoffs improve some exact development decisions; attack reservation also exposes a regression and remains disabled by default.
 
 ## Launch the player
 
@@ -52,13 +53,15 @@ Original file contents were preserved; only their locations changed. See the [so
 | `src/vampires/evaluation.py`, `search.py`, `budget.py` | Bounded evaluation, iterative expectiminimax, per-search cache, cooperative deadlines |
 | `src/vampires/certificates.py` | Preserves an intact stack whose dominance follows conditionally from the written rules |
 | `src/vampires/growth.py`, `mcts.py` | Experimental multi-house planning and sampled adversarial UCT; neither is the live default |
+| `src/vampires/endgame.py`, `history.py` | Exact finite-horizon offline outcome reference and bounded authoritative repetition diagnostics |
 | `src/vampires/player.py`, `run.py` | Persistent game loop and launch command |
-| `tests/` | 122 tests covering rules, transitions, chance bounds, tactics, deadlines, and protocol lifecycle |
+| `tests/` | 146 tests covering rules, transitions, chance bounds, cutoff outcomes, tactical coverage, history, deadlines, and protocol lifecycle |
 | `tools/inspect_map.py` | Read a map without running the Windows generator |
 | `tools/analyze_maps.py` | Reproduce exact local reply risks and optimistic capture-route calculations |
 | `tools/check_player.py`, `tools/check_search.py` | Reproducible local TCP matches and synthetic timing checks |
 | `tools/benchmark_strength.py`, `tools/benchmark_long.py` | Paired engine comparisons against the immutable published baseline, with raw records and provenance |
 | `tools/analyze_replays.py` | Reconstruct stored matches and diagnose combat, repetition, resource deficits, and unfinished root comparisons |
+| `tools/check_tactics.py`, `tools/check_outcomes.py` | Measure candidate/reply omissions and search decision regret against exact tiny outcome trees |
 
 All working Python code uses the standard library. The current syntax targets Python 3.10 or newer; local validation used Python 3.14.6. Confirm the Python version available on CTI before selecting the final runtime. No dependency installation is needed for the current code.
 

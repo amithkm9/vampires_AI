@@ -1,6 +1,8 @@
 # Next algorithm: recognize consequential moves and reduce avoidable losses
 
-Updated: 2026-10-11. This is an implementation and evaluation plan. Features described below are proposed unless explicitly marked existing. The current engine remains bounded expectiminimax; no new tournament-strength claim is made.
+Updated: 2026-10-12. This is an implementation and evaluation plan. Features described below are proposed unless explicitly marked existing. The current engine remains bounded expectiminimax; no new tournament-strength claim is made.
+
+October 12 implementation: exact finite-horizon references, known-cutoff search, bounded repetition diagnostics, and an exact two-sided candidate/reply audit are implemented. At limit 64, known cutoff improves 8/30 tiny development decisions and worsens none. Optional attack reservation improves two limit-8 decisions but worsens one by displacing a merge, so it remains disabled. See [the complete experiment](../experiments/2026-10-12-outcomes/EXPERIMENT.md). Live history currently logs diagnostics only; strategic cycle handling and better root allocation remain next work.
 
 ## What the evidence changes
 
@@ -84,8 +86,8 @@ Learned evaluation is a later option only after diverse trace data exist. Any tr
 ## Build and promotion order
 
 1. **Completed diagnostic:** immutable replay reconstruction and extraction of real losing/unfinished-search positions.
-2. **Next implementation:** finite-horizon outcome references, repetition diagnostics, and tactical candidate-coverage measurement. These establish what the engine is missing before adding new heuristics.
-3. **Next candidate:** improve root allocation and critical-reply coverage, with bounded tactical extensions. Keep each feature separately switchable.
+2. **Completed first implementation:** finite-horizon outcome references, known-cutoff search, repetition diagnostics, and initial tactical candidate-coverage measurement. These now supply exact counterexamples and policy diagnostics; they do not solve live unknown-horizon endings.
+3. **Next candidate:** improve root allocation and protect attacks, escapes, defensive merges, and critical partial moves together, with bounded tactical extensions. Attack-only reservation displaced a useful merge in one measured fixture. Keep each feature separately switchable and use new evaluation cases before promotion.
 4. **Strategic candidate:** add contested growth/interception and compare against the same tactical engine.
 5. **Optimization/challengers:** profile, improve caches/representation, then compare sampled expectiminimax and stronger MCTS under equal time.
 6. **Promotion:** test one change at a time against the frozen baseline, greedy growth, tactical adversarial, lead-preserving/escape, and split/merge opponents. Include unseen map families and seeds, both species, verified starting-order variants, and the normal 1.25-second search budget. Preserve losses and raw diagnostics.

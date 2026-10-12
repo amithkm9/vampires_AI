@@ -1,10 +1,22 @@
 # Project status
 
-Updated: 2026-10-11.
+Updated: 2026-10-12.
 
 ## Current milestone
 
-Phases 0 and 1 are complete. The local Phase 2 forward model and Phase 3 playable baseline are implemented, with Phase 4 chance bounds, partial generation, and dominant-stack preservation. Phase 6 has initial comparative evidence. The full suite passes **122 tests**. **The player completes local TCP matches, but 108 comparative matches do not establish a decisive improvement over the published baseline. Official-server parity, CTI deployment, and strength against tournament opponents remain unverified.**
+Phases 0 and 1 are complete. The local Phase 2 forward model and Phase 3 playable baseline are implemented, with Phase 4 chance bounds, partial generation, and dominant-stack preservation. Known-cutoff search, exact tiny outcome references, and repetition diagnostics are now implemented. Phase 6 has initial comparative evidence. The full suite passes **146 tests**. **The player completes local TCP matches, but 108 historical comparative matches do not establish a decisive improvement over the published baseline. Official-server parity, CTI deployment, and strength against tournament opponents remain unverified.**
+
+## Outcome and coverage milestone, 2026-10-12
+
+- Added `endgame.ExactSolver`: full canonical legal finite-horizon trees with rational W/D/L outcomes, explicit offline combat assumptions, horizon/side-aware caching, and failure on resource/ambiguity limits. An exact score tie minimizes the acting side's loss probability. This is a small offline reference, not a live map solver.
+- Added `choose_turn(..., remaining_plies=N)` for known controlled cutoffs. Counts include both species' moves. At zero, population win/draw/loss replaces the heuristic. The live protocol still passes no horizon; it does not infer 200 plies from the example configuration.
+- Added bounded `PositionHistory` to the persistent player. Authoritative repeated positions record visits, update periods, leading/tied/trailing status, and a trailing-cycle review flag. END/BYE clear history. No automatic draw rule, blanket repetition penalty, or strategic cycle-breaking claim is introduced.
+- Added 24 tests (146 total), including independent tiny outcome trees, necessary gambles, safe wins/draws, cutoff handling, repetition reset, and exact tactical-omission witnesses. Full suite: `PYTHONPATH=src python3 -m unittest discover -s tests`, 146 passed in 0.651 seconds on Python 3.14.6.
+- Recorded 60 two-sided exact coverage cases (15 development positions, two species, limits 64/8), plus an initial 30-case vampire pilot. At limit 64, seven of thirty decisions lose value through omitted root moves, and four positions contain optimistic action values from omitted replies. The reported default-limit witnesses involve unverified shared-target combat under the explicit offline aggregation assumption.
+- Implemented optional `SearchConfig(protect_tactics=True)` to reserve whole-group attacks with a nonzero chance of success. The 60-case follow-up fixes two decisions at limit 8 but worsens one by displacing a merge; limit-64 decision scores are unchanged. **Keep this experiment disabled by default.**
+- Evaluated 180 search decisions at a 1.25-second budget against exact outcomes. At limit 64, known cutoff improves 8/30 position/species cases, ties 22, worsens none. At limit 8 it improves 9, ties 21, worsens none. These reused tiny development fixtures are not matches or independent evidence of tournament strength. Maximum observed search time was 0.079753 seconds; most tiny trees finish before the budget.
+- Preserved commands, source hashes, full boards, assumptions, all negative results, and exact scores in [the experiment record](experiments/2026-10-12-outcomes/EXPERIMENT.md). Historical 108-match data are unchanged; replaying them after runtime changes requires their recorded source revision.
+- Passed four new local TCP matches / 30 AI turns at the normal 1.25-second budget, both maps/species, restart, unrelated working directory, and clean BYE. Maximum response: **1.250297 seconds**. Record: `reports/player-outcomes-smoke-2026-10-12.json`. Socket binding required authorized execution outside the sandbox. Original material hashes and the current experiment/TCP source hashes match; imports remain standard-library only. Official-server/CTI checks are still pending.
 
 Completed work:
 
@@ -31,7 +43,7 @@ Completed work:
 
 ## Next work
 
-Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md) and [TODO.md](TODO.md): add finite-horizon outcome references and repetition diagnostics, measure tactical opponent-reply coverage, compare root moves before deep refinement, and account for interception/resource denial in growth plans. Obtain official-server/CTI evidence alongside normal-budget comparisons and ablations. The [strength audit](docs/STRENGTH_AUDIT.md), [implementation notes](docs/IMPLEMENTATION.md), and [experiment record](experiments/2026-10-11-strength/EXPERIMENT.md) distinguish implemented behavior from remaining work. Keep bounded expectiminimax as the default; the basic UCT and growth experiments do not justify promotion. The replay update changes diagnostics and planning only; the previously validated 122-test runtime is unchanged.
+Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md) and [TODO.md](TODO.md): protect attacks, escapes, and defensive merges together; compare root moves before deep refinement; use repetition to guide endgame/resource analysis; and account for interception/resource denial in growth plans. Exact references, known cutoff scoring, repetition diagnostics, and initial tactical-coverage measurements are complete. Obtain official-server/CTI evidence alongside normal-budget comparisons and ablations. Keep bounded expectiminimax as the default; growth, UCT, and attack reservation remain experimental. The new outcome comparisons are development evidence, not a replacement for competitive matches.
 
 ## Repository publication
 
