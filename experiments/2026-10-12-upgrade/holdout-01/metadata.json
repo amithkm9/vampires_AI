@@ -1,0 +1,77 @@
+{
+  "started_utc": "2026-10-12T09:26:22.860703+00:00",
+  "baseline_revision": "d28c5179a721bb7812c14d277a5cc327c641d47c",
+  "candidate_revision": "c3f90370b9b11f19dbf601ae914aa70267d9a071",
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "cpu_count": 14,
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 tools/benchmark_upgrade.py --engines cohesive_material --budget 1.25 --max-plies 100 --map-seeds 411 587 --combat-seeds 20261017 --output experiments/2026-10-12-upgrade/holdout-01",
+  "budget_seconds": 1.25,
+  "max_plies": 100,
+  "search_config": {
+    "max_depth": 3,
+    "candidates": 64,
+    "per_group": 12,
+    "max_outcomes": 512,
+    "cache_entries": 10000,
+    "preserve_dominance": true,
+    "protect_tactics": false
+  },
+  "engines": [
+    "cohesive_material"
+  ],
+  "map_seeds": [
+    411,
+    587
+  ],
+  "combat_seeds": [
+    20261017
+  ],
+  "source_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/balanced.py": "23ff96c18d7506a5916596500a625821ae2303198a5bee3bbb8ab9faf2cca3c2",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/certificates.py": "5fcf37d4c5ca3b00e7e10149e79fb8ba4061cd4187290df7ff3547c88d4aeac8",
+    "src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+    "src/vampires/engines.py": "568908b9474f79d34f0e564e8f3060cf5c5dd246c86c9e255202d31eaf309917",
+    "src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+    "src/vampires/growth.py": "92baa8fa605660360ba23bc7821b35e02d21cf0f062725f8cd418cee48d860b8",
+    "src/vampires/history.py": "728be4ff5f92b0d0a4bb24f2738799a51ba6d65d9516f864bd96f482ea83047c",
+    "src/vampires/mcts.py": "21be096d96acead45e6b269bff8eb7548ef97e47068fa6cba972b90e9258989f",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/player.py": "64de1a542c06a0b9f6af8bacc1c04ba2649f33c48d8c1421095589aa823467c7",
+    "src/vampires/protocol.py": "73102e32d34d7ee305296d194163da794f30336d8ee962b5bf78fb8057e1c2eb",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "4a04f720d982b922e2d5f99c92bcb771c7e96da7dbc619fdac5aef160c80a921",
+    "src/vampires/simulation.py": "37b16a11c165353088cab751f58336a8b47cad834c83d0cca4759740399a207d",
+    "src/vampires/strategy.py": "318f4e1f6c17519dbb4f331cdea1376c9d9d4934f947cbfdfc88497ac09d77f6",
+    "src/vampires/turns.py": "e7ad278563f0a0704699047b38806f2809e6596dfe8268b91e7f6ad6d54fd0ff",
+    "tools/benchmark_upgrade.py": "71bdc8277c5e4666de949734306986594dbb064a10ed63e754d2b6162b5a31d4",
+    "tools/benchmark_strength.py": "3df5a112a4aab66ee7c7e549bb4956a28388f68ae1c2f9fef71ace84e7caf1f9"
+  },
+  "map_sha256": {
+    "thetrap": "b77fb56e73a5dda64919c283dbdeeaaf74b7ac3ae50d420a37f7efcf2c794dc0",
+    "testmap2": "6e68efcbaa5a0a8df78383de842f25b90d174ea3d7cbfd38723c7d0524a59bde",
+    "generated_411": "5f3091621034c48ff31c8e5c96fff5a622ae26bf2d168418700288f78c2be3a0",
+    "generated_587": "9b57df73ebd80ee9cb34ec66d07689eb0b524f6fb864a9e1500be0ca0fca1819"
+  },
+  "limitations": "Local unverified simulator; finite-ply population outcome proxy; unknown horizon to both agents; small sample and related maps; timing dependent; conditional cluster bootstrap is not a general guarantee.",
+  "baseline_source_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/certificates.py": "18cccf7cff8fb0d87d1aac0a185bfdea67bce7d9698d56ee04e7fea694283963",
+    "src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+    "src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+    "src/vampires/growth.py": "92baa8fa605660360ba23bc7821b35e02d21cf0f062725f8cd418cee48d860b8",
+    "src/vampires/history.py": "582ee40b7b118c1061d283926c526ec91bf85ff9dd44ef8a5a20ec2bfee0d27b",
+    "src/vampires/mcts.py": "21be096d96acead45e6b269bff8eb7548ef97e47068fa6cba972b90e9258989f",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/player.py": "cbd85b746f677922958d5cded6d3a3e0850aa73089f07f29d854adb3281c4740",
+    "src/vampires/protocol.py": "2f9a985adbb2f871e459d49f202a00598136d4564313f94e24e58f3f0cca7355",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "987858b41ba90c0fb806920d7daec8419f885947867fd0764c04231a1f306594",
+    "src/vampires/simulation.py": "b18a97c7519a1eab6cf401272a971bfe49003a78206d5f0580679c8a7f6f0460",
+    "src/vampires/turns.py": "b7b7047d9fd545689f74d42917bc905704ba8e88a5c3a8d71b4601e10f6f8f8b"
+  }
+}

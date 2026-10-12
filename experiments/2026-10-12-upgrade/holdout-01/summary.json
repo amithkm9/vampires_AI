@@ -1,0 +1,27 @@
+{
+  "elapsed_seconds": 182.47144062502775,
+  "engines": {
+    "cohesive_material": {
+      "games": 8,
+      "pairs": 4,
+      "wins": 4,
+      "draws": 3,
+      "losses": 1,
+      "paired_score": 0.6875,
+      "paired_score_bootstrap_95": [
+        0.5625,
+        0.75
+      ],
+      "pair_scores": [
+        0.75,
+        0.75,
+        0.75,
+        0.5
+      ],
+      "failures": 0,
+      "max_response_seconds": 0.1538279999513179,
+      "completed_depth_zero": 0,
+      "certificate_turns": 0
+    }
+  }
+}
