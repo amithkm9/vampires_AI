@@ -7,6 +7,7 @@ from math import isfinite
 from time import monotonic
 
 from .model import GameSession
+from .history import PositionHistory
 from .protocol import Client, ConnectionClosed, encode_name
 from .search import SearchConfig, choose_turn
 
@@ -17,6 +18,8 @@ LOG = logging.getLogger(__name__)
 class SessionResult:
     turns: int
     games: int
+    repeated_turns: int = 0
+    trailing_repeated_turns: int = 0
 
 
 def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotonic):
@@ -33,16 +36,23 @@ def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotoni
     config = config or SearchConfig()
     client.send_name(name)
     session = GameSession()
+    history = PositionHistory()
     turns = games = 0
+    repeated_turns = trailing_repeated_turns = 0
     while not session.closed:
         message = client.receive()
         start = message.received_at if message.received_at is not None else clock()
         ready = session.apply(message)
+        if message.command in ("END", "BYE"):
+            history.clear()
         if message.command == "END":
             games += 1
             LOG.info("game ended; waiting for the next SET")
         if not ready:
             continue
+        repetition = history.observe(session.board, session.species)
+        repeated_turns += repetition.visits > 1
+        trailing_repeated_turns += repetition.review_trailing_cycle
         decision = choose_turn(session.board, session.species, expires_at=start + budget,
                                time_budget=budget, config=config, clock=clock)
         client.send_moves(session.board, session.species, decision.moves,
@@ -50,14 +60,17 @@ def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotoni
         turns += 1
         LOG.info("turn=%d species=%s depth=%d selected_depth=%d nodes=%d selective=%d "
                  "unsupported=%d bounded=%d generation_partial=%d certificate=%s "
-                 "value_bounds=[%.5f,%.5f] search_timeout=%s elapsed=%.4fs moves=%s",
+                 "value_bounds=[%.5f,%.5f] search_timeout=%s elapsed=%.4fs "
+                 "visits=%d cycle_updates=%s standing=%s trailing_cycle=%s horizon=unknown moves=%s",
                  turns, session.species.value, decision.completed_depth, decision.selected_depth,
                  decision.nodes, decision.selective_nodes, decision.unsupported_actions,
                  decision.bounded_actions, decision.truncated_generations, decision.preserved_dominance,
                  decision.value_lower, decision.value_upper,
                  decision.timed_out, clock() - start,
+                 repetition.visits, repetition.cycle_updates, repetition.standing,
+                 repetition.review_trailing_cycle,
                  [move.as_tuple() for move in decision.moves])
-    return SessionResult(turns, games)
+    return SessionResult(turns, games, repeated_turns, trailing_repeated_turns)
 
 
 def main(argv=None):

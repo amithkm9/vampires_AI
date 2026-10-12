@@ -95,6 +95,16 @@ class PlayerLifecycleTests(unittest.TestCase):
                 play(client, budget=value)
             self.assertFalse(client.names)
 
+    def test_repetition_observes_authoritative_updates_and_resets_between_games(self):
+        client = FakeClient(initialization() + [Message("UPD", ((2, 1, 0, 0, 3),)),
+                            Message("UPD"), Message("END")] + initialization() +
+                            [Message("UPD", ((2, 1, 0, 0, 3),)), Message("BYE")])
+        with self.assertLogs("vampires.player", level="INFO") as logs:
+            result = play(client, budget=.01, config=SearchConfig(max_depth=2))
+        self.assertEqual((result.turns, result.repeated_turns, result.trailing_repeated_turns), (3, 1, 1))
+        self.assertTrue(any("visits=2 cycle_updates=1 standing=trailing" in line for line in logs.output))
+        self.assertTrue(any("horizon=unknown" in line for line in logs.output))
+
 
 class TimedProtocolTests(unittest.TestCase):
     def sockets(self):
