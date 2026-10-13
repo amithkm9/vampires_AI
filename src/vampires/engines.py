@@ -2,12 +2,13 @@
 
 from .balanced import choose_balanced
 from .evaluation import evaluate
+from .hybrid import hybrid_turns
 from .search import choose_turn
 from .strategy import cohesive_turns, evaluate_resources, portfolio_turns
 from .turns import candidate_turns
 
 ENGINE_NAMES = ("baseline", "balanced", "resources", "balanced_resources", "portfolio",
-                "cohesive", "cohesive_material")
+                "cohesive", "cohesive_material", "adaptive", "hybrid", "hybrid_adaptive")
 DEFAULT_ENGINE = "cohesive_material"
 
 
@@ -24,6 +25,10 @@ def choose_engine(board, species, *, engine=DEFAULT_ENGINE, **kwargs):
         return choose_turn(board, species, **kwargs)
     if engine == "resources":
         return choose_turn(board, species, evaluator=evaluate_resources, **kwargs)
+    if engine in ("adaptive", "hybrid", "hybrid_adaptive"):
+        return choose_balanced(board, species, **kwargs, evaluator=evaluate,
+                               generator=cohesive_turns if engine == "adaptive" else hybrid_turns,
+                               reuse_work=engine != "hybrid", collect_iterations=True)
     return choose_balanced(board, species, **kwargs,
                            evaluator=evaluate if engine in ("balanced", "cohesive_material") else evaluate_resources,
                            generator=(cohesive_turns if engine.startswith("cohesive") else
