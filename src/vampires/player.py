@@ -7,7 +7,7 @@ from math import isfinite
 from time import monotonic
 
 from .model import GameSession
-from .engines import DEFAULT_ENGINE, ENGINE_NAMES, choose_engine
+from .engines import DEFAULT_ENGINE, ENGINE_NAMES, choose_engine, default_depth
 from .history import PositionHistory
 from .protocol import Client, ConnectionClosed, encode_name
 from .search import SearchConfig
@@ -36,7 +36,7 @@ def play(client, *, name="vampires_AI", budget=1.25, config=None, clock=monotoni
     if engine not in ENGINE_NAMES:
         raise ValueError(f"Unknown engine: {engine}")
     encode_name(name)
-    config = config or SearchConfig()
+    config = config or SearchConfig(max_depth=default_depth(engine))
     if config.max_depth < 2:
         raise ValueError("The live player must consider opponent replies (depth >= 2)")
     client.send_name(name)
@@ -86,14 +86,16 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="Opponent-aware Vampires vs Werewolves player")
     parser.add_argument("--name", default="vampires_AI", help="ASCII team name (1..255 bytes)")
     parser.add_argument("--engine", choices=ENGINE_NAMES, default=DEFAULT_ENGINE,
-                        help="search variant; default cohesive_material is provisionally promoted")
+                        help="search variant; default adaptive is provisionally promoted")
     parser.add_argument("--budget", type=float, default=1.25, help="search seconds, >0 and <=1.5")
-    parser.add_argument("--depth", type=int, default=3, help="maximum depth, 2..8 player turns")
+    parser.add_argument("--depth", type=int, help="maximum depth, 2..8 plies; default 5 for adaptive modes, 3 otherwise")
     parser.add_argument("--candidates", type=int, default=64, help="maximum retained turns per node")
     parser.add_argument("--quiet", action="store_true", help="only log errors")
     parser.add_argument("host", help="server IP address or hostname; penultimate argument")
     parser.add_argument("port", type=int, help="server port; final argument")
     args = parser.parse_args(argv)
+    if args.depth is None:
+        args.depth = default_depth(args.engine)
     try:
         encode_name(args.name)
         if not 1 <= args.port <= 65535:

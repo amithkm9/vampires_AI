@@ -3,13 +3,18 @@
 from .balanced import choose_balanced
 from .evaluation import evaluate
 from .hybrid import hybrid_turns
-from .search import choose_turn
+from .search import SearchConfig, choose_turn
 from .strategy import cohesive_turns, evaluate_resources, portfolio_turns
 from .turns import candidate_turns
 
 ENGINE_NAMES = ("baseline", "balanced", "resources", "balanced_resources", "portfolio",
                 "cohesive", "cohesive_material", "adaptive", "hybrid", "hybrid_adaptive")
-DEFAULT_ENGINE = "cohesive_material"
+DEFAULT_ENGINE = "adaptive"
+
+
+def default_depth(engine=DEFAULT_ENGINE):
+    """Keep the measured normal-budget depth with each selectable mode."""
+    return 5 if engine in ("adaptive", "hybrid_adaptive") else 3
 
 
 def choose_engine(board, species, *, engine=DEFAULT_ENGINE, **kwargs):
@@ -21,6 +26,8 @@ def choose_engine(board, species, *, engine=DEFAULT_ENGINE, **kwargs):
     """
     if engine not in ENGINE_NAMES:
         raise ValueError(f"Unknown engine: {engine}")
+    if kwargs.get("config") is None:
+        kwargs["config"] = SearchConfig(max_depth=default_depth(engine))
     if engine == "baseline":
         return choose_turn(board, species, **kwargs)
     if engine == "resources":

@@ -1,18 +1,41 @@
 import subprocess
 import sys
 import unittest
+from unittest.mock import patch
 
-from vampires.engines import ENGINE_NAMES, choose_engine
+from vampires.engines import DEFAULT_ENGINE, ENGINE_NAMES, choose_engine
 from vampires.budget import SearchTimeout
 from vampires.certificates import dominant_stack
 from vampires.model import Board, Cell, Species
-from vampires.player import play
+from vampires.player import SessionResult, main, play
 from vampires.protocol import Message
 from vampires.search import SearchConfig
 from test_player import FakeClient, ROOT, initialization
 
 
 class EngineLifecycleTests(unittest.TestCase):
+    def test_api_default_and_explicit_depth_contract(self):
+        board = Board(1, 2, {(0, 0): Cell(vampires=2), (1, 0): Cell(werewolves=2)})
+        self.assertEqual(DEFAULT_ENGINE, "adaptive")
+        with patch("vampires.engines.choose_balanced") as search:
+            choose_engine(board, Species.VAMPIRES)
+            self.assertEqual(search.call_args.kwargs["config"].max_depth, 5)
+            choose_engine(board, Species.VAMPIRES, engine="cohesive_material")
+            self.assertEqual(search.call_args.kwargs["config"].max_depth, 3)
+            choose_engine(board, Species.VAMPIRES, config=SearchConfig(max_depth=2))
+            self.assertEqual(search.call_args.kwargs["config"].max_depth, 2)
+
+    def test_launcher_uses_mode_depth_and_respects_override(self):
+        for flags, expected_engine, expected_depth in (([], "adaptive", 5),
+                (["--engine", "cohesive_material"], "cohesive_material", 3),
+                (["--depth", "4"], "adaptive", 4)):
+            with patch("vampires.player.Client.connect") as connect, patch(
+                    "vampires.player.play", return_value=SessionResult(0, 0)) as session:
+                self.assertEqual(main(["--quiet", *flags, "127.0.0.1", "5555"]), 0)
+                connect.assert_called_once_with("127.0.0.1", 5555)
+                self.assertEqual(session.call_args.kwargs["engine"], expected_engine)
+                self.assertEqual(session.call_args.kwargs["config"].max_depth, expected_depth)
+
     def test_dominance_scan_cooperates_with_expired_deadline(self):
         board = Board(1, 2, {(0, 0): Cell(vampires=10), (1, 0): Cell(werewolves=1)})
         def expired():

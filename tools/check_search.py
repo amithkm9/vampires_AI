@@ -35,9 +35,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--budget", type=float, default=.05)
     parser.add_argument("--engine", choices=ENGINE_NAMES, default=DEFAULT_ENGINE)
+    parser.add_argument("--depth", type=int, default=3)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    config = SearchConfig()
+    config = SearchConfig(max_depth=args.depth)
     results = []
     for name, board in positions().items():
         cells = [(x, y, c.humans, c.vampires, c.werewolves) for (x, y), c in sorted(board.cells.items())]
