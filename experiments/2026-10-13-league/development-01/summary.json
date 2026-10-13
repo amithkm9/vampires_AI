@@ -1,0 +1,1184 @@
+{
+  "complete": true,
+  "completed_games": 96,
+  "engines": {
+    "adaptive:d5": {
+      "by_family": {
+        "contact": {
+          "candidate_completed_depth_histogram": {
+            "0": 34,
+            "2": 1,
+            "3": 2,
+            "4": 56,
+            "5": 9
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 4,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05452800006605685,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 8,
+          "wins": 4
+        },
+        "resource_race": {
+          "candidate_completed_depth_histogram": {
+            "0": 52,
+            "2": 6,
+            "3": 7,
+            "4": 31,
+            "5": 21
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 3,
+          "map_balanced_score": 0.625,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05047858401667327,
+          "opponent_failures": 0,
+          "paired_score": 0.625,
+          "valid_games": 8,
+          "wins": 5
+        },
+        "supplied": {
+          "candidate_completed_depth_histogram": {
+            "0": 11,
+            "3": 29,
+            "4": 33,
+            "5": 3
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 1,
+          "losses": 2,
+          "map_balanced_score": 0.75,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05792412499431521,
+          "opponent_failures": 0,
+          "paired_score": 0.75,
+          "valid_games": 8,
+          "wins": 6
+        }
+      },
+      "by_map": {
+        "contact_1301": {
+          "candidate_completed_depth_histogram": {
+            "0": 34,
+            "2": 1,
+            "3": 2,
+            "4": 56,
+            "5": 9
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 4,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05452800006605685,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 8,
+          "wins": 4
+        },
+        "resource_race_1301": {
+          "candidate_completed_depth_histogram": {
+            "0": 52,
+            "2": 6,
+            "3": 7,
+            "4": 31,
+            "5": 21
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 3,
+          "map_balanced_score": 0.625,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05047858401667327,
+          "opponent_failures": 0,
+          "paired_score": 0.625,
+          "valid_games": 8,
+          "wins": 5
+        },
+        "thetrap": {
+          "candidate_completed_depth_histogram": {
+            "0": 11,
+            "3": 29,
+            "4": 33,
+            "5": 3
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 1,
+          "losses": 2,
+          "map_balanced_score": 0.75,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05792412499431521,
+          "opponent_failures": 0,
+          "paired_score": 0.75,
+          "valid_games": 8,
+          "wins": 6
+        }
+      },
+      "by_opponent": {
+        "collector": {
+          "candidate_completed_depth_histogram": {
+            "0": 7,
+            "3": 20,
+            "4": 51,
+            "5": 14
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 4,
+          "map_balanced_score": 0.3333333333333333,
+          "map_cluster_bootstrap_95": [
+            0.0,
+            0.5
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.056280207936652005,
+          "opponent_failures": 0,
+          "paired_score": 0.3333333333333333,
+          "valid_games": 6,
+          "wins": 2
+        },
+        "frozen:d3": {
+          "candidate_completed_depth_histogram": {
+            "0": 25,
+            "3": 8,
+            "4": 41,
+            "5": 9
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 3,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            0.5
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05452800006605685,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 6,
+          "wins": 3
+        },
+        "raider": {
+          "candidate_completed_depth_histogram": {
+            "0": 1,
+            "3": 3,
+            "4": 13,
+            "5": 4
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 0,
+          "losses": 1,
+          "map_balanced_score": 0.8333333333333334,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            1.0
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05792412499431521,
+          "opponent_failures": 0,
+          "paired_score": 0.8333333333333334,
+          "valid_games": 6,
+          "wins": 5
+        },
+        "split_merge": {
+          "candidate_completed_depth_histogram": {
+            "0": 64,
+            "2": 7,
+            "3": 7,
+            "4": 15,
+            "5": 6
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 1,
+          "map_balanced_score": 0.8333333333333334,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            1.0
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05008941690903157,
+          "opponent_failures": 0,
+          "paired_score": 0.8333333333333334,
+          "valid_games": 6,
+          "wins": 5
+        }
+      },
+      "overall": {
+        "candidate_completed_depth_histogram": {
+          "0": 97,
+          "2": 7,
+          "3": 38,
+          "4": 120,
+          "5": 33
+        },
+        "candidate_failures": 0,
+        "complete_valid_pairs": 12,
+        "draws": 0,
+        "failed_games": 0,
+        "games": 24,
+        "incomplete_or_failed_pairs": 0,
+        "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+        "local_ply_cap_games": 6,
+        "losses": 9,
+        "map_balanced_score": 0.625,
+        "map_cluster_bootstrap_95": [
+          0.5,
+          0.75
+        ],
+        "map_clusters": 3,
+        "max_candidate_response_seconds": 0.05792412499431521,
+        "opponent_failures": 0,
+        "paired_score": 0.625,
+        "valid_games": 24,
+        "wins": 15
+      }
+    },
+    "cohesive_material:d3": {
+      "by_family": {
+        "contact": {
+          "candidate_completed_depth_histogram": {
+            "0": 34,
+            "2": 1,
+            "3": 74
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 3,
+          "map_balanced_score": 0.5625,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.0500537499319762,
+          "opponent_failures": 0,
+          "paired_score": 0.5625,
+          "valid_games": 8,
+          "wins": 4
+        },
+        "resource_race": {
+          "candidate_completed_depth_histogram": {
+            "0": 52,
+            "2": 6,
+            "3": 59
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 3,
+          "map_balanced_score": 0.625,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.0521744170691818,
+          "opponent_failures": 0,
+          "paired_score": 0.625,
+          "valid_games": 8,
+          "wins": 5
+        },
+        "supplied": {
+          "candidate_completed_depth_histogram": {
+            "0": 11,
+            "3": 65
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 1,
+          "losses": 2,
+          "map_balanced_score": 0.75,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.027635458041913807,
+          "opponent_failures": 0,
+          "paired_score": 0.75,
+          "valid_games": 8,
+          "wins": 6
+        }
+      },
+      "by_map": {
+        "contact_1301": {
+          "candidate_completed_depth_histogram": {
+            "0": 34,
+            "2": 1,
+            "3": 74
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 3,
+          "map_balanced_score": 0.5625,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.0500537499319762,
+          "opponent_failures": 0,
+          "paired_score": 0.5625,
+          "valid_games": 8,
+          "wins": 4
+        },
+        "resource_race_1301": {
+          "candidate_completed_depth_histogram": {
+            "0": 52,
+            "2": 6,
+            "3": 59
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 3,
+          "map_balanced_score": 0.625,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.0521744170691818,
+          "opponent_failures": 0,
+          "paired_score": 0.625,
+          "valid_games": 8,
+          "wins": 5
+        },
+        "thetrap": {
+          "candidate_completed_depth_histogram": {
+            "0": 11,
+            "3": 65
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 1,
+          "losses": 2,
+          "map_balanced_score": 0.75,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.027635458041913807,
+          "opponent_failures": 0,
+          "paired_score": 0.75,
+          "valid_games": 8,
+          "wins": 6
+        }
+      },
+      "by_opponent": {
+        "collector": {
+          "candidate_completed_depth_histogram": {
+            "0": 7,
+            "3": 85
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 4,
+          "map_balanced_score": 0.3333333333333333,
+          "map_cluster_bootstrap_95": [
+            0.0,
+            0.5
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.02562520792707801,
+          "opponent_failures": 0,
+          "paired_score": 0.3333333333333333,
+          "valid_games": 6,
+          "wins": 2
+        },
+        "frozen:d3": {
+          "candidate_completed_depth_histogram": {
+            "0": 25,
+            "3": 58
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 3,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            0.5
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.027635458041913807,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 6,
+          "wins": 3
+        },
+        "raider": {
+          "candidate_completed_depth_histogram": {
+            "0": 1,
+            "3": 22
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 0,
+          "losses": 1,
+          "map_balanced_score": 0.75,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            1.0
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.019182416959665716,
+          "opponent_failures": 0,
+          "paired_score": 0.75,
+          "valid_games": 6,
+          "wins": 4
+        },
+        "split_merge": {
+          "candidate_completed_depth_histogram": {
+            "0": 64,
+            "2": 7,
+            "3": 33
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 0,
+          "map_balanced_score": 1.0,
+          "map_cluster_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.0521744170691818,
+          "opponent_failures": 0,
+          "paired_score": 1.0,
+          "valid_games": 6,
+          "wins": 6
+        }
+      },
+      "overall": {
+        "candidate_completed_depth_histogram": {
+          "0": 97,
+          "2": 7,
+          "3": 198
+        },
+        "candidate_failures": 0,
+        "complete_valid_pairs": 12,
+        "draws": 1,
+        "failed_games": 0,
+        "games": 24,
+        "incomplete_or_failed_pairs": 0,
+        "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+        "local_ply_cap_games": 6,
+        "losses": 8,
+        "map_balanced_score": 0.6458333333333334,
+        "map_cluster_bootstrap_95": [
+          0.5625,
+          0.75
+        ],
+        "map_clusters": 3,
+        "max_candidate_response_seconds": 0.0521744170691818,
+        "opponent_failures": 0,
+        "paired_score": 0.6458333333333334,
+        "valid_games": 24,
+        "wins": 15
+      }
+    },
+    "hybrid:d3": {
+      "by_family": {
+        "contact": {
+          "candidate_completed_depth_histogram": {
+            "0": 36,
+            "2": 47,
+            "3": 30
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 4,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.050244207959622145,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 8,
+          "wins": 4
+        },
+        "resource_race": {
+          "candidate_completed_depth_histogram": {
+            "0": 18,
+            "2": 63,
+            "3": 47
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 5,
+          "map_balanced_score": 0.375,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05026529193855822,
+          "opponent_failures": 0,
+          "paired_score": 0.375,
+          "valid_games": 8,
+          "wins": 3
+        },
+        "supplied": {
+          "candidate_completed_depth_histogram": {
+            "0": 19,
+            "2": 49,
+            "3": 39
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 1,
+          "map_balanced_score": 0.8125,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.050279707997106016,
+          "opponent_failures": 0,
+          "paired_score": 0.8125,
+          "valid_games": 8,
+          "wins": 6
+        }
+      },
+      "by_map": {
+        "contact_1301": {
+          "candidate_completed_depth_histogram": {
+            "0": 36,
+            "2": 47,
+            "3": 30
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 4,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.050244207959622145,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 8,
+          "wins": 4
+        },
+        "resource_race_1301": {
+          "candidate_completed_depth_histogram": {
+            "0": 18,
+            "2": 63,
+            "3": 47
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 5,
+          "map_balanced_score": 0.375,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05026529193855822,
+          "opponent_failures": 0,
+          "paired_score": 0.375,
+          "valid_games": 8,
+          "wins": 3
+        },
+        "thetrap": {
+          "candidate_completed_depth_histogram": {
+            "0": 19,
+            "2": 49,
+            "3": 39
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 1,
+          "map_balanced_score": 0.8125,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.050279707997106016,
+          "opponent_failures": 0,
+          "paired_score": 0.8125,
+          "valid_games": 8,
+          "wins": 6
+        }
+      },
+      "by_opponent": {
+        "collector": {
+          "candidate_completed_depth_histogram": {
+            "0": 11,
+            "2": 36,
+            "3": 53
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 3,
+          "map_balanced_score": 0.4166666666666667,
+          "map_cluster_bootstrap_95": [
+            0.0,
+            0.75
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.050279707997106016,
+          "opponent_failures": 0,
+          "paired_score": 0.4166666666666667,
+          "valid_games": 6,
+          "wins": 2
+        },
+        "frozen:d3": {
+          "candidate_completed_depth_histogram": {
+            "0": 25,
+            "2": 42,
+            "3": 37
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 3,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            0.5
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05026441696099937,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 6,
+          "wins": 3
+        },
+        "raider": {
+          "candidate_completed_depth_histogram": {
+            "0": 1,
+            "2": 16,
+            "3": 9
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 0,
+          "losses": 1,
+          "map_balanced_score": 0.8333333333333334,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            1.0
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05021670903079212,
+          "opponent_failures": 0,
+          "paired_score": 0.8333333333333334,
+          "valid_games": 6,
+          "wins": 5
+        },
+        "split_merge": {
+          "candidate_completed_depth_histogram": {
+            "0": 36,
+            "2": 65,
+            "3": 17
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 4,
+          "losses": 3,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": [
+            0.0,
+            1.0
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05026529193855822,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 6,
+          "wins": 3
+        }
+      },
+      "overall": {
+        "candidate_completed_depth_histogram": {
+          "0": 73,
+          "2": 159,
+          "3": 116
+        },
+        "candidate_failures": 0,
+        "complete_valid_pairs": 12,
+        "draws": 1,
+        "failed_games": 0,
+        "games": 24,
+        "incomplete_or_failed_pairs": 0,
+        "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+        "local_ply_cap_games": 9,
+        "losses": 10,
+        "map_balanced_score": 0.5625,
+        "map_cluster_bootstrap_95": [
+          0.375,
+          0.8125
+        ],
+        "map_clusters": 3,
+        "max_candidate_response_seconds": 0.050279707997106016,
+        "opponent_failures": 0,
+        "paired_score": 0.5625,
+        "valid_games": 24,
+        "wins": 13
+      }
+    },
+    "hybrid_adaptive:d5": {
+      "by_family": {
+        "contact": {
+          "candidate_completed_depth_histogram": {
+            "0": 27,
+            "2": 49,
+            "3": 41,
+            "4": 4
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 4,
+          "losses": 5,
+          "map_balanced_score": 0.375,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05052074999548495,
+          "opponent_failures": 0,
+          "paired_score": 0.375,
+          "valid_games": 8,
+          "wins": 3
+        },
+        "resource_race": {
+          "candidate_completed_depth_histogram": {
+            "0": 17,
+            "2": 66,
+            "3": 26,
+            "4": 18,
+            "5": 1
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 5,
+          "map_balanced_score": 0.375,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05660799995530397,
+          "opponent_failures": 0,
+          "paired_score": 0.375,
+          "valid_games": 8,
+          "wins": 3
+        },
+        "supplied": {
+          "candidate_completed_depth_histogram": {
+            "0": 20,
+            "2": 47,
+            "3": 28,
+            "4": 12
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 1,
+          "map_balanced_score": 0.8125,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05734633293468505,
+          "opponent_failures": 0,
+          "paired_score": 0.8125,
+          "valid_games": 8,
+          "wins": 6
+        }
+      },
+      "by_map": {
+        "contact_1301": {
+          "candidate_completed_depth_histogram": {
+            "0": 27,
+            "2": 49,
+            "3": 41,
+            "4": 4
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 4,
+          "losses": 5,
+          "map_balanced_score": 0.375,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05052074999548495,
+          "opponent_failures": 0,
+          "paired_score": 0.375,
+          "valid_games": 8,
+          "wins": 3
+        },
+        "resource_race_1301": {
+          "candidate_completed_depth_histogram": {
+            "0": 17,
+            "2": 66,
+            "3": 26,
+            "4": 18,
+            "5": 1
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 5,
+          "map_balanced_score": 0.375,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05660799995530397,
+          "opponent_failures": 0,
+          "paired_score": 0.375,
+          "valid_games": 8,
+          "wins": 3
+        },
+        "thetrap": {
+          "candidate_completed_depth_histogram": {
+            "0": 20,
+            "2": 47,
+            "3": 28,
+            "4": 12
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 4,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 8,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 1,
+          "map_balanced_score": 0.8125,
+          "map_cluster_bootstrap_95": null,
+          "map_clusters": 1,
+          "max_candidate_response_seconds": 0.05734633293468505,
+          "opponent_failures": 0,
+          "paired_score": 0.8125,
+          "valid_games": 8,
+          "wins": 6
+        }
+      },
+      "by_opponent": {
+        "collector": {
+          "candidate_completed_depth_histogram": {
+            "0": 12,
+            "2": 35,
+            "3": 30,
+            "4": 22,
+            "5": 1
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 1,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 3,
+          "losses": 3,
+          "map_balanced_score": 0.4166666666666667,
+          "map_cluster_bootstrap_95": [
+            0.0,
+            0.75
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.054972207988612354,
+          "opponent_failures": 0,
+          "paired_score": 0.4166666666666667,
+          "valid_games": 6,
+          "wins": 2
+        },
+        "frozen:d3": {
+          "candidate_completed_depth_histogram": {
+            "0": 25,
+            "2": 41,
+            "3": 31,
+            "4": 7
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 2,
+          "losses": 3,
+          "map_balanced_score": 0.5,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            0.5
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05660799995530397,
+          "opponent_failures": 0,
+          "paired_score": 0.5,
+          "valid_games": 6,
+          "wins": 3
+        },
+        "raider": {
+          "candidate_completed_depth_histogram": {
+            "0": 1,
+            "2": 15,
+            "3": 9,
+            "4": 1
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 0,
+          "losses": 1,
+          "map_balanced_score": 0.8333333333333334,
+          "map_cluster_bootstrap_95": [
+            0.5,
+            1.0
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05016158404760063,
+          "opponent_failures": 0,
+          "paired_score": 0.8333333333333334,
+          "valid_games": 6,
+          "wins": 5
+        },
+        "split_merge": {
+          "candidate_completed_depth_histogram": {
+            "0": 26,
+            "2": 71,
+            "3": 25,
+            "4": 4
+          },
+          "candidate_failures": 0,
+          "complete_valid_pairs": 3,
+          "draws": 0,
+          "failed_games": 0,
+          "games": 6,
+          "incomplete_or_failed_pairs": 0,
+          "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+          "local_ply_cap_games": 5,
+          "losses": 4,
+          "map_balanced_score": 0.3333333333333333,
+          "map_cluster_bootstrap_95": [
+            0.0,
+            1.0
+          ],
+          "map_clusters": 3,
+          "max_candidate_response_seconds": 0.05734633293468505,
+          "opponent_failures": 0,
+          "paired_score": 0.3333333333333333,
+          "valid_games": 6,
+          "wins": 2
+        }
+      },
+      "overall": {
+        "candidate_completed_depth_histogram": {
+          "0": 64,
+          "2": 162,
+          "3": 95,
+          "4": 34,
+          "5": 1
+        },
+        "candidate_failures": 0,
+        "complete_valid_pairs": 12,
+        "draws": 1,
+        "failed_games": 0,
+        "games": 24,
+        "incomplete_or_failed_pairs": 0,
+        "limitation": "Descriptive local evidence. Failed games have no score; incomplete pairs are excluded explicitly. Intervals resample observed map clusters only and are unavailable for one map. Related map families, shared simulator, timing variation, and tested-policy selection limit inference.",
+        "local_ply_cap_games": 10,
+        "losses": 11,
+        "map_balanced_score": 0.5208333333333334,
+        "map_cluster_bootstrap_95": [
+          0.375,
+          0.8125
+        ],
+        "map_clusters": 3,
+        "max_candidate_response_seconds": 0.05734633293468505,
+        "opponent_failures": 0,
+        "paired_score": 0.5208333333333334,
+        "valid_games": 24,
+        "wins": 12
+      }
+    }
+  },
+  "latest_invocation_added_games": 96,
+  "latest_invocation_seconds": 42.196025541983545,
+  "scheduled_games": 96
+}

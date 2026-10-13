@@ -1,0 +1,4332 @@
+{
+  "run": "/Users/amithkm/Documents/MS in Foundation of AI/experiments/2026-10-13-league/development-01",
+  "verified_matches": 96,
+  "verified_plies": 2577,
+  "input_sha256": "178d86b57bab6d405ef17b83b9a74f309a2938c3e06de11bb6507284902c3482",
+  "matches": [
+    {
+      "match_id": "aebe01b8fbe1914dbc288d8938df8778ec33fb96d885a29d9b26107ce340a676",
+      "candidate": "cohesive_material:d3",
+      "opponent": "frozen:d3",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 16,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "e2b03b8a370cef744c1b41d0b62288e8fa042dd54dbec6130251f2e31c6a71f1",
+      "candidate": "cohesive_material:d3",
+      "opponent": "frozen:d3",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 16,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              2,
+              2,
+              0,
+              8,
+              0
+            ],
+            [
+              5,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              9,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              9,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              9,
+              4,
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "8a9162bc126561d52c16f4b0611e2862b9ba81824bcbe2f604e609bb91c4fd53",
+      "candidate": "cohesive_material:d3",
+      "opponent": "frozen:d3",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 4,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "868ba0b5cf511ef86e4898d85e59d4491ebcd526a2ff06575d86c91fded16453",
+      "candidate": "cohesive_material:d3",
+      "opponent": "frozen:d3",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "e283867b16cd03d53e3356cffdf5a076b0a61f82f79cd37c61a8057f5d249e2e",
+      "candidate": "cohesive_material:d3",
+      "opponent": "frozen:d3",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 32,
+      "candidate_turns_without_completed_iteration": 21,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 18,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              10,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "915598de75289f58ebfc16a9092800afa98cd97806c60d6c010df10aa2517653",
+      "candidate": "cohesive_material:d3",
+      "opponent": "frozen:d3",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 32,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 18,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              10,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              2,
+              3,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              4
+            ],
+            [
+              4,
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "c8719afce490f0a5f59d58dea0c00af93c9f4f4f7ef4e483c099ab701e62809d",
+      "candidate": "cohesive_material:d3",
+      "opponent": "collector",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "0203518a23fbe0a057b2769d3cb34208a3645baa081140f8c879821e14c40fb4",
+      "candidate": "cohesive_material:d3",
+      "opponent": "collector",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 2,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 48,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              0,
+              7
+            ],
+            [
+              5,
+              0,
+              0,
+              10,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              2,
+              2,
+              0,
+              8,
+              0
+            ],
+            [
+              5,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              9,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              9,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              9,
+              4,
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "5f15b3920a8ca740647980796a7ed70b91b807e379c75e03a3b403d5fcb6bae4",
+      "candidate": "cohesive_material:d3",
+      "opponent": "collector",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 23,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 7,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "a1f17ef2854b9b0ac5f7e0751403d401b7e13b5a5d964a248a13b9a66f45222e",
+      "candidate": "cohesive_material:d3",
+      "opponent": "collector",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 2,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 48,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              0,
+              1,
+              0,
+              0,
+              9
+            ],
+            [
+              4,
+              0,
+              0,
+              16,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "f1d90445eed812363ac2aca9291fce131d53370fc1660a77ecd4728e0b90b1bd",
+      "candidate": "cohesive_material:d3",
+      "opponent": "collector",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 7,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 1,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "71e10f72dab94450655d1666083aa61da4ec7d612d71262302e616ef075e553a",
+      "candidate": "cohesive_material:d3",
+      "opponent": "collector",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 34,
+      "repeated_positions": 2,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": {
+        "after_ply": 28,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              0,
+              7
+            ],
+            [
+              3,
+              0,
+              0,
+              8,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              2,
+              0,
+              0,
+              4
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "acd38665b3147f07c5035093430c5a32a98a99c2e210cf7f37f5326e12b610ef",
+      "candidate": "cohesive_material:d3",
+      "opponent": "raider",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 5,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 2,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "49d2b4c394d3785b66c7a0d0139cb5252843ea50527c9a31df59a04a244365fd",
+      "candidate": "cohesive_material:d3",
+      "opponent": "raider",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "b55d84bb6acb08ad36ca8bcf8f999e0f9e0ed5dcc271308db140f2cd559973dc",
+      "candidate": "cohesive_material:d3",
+      "opponent": "raider",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 11,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 1,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "3864915dd950e059509591ca577b808758ac7983503720a019e6d0f0a232cea3",
+      "candidate": "cohesive_material:d3",
+      "opponent": "raider",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 15,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "cd761de5227daa9106a63969f8a33ef841c2c52e3168fc378efe20b548acff90",
+      "candidate": "cohesive_material:d3",
+      "opponent": "raider",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 0.5,
+      "termination": "extinction",
+      "plies_verified": 9,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "dda2cc6490232e0da85a1d1b8066e43ab7144f53a3b8465d0a3c051919fdbba5",
+      "candidate": "cohesive_material:d3",
+      "opponent": "raider",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "0408ab113996bc35c4687633677a3ee4bb998d19c2970c220b7f5e514be22100",
+      "candidate": "cohesive_material:d3",
+      "opponent": "split_merge",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 41,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 11,
+      "partial_move_records": 5,
+      "battles": 10,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "9342e689d985a8c99a1a17f019f370138e69ea767a84f4608b47b52c41152f4b",
+      "candidate": "cohesive_material:d3",
+      "opponent": "split_merge",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "bafe59cf2c282f3af0403d3aa7f3c22ac9ccc2417e5cac13e5fe8dda83506557",
+      "candidate": "cohesive_material:d3",
+      "opponent": "split_merge",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 1,
+      "candidate_turns_without_completed_iteration": 20,
+      "partial_move_records": 3,
+      "battles": 7,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 16,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              0,
+              5,
+              0,
+              0,
+              6
+            ],
+            [
+              1,
+              4,
+              0,
+              16,
+              0
+            ],
+            [
+              4,
+              6,
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "b5eae32b41c3118688ba0f1b63f1d0fd415b3d7021663c5e97d64e4c6b3fe681",
+      "candidate": "cohesive_material:d3",
+      "opponent": "split_merge",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 20,
+      "partial_move_records": 4,
+      "battles": 8,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              2,
+              1,
+              0,
+              4,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "5336bae6ebead0600f64630622f400979bb56a0024ad83d0b13a08606c4ccccf",
+      "candidate": "cohesive_material:d3",
+      "opponent": "split_merge",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 33,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 13,
+      "partial_move_records": 2,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 1,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              3,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "cd3e334f54271f2cc440d51bf021703b695191a4fc4bb2a29fa2e889804436bb",
+      "candidate": "cohesive_material:d3",
+      "opponent": "split_merge",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 30,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              4
+            ],
+            [
+              4,
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "16c19fb509e421173e0318956dbc2baf88270eee7d9502078d1e1f978bd9b748",
+      "candidate": "adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 16,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "e05c17c5142f104acdebbe5a0eb0556c674a85edfca03d3c592850ae371ad92b",
+      "candidate": "adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 16,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              2,
+              2,
+              0,
+              8,
+              0
+            ],
+            [
+              5,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              9,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              9,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              9,
+              4,
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "ccfe561112c63ba379beb0ecc724cbbf483ff9aa7c7595ceded0c98d1ae860e5",
+      "candidate": "adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 4,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "b4a058b061cbb8ba841bc6ce6663deca8cf9c42dffc693be38b5b6f756630f5f",
+      "candidate": "adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "2085ed159dfb0b1c3099faf02d33494830e6b2c577ea4dd92b68810b88e1caed",
+      "candidate": "adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 32,
+      "candidate_turns_without_completed_iteration": 21,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 18,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              10,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "5f44d174cd20ba442c26e8a08577b8c4278460123b2539b16b3fcc123cec2362",
+      "candidate": "adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 32,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 18,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              10,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              2,
+              3,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              4
+            ],
+            [
+              4,
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "665400caf736128b0f4374dfd5617d3d10f8f4fe33e789da3877b2a3ab31d439",
+      "candidate": "adaptive:d5",
+      "opponent": "collector",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "845e974fad5fdcfdf6baf8ea23185cf1eff414bff9e8dfe3c264702dac79d4bb",
+      "candidate": "adaptive:d5",
+      "opponent": "collector",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 2,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 48,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              0,
+              7
+            ],
+            [
+              5,
+              0,
+              0,
+              10,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              2,
+              2,
+              0,
+              8,
+              0
+            ],
+            [
+              5,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              9,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              9,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              9,
+              4,
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "8a3ad04364e38f3bcc5b9e7685951fde0a1ad22aced83df5042fe25b3d6dd109",
+      "candidate": "adaptive:d5",
+      "opponent": "collector",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 23,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 7,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "487a6054e11ae5ed63c7fa6ed38e768fcb8b651b39826e693044caa63aaeb3b6",
+      "candidate": "adaptive:d5",
+      "opponent": "collector",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 2,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 48,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              0,
+              1,
+              0,
+              0,
+              9
+            ],
+            [
+              4,
+              0,
+              0,
+              16,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "25feeb816b0b52722503c6bb5d7f9472b60b6a1af3985801f7c5c84edb6dafb2",
+      "candidate": "adaptive:d5",
+      "opponent": "collector",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 7,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 1,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "ac9e4285164bf7c97fc3eb740113010b71fbcb03e0b0e647fc8cb4ead12d848b",
+      "candidate": "adaptive:d5",
+      "opponent": "collector",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 34,
+      "repeated_positions": 1,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": {
+        "after_ply": 29,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              1,
+              0,
+              0,
+              7
+            ],
+            [
+              3,
+              0,
+              0,
+              8,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              4
+            ],
+            [
+              4,
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "2485426f5388268ec0897ad1803fb7ec21b6469c886d7a99343e4cfec50353e4",
+      "candidate": "adaptive:d5",
+      "opponent": "raider",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 5,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 2,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "d656c90ccf87226166a976840b453388e37d7c40d839379df89b1db8abb1755f",
+      "candidate": "adaptive:d5",
+      "opponent": "raider",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "53664fb40c3ca3287d8118e74d0a6f7eac25fa8774d01cd3b1711d96f28abd86",
+      "candidate": "adaptive:d5",
+      "opponent": "raider",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 11,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 1,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "6f6cfab21913e2386625d56564804e1eb227a20e9272855041a25491e3697d13",
+      "candidate": "adaptive:d5",
+      "opponent": "raider",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 15,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "372ac2a05cbbd89c57efaf708658b6326a053dd1fcd11b711b56ec7dae54b99f",
+      "candidate": "adaptive:d5",
+      "opponent": "raider",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 5,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 2,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "1187023f5cd4c34a5994abd9d76b7179e7cde27f3ce277f93c2ac2b1d4d9838b",
+      "candidate": "adaptive:d5",
+      "opponent": "raider",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "a8278237b05ef5c0a6d9e37dda3e85575318c58c199309f474f1201712a3376e",
+      "candidate": "adaptive:d5",
+      "opponent": "split_merge",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 41,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 11,
+      "partial_move_records": 5,
+      "battles": 10,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "467610853a99e435d3edebbc148bc1231b0e2c14c41bb4478ec9056e85c27551",
+      "candidate": "adaptive:d5",
+      "opponent": "split_merge",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "6d00bf1a33ec8aca9d9d93330a7a1655d57d49b821d42dfe1dce10177c43f4d1",
+      "candidate": "adaptive:d5",
+      "opponent": "split_merge",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 1,
+      "candidate_turns_without_completed_iteration": 20,
+      "partial_move_records": 3,
+      "battles": 7,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 16,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              0,
+              5,
+              0,
+              0,
+              6
+            ],
+            [
+              1,
+              4,
+              0,
+              16,
+              0
+            ],
+            [
+              4,
+              6,
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "765946863a9002721ba01ccb5ce59b653a2f5f3ea9ca34644d7c865770332dc9",
+      "candidate": "adaptive:d5",
+      "opponent": "split_merge",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 20,
+      "partial_move_records": 4,
+      "battles": 8,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              2,
+              1,
+              0,
+              4,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "0ceb0c0a5c3f80c1965b18a9ae06b21fbf1cb3ad628627976c0096273088e1ea",
+      "candidate": "adaptive:d5",
+      "opponent": "split_merge",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 33,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 13,
+      "partial_move_records": 2,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 1,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              3,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "824b7b584f246bdeefbd4cf604718a1c72fd8bf8833b64d4cfce283a369c7827",
+      "candidate": "adaptive:d5",
+      "opponent": "split_merge",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 20,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              4
+            ],
+            [
+              4,
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "d01c436af6bcdabb18c1b0dc60b468fe8c454ea644c7bdf68117853bedd9a9b6",
+      "candidate": "hybrid:d3",
+      "opponent": "frozen:d3",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 35,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 5,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 17,
+        "to_move": "vampires",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              5,
+              0,
+              0,
+              8,
+              0
+            ],
+            [
+              9,
+              4,
+              0,
+              0,
+              9
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "360750c76e4360c7d16c5c97e3c04d87187318bd58e37a41b5ca214a8c27522e",
+      "candidate": "hybrid:d3",
+      "opponent": "frozen:d3",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 11,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 4,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 39,
+        "to_move": "vampires",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              8,
+              0
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              9
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              2,
+              2,
+              0,
+              8,
+              0
+            ],
+            [
+              5,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              9,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              9,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              9,
+              4,
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "a503a10472493de2cc538b323678853e7aa42783282aa84f823fcbc62534a73c",
+      "candidate": "hybrid:d3",
+      "opponent": "frozen:d3",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 4,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "5ca80fcb3bdd21d3963b4eee5c9ff5f0bb79bc8f7df135cdb73f845d1e752e4c",
+      "candidate": "hybrid:d3",
+      "opponent": "frozen:d3",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 29,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 7,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "dab2a272a5f2cc67730fee3d832d2171a9f1ce2feb60e066d40beff96beae094",
+      "candidate": "hybrid:d3",
+      "opponent": "frozen:d3",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 32,
+      "candidate_turns_without_completed_iteration": 21,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 18,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              10,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "bfd000701b1963e838711d825155a267ef7fa2274b1f4b1a813f78f6b757d599",
+      "candidate": "hybrid:d3",
+      "opponent": "frozen:d3",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 27,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "5164feff8a2c6fc597acd931d915560e8ba698e71e07ec6daf613eec7be6b6eb",
+      "candidate": "hybrid:d3",
+      "opponent": "collector",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "636f27ea993c69e80510e2eb9e0e10b338190c4a9a7ccd7d6404bd4f5d42348a",
+      "candidate": "hybrid:d3",
+      "opponent": "collector",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 0.5,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 6,
+      "candidate_turns_without_completed_iteration": 4,
+      "partial_move_records": 2,
+      "battles": 5,
+      "stochastic_battles": 1,
+      "first_repeated_position": {
+        "after_ply": 38,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              0,
+              1,
+              0,
+              0,
+              3
+            ],
+            [
+              6,
+              2,
+              0,
+              3,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              2,
+              2,
+              0,
+              8,
+              0
+            ],
+            [
+              5,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              9,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              9,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              9,
+              4,
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "8a160ee4e21e178c425ab545e993f0d564ec3b9c92b25ed9d575e93fe26e6da9",
+      "candidate": "hybrid:d3",
+      "opponent": "collector",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 23,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 7,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "d0f8d06bc2e5930c5c8c73b89e2088d4dee42d3316dcdff0f5ab205329f917a3",
+      "candidate": "hybrid:d3",
+      "opponent": "collector",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 2,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 48,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              0,
+              1,
+              0,
+              0,
+              9
+            ],
+            [
+              4,
+              0,
+              0,
+              16,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "ac3268107338f9ca62ac4c037b951a35deaf23de7549e352412e775cb5b9c6e9",
+      "candidate": "hybrid:d3",
+      "opponent": "collector",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 7,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 1,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "a37b91e6f442497d45fd60f02926a51e1c4dcd056ebe6bca5bb24f1740580df1",
+      "candidate": "hybrid:d3",
+      "opponent": "collector",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 6,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 15,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              0,
+              5
+            ],
+            [
+              2,
+              3,
+              0,
+              10,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "3ae0e987fe31b15fe1c6b0c02e4235ed1931197978b0952517cb1fdba7aaba37",
+      "candidate": "hybrid:d3",
+      "opponent": "raider",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 5,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 2,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "71f4f33cff0fee5d4b200b107c55039aa65c44ede3858d73cd606e330a2346e7",
+      "candidate": "hybrid:d3",
+      "opponent": "raider",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "d86035f84fcaeb60b37c8ac0d8520a3f878592c5bb7dbb0c92fd8fbd27124d71",
+      "candidate": "hybrid:d3",
+      "opponent": "raider",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 11,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 1,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "0f4d71820594d9b9d85be66adc2ba771ed098920b00179c56eca2a44adf87750",
+      "candidate": "hybrid:d3",
+      "opponent": "raider",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 25,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 7,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "31b418c260e3c0a60aacd51ca4e7870b202317997d305672e2d84bc5aec95f96",
+      "candidate": "hybrid:d3",
+      "opponent": "raider",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 5,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 2,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "6df04aec58d5c3cf05d69cb6a8136d058693b99918b01d1587e48be315a3fda1",
+      "candidate": "hybrid:d3",
+      "opponent": "raider",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "fb8d6ddd89372d171be292668e3ebf0e45456f8e55dc35ed5c1655ba99b0983c",
+      "candidate": "hybrid:d3",
+      "opponent": "split_merge",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 1,
+      "candidate_turns_without_completed_iteration": 15,
+      "partial_move_records": 3,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 46,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              7,
+              3,
+              0,
+              11,
+              0
+            ],
+            [
+              8,
+              4,
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "1ad78a324ffc518b75e66ebc76e27fd786bc6e11806ec1be396fc774357f7561",
+      "candidate": "hybrid:d3",
+      "opponent": "split_merge",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "d35c995385ebc3b0417058df52c66a086b84c2ed078b42e732a087a39859584e",
+      "candidate": "hybrid:d3",
+      "opponent": "split_merge",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 1,
+      "partial_move_records": 3,
+      "battles": 5,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 4,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              4,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              0,
+              0,
+              4
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              2
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "7b07f1ee2135d64c9b3d56c3c4d04a943623e9e31ecb50b380871f6fc9a32c66",
+      "candidate": "hybrid:d3",
+      "opponent": "split_merge",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 5,
+      "partial_move_records": 3,
+      "battles": 5,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              2,
+              1,
+              0,
+              4,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "0389c0fef60bae1a6d21b1da333b9bc3c7cff2e496adf7ec64d6d6a31ecf5f8c",
+      "candidate": "hybrid:d3",
+      "opponent": "split_merge",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 33,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 14,
+      "partial_move_records": 2,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 1,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              3,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "68588368149dbdbe24118d8bf254827ebf340a149a1885fbc065e64bbbf2e2b8",
+      "candidate": "hybrid:d3",
+      "opponent": "split_merge",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 6,
+      "candidate_turns_without_completed_iteration": 1,
+      "partial_move_records": 4,
+      "battles": 4,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 14,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              0,
+              5
+            ],
+            [
+              2,
+              3,
+              0,
+              10,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "031c04917eb0102e7c326584144a86200c1d112dbb15259bbb95396824bab9bc",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 35,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 5,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 17,
+        "to_move": "vampires",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              5,
+              0,
+              0,
+              8,
+              0
+            ],
+            [
+              9,
+              4,
+              0,
+              0,
+              9
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "74b9fcaa097b2bc94eb3c548109c586d15f7083c3c09ff99cc079481026fb241",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 11,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 4,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 39,
+        "to_move": "vampires",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              8,
+              0
+            ],
+            [
+              0,
+              3,
+              0,
+              0,
+              9
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              2,
+              2,
+              0,
+              8,
+              0
+            ],
+            [
+              5,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              9,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              9,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              9,
+              4,
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "462aab2c308c3a35d56e24ff31229b4e708deee443e1d3c7dea179d281d41700",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 4,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "bf7ccaea74e38ae66a5c1c1942aec4cd22638f014180f6ee080ca4838affce54",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 29,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 7,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "b4024a89060bab984b6d54977d49a7793a341aa4ebc6b69adb34356c46cfeb2f",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 32,
+      "candidate_turns_without_completed_iteration": 21,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 18,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              10,
+              0
+            ],
+            [
+              3,
+              2,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "c3fc01e1706a2faab246663f42848ac92c2cec207ad72f319fbdc9c6391ada4f",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "frozen:d3",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 27,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "95102e8c2fcae9eac87146bcc62e44c65ab2e3273162df8a64ef8b19a3beef17",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "collector",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 17,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "c7cbbd136673874334bfebc197c0f79d647f1cf17c4308c5f626e1b4dea19816",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "collector",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 0.5,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 6,
+      "candidate_turns_without_completed_iteration": 5,
+      "partial_move_records": 2,
+      "battles": 5,
+      "stochastic_battles": 1,
+      "first_repeated_position": {
+        "after_ply": 38,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              0,
+              1,
+              0,
+              0,
+              3
+            ],
+            [
+              6,
+              2,
+              0,
+              3,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              2,
+              2,
+              0,
+              8,
+              0
+            ],
+            [
+              5,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              9,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              9,
+              2,
+              1,
+              0,
+              0
+            ],
+            [
+              9,
+              4,
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "0a9eb2f6f3a6a794b1f90a1ee3a1ccf5c2142f6a72cf353d8209052c3c4cb4bb",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "collector",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 23,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 7,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "4c991d29b611c3f915f5f451c4c0f86f5b39db8a3f0485bb19a4ffd8108f4bb1",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "collector",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 2,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 48,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              0,
+              1,
+              0,
+              0,
+              9
+            ],
+            [
+              4,
+              0,
+              0,
+              16,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "f3e05e83304924feb35da297656a4e0efdcbb638b1355ad0a1f2e7c81de6fb13",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "collector",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 7,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 4,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 1,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "f891ca365da07f5b069135fc5c6b620949fa6762f02751f6b0e92ca3007ae4e1",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "collector",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 6,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 3,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 15,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              0,
+              5
+            ],
+            [
+              2,
+              3,
+              0,
+              10,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "ec26877284dc5c2e2c3bd83e1b25b2ab10b91eb41e6db59c242e376bc88b7448",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "raider",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 5,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 2,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "fd588ea05bc18e043a087a93574b8e3499e51934ba81ade4143f6a1a7b287973",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "raider",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "7daad1cdea06ce4190e5647ea236b1c4a6842f48ee06d20d9a40c07f57ed06a8",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "raider",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 11,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 1,
+      "partial_move_records": 0,
+      "battles": 6,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "73c7ee99e07cce79110dabc6bbe69b40dafe2725bafee4bc3c65b275c2b12727",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "raider",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "extinction",
+      "plies_verified": 25,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 1,
+      "battles": 7,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "f03289dd442b51c8dad930f50146e690161b88831ec5d9edccf3272a6d258c94",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "raider",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 5,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 2,
+      "stochastic_battles": 0,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "de276a1b795a1aa6861199be7126b49c51c08845c210c093fc1f3d7cf00378f6",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "raider",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "3696da12fa37cd169765a15317979626cc4f7eb693730359fe6341f0b1ea452f",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "split_merge",
+      "map": "thetrap",
+      "species": "vampires",
+      "score": 1.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 1,
+      "candidate_turns_without_completed_iteration": 15,
+      "partial_move_records": 3,
+      "battles": 5,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 46,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 5,
+          "columns": 10,
+          "cells": [
+            [
+              7,
+              3,
+              0,
+              11,
+              0
+            ],
+            [
+              8,
+              4,
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "e889a2073ab556c52602b17031e3e5cf7899462b22e19d770ccf2b0e66cf15f6",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "split_merge",
+      "map": "thetrap",
+      "species": "werewolves",
+      "score": 1.0,
+      "termination": "extinction",
+      "plies_verified": 2,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 0,
+      "partial_move_records": 0,
+      "battles": 1,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": null
+    },
+    {
+      "match_id": "31a74b74b6b8c63db9feb106840e2d7a9847dd29399437164c673523e19e42cb",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "split_merge",
+      "map": "resource_race_1301",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 2,
+      "partial_move_records": 3,
+      "battles": 5,
+      "stochastic_battles": 1,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 4,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              2,
+              1,
+              0,
+              4,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              0,
+              0,
+              4
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              2
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "66735fd2501e67120d087eaa5d8dbdbf0df69b7e44294e0abbd6b932f719649a",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "split_merge",
+      "map": "resource_race_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 0,
+      "candidate_turns_without_completed_iteration": 3,
+      "partial_move_records": 8,
+      "battles": 8,
+      "stochastic_battles": 3,
+      "first_repeated_position": null,
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 7,
+          "columns": 7,
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              2,
+              1,
+              0,
+              4,
+              0
+            ],
+            [
+              3,
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              3,
+              3,
+              7,
+              0,
+              0
+            ],
+            [
+              3,
+              5,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              5,
+              2,
+              0,
+              0
+            ],
+            [
+              5,
+              6,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "8d593153442aafdfa7b272b5835333abcf3c7681bf0742c5d8d31d0a64c21266",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "split_merge",
+      "map": "contact_1301",
+      "species": "vampires",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 7,
+      "candidate_turns_without_completed_iteration": 5,
+      "partial_move_records": 4,
+      "battles": 5,
+      "stochastic_battles": 2,
+      "first_repeated_position": {
+        "after_ply": 26,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              3,
+              1,
+              0,
+              0,
+              7
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 1,
+        "to_move": "vampires",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              4,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              3,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "match_id": "5d7581cac99a9d0e3d3aa4bc49a12c0e08695f5fd7b3aba9327d0430107788f6",
+      "candidate": "hybrid_adaptive:d5",
+      "opponent": "split_merge",
+      "map": "contact_1301",
+      "species": "werewolves",
+      "score": 0.0,
+      "termination": "local_ply_cap",
+      "plies_verified": 50,
+      "repeated_positions": 6,
+      "candidate_turns_without_completed_iteration": 1,
+      "partial_move_records": 4,
+      "battles": 4,
+      "stochastic_battles": 0,
+      "first_repeated_position": {
+        "after_ply": 14,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              0,
+              0,
+              0,
+              5
+            ],
+            [
+              2,
+              3,
+              0,
+              10,
+              0
+            ]
+          ]
+        }
+      },
+      "first_population_deficit": {
+        "after_ply": 2,
+        "to_move": "werewolves",
+        "board": {
+          "rows": 4,
+          "columns": 5,
+          "cells": [
+            [
+              0,
+              3,
+              0,
+              8,
+              0
+            ],
+            [
+              2,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              1,
+              0,
+              0,
+              5
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "limitation": "Replay verifies recorded transitions, not optimal play or official-server parity. Repeated states and deficits are diagnostic positions, not proofs of avoidable errors."
+}
