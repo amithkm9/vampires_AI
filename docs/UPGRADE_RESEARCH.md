@@ -23,3 +23,27 @@ Avoid assuming that changing algorithms automatically improves strength. The ben
 Opponent identification from protocol updates is ambiguous: an update may include stochastic consequences and does not expose a clean opponent policy label. Continue searching strong legal replies for either species. Do not claim that the client recognizes individual opponents or learns their style. Later adaptation requires validated action reconstruction and evidence across diverse opponents.
 
 Resource paths and unavoidable endgame risks need deeper work than a leaf bonus. Shared-target battle semantics, official-server parity and CTI timing must be resolved before tournament claims. No algorithm can guarantee a win in every stochastic position.
+
+## Selective refinement follow-up, 2026-10-13
+
+Moraes and Lelis (AAAI 2018) relax action restrictions for selected units. Their
+Theorem 1 relies on optimal play and nested action sets; their practical second
+stage also fixes the opponent to a script. Our capped stochastic search inherits
+neither their theorem nor their experimental performance. We instead apply
+partial-move proposals to **both** players. The source is a motivation for this
+local adaptation, not evidence that it will win this game. [Original paper,
+pp. 3–5 and appendix](https://webdocs.cs.ualberta.ca/~santanad/papers/2018/moraesL18.pdf).
+
+`hybrid.hybrid_turns` retains an intact-group backbone and adds bounded partial
+captures, attacks, reinforcement and separation amounts. Under a saturated cap,
+partials can displace whole moves; refinement can therefore worsen decisions.
+Exact finite-horizon fixtures establish two omissions repaired by the new
+generator, but do not establish general strength.
+
+`balanced.choose_balanced(reuse_work=True)` reuses completed deterministic
+candidate sets and leaf evaluations and orders moves from completed earlier
+searches. Deeper values stay keyed by depth and remaining plies. This is an
+implementation optimization with bounded caches, not a new statistical method.
+Quiescence and sparse sampling remain unimplemented: first measure these smaller
+changes against distinct opponents and retain negative evidence. See the
+[league protocol](../experiments/2026-10-13-league/EXPERIMENT.md).
