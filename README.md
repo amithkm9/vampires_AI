@@ -2,7 +2,7 @@
 
 Build an AI for the Foundation of AI tournament. The game is a fully observable grid contest: convert humans, grow your species, anticipate the opponent, and finish with the dominant population. Battles can be random. Each turn must be sent to the supplied server within **two seconds**.
 
-The project has a **playable opponent-aware engine with 219 passing tests**. The provisional default, `cohesive_material`, combines resumable expectiminimax with intact-group action search and the baseline evaluator. It scored **4 wins, 3 draws, 1 loss** against the pre-upgrade engine in eight locked normal-budget games; this is limited local evidence. Parallel edge reviews fixed deadline, chance-cap, byte-boundary, candidate-work and history-memory defects. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
+The project has a **playable opponent-aware engine with 262 passing tests**. The provisional default, `adaptive`, adds reusable search work and a depth-five ceiling to intact-group expectiminimax. In the latest locked league it scored **6 wins, 10 draws, 2 losses**, compared with **5/10/3** for the previous default against the same opponents. This one-game difference is limited local evidence. Split-move refinements repair exact tactical examples but remain experimental after weaker development results. **Official-server and CTI validation are still required; this is not a tournament-readiness or winning guarantee.**
 
 ## Start here
 
@@ -16,18 +16,19 @@ The project has a **playable opponent-aware engine with 219 passing tests**. The
 8. Follow [the next algorithm improvements](docs/NEXT_ALGORITHM.md), prioritized from [verified match replays](reports/replay-analysis-2026-10-11.md).
 9. Read [the outcome and tactical-coverage experiment](experiments/2026-10-12-outcomes/EXPERIMENT.md): known cutoffs improve some exact development decisions; attack reservation also exposes a regression and remains disabled by default.
 10. Read [the latest upgrade comparison](experiments/2026-10-12-upgrade/EXPERIMENT.md), [research rationale](docs/UPGRADE_RESEARCH.md) and [parallel edge-case audit](docs/EDGE_CASE_AUDIT.md).
+11. Read [the opponent league protocol and results](experiments/2026-10-13-league/EXPERIMENT.md): 96 development games and 36 locked evaluation games, exact snapshots and verified replays.
 
 ## Launch the player
 
 Requires Python 3.10 or newer and the standard library only. Put the server IP and port last:
 
 ```sh
-python3 run.py --name vampires_AI --budget 1.25 --depth 3 127.0.0.1 5555
+python3 run.py --name vampires_AI --budget 1.25 127.0.0.1 5555
 ```
 
 Replace the example IP/port with the official server's values. From another directory, use the absolute path to `run.py`; no `PYTHONPATH` setup is needed. The default search budget is 1.25 seconds inside the brief's two-second turn deadline. Timing on CTI remains unmeasured. Diagnostics go to stderr; `--quiet` suppresses routine turn logs.
 
-The default is `--engine cohesive_material`; use `--engine baseline` to select the previous sequential engine. Other selectable experiments are `balanced`, `resources`, `balanced_resources`, `portfolio` and `cohesive`. Cohesive modes omit partial-group moves for both species to reduce branching; this can miss important splits. The promoted mode keeps the original evaluator: resource projection and policy portfolios did not perform consistently enough to bundle into it.
+The default is `--engine adaptive --depth 5`. It preserves completed shallower decisions when deeper work runs out of time. Use `--engine cohesive_material --depth 3` for the previous default or `--engine baseline` for the sequential engine. Other experiments are `balanced`, `resources`, `balanced_resources`, `portfolio`, `cohesive`, `hybrid` and `hybrid_adaptive`. Adaptive modes default to depth five; other modes default to three, with explicit `--depth` always taking precedence. Adaptive/cohesive modes omit partial moves for both species. Hybrid modes add selected partial moves, with measured branching/strength tradeoffs. The promoted mode keeps the original evaluator.
 
 ## What was supplied
 
@@ -55,17 +56,19 @@ Original file contents were preserved; only their locations changed. See the [so
 | `src/vampires/turns.py` | Legal fallback, bounded joint candidates, exhaustive small-position oracle |
 | `src/vampires/evaluation.py`, `search.py`, `budget.py` | Bounded evaluation, iterative expectiminimax, per-search cache, cooperative deadlines |
 | `src/vampires/balanced.py`, `strategy.py`, `engines.py` | Resumable root/chance search, strategic alternatives, explicit engine selection and provisional default |
+| `src/vampires/hybrid.py` | Experimental critical partial captures, attacks, reinforcement and separation for both sides |
 | `src/vampires/certificates.py` | Preserves an intact stack whose dominance follows conditionally from the written rules |
 | `src/vampires/growth.py`, `mcts.py` | Experimental multi-house planning and sampled adversarial UCT; neither is the live default |
 | `src/vampires/endgame.py`, `history.py` | Exact finite-horizon offline outcome reference and bounded authoritative repetition diagnostics |
 | `src/vampires/player.py`, `run.py` | Persistent game loop and launch command |
-| `tests/` | 219 tests covering rules, independent exact references, transitions, chance bounds, interrupted search, byte boundaries, memory, deadlines and protocol lifecycle |
+| `tests/` | 262 tests covering rules, independent exact references, transitions, chance bounds, interrupted search, byte boundaries, memory, deadlines, protocol lifecycle and league integrity |
 | `tools/inspect_map.py` | Read a map without running the Windows generator |
 | `tools/analyze_maps.py` | Reproduce exact local reply risks and optimistic capture-route calculations |
 | `tools/check_player.py`, `tools/check_search.py` | Reproducible local TCP matches and synthetic timing checks |
 | `tools/benchmark_strength.py`, `tools/benchmark_long.py` | Paired engine comparisons against the immutable published baseline, with raw records and provenance |
 | `tools/analyze_replays.py` | Reconstruct stored matches and diagnose combat, repetition, resource deficits, and unfinished root comparisons |
 | `tools/check_tactics.py`, `tools/check_outcomes.py` | Measure candidate/reply omissions and search decision regret against exact tiny outcome trees |
+| `tools/league.py`, `tools/league_support.py`, `tools/analyze_league.py` | Paired opponent league, immutable source snapshots, checksummed resumable records and seeded replay diagnosis |
 
 All working Python code uses the standard library. The current syntax targets Python 3.10 or newer; local validation used Python 3.14.6. Confirm the Python version available on CTI before selecting the final runtime. No dependency installation is needed for the current code.
 

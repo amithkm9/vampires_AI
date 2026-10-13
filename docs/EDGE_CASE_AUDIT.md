@@ -1,5 +1,33 @@
 # Parallel edge-case audit — 2026-10-12
 
+## Follow-up audit, 2026-10-13
+
+Three agents implemented selective partial moves, reusable search work and the
+opponent league, then cross-reviewed each other's changes. The primary integrated
+engine/default selection and replay checks. The suite increased from 219 to
+**262 tests**. New exact references check depths four through six, interrupted
+deeper search, chance caps, cache limits, both-species partial tactics and legal
+bounded hybrid generation.
+
+Independent review caught three league defects before timing runs: failed turns
+were missing from maximum response statistics; changed completed result payloads
+could survive resume; two writers could corrupt the same journal. Fixes include
+failure-inclusive timings, configuration/record checksums and a POSIX writer lock.
+Resume also verifies snapshots, maps and the schedule, and archives an interrupted
+final fragment. Checksums detect accidental corruption, not malicious forgery.
+
+Two supported finite-horizon fixtures demonstrate useful partial moves omitted by
+whole-group search. Their exact values are tested against the full legal reference
+with shared contested battles rejected; they do not prove general live wins.
+The new modes passed 24 normal-budget stress cases and 36 maximum-area probes;
+largest observed search time was 1.297874 seconds on this machine.
+
+Remaining limits include selective source ordering, cooperative cleanup overhead,
+cache entry counts rather than memory bytes, and completed values for retained
+trees whose generation was truncated. See [implementation details](IMPLEMENTATION.md)
+and [positive/negative league evidence](../experiments/2026-10-13-league/EXPERIMENT.md).
+The original audit below is historical evidence.
+
 The user requested multiple independent reviewers. Three agents audited search, movement and protocol/history; the protocol reviewer then separately audited combat/model invariants. The primary agent integrated fixes, engine selection and lifecycle checks. The completed suite has **219 tests**, passing in **1.969 seconds** on Python 3.14.6. Run `PYTHONPATH=src python3 -m unittest discover -s tests -q`.
 
 ## Confirmed defects and repairs

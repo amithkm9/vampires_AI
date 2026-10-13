@@ -1,10 +1,23 @@
 # Project status
 
-Updated: 2026-10-12.
+Updated: 2026-10-13.
 
 ## Current milestone
 
-Phases 0 and 1 are complete. The local forward model, playable client, bounded search, finite-horizon references and history are implemented. The latest upgrade adds resumable search, explicit strategy alternatives and parallel edge-case repairs. The full suite passes **219 tests**. `cohesive_material` is provisionally promoted after **4 wins, 3 draws, 1 loss** in eight locked normal-budget games against the pre-upgrade engine. **Official-server parity, CTI deployment and strength against tournament opponents remain unverified.**
+Phases 0 and 1 are complete. The playable client, local model, search, exact references and history are implemented. The latest milestone adds reusable search work, selective partial-move experiments and a reproducible opponent league. The full suite passes **262 tests**. `adaptive` at depth five is provisionally promoted after **6 wins, 10 draws, 2 losses**, versus **5/10/3** for the previous default against the same evaluation opponents. The one-game gain is limited local evidence. **Official-server parity, CTI deployment and strength against tournament opponents remain unverified.**
+
+## Opponent league and selective refinement, 2026-10-13
+
+- Three agents built and cross-reviewed the search optimization, tactical partial generator and league harness. Independent review repaired timing-summary omissions, resume integrity and concurrent-writer risks.
+- `balanced.choose_balanced` optionally reuses completed candidate sets/pure leaf evaluations and orders from prior completed work; values retain depth/horizon keys. Iteration diagnostics report completion and cache hits. All four caches share an entry cap, not a byte-memory bound.
+- `hybrid.hybrid_turns` restores selected partial captures, attacks, reinforcement and separation for both players. Two exact supported finite-horizon fixtures demonstrate omissions repaired; these do not establish full coverage or general strength.
+- Registered and ran 96 development games. Paired scores: cohesive_material:3 0.645833; adaptive:5 0.625; hybrid:3 0.5625; hybrid_adaptive:5 0.520833. Negative hybrid results remain saved.
+- Locked adaptive:5 and compared it with the previous default in 36 normal-budget games on a different map-family/seed schedule. Scores 0.611111 vs 0.555556, no failures; maximum candidate search 1.252710 seconds. Only one endgame result changes the aggregate score. Both per-mode three-map bootstrap intervals are [0.5, 0.666667], conditional on this small local sample.
+- Provisionally promote adaptive at depth five; keep cohesive_material at depth three and the hybrid experiments selectable. Engine/API/launcher depth defaults are tested, and explicit depth overrides win. Runtime algorithm files match the tested snapshots; final routing changes only default selection.
+- Verified every replay: **132 games / 4387 plies**. Repeated states persist (364 challenger versus 311 control in evaluation), so deeper search has not solved resource planning or endgame cycles.
+- `PYTHONPATH=src python3 -m unittest discover -s tests -q`: **262 passed in 2.859 seconds**. Passed **24 normal-budget stress cases** and **36 maximum-area probes**; largest search time 1.297874 seconds. All 13 original hashes match; runtime imports remain standard-library/project-only.
+- Final TCP launcher check: four matches / **30 AI turns**, both supplied maps/species, persistent restart, unrelated working directory and clean BYE. Maximum full response **0.711339 seconds**; two extinction finishes and two harness caps. Initial sandbox loopback bind failed; authorized execution succeeded. Record: `reports/player-league-smoke-2026-10-13.json`. This is not an official-server check.
+- See [registered protocol/results](experiments/2026-10-13-league/EXPERIMENT.md), [research rationale](docs/UPGRADE_RESEARCH.md), [implementation](docs/IMPLEMENTATION.md) and [edge audit](docs/EDGE_CASE_AUDIT.md). The following milestones are historical evidence.
 
 ## Resumable search and edge-hardening milestone, 2026-10-12
 
@@ -55,9 +68,15 @@ Completed work:
 
 ## Next work
 
-Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md) and [TODO.md): expand the opponent league and map families, quantify the intact-group abstraction's missed split replies, test interception-aware resource plans and repetition-guided endings, and obtain official-server/CTI evidence. Root allocation and bounded exhaustive edge checks are implemented. The provisional default is cohesive_material; resource projection, portfolio, growth, UCT and attack reservation remain experiments. The 56 new games provide limited local evidence, not tournament validation.
+Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md) and [TODO.md](TODO.md): validate official-server/CTI behavior, test interception-aware resource plans and repetition-aware decisions, and measure selective refinement on additional independent seeds/opponents. The provisional default is adaptive at depth five. Hybrid splits, resource projection, portfolio, growth, UCT and attack reservation remain experiments. The new 132-game league broadens local evidence but does not establish tournament strength.
 
 ## Repository publication
+
+The October 13 league milestone is organized into nine further commits: reusable
+search, tactical partial modes, league integrity, replay/protocol registration,
+default selection, development records, evaluation/timing records, research and
+documentation. Each experiment retains exact source snapshots independently of
+later default routing changes.
 
 Repository: https://github.com/amithkm9/vampires_AI. The initial project history is organized into eight meaningful commits, ending with the roadmap, status, and repository instructions. Standard Git successfully pushed `main` on 2026-10-09 and configured `origin/main` as its upstream. No plugin was used for the successful publication.
 

@@ -1,6 +1,19 @@
 # Next algorithm: recognize consequential moves and reduce avoidable losses
 
-Updated: 2026-10-12. Features below remain proposed unless marked existing. The latest provisional default is cohesive_material: resumable bounded expectiminimax with intact-group action abstraction and baseline evaluation. Its locked eight-game normal-budget comparison scored 4W/3D/1L; this is limited local evidence, not a tournament-strength claim. See [the upgrade experiment](../experiments/2026-10-12-upgrade/EXPERIMENT.md) and [edge audit](EDGE_CASE_AUDIT.md).
+Updated: 2026-10-13. The latest provisional default is adaptive at depth five:
+resumable expectiminimax, intact-group abstraction, baseline evaluation and
+reused completed search work. The 36-game evaluation scored 6W/10D/2L for it
+and 5W/10D/3L for the prior default; one endgame explains the difference.
+The [league protocol/results](../experiments/2026-10-13-league/EXPERIMENT.md)
+retain negative split-refinement results and all replays.
+
+Current priorities: verify official-server rules and CTI timing; test whether the
+small advantage survives independent combat seeds; analyze intercepted resource
+routes and recorded repetitions; make partial refinement selective enough to
+retain its exact tactical repairs without the observed match regressions. Root
+allocation, reusable work, per-depth diagnostics and the opponent league are now
+implemented. The sections below preserve the broader design; features remain
+proposed unless explicitly marked implemented.
 
 October 12 implementation: exact finite-horizon references, known-cutoff search, bounded repetition diagnostics, and an exact two-sided candidate/reply audit are implemented. At limit 64, known cutoff improves 8/30 tiny development decisions and worsens none. Optional attack reservation improves two limit-8 decisions but worsens one by displacing a merge, so it remains disabled. See [the complete experiment](../experiments/2026-10-12-outcomes/EXPERIMENT.md). Live history currently logs diagnostics only; strategic cycle handling and better root allocation remain next work.
 

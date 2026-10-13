@@ -1,6 +1,35 @@
 # Player implementation and limits
 
-Updated 2026-10-12. This describes actual code, not the full proposed tournament strategy. The implementation uses Python's standard library and our own algorithms. The published 105-test baseline remains available at revision `2a08829b1935a80c3c11a37ecea5efb089425268` for comparisons; revision `5b47469ac5fec4d2e2d49913a87765ab94604085` preserves the runtime used in the historical 108-match audit.
+Updated 2026-10-13. This describes actual code, not the full proposed tournament strategy. The implementation uses Python's standard library and our own algorithms. The published 105-test baseline remains available at revision `2a08829b1935a80c3c11a37ecea5efb089425268` for comparisons; revision `5b47469ac5fec4d2e2d49913a87765ab94604085` preserves the runtime used in the historical 108-match audit. Revision `04a1e85` is the latest league's frozen cohesive opponent.
+
+## Current search selection
+
+The provisional default is `adaptive`, with maximum depth five and the unchanged
+baseline evaluator/intact-group generator. `engines.default_depth` keeps this
+setting consistent between API and launcher; an explicit SearchConfig/CLI depth
+wins. `cohesive_material` retains depth three by default.
+
+`balanced.choose_balanced(reuse_work=True)` reuses completed deterministic
+candidate lists and pure leaf evaluations and orders moves from completed earlier
+searches. Values remain specific to depth and remaining plies. Four caches share
+an entry cap, **not a byte/cell cap**. Truncated candidate lists are not cached,
+but completed node values can still represent a truncated retained tree, as in
+the earlier search. These intervals never certify omitted legal actions.
+Optional iteration records expose work, completion and cache hits per depth.
+
+`hybrid.hybrid_turns` preserves at least three quarters of a saturated cohesive
+candidate set (at least one whole move at tiny caps), reserving other slots for
+partial captures, attacks, reinforcement and local separation. It uses radius-two
+local features, one record per source and no shared contested targets. Refinement
+has an additional work cap under the same deadline. Early sources can exhaust
+that cap; final bounded pool sorting adds cooperative overhead. This is not full
+split coverage. `hybrid` and `hybrid_adaptive` remain experiments after negative
+development evidence.
+
+The [league record](../experiments/2026-10-13-league/EXPERIMENT.md) reports 132 new
+games and exact source snapshots. Three independent agents implemented/reviewed
+search, movement and benchmark integrity; the full suite now has **262 tests**.
+The validation section below records the preceding milestone for comparison.
 
 ## Turn processing
 
@@ -25,7 +54,7 @@ Updated 2026-10-12. This describes actual code, not the full proposed tournament
 | `simulation.iter_turn_outcome_steps` | Shares target-distribution preparation across resumable callers | None checkpoints have no probability; ordinary streaming filters them |
 | `strategy.cohesive_turns` | Intact-group candidate abstraction used by the provisional default | Omits partial movements for both players; splitting remains legal |
 | `strategy.evaluate_resources`, `portfolio_turns` | Experimental resource projection and capture/attack/merge/escape proposals | Ignore route interception; not bundled into the promoted mode |
-| `engines.choose_engine`, `DEFAULT_ENGINE` | Shared launcher/benchmark selection; provisional default cohesive_material | Prior sequential algorithm remains available as baseline |
+| `engines.choose_engine`, `default_depth`, `DEFAULT_ENGINE` | Shared engine selection; provisional default adaptive at depth five | Previous cohesive_material remains available at depth three; sequential baseline is also selectable |
 | `search.state_key` | Per-search cache keyed by dimensions, complete cell contents, side to move, and remaining depth | Stores only completed node evaluations; no cross-turn or sampled-value reuse |
 | `search.choose_turn(..., remaining_plies=N)` | Scores population win/draw/loss when a known total-ply horizon reaches zero; remaining horizon is part of the cache key | None is unknown; search-depth leaves before cutoff remain heuristic; the live protocol supplies no countdown |
 | `endgame.ExactSolver` | Offline canonical legal finite-horizon expectiminimax with rational W/D/L and an explicit combat model | Caps states, generation, and outcomes; raises on incomplete work; aggregate shared-target combat is an unverified assumption |
@@ -66,8 +95,8 @@ Diagnostics distinguish `completed_depth` from `selected_depth`. Selected depth 
 - Crowded-board generation now returns partial work; time/beam limits can still prevent useful coverage and completed search depth.
 - There is no server-supplied daylight countdown in the current state, no measured official tournament strength, and no universal winning guarantee. UCT and multi-house planning are experimental; sparse-sampled expectiminimax is not implemented.
 
-## Validation and next gate
+## Historical validation before the league milestone
 
-The current **219 tests** include independent rational search/combat references, bounded exhaustive joint transitions, interrupted deadlines, caches/horizons, byte boundaries, maximum packets, history limits and engine lifecycles. See the [parallel edge audit](EDGE_CASE_AUDIT.md) and [upgrade experiment](../experiments/2026-10-12-upgrade/EXPERIMENT.md).
+The preceding **219 tests** included independent rational search/combat references, bounded exhaustive joint transitions, interrupted deadlines, caches/horizons, byte boundaries, maximum packets, history limits and engine lifecycles. See the [parallel edge audit](EDGE_CASE_AUDIT.md) and [upgrade experiment](../experiments/2026-10-12-upgrade/EXPERIMENT.md).
 
 The final [TCP check](../reports/player-upgrade-smoke-2026-10-12.json) passed four matches / 31 AI turns, maximum 0.028358 seconds. A separate 24-case maximum-area probe reached 1.292704 seconds on 255×255 boards. These are local measurements, not worst-case/CTI guarantees. Eight locked games scored 4W/3D/1L against the frozen pre-upgrade engine; all comparisons share our simulator. The next external gate is the supplied server and exact CTI launch environment.

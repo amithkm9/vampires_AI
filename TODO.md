@@ -16,12 +16,24 @@ Work from top to bottom. A checked task has evidence in the files or verificatio
 Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md), using [verified replay findings](reports/replay-analysis-2026-10-11.md) to prioritize changes.
 
 1. [x] Add exact finite-horizon outcome references, known-cutoff search, and repetition diagnostics; distinguish the live unknown horizon and avoid blanket penalties on leading/drawing repetitions. See the [outcome experiment](experiments/2026-10-12-outcomes/EXPERIMENT.md).
-2. [ ] Extend critical opponent-reply coverage, especially splits omitted by the provisional intact-group default. Root comparison and joint attack/merge/escape proposals are implemented; complete tactical coverage remains open.
+2. [ ] Improve when critical partial replies are admitted. The hybrid generator repairs exact examples but reduced development league scores; complete tactical coverage and a strength-preserving refinement policy remain open.
 3. [ ] Add bounded tactical extensions and compare sparse-sampled expectiminimax. Resumable root/chance refinement and preparation scheduling are implemented and tested.
 4. [ ] Add interception and contested-route checks to the growth planner; explicitly test the trap's four-versus-five human race and the large map's central-house denial.
 5. [ ] Verify shared-target attacks, wider splitting, overflow, and both-extinct outcomes on the official server; then extend the live candidate set.
 6. [ ] Rehearse the exact launch command on CTI and measure receive/search/send timing there.
-7. [ ] Expand paired benchmarks to stronger opponents, new map families, normal budgets, and feature ablations before selecting the final engine.
+7. [x] Expand paired benchmarks with distinct scripted opponents, new map families, normal budgets and feature ablations; 132 new games are saved. Multiple independent combat seeds and stronger tournament opponents remain necessary before final selection.
+
+## League and selective-refinement milestone, 2026-10-13
+
+- [x] Use three agents for implementation and independent reviews; retain primary research provenance.
+- [x] Reuse completed deterministic search work and expose per-depth diagnostics without reusing shallower scores as deeper values.
+- [x] Add bounded critical partial moves for both sides with two supported exact omission fixtures.
+- [x] Build serial paired league runs with immutable source snapshots, independent seed streams, checksummed resumable journals and writer locking.
+- [x] Run 96 development and 36 locked normal-budget games; retain all negative hybrid outcomes.
+- [x] Provisionally select adaptive depth five (6W/10D/2L versus control 5W/10D/3L); retain previous mode and explicit depth override.
+- [x] Verify 132 replays / 4387 plies, 262 tests, 24 search stress cases and 36 maximum-area cases.
+- [ ] Establish whether the small advantage persists across independent seeds, more opponents and official-server runs.
+- [ ] Diagnose recorded repeated/trailing positions with adversarial counterfactuals; avoid treating deeper search alone as a solution.
 
 ## Upgrade and parallel edge audit completed on 2026-10-12
 
@@ -33,7 +45,7 @@ Follow [the next-algorithm plan](docs/NEXT_ALGORITHM.md), using [verified replay
 - [x] Use three agents to audit search, movement, protocol/history and combat; repair concrete defects and add independent bounded exhaustive references.
 - [x] Pass 219 tests, 56 synthetic search cases, 24 maximum-area probes and four final TCP smoke matches / 31 turns.
 - [x] Preserve original hashes and standard-library-only implementation.
-- [ ] Expand beyond one frozen opponent and one unseen map family; revisit split coverage before final tournament selection.
+- [x] Expand beyond one frozen opponent and one unseen map family and revisit split coverage; completed in the October 13 league. Final tournament selection remains open.
 - [ ] Verify official server/CTI, prepare final report and five-minute presentation, and submit source by the course deadline.
 
 ## Outcome references and tactical diagnosis completed on 2026-10-12
