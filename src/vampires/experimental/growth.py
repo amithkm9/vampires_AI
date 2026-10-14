@@ -2,9 +2,9 @@
 
 from dataclasses import dataclass
 
-from .budget import checkpoint
-from .evaluation import distance, evaluate, terminal_value
-from .model import Species
+from ..budget import checkpoint
+from ..evaluation import distance, evaluate, terminal_value
+from ..model import Species
 
 
 @dataclass(frozen=True)

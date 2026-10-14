@@ -3,7 +3,6 @@ import random
 import unittest
 
 from vampires.balanced import choose_balanced
-from vampires.budget import SearchTimeout
 from vampires.evaluation import evaluate
 from vampires.model import Board, Cell, Species, load_map
 from vampires.rules import Move, validate_moves

@@ -5,12 +5,12 @@ origin; wider source splitting and shared contested arrivals are still excluded.
 This is a bounded heuristic candidate set, not complete tactical coverage.
 """
 
-from .budget import SearchTimeout, checkpoint
-from .evaluation import distance
-from .model import Species
-from .rules import Move
-from .strategy import cohesive_turns
-from .turns import (Candidates, GenerationLimit, canonical, compatible_extension,
+from ..budget import SearchTimeout, checkpoint
+from ..evaluation import distance
+from ..model import Species
+from ..rules import Move
+from ..strategy import cohesive_turns
+from ..turns import (Candidates, GenerationLimit, canonical, compatible_extension,
                     move_priority)
 
 

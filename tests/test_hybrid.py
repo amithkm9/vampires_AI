@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 from vampires.budget import SearchTimeout
 from vampires.endgame import ExactSolver
-from vampires.hybrid import hybrid_turns
+from vampires.experimental.hybrid import hybrid_turns
 from vampires.model import Board, Cell, Species
 from vampires.rules import Move, validate_moves
 from vampires.search import state_key
@@ -96,7 +96,7 @@ class HybridGenerationTests(unittest.TestCase):
             calls += 1
             if calls >= 14:
                 raise SearchTimeout
-        with patch("vampires.hybrid.cohesive_turns", return_value=base):
+        with patch("vampires.experimental.hybrid.cohesive_turns", return_value=base):
             partial = hybrid_turns(board, V, check=expire, allow_partial=True)
             capped = hybrid_turns(board, V, max_expansions=1)
             calls = 0
@@ -114,7 +114,7 @@ class HybridGenerationTests(unittest.TestCase):
         board = Board(3, 255, cells)
         whole = tuple(Move(x, 0, 1, x, 1) for x in range(255))
         base = Candidates((whole,), True)
-        with patch("vampires.hybrid.cohesive_turns", return_value=base):
+        with patch("vampires.experimental.hybrid.cohesive_turns", return_value=base):
             result = hybrid_turns(board, V)
         self.assertIn(whole, result.turns)
         self.assertTrue(all(len(turn) <= 255 for turn in result.turns))

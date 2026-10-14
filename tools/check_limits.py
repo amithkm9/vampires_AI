@@ -50,7 +50,7 @@ def main():
                     results.append({"position": name, "rows": 255, "columns": 255, "occupied_cells": len(board.cells),
                                     "engine": engine, "species": species.value, "budget_seconds": budget,
                                     "decision": asdict(decision), "legal": True})
-    paths = sorted((ROOT / "src/vampires").glob("*.py")) + [Path(__file__)]
+    paths = sorted((ROOT / "src/vampires").rglob("*.py")) + [Path(__file__)]
     record = {"generated_utc": datetime.now(timezone.utc).isoformat(), "python": sys.version,
               "platform": platform.platform(), "search_config": asdict(config), "seed": None,
               "board_reproduction": "Exact deterministic positions() in the hashed tool; no random inputs",

@@ -2,7 +2,7 @@
 
 from .balanced import choose_balanced
 from .evaluation import evaluate
-from .hybrid import hybrid_turns
+from .experimental.hybrid import hybrid_turns
 from .search import SearchConfig, choose_turn
 from .strategy import cohesive_turns, evaluate_resources, portfolio_turns
 from .turns import candidate_turns

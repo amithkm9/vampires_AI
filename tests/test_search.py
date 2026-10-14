@@ -1,4 +1,3 @@
-from fractions import Fraction
 from pathlib import Path
 import unittest
 

@@ -1,12 +1,10 @@
 import copy
 from pathlib import Path
-import sys
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "tools"))
-from analyze_league import replay
-from league_support import EngineSpec, Runtime, packed, run_match
+from tools.analyze_league import replay
+from tools.league_support import EngineSpec, Runtime, packed, run_match
 
 
 class LeagueReplayTests(unittest.TestCase):

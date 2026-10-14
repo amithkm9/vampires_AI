@@ -12,7 +12,11 @@ import subprocess
 import sys
 from time import monotonic
 
-from check_tactics import ROOT, fraction, outcome, packed, positions
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
+
+from tools.check_tactics import fraction, outcome, packed, positions
 from vampires.budget import Deadline
 from vampires.endgame import ExactSolver
 from vampires.model import Species
@@ -61,7 +65,7 @@ def main():
                     summary[str(limit)][comparison]["improved" if delta > 0 else "worse" if delta < 0 else "tied"] += 1
                 results.append(record)
             print(name, species.value, "checked", flush=True)
-    paths = sorted((ROOT / "src/vampires").glob("*.py")) + [Path(__file__), ROOT / "tools/check_tactics.py"]
+    paths = sorted((ROOT / "src/vampires").rglob("*.py")) + [Path(__file__), ROOT / "tools/check_tactics.py"]
     data = {"generated_utc": datetime.now(timezone.utc).isoformat(), "python": sys.version,
             "platform": platform.platform(), "revision": subprocess.check_output(
                 ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),

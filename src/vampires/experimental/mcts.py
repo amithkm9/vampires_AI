@@ -10,14 +10,14 @@ from math import isfinite, log, sqrt
 import random
 from time import monotonic
 
-from .budget import Deadline, SearchTimeout
-from .certificates import preserving_turn
-from .evaluation import evaluate, terminal_value
-from .model import Species
-from .rules import validate_moves
-from .search import SearchConfig, state_key
-from .simulation import AmbiguousBattle, UnsupportedPopulation, sample_turn
-from .turns import candidate_turns, fallback_turn
+from ..budget import Deadline, SearchTimeout
+from ..certificates import preserving_turn
+from ..evaluation import evaluate, terminal_value
+from ..model import Species
+from ..rules import validate_moves
+from ..search import SearchConfig, state_key
+from ..simulation import AmbiguousBattle, UnsupportedPopulation, sample_turn
+from ..turns import candidate_turns, fallback_turn
 
 
 @dataclass(frozen=True)

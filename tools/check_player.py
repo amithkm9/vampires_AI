@@ -134,7 +134,7 @@ def run_check(*, budget=.05, depth=2, max_plies=40, seed=20261009, engine=DEFAUL
                     except subprocess.TimeoutExpired:
                         process.kill()
                         process.communicate()
-    sources = sorted((ROOT / "src/vampires").glob("*.py")) + [ROOT / "run.py", Path(__file__)]
+    sources = sorted((ROOT / "src/vampires").rglob("*.py")) + [ROOT / "run.py", Path(__file__)]
     return {"generated_utc": datetime.now(timezone.utc).isoformat(),
             "kind": "local_tcp_integration_smoke", "python": platform.python_version(),
             "platform": platform.platform(), "elapsed_seconds": monotonic() - started,

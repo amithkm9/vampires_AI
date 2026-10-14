@@ -17,11 +17,11 @@ import sys
 import tempfile
 from time import monotonic
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from vampires.growth import evaluate_growth
-from vampires.mcts import choose_mcts
+from vampires.experimental.growth import evaluate_growth
+from vampires.experimental.mcts import choose_mcts
 from vampires.model import Board, Cell, Species, load_map
 from vampires.rules import Move, validate_moves
 from vampires.search import SearchConfig, choose_turn
@@ -55,7 +55,9 @@ def load_baseline(directory, revision=BASELINE):
         if not path.endswith(".py"):
             continue
         data = subprocess.check_output(["git", "show", revision + ":" + path], cwd=ROOT)
-        (package / Path(path).name).write_bytes(data)
+        target = package / Path(path).relative_to("src/vampires")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(data)
         hashes[path] = hashlib.sha256(data).hexdigest()
     spec = importlib.util.spec_from_file_location("baseline_vampires", package / "__init__.py",
                                                  submodule_search_locations=[str(package)])
@@ -150,7 +152,7 @@ def main():
     maps.update({f"generated_{seed}": generated(seed) for seed in (71, 83)})
     inputs = {name: packed(board) for name, board in maps.items()}
     (args.output / "boards.json").write_text(json.dumps(inputs, indent=2) + "\n")
-    source_paths = sorted((ROOT / "src/vampires").glob("*.py")) + [Path(__file__)]
+    source_paths = sorted((ROOT / "src/vampires").rglob("*.py")) + [Path(__file__)]
     source_hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}
     metadata = {"started_utc": datetime.now(timezone.utc).isoformat(), "baseline_revision": BASELINE,
                 "python": sys.version, "platform": platform.platform(), "machine": platform.machine(),

@@ -50,7 +50,7 @@ def main():
             results.append({"position": name, "rows": board.rows, "columns": board.columns,
                             "cells": cells, "species": species.value, "seed": None,
                             "legal": True, "decision": asdict(decision)})
-    paths = sorted((ROOT / "src/vampires").glob("*.py")) + [Path(__file__)]
+    paths = sorted((ROOT / "src/vampires").rglob("*.py")) + [Path(__file__)]
     report = {"generated_utc": datetime.now(timezone.utc).isoformat(),
               "python": platform.python_version(), "platform": platform.platform(),
               "configuration": {"budget_seconds": args.budget, "engine": args.engine, **asdict(config)},

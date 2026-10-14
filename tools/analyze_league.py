@@ -8,9 +8,13 @@ import json
 import math
 from pathlib import Path
 import random
+import sys
 
-from league_support import Runtime, derive_seed, digest, packed, unpacked
-from league import configuration_hash, validate_existing_records
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from tools.league_support import Runtime, derive_seed, digest, packed, unpacked
+from tools.league import configuration_hash, validate_existing_records
 
 
 def replay(runtime, initial, game, max_plies):

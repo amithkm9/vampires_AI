@@ -7,7 +7,6 @@ All transitions use the project's still-unverified live simulation conventions.
 
 from collections import defaultdict
 from dataclasses import asdict, dataclass
-from fractions import Fraction
 import hashlib
 import importlib
 import importlib.util

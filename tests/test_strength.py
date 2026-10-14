@@ -6,8 +6,8 @@ import unittest
 from vampires.budget import SearchTimeout
 from vampires.certificates import dominant_stack, preserving_turn
 from vampires.evaluation import evaluate
-from vampires.growth import evaluate_growth, human_arrivals
-from vampires.mcts import choose_mcts
+from vampires.experimental.growth import evaluate_growth, human_arrivals
+from vampires.experimental.mcts import choose_mcts
 from vampires.model import Board, Cell, Species, load_map
 from vampires.rules import Move, validate_moves
 from vampires.search import SearchConfig, chance_bounds, choose_turn, state_key

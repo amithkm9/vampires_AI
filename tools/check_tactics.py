@@ -154,7 +154,7 @@ def main():
                 record["elapsed_seconds"] = monotonic() - begin
                 records.append(record)
                 print(name, perspective.value, limit, "regret=" + record.get("decision_regret", {}).get("exact", "incomplete"), flush=True)
-    paths = sorted((ROOT / "src/vampires").glob("*.py")) + [Path(__file__)]
+    paths = sorted((ROOT / "src/vampires").rglob("*.py")) + [Path(__file__)]
     result = {"generated_utc": datetime.now(timezone.utc).isoformat(), "python": sys.version,
               "platform": platform.platform(), "revision": subprocess.check_output(
                   ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),

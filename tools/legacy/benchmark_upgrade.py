@@ -15,7 +15,11 @@ import sys
 import tempfile
 from time import monotonic
 
-from benchmark_strength import ROOT, generated, load_baseline, packed, summarize
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
+
+from tools.legacy.benchmark_strength import generated, load_baseline, packed, summarize
 from vampires.engines import choose_engine
 from vampires.model import Board, Species, load_map
 from vampires.rules import Move, validate_moves
@@ -95,7 +99,7 @@ def main():
     maps.update({f"generated_{seed}": generated(seed) for seed in args.map_seeds})
     inputs = {name: packed(board) for name, board in maps.items()}
     (args.output / "boards.json").write_text(json.dumps(inputs, indent=2) + "\n")
-    paths = sorted((ROOT / "src/vampires").glob("*.py")) + [Path(__file__), ROOT / "tools/benchmark_strength.py"]
+    paths = sorted((ROOT / "src/vampires").rglob("*.py")) + [Path(__file__), ROOT / "tools/legacy/benchmark_strength.py"]
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
     metadata = {"started_utc": datetime.now(timezone.utc).isoformat(), "baseline_revision": BASELINE,
                 "candidate_revision": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),

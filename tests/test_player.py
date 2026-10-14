@@ -14,7 +14,7 @@ from vampires.protocol import (Client, ConnectionClosed, Message, ProtocolError,
 from vampires.rules import Move, validate_moves
 from vampires.search import SearchConfig
 from vampires.turns import NoLegalMove
-from tools.check_player import cell_packet, initial_packet
+from tools.check_player import initial_packet
 
 ROOT = Path(__file__).resolve().parents[1]
 V, W = Species.VAMPIRES, Species.WEREWOLVES

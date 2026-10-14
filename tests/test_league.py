@@ -106,12 +106,17 @@ class LeagueTests(unittest.TestCase):
 
     def test_exact_current_and_frozen_snapshots_are_loadable(self):
         league.verify_snapshots(self.fixture, self.metadata["snapshots"])
+        for module in ("__init__", "growth", "hybrid", "mcts"):
+            self.assertIn(f"snapshots/current/src/vampires/experimental/{module}.py",
+                          self.metadata["snapshots"]["sha256"])
         board = generated_board("contact", 11, self.runtime.model)
         side = self.runtime.model.Species.WEREWOLVES
         moves, diagnostic = self.runtime.engine_decision(board, side, EngineSpec("frozen", 2), .001,
                                                         target_runtime=self.frozen)
         self.runtime.rules.validate_moves(board, side, moves)
         self.assertLessEqual(diagnostic["selected_depth"], 2)
+        moves, _ = self.runtime.engine_decision(board, side, EngineSpec("hybrid", 2), 0)
+        self.runtime.rules.validate_moves(board, side, moves)
         self.assertEqual(self.metadata["frozen_revision"], "04a1e855cc78fbab6f0ddef63fbaf085ea46b520")
         self.assertFalse(self.metadata["live_cutoff_supplied"])
 

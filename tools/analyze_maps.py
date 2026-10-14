@@ -13,7 +13,6 @@ from time import perf_counter
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from vampires.model import Species, load_map
-from vampires.rules import Move
 from vampires.simulation import battle_distribution, single_move_outcomes, single_moves
 
 

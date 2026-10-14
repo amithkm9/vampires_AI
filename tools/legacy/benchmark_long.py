@@ -13,7 +13,11 @@ import sys
 import tempfile
 from time import monotonic
 
-from benchmark_strength import BASELINE, ROOT, load_baseline, match, packed, summarize
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
+
+from tools.legacy.benchmark_strength import BASELINE, load_baseline, match, packed, summarize
 from vampires.model import Species, load_map
 from vampires.search import SearchConfig
 
@@ -28,7 +32,7 @@ def main():
     maps = {name: load_map(ROOT / "maps" / (name + ".xml")) for name in ("thetrap", "testmap2")}
     inputs = {name: packed(board) for name, board in maps.items()}
     (args.output / "boards.json").write_text(json.dumps(inputs, indent=2) + "\n")
-    paths = sorted((ROOT / "src/vampires").glob("*.py")) + [Path(__file__), ROOT / "tools/benchmark_strength.py"]
+    paths = sorted((ROOT / "src/vampires").rglob("*.py")) + [Path(__file__), ROOT / "tools/legacy/benchmark_strength.py"]
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
     metadata = {"started_utc": datetime.now(timezone.utc).isoformat(), "baseline_revision": BASELINE,
                 "python": sys.version, "platform": platform.platform(), "cpu_count": os.cpu_count(),
