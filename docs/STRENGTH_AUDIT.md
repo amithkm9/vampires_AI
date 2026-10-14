@@ -32,7 +32,7 @@ This follows the probability-mass bound described in section 2.1 of [Lanctot et 
 
 ## Multi-house planning is still an approximation
 
-`growth.human_arrivals` tracks captured-house subsets, last location, population gained, and minimum travel time. It cannot use a house twice, and cannot convert an unaffordable house. The experimental evaluator assigns each house to one side and recomputes reachability without houses assigned to the opponent. It detects that losing a four-human house prevents a starting stack of ten from reaching the central twenty-human conversion threshold using the remaining small houses.
+`experimental.growth.human_arrivals` tracks captured-house subsets, last location, population gained, and minimum travel time. It cannot use a house twice, and cannot convert an unaffordable house. The experimental evaluator assigns each house to one side and recomputes reachability without houses assigned to the opponent. It detects that losing a four-human house prevents a starting stack of ten from reaching the central twenty-human conversion threshold using the remaining small houses.
 
 It still ignores enemy interception and occupied intermediate squares, and target-wise shortest routes need not form one joint itinerary. Computation also competes with tactical search time. A more detailed heuristic is only useful if its decision improvement outweighs that cost.
 

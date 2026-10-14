@@ -17,7 +17,7 @@ but completed node values can still represent a truncated retained tree, as in
 the earlier search. These intervals never certify omitted legal actions.
 Optional iteration records expose work, completion and cache hits per depth.
 
-`hybrid.hybrid_turns` preserves at least three quarters of a saturated cohesive
+`experimental.hybrid.hybrid_turns` preserves at least three quarters of a saturated cohesive
 candidate set (at least one whole move at tiny caps), reserving other slots for
 partial captures, attacks, reinforcement and local separation. It uses radius-two
 local features, one record per source and no shared contested targets. Refinement
@@ -60,8 +60,8 @@ The validation section below records the preceding milestone for comparison.
 | `endgame.ExactSolver` | Offline canonical legal finite-horizon expectiminimax with rational W/D/L and an explicit combat model | Caps states, generation, and outcomes; raises on incomplete work; aggregate shared-target combat is an unverified assumption |
 | `history.PositionHistory.observe` | Bounded immutable board/side snapshots, visit counts, update periods, and population standing | Diagnostics only; eviction forgets old positions; repetition is neither an automatic draw nor a penalty |
 | `certificates.dominant_stack`, `preserving_turn` | Identifies and keeps whole a stack dominating all possible enemy growth | Conditional on written population/combat rules; skips moves that could overflow a byte |
-| `growth.human_arrivals`, `evaluate_growth` | Experimental subset planning for growth chains and exclusive human-resource credit | Optimistic travel ignores interception; up to eight houses, four groups, and 4096 states; target routes need not coexist |
-| `mcts.choose_mcts` | Experimental finite-depth adversarial UCT, sampling actual integer battle outcomes with an explicit seed | Basic challenger, no progressive widening or tactical rollout extensions; does not produce exact value bounds |
+| `experimental.growth.human_arrivals`, `evaluate_growth` | Experimental subset planning for growth chains and exclusive human-resource credit | Optimistic travel ignores interception; up to eight houses, four groups, and 4096 states; target routes need not coexist |
+| `experimental.mcts.choose_mcts` | Experimental finite-depth adversarial UCT, sampling actual integer battle outcomes with an explicit seed | Basic challenger, no progressive widening or tactical rollout extensions; does not produce exact value bounds |
 | `budget.Deadline.check` | Cooperative monotonic interruption inside generation, simulation, evaluation, and search | Python/OS scheduling and individual operations prevent a universal hard real-time guarantee |
 
 For a stochastic action, search accumulates `sum(probability * child_bounds)` and adds the possible contribution of unvisited mass, between minus and plus that mass. Exact rational probabilities are converted to floating-point weighted values with a small outward rounding guard. Chance outcomes do not consume a player-move depth. Terminal extinction is scored +1/-1; simultaneous extinction is neutral 0 as an explicit unverified convention. Nonterminal heuristic scores are bounded inside [-0.95, 0.95].

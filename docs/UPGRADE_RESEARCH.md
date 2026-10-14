@@ -34,7 +34,7 @@ partial-move proposals to **both** players. The source is a motivation for this
 local adaptation, not evidence that it will win this game. [Original paper,
 pp. 3–5 and appendix](https://webdocs.cs.ualberta.ca/~santanad/papers/2018/moraesL18.pdf).
 
-`hybrid.hybrid_turns` retains an intact-group backbone and adds bounded partial
+`experimental.hybrid.hybrid_turns` retains an intact-group backbone and adds bounded partial
 captures, attacks, reinforcement and separation amounts. Under a saturated cap,
 partials can displace whole moves; refinement can therefore worsen decisions.
 Exact finite-horizon fixtures establish two omissions repaired by the new
