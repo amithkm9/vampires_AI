@@ -1,14 +1,26 @@
 # Project status
 
-Updated: 2026-10-14.
+Updated: 2026-10-15.
 
 ## Current state
 
-The persistent client, legal move generation, local simulator, opponent-aware search and exact small-position references are implemented. The provisional default is `adaptive` at depth five, using a 1.25-second search budget within the two-second full-turn deadline. The player uses Python 3.10+ and the standard library only.
+The persistent client, legal move generation, local simulator, opponent-aware search and exact small-position references are implemented. The provisional default is `strategic` at depth five, using a 1.25-second search budget within the two-second full-turn deadline. It adds outcome-oriented no-human scoring and exclusive sequential conversion races to reusable expectiminimax. The player uses Python 3.10+ and the standard library only.
 
-The latest locked league scored **6 wins, 10 draws, 2 losses**, versus **5/10/3** for `cohesive_material` at depth three. This one-game gain is limited local evidence. Partial-move hybrid variants remain experimental after weaker development results. The [league record](experiments/2026-10-13-league/EXPERIMENT.md) preserves all 132 games, source snapshots, seeds and configurations; all 4387 plies were verified.
+The latest locked comparison scored **17 wins, 8 draws, 11 losses**, versus **14/8/14** for the previous `adaptive:5` default. Four cases improved and one regressed. Improvement was concentrated in no-human endings; one dispersed-map game regressed. The paired map-cluster interval for score gain is **[-0.0833, 0.3333]**, including zero. This is a provisional promotion, not established general superiority. The [strategy record](experiments/2026-10-15-strategy/EXPERIMENT.md) preserves 184 development and 72 held-out games; all **8046 plies** were verified. Earlier adaptive/cohesive results remain in the [October 13 league](experiments/2026-10-13-league/EXPERIMENT.md).
 
 **Official-server parity, CTI launch/timing and strength against tournament opponents remain unverified.** The unresolved move/protocol interpretations remain explicit in [RULES.md](docs/RULES.md).
+
+## Agent strategy, 2026-10-15
+
+- `planning.evaluate_outcome` makes useful recovery attempts preferable to indefinitely preserving a no-human deficit. It changes the recorded 6-versus-7 cycle decision without inventing a live cutoff.
+- `planning.conversion_race` credits each house once, carries individual groups' travel times and populations across captures, and can recognize newly affordable houses. Routes still ignore interception and incidental occupied cells.
+- `strategic` combines these features with the existing intact-group generator, balanced search, exact chance probabilities and conservative unvisited-mass intervals. `adaptive` is unchanged and explicitly selectable.
+- `outcome` isolates the no-human feature. `tactical` combines strategic evaluation with hybrid partial moves: it repairs an exact split witness, but did not improve aggregate development score and remains experimental.
+- Tests cover growth/ownership invariants, deadlines, bounded and antisymmetric values, the recorded cycle, safe known-cutoff leads/ties and an exact partial-capture win for the tactical variant.
+
+Validation after default selection: `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discover -s tests -q` passed **274 tests in 3.172 seconds**. All three new modes passed eight normal-budget search cases each, both species (**24 total**), maximum about **1.2501 seconds**. They passed **36 maximum-area probes**, maximum **1.285958 seconds**. Exact commands, source hashes and local-runtime limitations are retained in the [experiment record](experiments/2026-10-15-strategy/EXPERIMENT.md) and `reports/*strategy*-2026-10-15.json` / `reports/search-*-2026-10-15.json`.
+
+The [new TCP smoke record](reports/player-strategic-smoke-2026-10-15.json) passed **four matches / 31 AI turns**, both supplied maps/species, persistent restart, unrelated launch directory and clean BYE. Maximum full response was **0.713226 seconds**. Initial sandbox localhost binding was blocked; authorized execution succeeded. This remains a local simulator check.
 
 ## Repository cleanup, 2026-10-14
 
@@ -23,12 +35,12 @@ Validation: `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discov
 
 The fresh [TCP smoke record](reports/player-cleanup-smoke-2026-10-14.json) covers **four matches / 30 AI turns**, both maps/species, persistent restart, unrelated launch directory and clean BYE. Maximum full response was **0.728035 seconds**. Command: `PYTHONDONTWRITEBYTECODE=1 python3 tools/check_player.py --engine adaptive --depth 5 --budget 1.25 --max-plies 20 --output reports/player-cleanup-smoke-2026-10-14.json`. The sandbox initially blocked localhost binding; authorized execution succeeded. All recorded source hashes match the reorganized runtime. This remains a local harness check.
 
-## Latest gameplay evidence
+## Earlier gameplay evidence
 
 The October 13 milestone passed 262 tests, 24 normal-budget stress cases and 36 maximum-area probes; the largest observed search time was 1.297874 seconds. Its [TCP launcher check](reports/player-league-smoke-2026-10-13.json) covered four matches and 30 AI turns, both supplied maps/species, persistent restart, unrelated working directory and clean BYE; maximum full response was 0.711339 seconds. These are local measurements, not CTI or official-server validation.
 
 ## Next work
 
-The [active task list](TODO.md) prioritizes trailing endgame cycles, independent evaluation, resource interception and external validation. In particular, verified local losses include a repeating no-human position trailing 6 to 7; deeper search alone has not solved that weakness. The report, five-minute presentation and final submission package remain open.
+The [active task list](TODO.md) prioritizes the dispersed-map regression, independent evaluation, resource interception, selective split coverage and external validation. The recorded 6-to-7 cycle now has a tested heuristic repair; unknown-horizon endgames are still not solved. The report, five-minute presentation and final submission package remain open.
 
 Earlier milestones and their original validation commands are retained in the [archived status](docs/history/STATUS_2026-10-13.md) and [completed task history](docs/history/TASK_LOG_2026-10-13.md). Historical experiment results refer to their recorded source versions.

@@ -1,13 +1,22 @@
 # Player implementation and limits
 
-Updated 2026-10-13. This describes actual code, not the full proposed tournament strategy. The implementation uses Python's standard library and our own algorithms. The published 105-test baseline remains available at revision `2a08829b1935a80c3c11a37ecea5efb089425268` for comparisons; revision `5b47469ac5fec4d2e2d49913a87765ab94604085` preserves the runtime used in the historical 108-match audit. Revision `04a1e85` is the latest league's frozen cohesive opponent.
+Updated 2026-10-15. This describes actual code, not the full proposed tournament strategy. The implementation uses Python's standard library and our own algorithms. The published 105-test baseline remains available at revision `2a08829b1935a80c3c11a37ecea5efb089425268` for comparisons; revision `5b47469ac5fec4d2e2d49913a87765ab94604085` preserves the runtime used in the historical 108-match audit. Revision `04a1e85` is the league's frozen cohesive opponent.
 
 ## Current search selection
 
-The provisional default is `adaptive`, with maximum depth five and the unchanged
-baseline evaluator/intact-group generator. `engines.default_depth` keeps this
-setting consistent between API and launcher; an explicit SearchConfig/CLI depth
-wins. `cohesive_material` retains depth three by default.
+The provisional default is `strategic`, with maximum depth five, the new
+`planning.evaluate_strategic` evaluator and the existing intact-group generator.
+`adaptive` retains the previous baseline evaluator at depth five. Both use the
+same reusable balanced search. `engines.default_depth` keeps settings consistent
+between API and launcher; an explicit SearchConfig/CLI depth wins.
+`cohesive_material` retains depth three by default.
+
+The October 15 [strategy experiment](../experiments/2026-10-15-strategy/EXPERIMENT.md)
+preserves 184 development games and 72 held-out games. Strategic scored 17W/8D/11L
+against adaptive's 14W/8D/14L; all 8046 plies were replay-verified. Four cases
+improved and one regressed. The paired map-cluster interval includes zero, so this
+is a provisional local promotion. The suite now has 274 tests. Whole-group
+coverage and interception-aware route planning remain limitations.
 
 `balanced.choose_balanced(reuse_work=True)` reuses completed deterministic
 candidate lists and pure leaf evaluations and orders moves from completed earlier
@@ -28,7 +37,7 @@ development evidence.
 
 The [league record](../experiments/2026-10-13-league/EXPERIMENT.md) reports 132 new
 games and exact source snapshots. Three independent agents implemented/reviewed
-search, movement and benchmark integrity; the full suite now has **262 tests**.
+search, movement and benchmark integrity; that milestone had **262 tests**.
 The validation section below records the preceding milestone for comparison.
 
 ## Turn processing
@@ -36,6 +45,36 @@ The validation section below records the preceding milestone for comparison.
 `run.py` locates `src/` relative to itself, so the launcher works from another directory. `player.main` validates the ASCII name, port, budget, and depth before connecting. Its address and port are the final positional arguments. The live CLI requires depth at least two; depth one remains available through the search API for ablations/tests.
 
 `player.play` sends NME once, then uses `GameSession.apply` for initialization and authoritative updates. Only UPD triggers a decision. Predictions never modify the server board. END resets board/species state while keeping the connection; BYE exits cleanly. Malformed messages, disconnects, impossible playable states, or expired network deadlines cause a logged nonzero exit rather than a fabricated empty MOV.
+
+## Outcome and conversion-race evaluation, October 15
+
+`planning.evaluate_outcome` retains the baseline while humans remain. In no-human
+positions it values population standing strongly, with smaller consolidation,
+distance and tactical terms. A trailing group can prefer a battle with a useful
+chance of recovery over preserving a small material deficit indefinitely. A
+leading group favors separation. These are bounded heuristic scores, not a known
+daylight deadline or calibrated win probabilities. Exact known-cutoff terminal
+scoring still takes precedence in controlled tests.
+
+`planning.conversion_race` projects sequential affordable captures by individual
+groups. Each event updates that group's position, travel time and population;
+its conversions may unlock a larger house. Arrival plies account for initiative,
+and each house is allocated only once. Different groups cannot spend each other's
+conversions. The feature is capped at twelve houses/eight groups; larger positions
+fall back to the baseline evaluator. Byte-overflow conversions receive no credit.
+The projection is optimistic: routes ignore interception and incidental occupied
+cells, and the events need not be a feasible joint plan. They are evaluation
+features, never replacement moves that skip opponent turns.
+
+`planning.evaluate_strategic` combines that projected population balance with a
+small baseline score, using the outcome evaluator after humans are exhausted.
+`outcome` and `strategic` retain the adaptive engine's intact-group search and
+reusable work. `tactical` combines the strategic evaluator with the existing
+hybrid partial-move generator. All three default to depth five and remain subject
+to the same search/network deadlines, chance intervals and final move validation.
+The [registered experiment](../experiments/2026-10-15-strategy/EXPERIMENT.md)
+records the ablations and promotion decision. An exact split witness passes, but
+the 64-game development round did not favor the tactical combination.
 
 ## Algorithms mapped to code
 
@@ -48,13 +87,14 @@ The validation section below records the preceding milestone for comparison.
 | `simulation.battle_distribution` | Exact rational probabilities for deterministic and random combat | No sample approximation; not proof of official-server parity |
 | `simulation.turn_outcomes` | Debits sources, merges friendly arrivals, and forms exact products of distinct battle outcomes | Assumes independent battles; rejects shared-target battles by default; explicit branch and population caps |
 | `simulation.iter_turn_outcomes`, `sample_turn` | Lazy exact products and seeded integer battle samples using the same live transition restrictions | Per-cell outcomes sorted by probability, depth-first product traversal; not globally ordered joint probabilities; no official-server parity claim |
-| `evaluation.evaluate` | Bounded population difference, current-stack house races, exposure, and approach distance | A heuristic score, not win probability; route distances ignore obstacles/threats and future capture sequences |
+| `evaluation.evaluate` | Baseline bounded population difference, current-stack house races, exposure, and approach distance | A heuristic score, not win probability; route distances ignore threats and future capture sequences |
+| `planning.evaluate_strategic`, `conversion_race`, `evaluate_outcome` | Default sequential exclusive capture projection and stronger no-human outcome scoring | Heuristics, not calibrated probabilities or interception-safe plans; no known live cutoff |
 | `search.choose_turn`, `chance_bounds` | Iterative expectiminimax with probability-mass intervals and chance cutoffs; root maximizes lower bound, then upper bound | Bounds apply to retained finite-depth candidates and modeled transitions, not true game-winning probability |
 | `balanced.choose_balanced` | Resumable root continuations, conservative partial intervals, root elimination and iterative deepening | Cooperative work quanta and selective candidates; no bandit confidence guarantee |
 | `simulation.iter_turn_outcome_steps` | Shares target-distribution preparation across resumable callers | None checkpoints have no probability; ordinary streaming filters them |
 | `strategy.cohesive_turns` | Intact-group candidate abstraction used by the provisional default | Omits partial movements for both players; splitting remains legal |
 | `strategy.evaluate_resources`, `portfolio_turns` | Experimental resource projection and capture/attack/merge/escape proposals | Ignore route interception; not bundled into the promoted mode |
-| `engines.choose_engine`, `default_depth`, `DEFAULT_ENGINE` | Shared engine selection; provisional default adaptive at depth five | Previous cohesive_material remains available at depth three; sequential baseline is also selectable |
+| `engines.choose_engine`, `default_depth`, `DEFAULT_ENGINE` | Shared engine selection; provisional default strategic at depth five | Adaptive remains available at depth five and cohesive_material at depth three; sequential baseline is selectable |
 | `search.state_key` | Per-search cache keyed by dimensions, complete cell contents, side to move, and remaining depth | Stores only completed node evaluations; no cross-turn or sampled-value reuse |
 | `search.choose_turn(..., remaining_plies=N)` | Scores population win/draw/loss when a known total-ply horizon reaches zero; remaining horizon is part of the cache key | None is unknown; search-depth leaves before cutoff remain heuristic; the live protocol supplies no countdown |
 | `endgame.ExactSolver` | Offline canonical legal finite-horizon expectiminimax with rational W/D/L and an explicit combat model | Caps states, generation, and outcomes; raises on incomplete work; aggregate shared-target combat is an unverified assumption |
@@ -66,7 +106,7 @@ The validation section below records the preceding milestone for comparison.
 
 For a stochastic action, search accumulates `sum(probability * child_bounds)` and adds the possible contribution of unvisited mass, between minus and plus that mass. Exact rational probabilities are converted to floating-point weighted values with a small outward rounding guard. Chance outcomes do not consume a player-move depth. Terminal extinction is scored +1/-1; simultaneous extinction is neutral 0 as an explicit unverified convention. Nonterminal heuristic scores are bounded inside [-0.95, 0.95].
 
-The default evaluator assigns each house to at most one side using the earliest current stack large enough to convert it. A current player's distance `d` corresponds to global ply `2*d-1`; the other side uses `2*d`. This is a distance-based heuristic, not a validated capture plan. The experimental growth evaluator additionally recomputes routes after assigning contested houses to a single side. It remains outside the live default because the limited comparison did not establish a decisive advantage.
+The baseline evaluator assigns each house to at most one side using the earliest current stack large enough to convert it. A current player's distance `d` corresponds to global ply `2*d-1`; the other side uses `2*d`. This is a distance-based heuristic, not a validated capture plan. The experimental growth evaluator additionally recomputes routes after assigning contested houses to a single side. It remains outside the live default because the limited comparison did not establish a decisive advantage.
 
 Before search, a stack with `N > enemy_total + humans` and `2*N >= 3*(enemy_total + humans)` can invoke the preservation policy. This keeps its strict population lead and deterministic combat advantage under the stated rules. It reports a nonterminal heuristic score of 0.95, not a solved terminal result.
 

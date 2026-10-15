@@ -4,8 +4,11 @@ Use [STATUS.md](STATUS.md) for current behavior and evidence, the [roadmap](docs
 
 ## Improve demonstrated weaknesses
 
-- [ ] Investigate the repeated no-human endgame trailing 6 to 7. Compare a small endgame planner against opponent replies; preserve safe leads/ties and keep the live horizon unknown unless the server supplies it.
-- [ ] Expand locked evaluation with independent maps/seeds and stronger opponents. The current one-game gain is insufficient to establish broad superiority.
+- [x] Diagnose the no-human 6-to-7 cycle and test outcome-oriented scoring against opponent replies, with safe known-cutoff lead/tie fixtures and an unknown live horizon. See the October 15 strategy experiment.
+- [x] Complete a new 72-game locked comparison at the normal budget against adaptive, escape and split/merge, with new map/combat seeds and both species.
+- [ ] Investigate the new dispersed-map regression; compare the outcome-only ablation at normal budget on a fresh evaluation set. Do not retune on the October 15 held-out results.
+- [ ] Extend the heuristic repair with a small endgame planner; preserve safe leads/ties without assuming a server countdown.
+- [ ] Expand independent maps/seeds and stronger opponents further. The three-game net gain and wide paired interval do not establish broad superiority.
 - [ ] Model resource interception and denial; validate trap-map capture plans against opponent responses.
 - [ ] Improve selective partial-move coverage only when exact witnesses and paired matches support the branching/strength tradeoff.
 - [ ] Evaluate tactical extensions or sparse chance sampling as isolated experiments, retaining negative results and prior baselines.

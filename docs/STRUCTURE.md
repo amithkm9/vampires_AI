@@ -14,7 +14,8 @@ All module names below are relative to `src/vampires/`.
 | `simulation.py` | Exact and streaming joint transitions, sampled turns and explicit model limits |
 | `turns.py` | Legal fallback, bounded candidates and exhaustive small-position moves |
 | `budget.py` | Cooperative monotonic deadlines |
-| `evaluation.py` | Default bounded heuristic and terminal scores |
+| `evaluation.py` | Baseline bounded heuristic and terminal scores |
+| `planning.py` | Default strategic evaluation: outcome-oriented endings and sequential exclusive conversion races |
 | `search.py` | Sequential expectiminimax and shared search configuration |
 | `balanced.py` | Resumable search, chance intervals, root scheduling and reusable work |
 | `strategy.py` | Intact-group generator and alternative resource/portfolio policies |
@@ -27,7 +28,7 @@ All module names below are relative to `src/vampires/`.
 | `experimental/mcts.py` | Optional sampled adversarial UCT |
 | `experimental/hybrid.py` | Optional critical partial-move generation |
 
-The experimental package contains tested alternatives, not abandoned code. `hybrid` and `hybrid_adaptive` remain selectable player modes; growth and UCT remain available to historical benchmarks. Engine names and the `adaptive` depth-five default are unchanged by the cleanup. See [IMPLEMENTATION.md](IMPLEMENTATION.md) for function-level behavior and limitations.
+The experimental package contains tested alternatives, not abandoned code. `hybrid` and `hybrid_adaptive` remain selectable player modes; growth and UCT remain available to historical benchmarks. The cleanup preserved engine names and its then-default adaptive engine. The October 15 experiment subsequently selected `strategic` at depth five; `outcome` and `tactical` retain its ablations. See [IMPLEMENTATION.md](IMPLEMENTATION.md) for function-level behavior and limitations.
 
 ## Tools and tests
 

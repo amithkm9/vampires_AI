@@ -1,15 +1,19 @@
 # Next algorithm: recognize consequential moves and reduce avoidable losses
 
-Updated: 2026-10-13. The latest provisional default is adaptive at depth five:
-resumable expectiminimax, intact-group abstraction, baseline evaluation and
-reused completed search work. The 36-game evaluation scored 6W/10D/2L for it
-and 5W/10D/3L for the prior default; one endgame explains the difference.
-The [league protocol/results](../experiments/2026-10-13-league/EXPERIMENT.md)
-retain negative split-refinement results and all replays.
+Updated: 2026-10-15. The latest provisional default is strategic at depth five:
+resumable expectiminimax, intact-group abstraction, sequential conversion races,
+outcome-oriented no-human scoring and reused completed search work. The new
+72-game evaluation scored 17W/8D/11L for it and 14W/8D/14L for adaptive. Four
+endgame cases improved and one dispersed-map case regressed. The paired interval
+includes zero. The [strategy experiment](../experiments/2026-10-15-strategy/EXPERIMENT.md)
+retains all 256 new development/evaluation games, including negative partial-move
+results. The [earlier league](../experiments/2026-10-13-league/EXPERIMENT.md) remains
+historical evidence for the adaptive promotion.
 
 Current priorities: verify official-server rules and CTI timing; test whether the
-small advantage survives independent combat seeds; analyze intercepted resource
-routes and recorded repetitions; make partial refinement selective enough to
+small advantage survives more independent maps/combat seeds; investigate the
+dispersed regression and compare outcome-only scoring at normal budget; analyze
+intercepted resource routes and recorded repetitions; make partial refinement selective enough to
 retain its exact tactical repairs without the observed match regressions. Root
 allocation, reusable work, per-depth diagnostics and the opponent league are now
 implemented. The sections below preserve the broader design; features remain

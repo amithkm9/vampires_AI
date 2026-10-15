@@ -12,9 +12,9 @@ python3 run.py --name vampires_AI --budget 1.25 127.0.0.1 5555
 
 Replace the address and port with the server's values. From another directory, use the absolute path to `run.py`; no installation or `PYTHONPATH` setup is needed. Use `python3 run.py --help` for options.
 
-The provisional default is `adaptive` at depth five, with a 1.25-second search budget. The previous default remains available as `--engine cohesive_material --depth 3`. Completed shallower decisions survive a deeper search timeout. All selectable engines retain their existing names.
+The provisional default is `strategic` at depth five, with a 1.25-second search budget. It adds outcome-oriented endgame scoring and sequential human conversion races to the existing opponent-aware search. The previous default remains available as `--engine adaptive --depth 5`; `cohesive_material --depth 3` is also retained. Completed shallower decisions survive a deeper search timeout.
 
-The project has **262 passing tests**. In the latest locked local league, the default scored **6 wins, 10 draws, 2 losses**, versus **5/10/3** for the previous default. This one-game difference is limited evidence. **Official-server and CTI validation remain pending.** See [current status](STATUS.md) and the [league experiment](experiments/2026-10-13-league/EXPERIMENT.md).
+The project has **274 passing tests**. In the latest locked local comparison, the new agent scored **17 wins, 8 draws, 11 losses**, versus **14/8/14** for adaptive. Four cases improved and one regressed; the benefit was concentrated in endgames, and statistical uncertainty remains wide. **Official-server and CTI validation remain pending.** See [current status](STATUS.md) and the [strategy experiment](experiments/2026-10-15-strategy/EXPERIMENT.md).
 
 ## Project layout
 
@@ -40,7 +40,7 @@ From the project directory on macOS or Linux:
 ```sh
 PYTHONPATH=src python3 -m unittest discover -s tests -q
 python3 tools/inspect_map.py maps/thetrap.xml
-python3 tools/check_player.py --engine adaptive --depth 5 --budget 1.25 --max-plies 20 --output reports/NEW_SMOKE.json
+python3 tools/check_player.py --engine strategic --depth 5 --budget 1.25 --max-plies 20 --output reports/NEW_SMOKE.json
 python3 tools/league.py --help
 ```
 
