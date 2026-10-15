@@ -97,7 +97,7 @@ class OutcomeStrategyTests(unittest.TestCase):
         for count in (2, 3):
             board = Board(1, 4, {(1, 0): Cell(vampires=count), (2, 0): Cell(werewolves=2)})
             exact = ExactSolver(V, shared_target="reject").action_values(board, V, 1)
-            for engine in ("outcome", "strategic"):
+            for engine in ("outcome", "strategic", "tactical"):
                 result = choose_engine(board, V, engine=engine, time_budget=1, remaining_plies=1)
                 self.assertEqual(exact[result.moves].score, max(v.score for v in exact.values()))
                 self.assertEqual(exact[result.moves].loss, Fraction(0))
@@ -115,10 +115,20 @@ class OutcomeStrategyTests(unittest.TestCase):
             args = (board, V) if function is conversion_race else (board, V, V)
             with self.assertRaises(SearchTimeout):
                 function(*args, check=expired)
-        for engine in ("outcome", "strategic"):
+        for engine in ("outcome", "strategic", "tactical"):
             decision = choose_engine(board, V, engine=engine, time_budget=0)
             validate_moves(board, V, decision.moves)
             self.assertTrue(decision.timed_out)
+
+    def test_tactical_mode_recovers_exact_split_capture_witness(self):
+        board = Board(1, 6, {(2, 0): Cell(vampires=4), (1, 0): Cell(humans=2),
+                             (3, 0): Cell(humans=2), (5, 0): Cell(werewolves=7)})
+        exact = ExactSolver(V, shared_target="reject").action_values(board, V, 3)
+        result = choose_engine(board, V, engine="tactical", time_budget=2,
+                               remaining_plies=3, config=SearchConfig(max_depth=3))
+        self.assertEqual(result.completed_depth, 3)
+        self.assertEqual(exact[result.moves].win, 1)
+        self.assertEqual(result.moves[0].count, 2)
 
 
 if __name__ == "__main__":
