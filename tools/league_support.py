@@ -27,6 +27,7 @@ POLICY_DESCRIPTIONS = {
     "escape": "With a population lead, whole-group moves favor separation and low adjacent danger; otherwise pursue resources and combat.",
     "split_merge": "Bounded legal joint/partial moves favor conversions, useful retained remainders, and friendly merges; no shared contested attacks.",
     "baseline": "Current snapshotted sequential expectiminimax, with its explicitly recorded depth.",
+    "adaptive": "Current snapshotted adaptive expectiminimax control, with its explicitly recorded depth.",
     "frozen": "Frozen cohesive_material expectiminimax at revision " + FROZEN_REVISION + ", with explicitly recorded depth.",
 }
 
@@ -72,7 +73,7 @@ def parse_spec(value, *, default_depth=3, opponent=False):
     depth = default_depth if len(pieces) == 1 else int(pieces[1])
     if not 2 <= depth <= 8:
         raise ValueError("Search depths must be in 2..8")
-    if opponent and name not in ("frozen", "baseline", *SCRIPTED):
+    if opponent and name not in ("frozen", "baseline", "adaptive", *SCRIPTED):
         raise ValueError(f"Unknown league opponent: {name}")
     if name in SCRIPTED and len(pieces) == 2:
         raise ValueError("Scripted probes have no search depth")

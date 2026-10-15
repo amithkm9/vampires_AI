@@ -350,7 +350,7 @@ def main(argv=None):
     destination.add_argument("--output", type=Path, help="new directory, must not already exist")
     destination.add_argument("--resume", type=Path, help="resume saved configuration and exact source snapshots")
     parser.add_argument("--engines", nargs="+", help="candidate NAME[:DEPTH] values")
-    parser.add_argument("--opponents", nargs="+", help="frozen[:DEPTH], baseline[:DEPTH], collector, raider, escape, split_merge")
+    parser.add_argument("--opponents", nargs="+", help="frozen[:DEPTH], baseline[:DEPTH], adaptive[:DEPTH], collector, raider, escape, split_merge")
     parser.add_argument("--depth", type=int, help="depth for unspecified engine/opponent depths; default 3")
     parser.add_argument("--maps", nargs="+", help="supplied map names, XML paths, or " + ", ".join(MAP_FAMILIES))
     parser.add_argument("--map-seeds", nargs="+", type=int)

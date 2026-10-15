@@ -117,6 +117,10 @@ class LeagueTests(unittest.TestCase):
         self.assertLessEqual(diagnostic["selected_depth"], 2)
         moves, _ = self.runtime.engine_decision(board, side, EngineSpec("hybrid", 2), 0)
         self.runtime.rules.validate_moves(board, side, moves)
+        adaptive = parse_spec("adaptive:5", opponent=True)
+        moves, diagnostic = self.runtime.engine_decision(board, side, adaptive, 0)
+        self.runtime.rules.validate_moves(board, side, moves)
+        self.assertEqual(diagnostic["completed_depth"], 0)
         self.assertEqual(self.metadata["frozen_revision"], "04a1e855cc78fbab6f0ddef63fbaf085ea46b520")
         self.assertFalse(self.metadata["live_cutoff_supplied"])
 
