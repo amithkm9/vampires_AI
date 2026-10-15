@@ -11,7 +11,7 @@ from .turns import candidate_turns
 ENGINE_NAMES = ("baseline", "balanced", "resources", "balanced_resources", "portfolio",
                 "cohesive", "cohesive_material", "adaptive", "hybrid", "hybrid_adaptive",
                 "outcome", "strategic", "tactical")
-DEFAULT_ENGINE = "adaptive"
+DEFAULT_ENGINE = "strategic"
 
 
 def default_depth(engine=DEFAULT_ENGINE):

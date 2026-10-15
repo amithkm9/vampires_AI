@@ -16,19 +16,21 @@ from test_player import FakeClient, ROOT, initialization
 class EngineLifecycleTests(unittest.TestCase):
     def test_api_default_and_explicit_depth_contract(self):
         board = Board(1, 2, {(0, 0): Cell(vampires=2), (1, 0): Cell(werewolves=2)})
-        self.assertEqual(DEFAULT_ENGINE, "adaptive")
+        self.assertEqual(DEFAULT_ENGINE, "strategic")
         with patch("vampires.engines.choose_balanced") as search:
             choose_engine(board, Species.VAMPIRES)
             self.assertEqual(search.call_args.kwargs["config"].max_depth, 5)
             choose_engine(board, Species.VAMPIRES, engine="cohesive_material")
             self.assertEqual(search.call_args.kwargs["config"].max_depth, 3)
+            choose_engine(board, Species.VAMPIRES, engine="adaptive")
+            self.assertEqual(search.call_args.kwargs["config"].max_depth, 5)
             choose_engine(board, Species.VAMPIRES, config=SearchConfig(max_depth=2))
             self.assertEqual(search.call_args.kwargs["config"].max_depth, 2)
 
     def test_launcher_uses_mode_depth_and_respects_override(self):
-        for flags, expected_engine, expected_depth in (([], "adaptive", 5),
+        for flags, expected_engine, expected_depth in (([], "strategic", 5),
                 (["--engine", "cohesive_material"], "cohesive_material", 3),
-                (["--depth", "4"], "adaptive", 4)):
+                (["--depth", "4"], "strategic", 4)):
             with patch("vampires.player.Client.connect") as connect, patch(
                     "vampires.player.play", return_value=SessionResult(0, 0)) as session:
                 self.assertEqual(main(["--quiet", *flags, "127.0.0.1", "5555"]), 0)

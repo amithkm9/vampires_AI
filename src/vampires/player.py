@@ -86,9 +86,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="Opponent-aware Vampires vs Werewolves player")
     parser.add_argument("--name", default="vampires_AI", help="ASCII team name (1..255 bytes)")
     parser.add_argument("--engine", choices=ENGINE_NAMES, default=DEFAULT_ENGINE,
-                        help="search variant; default adaptive is provisionally promoted")
+                        help="search variant; default strategic is provisionally promoted")
     parser.add_argument("--budget", type=float, default=1.25, help="search seconds, >0 and <=1.5")
-    parser.add_argument("--depth", type=int, help="maximum depth, 2..8 plies; default 5 for adaptive modes, 3 otherwise")
+    parser.add_argument("--depth", type=int, help="maximum depth, 2..8 plies; per-engine default 3 or 5")
     parser.add_argument("--candidates", type=int, default=64, help="maximum retained turns per node")
     parser.add_argument("--quiet", action="store_true", help="only log errors")
     parser.add_argument("host", help="server IP address or hostname; penultimate argument")
