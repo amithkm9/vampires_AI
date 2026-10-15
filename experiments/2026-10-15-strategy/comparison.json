@@ -1,0 +1,232 @@
+{
+  "development-01": {
+    "matches": 120,
+    "verified_plies": 3453,
+    "matches_sha256": "a79e5d94b0ecfa6e7a362912741d67f56c474dffde9e6e5fdad0d20724ce83e3",
+    "engines": {
+      "adaptive:d5": {
+        "games": 40,
+        "failures": 0,
+        "wins": 24,
+        "draws": 6,
+        "losses": 10,
+        "score": 0.675,
+        "improved_cases": 0,
+        "regressed_cases": 0,
+        "unchanged_cases": 40,
+        "mean_map_paired_delta": 0.0,
+        "map_cluster_bootstrap_95_delta": [
+          0.0,
+          0.0
+        ],
+        "map_deltas": {
+          "thetrap": 0.0,
+          "testmap2": 0.0,
+          "resource_race_25101501": 0.0,
+          "contact_25101501": 0.0,
+          "endgame_25101501": 0.0
+        },
+        "maximum_candidate_response_seconds": 0.05833216698374599
+      },
+      "outcome:d5": {
+        "games": 40,
+        "failures": 0,
+        "wins": 24,
+        "draws": 6,
+        "losses": 10,
+        "score": 0.675,
+        "improved_cases": 1,
+        "regressed_cases": 1,
+        "unchanged_cases": 38,
+        "mean_map_paired_delta": 0.0,
+        "map_cluster_bootstrap_95_delta": [
+          0.0,
+          0.0
+        ],
+        "map_deltas": {
+          "thetrap": 0.0,
+          "testmap2": 0.0,
+          "resource_race_25101501": 0.0,
+          "contact_25101501": 0.0,
+          "endgame_25101501": 0.0
+        },
+        "maximum_candidate_response_seconds": 0.05949625000357628
+      },
+      "strategic:d5": {
+        "games": 40,
+        "failures": 0,
+        "wins": 24,
+        "draws": 6,
+        "losses": 10,
+        "score": 0.675,
+        "improved_cases": 1,
+        "regressed_cases": 1,
+        "unchanged_cases": 38,
+        "mean_map_paired_delta": 0.0,
+        "map_cluster_bootstrap_95_delta": [
+          0.0,
+          0.0
+        ],
+        "map_deltas": {
+          "thetrap": 0.0,
+          "testmap2": 0.0,
+          "resource_race_25101501": 0.0,
+          "contact_25101501": 0.0,
+          "endgame_25101501": 0.0
+        },
+        "maximum_candidate_response_seconds": 0.062097374931909144
+      }
+    }
+  },
+  "development-02": {
+    "matches": 64,
+    "verified_plies": 1928,
+    "matches_sha256": "9e23279d96ee0f7b2e076827b08c4cfc7144642029b1d99b20f58e81cdc9d44a",
+    "engines": {
+      "adaptive:d5": {
+        "games": 16,
+        "failures": 0,
+        "wins": 8,
+        "draws": 1,
+        "losses": 7,
+        "score": 0.53125,
+        "improved_cases": 0,
+        "regressed_cases": 0,
+        "unchanged_cases": 16,
+        "mean_map_paired_delta": 0.0,
+        "map_cluster_bootstrap_95_delta": [
+          0.0,
+          0.0
+        ],
+        "map_deltas": {
+          "thetrap": 0.0,
+          "contact_25101503": 0.0,
+          "dispersed_25101503": 0.0,
+          "endgame_25101503": 0.0
+        },
+        "maximum_candidate_response_seconds": 0.15103591594379395
+      },
+      "outcome:d5": {
+        "games": 16,
+        "failures": 0,
+        "wins": 9,
+        "draws": 1,
+        "losses": 6,
+        "score": 0.59375,
+        "improved_cases": 1,
+        "regressed_cases": 0,
+        "unchanged_cases": 15,
+        "mean_map_paired_delta": 0.0625,
+        "map_cluster_bootstrap_95_delta": [
+          0.0,
+          0.1875
+        ],
+        "map_deltas": {
+          "thetrap": 0.25,
+          "contact_25101503": 0.0,
+          "dispersed_25101503": 0.0,
+          "endgame_25101503": 0.0
+        },
+        "maximum_candidate_response_seconds": 0.15134066704194993
+      },
+      "strategic:d5": {
+        "games": 16,
+        "failures": 0,
+        "wins": 10,
+        "draws": 1,
+        "losses": 5,
+        "score": 0.65625,
+        "improved_cases": 2,
+        "regressed_cases": 0,
+        "unchanged_cases": 14,
+        "mean_map_paired_delta": 0.125,
+        "map_cluster_bootstrap_95_delta": [
+          0.0,
+          0.375
+        ],
+        "map_deltas": {
+          "thetrap": 0.5,
+          "contact_25101503": 0.0,
+          "dispersed_25101503": 0.0,
+          "endgame_25101503": 0.0
+        },
+        "maximum_candidate_response_seconds": 0.1503419999498874
+      },
+      "tactical:d5": {
+        "games": 16,
+        "failures": 0,
+        "wins": 8,
+        "draws": 1,
+        "losses": 7,
+        "score": 0.53125,
+        "improved_cases": 2,
+        "regressed_cases": 2,
+        "unchanged_cases": 12,
+        "mean_map_paired_delta": 0.0,
+        "map_cluster_bootstrap_95_delta": [
+          -0.1875,
+          0.1875
+        ],
+        "map_deltas": {
+          "thetrap": 0.25,
+          "contact_25101503": 0.0,
+          "dispersed_25101503": 0.0,
+          "endgame_25101503": -0.25
+        },
+        "maximum_candidate_response_seconds": 0.154877542052418
+      }
+    }
+  },
+  "holdout-01": {
+    "matches": 72,
+    "verified_plies": 2665,
+    "matches_sha256": "5aa4b406bfd07b85c8f6328889d2fedcdcfa46a40a229d1dcf03a4a34a8940b4",
+    "engines": {
+      "adaptive:d5": {
+        "games": 36,
+        "failures": 0,
+        "wins": 14,
+        "draws": 8,
+        "losses": 14,
+        "score": 0.5,
+        "improved_cases": 0,
+        "regressed_cases": 0,
+        "unchanged_cases": 36,
+        "mean_map_paired_delta": 0.0,
+        "map_cluster_bootstrap_95_delta": [
+          0.0,
+          0.0
+        ],
+        "map_deltas": {
+          "testmap2": 0.0,
+          "dispersed_25101502": 0.0,
+          "endgame_25101502": 0.0
+        },
+        "maximum_candidate_response_seconds": 1.2553351250244305
+      },
+      "strategic:d5": {
+        "games": 36,
+        "failures": 0,
+        "wins": 17,
+        "draws": 8,
+        "losses": 11,
+        "score": 0.5833333333333334,
+        "improved_cases": 4,
+        "regressed_cases": 1,
+        "unchanged_cases": 31,
+        "mean_map_paired_delta": 0.08333333333333333,
+        "map_cluster_bootstrap_95_delta": [
+          -0.08333333333333333,
+          0.3333333333333333
+        ],
+        "map_deltas": {
+          "testmap2": 0.0,
+          "dispersed_25101502": -0.08333333333333333,
+          "endgame_25101502": 0.3333333333333333
+        },
+        "maximum_candidate_response_seconds": 1.2509477499406785
+      }
+    }
+  },
+  "limitations": "Descriptive paired comparisons with exact empirical map-cluster bootstrap. Few related map clusters, two held-out combat seeds, shared simulator and timing-sensitive search limit generalization. Draws at the unknown live cutoff are a local convention. These are not tournament win probabilities."
+}

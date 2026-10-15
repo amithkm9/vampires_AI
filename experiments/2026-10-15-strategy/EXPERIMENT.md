@@ -109,3 +109,82 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/league.py --engines adaptive:5 outcome:5
 constants, intact-group generator and depth. No algorithm changes will be made
 based on held-out results. Compare it and adaptive:5 under the original 72-game
 normal-budget protocol. The default remains adaptive pending the outcome.
+
+## Locked results and selection
+
+All 72 games completed without failures, 36 games per candidate:
+
+| Engine | Wins | Draws | Losses | Paired score | Maximum candidate response |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| adaptive:5 | 14 | 8 | 14 | 0.500000 | 1.255335 s |
+| strategic:5 | 17 | 8 | 11 | 0.583333 | 1.250948 s |
+
+Per-opponent scores (control to challenger): adaptive 0.500000 to 0.583333,
+escape 0.583333 to 0.583333, split_merge 0.416667 to 0.583333. Four matched
+cases improved, one regressed and 31 were unchanged. All four improvements were
+on the endgame family; one dispersed-map case against escape regressed. Testmap2
+results were unchanged. The result does not isolate the human-race feature's
+normal-budget benefit; outcome-only versus strategic on a new set is a priority.
+
+The mean paired gain was 0.083333. Exact empirical resampling of the three map
+clusters gives a descriptive 95% interval **[-0.083333, 0.333333]**. It includes
+zero and is conditional on only these related maps. Two combat seeds, scripted
+probes, timing-sensitive decisions and a shared simulator limit generalization.
+The game cap and draw rule are local proxies, not verified server information.
+
+**Decision:** provisionally promote `strategic` at depth five and 1.25 seconds.
+It meets the registered overall/per-opponent score, legality, timing and
+correctness gates. Preserve `adaptive:5` unchanged. Retain outcome and tactical
+as explicit ablations; do not claim that strategic is a globally optimal agent.
+No evaluator constants or search behavior were changed after the locked run.
+The default-selection change affects routing/CLI help only.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 tools/league.py --engines adaptive:5 strategic:5 --opponents adaptive:5 escape split_merge --maps testmap2 dispersed endgame --map-seeds 25101502 --combat-seeds 25101521 25101522 --policy-seeds 25101532 --budget 1.25 --max-plies 60 --output experiments/2026-10-15-strategy/holdout-01
+```
+
+## Final verification
+
+- Python 3.14.6, macOS arm64; exact runtime/platform strings and configurations
+  are in each run's metadata. No third-party runtime dependencies to lock.
+- All **256 matches / 8046 plies** reconstructed with the saved source snapshots
+  and combat seeds: 3453 development-01, 1928 development-02, 2665 held-out plies.
+- **274 tests** passed in 3.172 seconds after default selection, including
+  independent exact references and both-species engine lifecycle checks.
+- Three new engines passed eight normal-budget search stress cases each:
+  **24 cases**, maximum about 1.2501 seconds.
+- They passed **36 maximum-area probes**, maximum **1.285958 seconds**.
+- The actual launcher passed **four local TCP matches / 31 AI turns**, both
+  supplied maps/species, persistent restart, unrelated working directory and clean
+  BYE. Maximum complete response was **0.713226 seconds**. Sandbox localhost
+  binding was initially blocked; authorized execution succeeded. This uses our
+  own simulator and does not establish official-server parity or CTI timing.
+- Every new live turn still passes `rules.validate_moves`; the six written move
+  rules, conservative p. 6 record limit, combat model, chance bounds and two-second
+  network deadline are unchanged. Split omission is a strength limitation, not
+  a rule violation. Shared-target combat/tie interpretations remain unresolved.
+- All 13 original-material hashes match. The final import scan found only
+  standard-library absolute runtime imports, and all five stress/TCP records'
+  recursive source hashes match the final runtime. `git diff --check` passed.
+
+Reproduce verification with fresh output paths (the paths below identify the
+actual records; do not overwrite them):
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discover -s tests -q
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_league.py experiments/2026-10-15-strategy/development-01 --output experiments/2026-10-15-strategy/development-01/replay-analysis.json
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_league.py experiments/2026-10-15-strategy/development-02 --output experiments/2026-10-15-strategy/development-02/replay-analysis.json
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_league.py experiments/2026-10-15-strategy/holdout-01 --output experiments/2026-10-15-strategy/holdout-01/replay-analysis.json
+python3 experiments/2026-10-15-strategy/summarize.py --output experiments/2026-10-15-strategy/comparison.json
+PYTHONDONTWRITEBYTECODE=1 python3 tools/check_search.py --engine strategic --depth 5 --budget 1.25 --output reports/search-strategic-2026-10-15.json
+PYTHONDONTWRITEBYTECODE=1 python3 tools/check_search.py --engine outcome --depth 5 --budget 1.25 --output reports/search-outcome-2026-10-15.json
+PYTHONDONTWRITEBYTECODE=1 python3 tools/check_search.py --engine tactical --depth 5 --budget 1.25 --output reports/search-tactical-2026-10-15.json
+PYTHONDONTWRITEBYTECODE=1 python3 tools/check_limits.py --engines strategic outcome tactical --depth 5 --output reports/maximum-board-strategy-2026-10-15.json
+PYTHONDONTWRITEBYTECODE=1 python3 tools/check_player.py --engine strategic --depth 5 --budget 1.25 --max-plies 20 --output reports/player-strategic-smoke-2026-10-15.json
+```
+
+Current stress/TCP records hash the final runtime recursively. Historical league
+snapshots retain their exact pre-promotion engine routing. The unchanged search,
+simulation, candidate generators, baseline evaluator and new planning evaluator
+must match their held-out snapshots; future reproductions should use those
+snapshots, not silently substitute later source.
