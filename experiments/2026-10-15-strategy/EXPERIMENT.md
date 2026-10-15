@@ -68,4 +68,44 @@ challenger; this experiment keeps exact modeled chance probabilities.
 
 ## Results
 
-Pending. Commands and actual results will be appended after execution.
+Development 01 completed all 120 games with no failures. Each candidate scored
+24W/6D/10L (0.675). Outcome/strategic changed two paired endgame results against
+adaptive, one win-to-loss and one loss-to-win. The aggregate result is neutral.
+Maximum candidate responses: adaptive 0.058333 s, outcome 0.059497 s, strategic
+0.062098 s. The exact trailing-cycle fixture improves, but there is no measured
+overall promotion evidence yet. All 273 unit tests passed before these matches.
+
+Command:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 tools/league.py --engines adaptive:5 outcome:5 strategic:5 --opponents adaptive:5 collector raider split_merge --maps thetrap testmap2 resource_race contact endgame --map-seeds 25101501 --combat-seeds 25101511 --policy-seeds 25101531 --budget .05 --max-plies 50 --output experiments/2026-10-15-strategy/development-01
+```
+
+## Development extension registered before execution
+
+The first development round does not establish improvement. Add `tactical:5`,
+combining the unchanged strategic evaluator with the already-tested hybrid
+partial-move generator and reusable search. This isolates the interaction of
+evaluation and partial moves; it does not change the earlier frozen variants.
+
+Compare adaptive:5, outcome:5, strategic:5 and tactical:5 at 0.15 seconds and
+50 plies, against adaptive:5 and split_merge, on thetrap, contact, dispersed and
+endgame. Development map seed 25101503, combat seed 25101513, policy seed
+25101533; both species, 64 games. Select the challenger using this round's paired
+score, fewer losses, then maximum latency. The original held-out protocol,
+seeds and promotion conditions remain untouched. If all challengers fail to
+improve, still evaluate the best challenger, without presuming promotion.
+
+Development 02 completed 64/64 games without failures. Results (16 games each):
+adaptive 8W/1D/7L (0.53125), outcome 9W/1D/6L (0.59375), strategic 10W/1D/5L
+(0.65625), tactical 8W/1D/7L (0.53125). Largest response was 0.154878 seconds.
+Partial moves repair the exact witness but again did not improve total score.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 tools/league.py --engines adaptive:5 outcome:5 strategic:5 tactical:5 --opponents adaptive:5 split_merge --maps thetrap contact dispersed endgame --map-seeds 25101503 --combat-seeds 25101513 --policy-seeds 25101533 --budget .15 --max-plies 50 --output experiments/2026-10-15-strategy/development-02
+```
+
+**Locked before evaluation:** select `strategic:5`, with its existing evaluator
+constants, intact-group generator and depth. No algorithm changes will be made
+based on held-out results. Compare it and adaptive:5 under the original 72-game
+normal-budget protocol. The default remains adaptive pending the outcome.

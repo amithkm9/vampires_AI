@@ -1,0 +1,1973 @@
+{
+  "boards_sha256": "11553aee9b442f13d90a3e0ac3ffe4abc7a97d61fb4493380a0cf65ea49daa0f",
+  "budget_seconds": 0.05,
+  "candidates": [
+    {
+      "config": {
+        "cache_entries": 10000,
+        "candidates": 64,
+        "max_depth": 5,
+        "max_outcomes": 512,
+        "per_group": 12,
+        "preserve_dominance": true,
+        "protect_tactics": false
+      },
+      "depth": 5,
+      "label": "adaptive:d5",
+      "name": "adaptive"
+    },
+    {
+      "config": {
+        "cache_entries": 10000,
+        "candidates": 64,
+        "max_depth": 5,
+        "max_outcomes": 512,
+        "per_group": 12,
+        "preserve_dominance": true,
+        "protect_tactics": false
+      },
+      "depth": 5,
+      "label": "outcome:d5",
+      "name": "outcome"
+    },
+    {
+      "config": {
+        "cache_entries": 10000,
+        "candidates": 64,
+        "max_depth": 5,
+        "max_outcomes": 512,
+        "per_group": 12,
+        "preserve_dominance": true,
+        "protect_tactics": false
+      },
+      "depth": 5,
+      "label": "strategic:d5",
+      "name": "strategic"
+    }
+  ],
+  "combat_seeds": [
+    25101511
+  ],
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 tools/league.py --engines adaptive:5 outcome:5 strategic:5 --opponents adaptive:5 collector raider split_merge --maps thetrap testmap2 resource_race contact endgame --map-seeds 25101501 --combat-seeds 25101511 --policy-seeds 25101531 --budget .05 --max-plies 50 --output experiments/2026-10-15-strategy/development-01",
+  "configuration_sha256": "33dc21199392d3929b73fc8a582a138beb0dbc5bdbeeb5ed72d4acd547442f9c",
+  "cpu_count": 14,
+  "created_utc": "2026-10-15T15:44:22.193621+00:00",
+  "frozen_revision": "04a1e855cc78fbab6f0ddef63fbaf085ea46b520",
+  "limitations": "Local shared simulator with unverified server semantics; no CTI/official-server claim. Shared contested attacks and byte overflow remain unsupported. Local ply cap scores population, including a conventional draw for ties; agents receive no cutoff. Scripts are diagnostic probes. Failures have score=null and must not be interpreted as wins. Paired seeds do not imply identical random events when policies take different actions. Confidence intervals are conditional on tested map clusters.",
+  "live_cutoff_supplied": false,
+  "machine": "arm64",
+  "map_names": [
+    "thetrap",
+    "testmap2",
+    "resource_race",
+    "contact",
+    "endgame"
+  ],
+  "map_seeds": [
+    25101501
+  ],
+  "max_plies": 50,
+  "opponents": [
+    {
+      "config": {
+        "cache_entries": 10000,
+        "candidates": 64,
+        "max_depth": 5,
+        "max_outcomes": 512,
+        "per_group": 12,
+        "preserve_dominance": true,
+        "protect_tactics": false
+      },
+      "depth": 5,
+      "description": "Current snapshotted adaptive expectiminimax control, with its explicitly recorded depth.",
+      "label": "adaptive:d5",
+      "name": "adaptive"
+    },
+    {
+      "config": null,
+      "depth": 3,
+      "description": "Whole-group moves favor immediate human conversion and distance to affordable houses; penalize battle losses.",
+      "label": "collector",
+      "name": "collector"
+    },
+    {
+      "config": null,
+      "depth": 3,
+      "description": "Whole-group moves favor expected enemy casualties and closing distance, accepting risky combat.",
+      "label": "raider",
+      "name": "raider"
+    },
+    {
+      "config": null,
+      "depth": 3,
+      "description": "Bounded legal joint/partial moves favor conversions, useful retained remainders, and friendly merges; no shared contested attacks.",
+      "label": "split_merge",
+      "name": "split_merge"
+    }
+  ],
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "policy_seeds": [
+    25101531
+  ],
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "schedule": [
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "4ea70133f552f698eb188cb24f8032aa53498032ff69a0a3d96e7e93b9f2c563",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "d4137180ffb6c6450dcca10832a3614a7e2d583a724581bccce783c944cb3355",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "a3ab47f6da7df10c1f5901ae5f119184557ebc75c1b5016478aae9c98ed11e7d",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "60dad6f9d04b5fbda6f32cf175eeaefc63fc1366f0c5094d48f25d6b22bd2a43",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "411218daf7e5ac1fcd7f942efb426cad76b77f22e691e300faeb4314a2cc0c18",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "dd1cf0b308e052c1e29b639e50144172d7b64efe203da9bd6386cc27c79ad48a",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "e10b3d93c17760648e5c5e6f48803db92fd245fcab873376028961be911dc4df",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "f218a76e4abc8ebacb1bf22db997cb6e9085d93bb4c0e22e7b724add93a1c7ad",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "36af75474ae84d4e0589305a3da30c8adcaf7701fd5b150d62033be91116e1f0",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "4b9c137b9488fdb3462ed35a8568e0d60ac0a7c14e070b5115230254fcec2843",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "d4abd307e4d205741314eb8f2eea4790b2bfac9bed52652e61f33fd2bbd56b55",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "f1c20d14b5907ec2727cca9463d022838eacad6f32efc040da1d046dd7f486d0",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "f2dad3b9f97b15357808bdb0882e3a6af388f7fd4410f851dd1cd72b42f20f45",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "8c7e04bc7383db56b63ef0d7edde8914f037392de07491171e578994f3c09e5e",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "1abd95979c93d33b92dc645a87b1187feccbd369bc0180fe061fe45c3cf86cc0",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "861a03691470a47b782ec186cc108686f6691fd2574627abf8c24ee33b3259f1",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "c1e1a2ec1e06160becc5cf63d61e1894d169354548ef6ac13e18ea601812b666",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "ed6c0972a0fc9baf56ff3d579c446ee7ffa68d0ed2883a1f61e97b30b6213655",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "3095de333dc46390cb13fc03c532141937a2c62ea6f8742fa633311291f943aa",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "3b25df508dc52e1cb1764411f5aaa18f8deb0c519b6046ece20c1bf7f0507a43",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "6f454705415757bd9aa01212b7152d30cff24ca7523c48ff27a4f9b5a0fb54c3",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "11fa2cde5061f8d172bbb419209dc5a97c5eb1a4d26877b58a556b3567012546",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "85bb1b1c0d07d28c17d763b0823e3af229c9f047c74c1944a8fc055b61333e12",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "b1e74af374e9ce82d56b3686e37657b2d1318fd4f60e85717a3982557663c433",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "e034852ec5751d492287668103947f1deb0b4a0991cfc3e6f3da5cc1cd98efbd",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "7c61dcddfb153ebc6b3ab9e99440a0b6f08d7c908698cb8421d0382a437df34a",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "29fcf05f8325a280543ab286aa91820f505abf42e203956c293f68216ee6e6b9",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "8259a53230c6de4fc72678354c29b5a4486fddb85016273e5341e7b659e05577",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "a1a80e28547ef2029ba9144554c688c3433fe56d618b22e39784c7e83a029bb0",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "66438e423d08636276cefbfc66b3476034a74e83843236f9a1be1afa1827c007",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "8ef6b8f79da0289b2c0ec38ed2e93353a060a3d27b01bf314f10fa8a96ac6d99",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "d4649004969f7a99cc30b2c791922ab04db13e9c2b917b4253bddbe429978ca8",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "8904a78726c6927e90d11badc6e24287c7e58e6ae22a917eaa566ce42d7194f8",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "d933c604e5edfc4691c559648e88253d6ca7c8296d8bc7c92b7cc18174b12fb0",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "1c78aff9f9bbd15643776c05c6657f0b2bf2f38485b15a90de89672dc05ca47a",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "77f61e6cf9414c9544e3a16ab044ef122d688854d5509a2dd4a20936447c2174",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "fad3993af6fc28ac05993ad99b20a5d431cf506b1c4201eafd6223233350cc8b",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "f35fe783c1b9ba0ec4dee6d3cf1298fc5db1dca54d31b9d971b0ccca9be3850c",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "0350968ac447a2313c87dbe9d0ab3dc285848529d15ecdb23120b268c63a10e7",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "d03194b8f24251919be375c63e93b329b8fe5d644acf66abbf0fb1c708943751",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "7677a99f4c2aac2e3bfa26dbcace47a9036d056a54952ce09a72f02bd1630206",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "eb70b888f348517fd7b26690c0fe86058b11c34b1aa341e2e42cd4bc13a005ad",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "47258ec58662e2f76610963f848b4e88ba91e40b63f0f072a587a386855a1b12",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "9d58c2505ce260baa35190d244f35036e59b3f55fba12f8d34ca5779c42a2e70",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "2010d709f4218a72078e1dda5176b9394565808b2861af46bc925ca4865ac170",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "a9f40087ae149bb151f521569d37dd6600142a3de55737745dd9b772abe26b03",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "9cb1b8a8114f5c3fb849a01253b60b341e1bf697b0502192181bd6ec0c2a320d",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "5f6c1faa88fec87f867362e2cde5f3b4759cc5be31b10c04114841a987699972",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "27af8050e31295caed6be5d68cc035f9b2edd077dfb31c981bed353f91d6c1df",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "bfcb0d15be3fbdb43d09257ea9c95071c43995092b644bd0f8d5831e60e5e8f5",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "ea22a52412e661235599ec568ed9991367ab27da5f3d726e021356be50e83e4e",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "96065d254b600685829794e258e99a9f58ff371b13b1c0a3d155bbf2b0a4d6af",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "30f10ab9f471cb64e827e5eae56bf129f5352922d0214ab5b003d715154ebe62",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "46b660c6d972d781cb333f139b599c24a86460dc8e863157ce637dbfbd77edd9",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "8effe72439a3080e316dabfb14e3d5a31d0acf5fc4b6fc47d6f9a324764738b3",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "22c5658c0070ab2aa1520e6c75d39b1d0def7b7a175ea8d27b3bc217655c646f",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "f661803ccd4b31862cc3a113190979310f7ea3052a07f75c487a762b96240ac4",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "a6b406b4a16f80584a3e1403e9183ab319876bd89120e3b07a305e4da393081a",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "1f5f19c3328b96f23c48e4b3778295297a14b7d30c979b5781d75c9a51f1a719",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "77043ae29f63e74df49f2aa1f07821da1bddc6e4bb0dbea5b77040c8332dd41b",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "c59a43d36512de30e7c69789a93bc4b1210e768f039372119512cea2d689f568",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "67cd3c794e06ece00342f6384114d9db5dd234b04238112ffc370240bb8df011",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "05d52de84505cba3f020e1d37f1aa8497f9c263112c62ce4f86c7cdc7647a94e",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "969a2bff2e0830d91848c1a20cf5151fddeb40f0aaf83440f5f35f43d66b8a64",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "87680fd376ef1bd1973e3c4c1ed6aea60450166bebf051d3477dd3570a53d381",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "d1cbe8f5816646a297c07a4f054bca26046e389897f2bc3930c746399baefc5e",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "0f1f1993e9c0ee8d909a3d1a1fc9a930bc4012316009403d274dc49b5182d2aa",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "eceb9f41bb0e16f8156bb764f5e85c744e205f730c090145fd151d5015b65cfc",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "2e43ca6e907ccc606dc04d13d98bc1d93ab7511e997b6ac7a9212a3a0dfcb760",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "1b2f2fff2c9c679451284ad01c1d98cb94e1972dc3a7cb47fefa4c8104a61c59",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "fed681fc5c792c4c82beb1cdcf7e87d617678ad0bb58b1214f1b1b6861256f10",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "a1fb8db211a0d9c33d39b91a9ec4224b1f89c495c15778f4bf0a1a3be261ee3b",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "199fc0123f59bfd96c3040e141be706d931b413adee9a2b27720a4aa3832bfdc",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "52c886701c119c5f5ed1e7f38a18e6583004d6102bb3c1f8487c8be31dd107bf",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "c56dd2710fbd83e7ce21cc831f4f82b2db5c1f4dd124f070f0cd2e6fdc0717c4",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "df962aa331e7911f85c4b4a5494f149193c3036f5f570f275ad9e0fe7ba1786f",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "9a8dbc5417fbc5ab2879755e50101ca3bc08ede3fc7f312275f65745bcda2843",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "8ccde44e755d0d7c34b107cd906433a578c1c234d46dc9a6691ea793c5b18719",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "e3fe83303da46759b0a58d6d66492ee8c70062af74c73c6030d8c3ad30d3745d",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "outcome"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "a1df5d67e43843c7b30e3c6a47dbb724dca1ce4d84a3269659928ecad5fac2fa",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "0d569c82409289f65fe77c849f2583bac04edf0b24e256278da703aca6652509",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "9f07617acbac66a86e35e3aaa1311356a7650c7ac0267cf12eef56ce51a8e04a",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "9942a8eb179bee036d202287649fc7453fe628aee4f8f745e503ae65c5ea93a7",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "0a505df6d0b00d101abc1975c50e41b519846002dcf9e27ddf53b2d6c71eb95f",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "06684df95e871893dfe874358f9abb7491f2efce40abea1e8ea6328c6dc8743d",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "fcf6feac0234b18219e6a70cb33da5a7e46a40782029b80b388398757e5a15d5",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "1649d0a05cf3b74289ba4ee7485cec6d74de7e261ffd6fc4def7955095b9e2df",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "8f9e8b967a49a55bc0833683b08e467b4a29a7e3ed4febbee0ff85a3530c23da",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "e6a3cc9fa7d21ec8a58875777fd2e164887e19b4e54d77655e892a9b1bdccf8e",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "e3ed1654127830ce1deb99eb858cb457e60c1e80406fb9cc12db3bcbf09a7666",
+      "opponent": {
+        "depth": 5,
+        "name": "adaptive"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "65f37be59dd03c4ae13ccd05dd001bceac7c23fa02cf360d6b67db847cc5184f",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "2108d2c75651d3b8026e5998752a17168e21cb7d6e399cd1c9c664dd0fd3dd11",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "8a5513285ce85cd32b1fc3ba95589d720344466ba5c9dc7819f1b415f63d3869",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "595f2e38ddc57dae99a596f038959242115177b7d962af6fbac4fcfd05d0c547",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "658f69297d614eb608dcd1dfd640e045b0db1c0e0f9dc9545514fffd18648288",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "9f2135b857b52e70f1bf243e2998c97700d3ee60256b34051d1a1fea5e57fa15",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "ce4ad2f786ed53cdec74dc0411c41fa78584273d2ee60f6e97826ada1f4fbf37",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "57e8bfd2e6a31f0be50b68024204e58cace8b73cfcb18452c2884a5673433c27",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "7e2f6ab2a22d3bd0119f6715d1864e039592a4684770b2a85da6919b8eb92add",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "5452995b51ba976848b1a93ab158176123e85629d47a9e77f9a1ab97e7bf1111",
+      "opponent": {
+        "depth": 3,
+        "name": "collector"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "b42fcf14ba0f378407a17d3d7f75d21a1e73b68cb988a9018cd349c39ad00007",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "05f94f0f4d4a200b269f95e1faaff4735974b0459cb3c3415b611772c12343c1",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "e62e04684872bdb33a6fbf61567d86329280be5701db466b92cb873431543565",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "20c1e4da79ab0c2e57471963607386cfa61e78ae471c89da63fc309616ee5ff0",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "44671f644225f54df6ec125ab4b99079cfefb08aefed62818dda0f7c592c276a",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "89356233a3a29d906d6cd7726e2cc7af6d0e815cda19ecfa7bdf1e2ae761c555",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "18c5462347db3b8dfa95d0e9db187be78abf21d80a9f301b4c2767e327f03208",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "608daf2041af02137a370cc2cf2835645a444d2acc950fc951f4284d2854c292",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "bfbad7b973bd093e9bca8663e21125cc96747b6dbd1f1277c6f5168eb6ef1c89",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "d6e3adee6f431783b0ea2ba0b46decf71d76c0b580879262d237fe130afd0b47",
+      "opponent": {
+        "depth": 3,
+        "name": "raider"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "905845a07569d3a1196b2774f1199c006146f35bca666c9b83b70d49a70e4ddd",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "thetrap",
+      "match_id": "0fe16c1867ab267304644c9a4e01ccba3a7048129bf19fa9fa23c5da68977cbf",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "fd7fd7bc9984d8cdb042736d6249223ed8de01e3590eacdade83f61014665332",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "testmap2",
+      "match_id": "2541a780708480bcd2e4508139ce63c5fc0823c0362fc51d92e160ac22e07ef2",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "bcee09c6b99ec51725ed33dad3ee21ba69d9c9e0a6152a2071618399b6fc78f0",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "resource_race_25101501",
+      "match_id": "8722fead5d595d0a428e888e69b7c0ab09036382ed263cd881aeb9418b9c5952",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "6f0da623388b662aadbcec2d2f2b120676e156c5fc3221a519966b0f298c0ea1",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "contact_25101501",
+      "match_id": "988474fb78c1968a958b7e98b07ee4b15b9caf6a149c7808e7aeb5686f90ff66",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "88184bd146049ea1b580981041472ae0de998992afccc22642563365a0378902",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "vampires"
+    },
+    {
+      "candidate": {
+        "depth": 5,
+        "name": "strategic"
+      },
+      "combat_seed": 25101511,
+      "map": "endgame_25101501",
+      "match_id": "dc6e950ea7c1b10136c7f3ddf94983c68c5681eb8837ae6882adb67293b846af",
+      "opponent": {
+        "depth": 3,
+        "name": "split_merge"
+      },
+      "policy_seed": 25101531,
+      "species": "werewolves"
+    }
+  ],
+  "schedule_sha256": "94fa97a4d577d94529872d6b74adef7a06e780ea0445e15fd5aafdd1149bb427",
+  "schema_version": 1,
+  "seed_rule": "SHA256([base_seed, role_or_combat, ply]) first 64 bits; combat and policy streams separate.",
+  "snapshots": {
+    "current_package": "snapshots/current/src/vampires",
+    "frozen_package": "snapshots/frozen/src/vampires",
+    "harness_root": "snapshots/harness",
+    "sha256": {
+      "snapshots/current/src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+      "snapshots/current/src/vampires/balanced.py": "91f42ebc67f2fee3983f768a8834531e4251e953654eb32bcd36dfa8c3c3616e",
+      "snapshots/current/src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+      "snapshots/current/src/vampires/certificates.py": "5fcf37d4c5ca3b00e7e10149e79fb8ba4061cd4187290df7ff3547c88d4aeac8",
+      "snapshots/current/src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+      "snapshots/current/src/vampires/engines.py": "1330d294af005e5fbb56a70782475258931afa1dc22086d8366594414f00981b",
+      "snapshots/current/src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+      "snapshots/current/src/vampires/experimental/__init__.py": "207d82b76d6299805108c4c69d49425b2332047aa39fa8ebd002ef534d5ff212",
+      "snapshots/current/src/vampires/experimental/growth.py": "8e409eeef1c7555bd7dd31db32c84ea4c7d51746378c196f60ce58c0cbe1bc55",
+      "snapshots/current/src/vampires/experimental/hybrid.py": "5198b31dff0eb11fdee4128bfc8ce1943097e48e32805e628ef7628180f86c2f",
+      "snapshots/current/src/vampires/experimental/mcts.py": "980cb206c93d9684d3193d3e49f600866b3517892f9e423c013d55de3e527cff",
+      "snapshots/current/src/vampires/history.py": "728be4ff5f92b0d0a4bb24f2738799a51ba6d65d9516f864bd96f482ea83047c",
+      "snapshots/current/src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+      "snapshots/current/src/vampires/planning.py": "12e4081da8cd853400ffc1eaa60cba81991dfbfe9cafb0f1624668fd0af253f4",
+      "snapshots/current/src/vampires/player.py": "d3d5b677c8236c32e4a7f5e876d6e2738431afcb7592062cee6b4f982811e216",
+      "snapshots/current/src/vampires/protocol.py": "73102e32d34d7ee305296d194163da794f30336d8ee962b5bf78fb8057e1c2eb",
+      "snapshots/current/src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+      "snapshots/current/src/vampires/search.py": "4a04f720d982b922e2d5f99c92bcb771c7e96da7dbc619fdac5aef160c80a921",
+      "snapshots/current/src/vampires/simulation.py": "37b16a11c165353088cab751f58336a8b47cad834c83d0cca4759740399a207d",
+      "snapshots/current/src/vampires/strategy.py": "318f4e1f6c17519dbb4f331cdea1376c9d9d4934f947cbfdfc88497ac09d77f6",
+      "snapshots/current/src/vampires/turns.py": "e7ad278563f0a0704699047b38806f2809e6596dfe8268b91e7f6ad6d54fd0ff",
+      "snapshots/frozen/src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+      "snapshots/frozen/src/vampires/balanced.py": "23ff96c18d7506a5916596500a625821ae2303198a5bee3bbb8ab9faf2cca3c2",
+      "snapshots/frozen/src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+      "snapshots/frozen/src/vampires/certificates.py": "5fcf37d4c5ca3b00e7e10149e79fb8ba4061cd4187290df7ff3547c88d4aeac8",
+      "snapshots/frozen/src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+      "snapshots/frozen/src/vampires/engines.py": "148f28aa4c3716a8afadfbe6d8c2d5d8d1d54780ad9cdb142bb21a02ac093b82",
+      "snapshots/frozen/src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+      "snapshots/frozen/src/vampires/growth.py": "92baa8fa605660360ba23bc7821b35e02d21cf0f062725f8cd418cee48d860b8",
+      "snapshots/frozen/src/vampires/history.py": "728be4ff5f92b0d0a4bb24f2738799a51ba6d65d9516f864bd96f482ea83047c",
+      "snapshots/frozen/src/vampires/mcts.py": "21be096d96acead45e6b269bff8eb7548ef97e47068fa6cba972b90e9258989f",
+      "snapshots/frozen/src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+      "snapshots/frozen/src/vampires/player.py": "d27caa3f1cbd6edcb7be81dd634fe07c216285a89781ee10d737c18a2da1af02",
+      "snapshots/frozen/src/vampires/protocol.py": "73102e32d34d7ee305296d194163da794f30336d8ee962b5bf78fb8057e1c2eb",
+      "snapshots/frozen/src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+      "snapshots/frozen/src/vampires/search.py": "4a04f720d982b922e2d5f99c92bcb771c7e96da7dbc619fdac5aef160c80a921",
+      "snapshots/frozen/src/vampires/simulation.py": "37b16a11c165353088cab751f58336a8b47cad834c83d0cca4759740399a207d",
+      "snapshots/frozen/src/vampires/strategy.py": "318f4e1f6c17519dbb4f331cdea1376c9d9d4934f947cbfdfc88497ac09d77f6",
+      "snapshots/frozen/src/vampires/turns.py": "e7ad278563f0a0704699047b38806f2809e6596dfe8268b91e7f6ad6d54fd0ff",
+      "snapshots/harness/tools/league.py": "57b31f2e39b12f05f1febef2a8d43a19c47ce7e43922959c42b905ff57ef8de9",
+      "snapshots/harness/tools/league_support.py": "b591bbce6ad9b2af25e34f7f5d106157f12401d70d44abb65cf075e4b566443e"
+    }
+  },
+  "species_pairing": [
+    "vampires",
+    "werewolves"
+  ],
+  "starting_species": "vampires",
+  "working_revision": "774a4024096bbaedce478548428c502d69a1ea66",
+  "working_tree_status": "?? experiments/2026-10-15-strategy/development-01/\n"
+}
