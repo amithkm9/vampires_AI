@@ -1,0 +1,528 @@
+{
+  "battles": [
+    {
+      "attackers": 6,
+      "defenders": 7,
+      "humans": false,
+      "exact_probabilities_equal": true,
+      "outcomes": 14,
+      "seconds_per_call": {
+        "reference": [
+          3.879583285500606e-05,
+          3.835693545018633e-05,
+          3.838749835267663e-05,
+          3.8373598363250495e-05,
+          3.872776481633385e-05,
+          3.83555656298995e-05,
+          3.882636471341054e-05
+        ],
+        "current": [
+          9.46529908105731e-06,
+          9.318068623542786e-06,
+          9.324999215702216e-06,
+          9.297234161446492e-06,
+          9.338864280531804e-06,
+          9.283334172020356e-06,
+          9.858332729587952e-06
+        ]
+      },
+      "median_seconds": {
+        "reference": 3.838749835267663e-05,
+        "current": 9.324999215702216e-06
+      },
+      "speedup": 4.116622153494291
+    },
+    {
+      "attackers": 10,
+      "defenders": 10,
+      "humans": false,
+      "exact_probabilities_equal": true,
+      "outcomes": 21,
+      "seconds_per_call": {
+        "reference": [
+          5.622083554044366e-05,
+          5.626250058412552e-05,
+          5.582083249464631e-05,
+          5.595416684324543e-05,
+          5.618333428477248e-05,
+          5.6626399358113605e-05,
+          5.5737498526771864e-05
+        ],
+        "current": [
+          1.2384735358258088e-05,
+          1.2172230829795202e-05,
+          1.230693111817042e-05,
+          1.2163899373263121e-05,
+          1.2212498889615138e-05,
+          1.2175001514454682e-05,
+          1.2486133103569349e-05
+        ]
+      },
+      "median_seconds": {
+        "reference": 5.618333428477248e-05,
+        "current": 1.2212498889615138e-05
+      },
+      "speedup": 4.60047814886991
+    },
+    {
+      "attackers": 255,
+      "defenders": 255,
+      "humans": false,
+      "exact_probabilities_equal": true,
+      "outcomes": 511,
+      "seconds_per_call": {
+        "reference": [
+          0.0020698694318222505,
+          0.002062530532324066,
+          0.0020724610968803365,
+          0.002115381966965894,
+          0.0020783833344466983,
+          0.0022437750012613833,
+          0.0021031999999346833
+        ],
+        "current": [
+          0.0005484444322064519,
+          0.0005473486303041379,
+          0.0005843235994689167,
+          0.0005621361002946893,
+          0.0005460110997470717,
+          0.0005477513962735733,
+          0.0005549319321289659
+        ]
+      },
+      "median_seconds": {
+        "reference": 0.0020783833344466983,
+        "current": 0.0005484444322064519
+      },
+      "speedup": 3.789596926137321
+    },
+    {
+      "attackers": 255,
+      "defenders": 171,
+      "humans": false,
+      "exact_probabilities_equal": true,
+      "outcomes": 427,
+      "seconds_per_call": {
+        "reference": [
+          0.0031161013641394673,
+          0.003145322234680255,
+          0.0030873041677599153,
+          0.0032323388654428224,
+          0.0031272986011269192,
+          0.0031463736318983137,
+          0.003052675002254546
+        ],
+        "current": [
+          0.0018715083327454825,
+          0.0019953208315807085,
+          0.0018524555334200462,
+          0.0018432319668742517,
+          0.0018522222332345943,
+          0.0018454639008268713,
+          0.001855722232721746
+        ]
+      },
+      "median_seconds": {
+        "reference": 0.0031272986011269192,
+        "current": 0.0018524555334200462
+      },
+      "speedup": 1.6881909145496348
+    },
+    {
+      "attackers": 127,
+      "defenders": 128,
+      "humans": true,
+      "exact_probabilities_equal": true,
+      "outcomes": 384,
+      "seconds_per_call": {
+        "reference": [
+          0.003601990267634392,
+          0.003605456933534394,
+          0.003597787499893457,
+          0.0036153652666447065,
+          0.0036017152674806614,
+          0.0035915291635319592,
+          0.0036474930316520234
+        ],
+        "current": [
+          0.002523940266110003,
+          0.002522804165103783,
+          0.002610293069543938,
+          0.002640454168431461,
+          0.0025124680677739283,
+          0.0025127041658076148,
+          0.0025405778006340066
+        ]
+      },
+      "median_seconds": {
+        "reference": 0.003601990267634392,
+        "current": 0.002523940266110003
+      },
+      "speedup": 1.4271297605572584
+    },
+    {
+      "attackers": 1,
+      "defenders": 255,
+      "humans": true,
+      "exact_probabilities_equal": true,
+      "outcomes": 512,
+      "seconds_per_call": {
+        "reference": [
+          0.005088519467972219,
+          0.005127841668824355,
+          0.00509613889735192,
+          0.005108452766823272,
+          0.005333511135540902,
+          0.005093365267384797,
+          0.005087079165969044
+        ],
+        "current": [
+          0.003511879166277746,
+          0.0035198902633662025,
+          0.0035128902993164955,
+          0.0035123819679332277,
+          0.0035162805657212933,
+          0.003519637502419452,
+          0.003509312499469767
+        ]
+      },
+      "median_seconds": {
+        "reference": 0.00509613889735192,
+        "current": 0.0035128902993164955
+      },
+      "speedup": 1.450696851633391
+    }
+  ],
+  "fixed_tree_decisions": [
+    {
+      "map": "thetrap",
+      "species": "vampires",
+      "identical_decision_and_work": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 4,
+            "y": 3,
+            "count": 4,
+            "target_x": 3,
+            "target_y": 3
+          }
+        ],
+        "value": 0.5139559099245459,
+        "completed_depth": 3,
+        "selected_depth": 3,
+        "evaluated_root_actions": 8,
+        "nodes": 353,
+        "chance_outcomes": 197,
+        "selective_nodes": 65,
+        "unsupported_actions": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.0,
+        "value_lower": 0.5139559099215459,
+        "value_upper": 0.5139559099275458,
+        "bounded_actions": 18,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 16,
+        "root_finished": 3,
+        "root_updates": 725,
+        "root_pruned": 13,
+        "cache_hits": 0,
+        "evaluation_hits": 99,
+        "candidate_hits": 8,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 0.0,
+            "nodes": 70,
+            "chance_outcomes": 44,
+            "root_started": 8,
+            "root_finished": 1,
+            "root_pruned": 7,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 0.0,
+            "nodes": 283,
+            "chance_outcomes": 153,
+            "root_started": 8,
+            "root_finished": 2,
+            "root_pruned": 6,
+            "cache_hits": 0,
+            "evaluation_hits": 99,
+            "candidate_hits": 8
+          }
+        ]
+      }
+    },
+    {
+      "map": "thetrap",
+      "species": "werewolves",
+      "identical_decision_and_work": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 4,
+            "y": 1,
+            "count": 4,
+            "target_x": 3,
+            "target_y": 1
+          }
+        ],
+        "value": 0.5139559099245459,
+        "completed_depth": 3,
+        "selected_depth": 3,
+        "evaluated_root_actions": 8,
+        "nodes": 366,
+        "chance_outcomes": 202,
+        "selective_nodes": 68,
+        "unsupported_actions": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.0,
+        "value_lower": 0.5139559099215459,
+        "value_upper": 0.5139559099275458,
+        "bounded_actions": 26,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 16,
+        "root_finished": 3,
+        "root_updates": 738,
+        "root_pruned": 13,
+        "cache_hits": 0,
+        "evaluation_hits": 95,
+        "candidate_hits": 8,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 0.0,
+            "nodes": 71,
+            "chance_outcomes": 38,
+            "root_started": 8,
+            "root_finished": 1,
+            "root_pruned": 7,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 0.0,
+            "nodes": 295,
+            "chance_outcomes": 164,
+            "root_started": 8,
+            "root_finished": 2,
+            "root_pruned": 6,
+            "cache_hits": 0,
+            "evaluation_hits": 95,
+            "candidate_hits": 8
+          }
+        ]
+      }
+    },
+    {
+      "map": "testmap2",
+      "species": "vampires",
+      "identical_decision_and_work": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 28,
+            "y": 14,
+            "count": 10,
+            "target_x": 27,
+            "target_y": 13
+          }
+        ],
+        "value": 9.517490428123894e-05,
+        "completed_depth": 3,
+        "selected_depth": 3,
+        "evaluated_root_actions": 3,
+        "nodes": 51,
+        "chance_outcomes": 17,
+        "selective_nodes": 14,
+        "unsupported_actions": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.0,
+        "value_lower": 9.517490128123895e-05,
+        "value_upper": 9.517490728123893e-05,
+        "bounded_actions": 2,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 6,
+        "root_finished": 2,
+        "root_updates": 110,
+        "root_pruned": 4,
+        "cache_hits": 0,
+        "evaluation_hits": 4,
+        "candidate_hits": 3,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 0.0,
+            "nodes": 11,
+            "chance_outcomes": 8,
+            "root_started": 3,
+            "root_finished": 1,
+            "root_pruned": 2,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 0.0,
+            "nodes": 40,
+            "chance_outcomes": 9,
+            "root_started": 3,
+            "root_finished": 1,
+            "root_pruned": 2,
+            "cache_hits": 0,
+            "evaluation_hits": 4,
+            "candidate_hits": 3
+          }
+        ]
+      }
+    },
+    {
+      "map": "testmap2",
+      "species": "werewolves",
+      "identical_decision_and_work": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 0,
+            "y": 0,
+            "count": 10,
+            "target_x": 1,
+            "target_y": 1
+          }
+        ],
+        "value": 9.51749042812391e-05,
+        "completed_depth": 3,
+        "selected_depth": 3,
+        "evaluated_root_actions": 3,
+        "nodes": 72,
+        "chance_outcomes": 52,
+        "selective_nodes": 16,
+        "unsupported_actions": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.0,
+        "value_lower": 9.517490128123911e-05,
+        "value_upper": 9.517490728123909e-05,
+        "bounded_actions": 2,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 6,
+        "root_finished": 3,
+        "root_updates": 151,
+        "root_pruned": 3,
+        "cache_hits": 0,
+        "evaluation_hits": 23,
+        "candidate_hits": 3,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 0.0,
+            "nodes": 12,
+            "chance_outcomes": 4,
+            "root_started": 3,
+            "root_finished": 1,
+            "root_pruned": 2,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 0.0,
+            "nodes": 60,
+            "chance_outcomes": 48,
+            "root_started": 3,
+            "root_finished": 2,
+            "root_pruned": 1,
+            "cache_hits": 0,
+            "evaluation_hits": 23,
+            "candidate_hits": 3
+          }
+        ]
+      }
+    }
+  ],
+  "memory": {
+    "reference": {
+      "calls": [
+        {
+          "retained_bytes": 162909,
+          "peak_bytes": 215579,
+          "nodes": 51,
+          "completed_depth": 3
+        },
+        {
+          "retained_bytes": 304242,
+          "peak_bytes": 374856,
+          "nodes": 51,
+          "completed_depth": 3
+        },
+        {
+          "retained_bytes": 442272,
+          "peak_bytes": 515830,
+          "nodes": 51,
+          "completed_depth": 3
+        },
+        {
+          "retained_bytes": 580597,
+          "peak_bytes": 654171,
+          "nodes": 51,
+          "completed_depth": 3
+        }
+      ],
+      "retained_after_collection_bytes": 3701
+    },
+    "current": {
+      "calls": [
+        {
+          "retained_bytes": 77621,
+          "peak_bytes": 215547,
+          "nodes": 51,
+          "completed_depth": 3
+        },
+        {
+          "retained_bytes": 79882,
+          "peak_bytes": 289536,
+          "nodes": 51,
+          "completed_depth": 3
+        },
+        {
+          "retained_bytes": 80353,
+          "peak_bytes": 291431,
+          "nodes": 51,
+          "completed_depth": 3
+        },
+        {
+          "retained_bytes": 81126,
+          "peak_bytes": 292212,
+          "nodes": 51,
+          "completed_depth": 3
+        }
+      ],
+      "retained_after_collection_bytes": 3670
+    }
+  },
+  "elapsed_seconds": 4.948622624971904,
+  "plan_sha256": "eb6efc159686112c8b6176cf2308ae36608b7416d7fd6d7bf185ef298dc38b4b"
+}

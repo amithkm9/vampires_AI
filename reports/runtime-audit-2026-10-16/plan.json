@@ -1,0 +1,115 @@
+{
+  "generated_utc": "2026-10-16T20:13:22.554710+00:00",
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "command": [
+    "tools/check_runtime.py",
+    "--reference",
+    "edf2c1b",
+    "--output",
+    "reports/runtime-audit-2026-10-16"
+  ],
+  "seed": null,
+  "reference_revision": "edf2c1b28673e68df3d9a14a5b8e60c720df4e79",
+  "reference_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/balanced.py": "91f42ebc67f2fee3983f768a8834531e4251e953654eb32bcd36dfa8c3c3616e",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/certificates.py": "5fcf37d4c5ca3b00e7e10149e79fb8ba4061cd4187290df7ff3547c88d4aeac8",
+    "src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+    "src/vampires/engines.py": "70597cb626c5f90395b373da0e9ac28cf430f4572d828765c895bb34434d885d",
+    "src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+    "src/vampires/experimental/__init__.py": "207d82b76d6299805108c4c69d49425b2332047aa39fa8ebd002ef534d5ff212",
+    "src/vampires/experimental/growth.py": "8e409eeef1c7555bd7dd31db32c84ea4c7d51746378c196f60ce58c0cbe1bc55",
+    "src/vampires/experimental/hybrid.py": "5198b31dff0eb11fdee4128bfc8ce1943097e48e32805e628ef7628180f86c2f",
+    "src/vampires/experimental/mcts.py": "980cb206c93d9684d3193d3e49f600866b3517892f9e423c013d55de3e527cff",
+    "src/vampires/history.py": "728be4ff5f92b0d0a4bb24f2738799a51ba6d65d9516f864bd96f482ea83047c",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/planning.py": "12e4081da8cd853400ffc1eaa60cba81991dfbfe9cafb0f1624668fd0af253f4",
+    "src/vampires/player.py": "29dbfd1d5b44e6297bac9fd19837216ddc8d85ffebc433a47652370ca11c7c82",
+    "src/vampires/protocol.py": "73102e32d34d7ee305296d194163da794f30336d8ee962b5bf78fb8057e1c2eb",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "4a04f720d982b922e2d5f99c92bcb771c7e96da7dbc619fdac5aef160c80a921",
+    "src/vampires/simulation.py": "37b16a11c165353088cab751f58336a8b47cad834c83d0cca4759740399a207d",
+    "src/vampires/strategy.py": "318f4e1f6c17519dbb4f331cdea1376c9d9d4934f947cbfdfc88497ac09d77f6",
+    "src/vampires/turns.py": "e7ad278563f0a0704699047b38806f2809e6596dfe8268b91e7f6ad6d54fd0ff"
+  },
+  "current_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/balanced.py": "77c13f8ec076a0e65f441d7578ac8ac7cf3710769a579d0f2dd3fb7f3a23483a",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/certificates.py": "5fcf37d4c5ca3b00e7e10149e79fb8ba4061cd4187290df7ff3547c88d4aeac8",
+    "src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+    "src/vampires/engines.py": "70597cb626c5f90395b373da0e9ac28cf430f4572d828765c895bb34434d885d",
+    "src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+    "src/vampires/experimental/__init__.py": "207d82b76d6299805108c4c69d49425b2332047aa39fa8ebd002ef534d5ff212",
+    "src/vampires/experimental/growth.py": "8e409eeef1c7555bd7dd31db32c84ea4c7d51746378c196f60ce58c0cbe1bc55",
+    "src/vampires/experimental/hybrid.py": "5198b31dff0eb11fdee4128bfc8ce1943097e48e32805e628ef7628180f86c2f",
+    "src/vampires/experimental/mcts.py": "e0eb9d0702880bb6d04b4fb669a716e0718a6865b212aa2e39c4846159b1641f",
+    "src/vampires/history.py": "728be4ff5f92b0d0a4bb24f2738799a51ba6d65d9516f864bd96f482ea83047c",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/planning.py": "12e4081da8cd853400ffc1eaa60cba81991dfbfe9cafb0f1624668fd0af253f4",
+    "src/vampires/player.py": "29dbfd1d5b44e6297bac9fd19837216ddc8d85ffebc433a47652370ca11c7c82",
+    "src/vampires/protocol.py": "73102e32d34d7ee305296d194163da794f30336d8ee962b5bf78fb8057e1c2eb",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "f8bb8de390bb1dd8596bf0229b67b6f96237e600d0d2b405dac086195fae36d8",
+    "src/vampires/simulation.py": "29bcb153f983cbc951a97335f34a69237e85795b1e38e91e11426f9acdfddc71",
+    "src/vampires/strategy.py": "318f4e1f6c17519dbb4f331cdea1376c9d9d4934f947cbfdfc88497ac09d77f6",
+    "src/vampires/turns.py": "726be3ce8d35ad19ea9e795915be77e803f62186159b136f6255e41c033fd5c2",
+    "tools/check_runtime.py": "9d363749ae8a46e2e37db4e978ac76408d92178d374cd55945a08f5962191394",
+    "tools/league_support.py": "b591bbce6ad9b2af25e34f7f5d106157f12401d70d44abb65cf075e4b566443e",
+    "maps/thetrap.xml": "4a5bee60b38e3d8741f12d6ca1ac70a2d564a4420196bd11e71af8d90c09e7fe",
+    "maps/testmap2.xml": "e6d200ed046c62b42f71cfde13f11231bcdc4d7d256c9593938d0b05d55ede10"
+  },
+  "battles": [
+    [
+      6,
+      7,
+      false
+    ],
+    [
+      10,
+      10,
+      false
+    ],
+    [
+      255,
+      255,
+      false
+    ],
+    [
+      255,
+      171,
+      false
+    ],
+    [
+      127,
+      128,
+      true
+    ],
+    [
+      1,
+      255,
+      true
+    ]
+  ],
+  "repeats": 7,
+  "batch_size": 30,
+  "memory_calls": 4,
+  "search": {
+    "engine": "strategic",
+    "depth": 3,
+    "preserve_dominance": false,
+    "clock": "constant zero; completed trees, no wall-clock cutoff",
+    "maps": [
+      "thetrap",
+      "testmap2"
+    ],
+    "species": [
+      "vampires",
+      "werewolves"
+    ],
+    "memory_position": "testmap2/vampires"
+  },
+  "limitations": "Microbenchmarks and traced Python allocations on this machine. GC is disabled only for retention diagnosis. No process-RSS, worst-case timing, strength, CTI or server claim."
+}

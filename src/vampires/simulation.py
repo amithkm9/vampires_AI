@@ -6,7 +6,6 @@ battles use independent draws. Neither convention has official-server parity yet
 
 from dataclasses import dataclass
 from fractions import Fraction
-from math import comb
 
 from .budget import checkpoint
 from .model import Board, Cell, Species
@@ -23,6 +22,24 @@ class AmbiguousBattle(ValueError):
 
 class OutcomeLimit(ValueError):
     """Exact enumeration exceeds its explicit limit; no mass was discarded."""
+
+
+def _survival_branch(population, numerator, denominator, check):
+    """Winner probability times binomial survival, using integer recurrence.
+
+    For p=a/d, the kth binomial weight is C(n,k)*a**k*(d-a)**(n-k).
+    Adjacent integer weights obey w[k+1] = w[k]*(n-k)*a/((k+1)*(d-a)).
+    Divide only once when constructing each exact Fraction, including the
+    probability p of choosing this winner. Deterministic p=0/1 is handled first.
+    """
+    other = denominator - numerator
+    weight = other ** population
+    divisor = denominator ** (population + 1)
+    for count in range(population + 1):
+        checkpoint(check)
+        yield count, Fraction(numerator * weight, divisor)
+        if count < population:
+            weight = weight * (population - count) * numerator // ((count + 1) * other)
 
 
 def battle_distribution(attackers, defenders, *, humans=False, check=None):
@@ -42,13 +59,10 @@ def battle_distribution(attackers, defenders, *, humans=False, check=None):
          else Fraction(attackers, defenders) - Fraction(1, 2))
     outcomes = {}
     potential_attackers = attackers + (defenders if humans else 0)
-    for k in range(potential_attackers + 1):
-        checkpoint(check)
-        outcomes[k, 0] = p * comb(potential_attackers, k) * p**k * (1-p)**(potential_attackers-k)
-    for k in range(defenders + 1):
-        checkpoint(check)
+    for k, probability in _survival_branch(potential_attackers, p.numerator, p.denominator, check):
+        outcomes[k, 0] = probability
+    for k, probability in _survival_branch(defenders, p.denominator - p.numerator, p.denominator, check):
         key = 0, k
-        probability = (1-p) * comb(defenders, k) * (1-p)**k * p**(defenders-k)
         outcomes[key] = outcomes.get(key, Fraction(0)) + probability
     return outcomes
 

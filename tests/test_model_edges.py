@@ -6,6 +6,7 @@ used as an assertion: every seeded sample must lie in exact successor support.
 
 from fractions import Fraction
 from itertools import product
+from math import comb
 import random
 import unittest
 
@@ -74,6 +75,25 @@ def individual_event_oracle(a, d, humans):
 
 
 class CombatInvariantTests(unittest.TestCase):
+    def test_distribution_matches_direct_polynomial_at_large_asymmetric_counts(self):
+        # Independent closed-form reference; checks every exact probability,
+        # including rare tails, not just total mass or expected survivors.
+        for a, d, humans in ((170, 255, False), (171, 255, False), (254, 255, False),
+                             (255, 171, False), (255, 255, False), (1, 255, True),
+                             (127, 128, True), (254, 255, True)):
+            with self.subTest(attackers=a, defenders=d, humans=humans):
+                if not humans and 2 * d >= 3 * a:
+                    expected = {(0, d): Fraction(1)}
+                else:
+                    p = Fraction(a, 2 * d) if a <= d else Fraction(a, d) - Fraction(1, 2)
+                    n = a + (d if humans else 0)
+                    expected = {(k, 0): p * comb(n, k) * p**k * (1-p)**(n-k)
+                                for k in range(n + 1)}
+                    for k in range(d + 1):
+                        chance = (1-p) * comb(d, k) * (1-p)**k * p**(d-k)
+                        expected[0, k] = expected.get((0, k), Fraction(0)) + chance
+                self.assertEqual(battle_distribution(a, d, humans=humans), expected)
+
     def test_full_individual_event_oracle_for_tiny_battles(self):
         cases = 0
         for humans, a, d in product((False, True), range(1, 5), range(1, 5)):
