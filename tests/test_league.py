@@ -11,6 +11,7 @@ import unittest
 from unittest.mock import patch
 
 from tools import league
+from tools.analyze_league import analyze
 from tools.league_support import (MAP_FAMILIES, SCRIPTED, EngineSpec, Runtime,
                                   digest, distance, generated_board, packed,
                                   parse_spec, run_match, scripted_turn, summarize)
@@ -223,6 +224,20 @@ class LeagueTests(unittest.TestCase):
             path.write_bytes(complete + b"broken\n" + complete)
             with self.assertRaises(ValueError):
                 league.read_records(path, recover=True)
+
+    def test_replay_rejects_unterminated_append_without_modifying_evidence(self):
+        output = self.fresh_copy()
+        with redirect_stdout(io.StringIO()):
+            league.run_saved(output, max_matches=1)
+        path = output / "matches.jsonl"
+        original = path.read_bytes()
+        self.assertEqual(analyze(output)["verified_matches"], 1)
+        incomplete = original.rstrip(b"\n")
+        path.write_bytes(incomplete)
+        with self.assertRaisesRegex(ValueError, "Invalid JSONL record"):
+            analyze(output)
+        self.assertEqual(path.read_bytes(), incomplete)
+        self.assertFalse((output / "recovery").exists())
 
     def test_writer_lock_rejects_concurrent_invocations(self):
         output = self.fresh_copy()

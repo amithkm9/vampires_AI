@@ -158,10 +158,14 @@ def main():
     parser.add_argument("--seed", type=int, default=20261009)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    if args.output is not None and args.output.exists():
+        parser.error("Use a fresh output path; preserve original records")
     result = run_check(budget=args.budget, depth=args.depth, max_plies=args.max_plies, seed=args.seed, engine=args.engine)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(json.dumps(result, indent=2) + "\n")
+        with args.output.open("x") as handle:
+            json.dump(result, handle, indent=2, allow_nan=False)
+            handle.write("\n")
         print(f"Passed {len(result['matches'])} local TCP matches; saved {args.output}")
     else:
         print(json.dumps(result, indent=2))

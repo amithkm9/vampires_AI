@@ -38,6 +38,8 @@ def main():
     parser.add_argument("--depth", type=int, default=3)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
+    if args.output.exists():
+        parser.error("Use a fresh output path; preserve original records")
     config = SearchConfig(max_depth=args.depth)
     results = []
     for name, board in positions().items():
@@ -58,7 +60,9 @@ def main():
               "limits": "Synthetic local timing probes, not worst-case guarantees, CTI timings, or match-strength measurements.",
               "results": results}
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(report, indent=2) + "\n")
+    with args.output.open("x") as handle:
+        json.dump(report, handle, indent=2, allow_nan=False)
+        handle.write("\n")
     print(f"Passed {len(results)} search edge cases; max response {max(r['decision']['elapsed_seconds'] for r in results):.4f}s")
 
 

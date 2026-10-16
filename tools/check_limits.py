@@ -58,7 +58,9 @@ def main():
               "limitations": "Synthetic local cooperative search timing. No proof of worst-case timing or official-server/CTI parity.",
               "results": results}
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(record, indent=2) + "\n")
+    with args.output.open("x") as handle:
+        json.dump(record, handle, indent=2, allow_nan=False)
+        handle.write("\n")
     print(f"Passed {len(results)} maximum-area probes; max {max(r['decision']['elapsed_seconds'] for r in results):.6f}s")
 
 

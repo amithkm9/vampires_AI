@@ -168,7 +168,9 @@ def main():
                         "Regret is expected match-score loss, not a tournament win rate. Incomplete cases are unsolved.",
               "records": records}
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2) + "\n")
+    with args.output.open("x") as handle:
+        json.dump(result, handle, indent=2, allow_nan=False)
+        handle.write("\n")
     print("Saved", args.output, flush=True)
 
 

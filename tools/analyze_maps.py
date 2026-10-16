@@ -142,11 +142,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    if args.output is not None and args.output.exists():
+        parser.error("Use a fresh output path; preserve original records")
     result = analyze()
     text = json.dumps(result, indent=2) + "\n"
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(text)
+        with args.output.open("x") as handle:
+            handle.write(text)
         print(f"Saved exact map analysis to {args.output}; {result['elapsed_seconds']:.3f}s")
     else:
         print(text, end="")

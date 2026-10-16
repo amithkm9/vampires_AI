@@ -77,7 +77,9 @@ def main():
                       "live candidates still exclude those attacks. No match-strength, global safety, CTI, or official-server claim.",
             "summary": summary, "records": results}
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(data, indent=2) + "\n")
+    with args.output.open("x") as handle:
+        json.dump(data, handle, indent=2, allow_nan=False)
+        handle.write("\n")
     print(json.dumps(summary, indent=2), flush=True)
     print("Saved", args.output, flush=True)
 

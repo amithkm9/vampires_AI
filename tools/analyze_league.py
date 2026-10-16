@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from tools.league_support import Runtime, derive_seed, digest, packed, unpacked
-from tools.league import configuration_hash, validate_existing_records
+from tools.league import configuration_hash, read_records, validate_existing_records
 
 
 def replay(runtime, initial, game, max_plies):
@@ -115,9 +115,12 @@ def analyze(directory):
     for name, record in boards.items():
         if digest(record["board"]) != record["sha256"]:
             raise ValueError(f"Board checksum mismatch: {name}")
-    games = [json.loads(line) for line in (directory / "matches.jsonl").read_text().splitlines()]
-    if len({game["match_id"] for game in games}) != len(games):
-        raise ValueError("Duplicate match ID")
+    # Apply the same complete-append rule as resume: even a valid JSON object
+    # without its final newline can be an interrupted write, not a saved match.
+    journal = directory / "matches.jsonl"
+    if not journal.is_file():
+        raise ValueError("Missing match journal")
+    games = read_records(journal)
     validate_existing_records(games, metadata["schedule"], boards)
     if any(g["configuration_sha256"] != metadata["configuration_sha256"] for g in games):
         raise ValueError("Match configuration checksum mismatch")
@@ -139,6 +142,8 @@ def main():
     parser.add_argument("run", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
+    if args.output.exists():
+        parser.error("Use a fresh output path; preserve original records")
     result = analyze(args.run)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x") as handle:
