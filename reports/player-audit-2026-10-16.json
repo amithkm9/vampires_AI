@@ -1,0 +1,145 @@
+{
+  "generated_utc": "2026-10-16T20:15:49.796025+00:00",
+  "kind": "local_tcp_integration_smoke",
+  "python": "3.14.6",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "elapsed_seconds": 6.790677250013687,
+  "configuration": {
+    "budget_seconds": 1.25,
+    "max_depth": 5,
+    "candidates": 64,
+    "engine": "strategic",
+    "max_plies": 20,
+    "opponent": "seeded random whole-group single move",
+    "shared_target_battles": "rejected",
+    "both_extinct": "neutral model convention"
+  },
+  "source_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/balanced.py": "77c13f8ec076a0e65f441d7578ac8ac7cf3710769a579d0f2dd3fb7f3a23483a",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/certificates.py": "5fcf37d4c5ca3b00e7e10149e79fb8ba4061cd4187290df7ff3547c88d4aeac8",
+    "src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+    "src/vampires/engines.py": "70597cb626c5f90395b373da0e9ac28cf430f4572d828765c895bb34434d885d",
+    "src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+    "src/vampires/experimental/__init__.py": "207d82b76d6299805108c4c69d49425b2332047aa39fa8ebd002ef534d5ff212",
+    "src/vampires/experimental/growth.py": "8e409eeef1c7555bd7dd31db32c84ea4c7d51746378c196f60ce58c0cbe1bc55",
+    "src/vampires/experimental/hybrid.py": "5198b31dff0eb11fdee4128bfc8ce1943097e48e32805e628ef7628180f86c2f",
+    "src/vampires/experimental/mcts.py": "e0eb9d0702880bb6d04b4fb669a716e0718a6865b212aa2e39c4846159b1641f",
+    "src/vampires/history.py": "728be4ff5f92b0d0a4bb24f2738799a51ba6d65d9516f864bd96f482ea83047c",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/planning.py": "12e4081da8cd853400ffc1eaa60cba81991dfbfe9cafb0f1624668fd0af253f4",
+    "src/vampires/player.py": "29dbfd1d5b44e6297bac9fd19837216ddc8d85ffebc433a47652370ca11c7c82",
+    "src/vampires/protocol.py": "73102e32d34d7ee305296d194163da794f30336d8ee962b5bf78fb8057e1c2eb",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "f8bb8de390bb1dd8596bf0229b67b6f96237e600d0d2b405dac086195fae36d8",
+    "src/vampires/simulation.py": "29bcb153f983cbc951a97335f34a69237e85795b1e38e91e11426f9acdfddc71",
+    "src/vampires/strategy.py": "318f4e1f6c17519dbb4f331cdea1376c9d9d4934f947cbfdfc88497ac09d77f6",
+    "src/vampires/turns.py": "726be3ce8d35ad19ea9e795915be77e803f62186159b136f6255e41c033fd5c2",
+    "run.py": "0c0c88643012b750d04c2778227272973674b7b8ec9bd98ee1097cb57dd6cb37",
+    "tools/check_player.py": "4498d1360621f597a94d9252fc951e54ce4f102ff79b27d9ba19d923773f67fb"
+  },
+  "checks": {
+    "different_working_directory": true,
+    "persistent_connection": true,
+    "both_species_each_map": true,
+    "legal_moves_only": true,
+    "clean_bye_exit": true
+  },
+  "limitations": "Shares our simulator, not the official server; no CTI timing or playing-strength claim. Wall-clock search limits can change actions despite fixed random seeds.",
+  "matches": [
+    {
+      "map": "thetrap",
+      "map_sha256": "4a5bee60b38e3d8741f12d6ca1ac70a2d564a4420196bd11e71af8d90c09e7fe",
+      "species": "vampires",
+      "starting_species": "vampires",
+      "seed": 20261016,
+      "plies": 6,
+      "ai_turns": 3,
+      "populations": {
+        "vampires": 8,
+        "werewolves": 0
+      },
+      "termination": "extinction",
+      "response_seconds": [
+        0.18244362506084144,
+        0.19177733303513378,
+        0.22494724998250604
+      ],
+      "max_response_seconds": 0.22494724998250604
+    },
+    {
+      "map": "thetrap",
+      "map_sha256": "4a5bee60b38e3d8741f12d6ca1ac70a2d564a4420196bd11e71af8d90c09e7fe",
+      "species": "werewolves",
+      "starting_species": "vampires",
+      "seed": 20261017,
+      "plies": 4,
+      "ai_turns": 2,
+      "populations": {
+        "vampires": 2,
+        "werewolves": 0
+      },
+      "termination": "extinction",
+      "response_seconds": [
+        0.27546433301176876,
+        0.2533949580974877
+      ],
+      "max_response_seconds": 0.27546433301176876
+    },
+    {
+      "map": "testmap2",
+      "map_sha256": "e6d200ed046c62b42f71cfde13f11231bcdc4d7d256c9593938d0b05d55ede10",
+      "species": "vampires",
+      "starting_species": "vampires",
+      "seed": 20261018,
+      "plies": 20,
+      "ai_turns": 10,
+      "populations": {
+        "vampires": 14,
+        "werewolves": 10
+      },
+      "termination": "harness_ply_cap",
+      "response_seconds": [
+        0.038373666000552475,
+        0.11620295804459602,
+        0.18272120808251202,
+        0.14197970798704773,
+        0.22407995793037117,
+        0.16552858392242342,
+        0.13802600000053644,
+        0.1217159170191735,
+        0.16020737506914884,
+        0.3210094999521971
+      ],
+      "max_response_seconds": 0.3210094999521971
+    },
+    {
+      "map": "testmap2",
+      "map_sha256": "e6d200ed046c62b42f71cfde13f11231bcdc4d7d256c9593938d0b05d55ede10",
+      "species": "werewolves",
+      "starting_species": "vampires",
+      "seed": 20261019,
+      "plies": 20,
+      "ai_turns": 10,
+      "populations": {
+        "vampires": 10,
+        "werewolves": 14
+      },
+      "termination": "harness_ply_cap",
+      "response_seconds": [
+        0.06539366696961224,
+        0.24596270790789276,
+        0.44953083305153996,
+        0.700917209032923,
+        0.7166704169940203,
+        0.597241458017379,
+        0.5214853329816833,
+        0.43457920907530934,
+        0.0968467079801485,
+        0.15286229096818715
+      ],
+      "max_response_seconds": 0.7166704169940203
+    }
+  ]
+}

@@ -1,0 +1,1827 @@
+{
+  "generated_utc": "2026-10-16T20:14:46.104701+00:00",
+  "python": "3.14.6",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "configuration": {
+    "budget_seconds": 1.25,
+    "engine": "strategic",
+    "max_depth": 5,
+    "candidates": 64,
+    "per_group": 12,
+    "max_outcomes": 512,
+    "cache_entries": 10000,
+    "preserve_dominance": true,
+    "protect_tactics": false
+  },
+  "source_sha256": {
+    "src/vampires/__init__.py": "71c8a75214435a7f9478e03b141044bc3b150f13bff2deeab883c40312c29739",
+    "src/vampires/balanced.py": "77c13f8ec076a0e65f441d7578ac8ac7cf3710769a579d0f2dd3fb7f3a23483a",
+    "src/vampires/budget.py": "9c432251fecda419601d818660a3eef4e7f534391cf4aceb2e20cd62dbd40d07",
+    "src/vampires/certificates.py": "5fcf37d4c5ca3b00e7e10149e79fb8ba4061cd4187290df7ff3547c88d4aeac8",
+    "src/vampires/endgame.py": "c814c435304227216c7cdf92fdacd4dc51e3e1fbdff2feeac20c31e2c97c271c",
+    "src/vampires/engines.py": "70597cb626c5f90395b373da0e9ac28cf430f4572d828765c895bb34434d885d",
+    "src/vampires/evaluation.py": "b4ebda3016b2f684c5eb7926592278d9640c490562d6697332fdf58323efbca7",
+    "src/vampires/experimental/__init__.py": "207d82b76d6299805108c4c69d49425b2332047aa39fa8ebd002ef534d5ff212",
+    "src/vampires/experimental/growth.py": "8e409eeef1c7555bd7dd31db32c84ea4c7d51746378c196f60ce58c0cbe1bc55",
+    "src/vampires/experimental/hybrid.py": "5198b31dff0eb11fdee4128bfc8ce1943097e48e32805e628ef7628180f86c2f",
+    "src/vampires/experimental/mcts.py": "e0eb9d0702880bb6d04b4fb669a716e0718a6865b212aa2e39c4846159b1641f",
+    "src/vampires/history.py": "728be4ff5f92b0d0a4bb24f2738799a51ba6d65d9516f864bd96f482ea83047c",
+    "src/vampires/model.py": "b0694bae0725585a1f9d997a58a4d1e34e34f6c076c0b26f8fedf9d87afdfb63",
+    "src/vampires/planning.py": "12e4081da8cd853400ffc1eaa60cba81991dfbfe9cafb0f1624668fd0af253f4",
+    "src/vampires/player.py": "29dbfd1d5b44e6297bac9fd19837216ddc8d85ffebc433a47652370ca11c7c82",
+    "src/vampires/protocol.py": "73102e32d34d7ee305296d194163da794f30336d8ee962b5bf78fb8057e1c2eb",
+    "src/vampires/rules.py": "95ccc14e673bcabb19f8152bc77b3cb24834dc39f46404789f37d92df622ba32",
+    "src/vampires/search.py": "f8bb8de390bb1dd8596bf0229b67b6f96237e600d0d2b405dac086195fae36d8",
+    "src/vampires/simulation.py": "29bcb153f983cbc951a97335f34a69237e85795b1e38e91e11426f9acdfddc71",
+    "src/vampires/strategy.py": "318f4e1f6c17519dbb4f331cdea1376c9d9d4934f947cbfdfc88497ac09d77f6",
+    "src/vampires/turns.py": "726be3ce8d35ad19ea9e795915be77e803f62186159b136f6255e41c033fd5c2",
+    "tools/check_search.py": "67a75541d6c9df69349772a73d11f6eb33fea6cbd0e6466a34de1d8a037180b7"
+  },
+  "limits": "Synthetic local timing probes, not worst-case guarantees, CTI timings, or match-strength measurements.",
+  "results": [
+    {
+      "position": "many_groups",
+      "rows": 8,
+      "columns": 8,
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          3,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          6,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          7,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          3,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          5,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          7,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          3,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          6,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          7,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          3,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          5,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          7,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          3,
+          0,
+          2,
+          0
+        ],
+        [
+          4,
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          4,
+          6,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          7,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          5,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          3,
+          0,
+          0,
+          2
+        ],
+        [
+          5,
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          5,
+          0,
+          0,
+          2
+        ],
+        [
+          5,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          7,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          6,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          3,
+          0,
+          2,
+          0
+        ],
+        [
+          6,
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          6,
+          6,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          7,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          7,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          3,
+          0,
+          0,
+          2
+        ],
+        [
+          7,
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          5,
+          0,
+          0,
+          2
+        ],
+        [
+          7,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          7,
+          0,
+          0,
+          2
+        ]
+      ],
+      "species": "vampires",
+      "seed": null,
+      "legal": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 0,
+            "y": 1,
+            "count": 2,
+            "target_x": 0,
+            "target_y": 0
+          },
+          {
+            "x": 0,
+            "y": 3,
+            "count": 2,
+            "target_x": 1,
+            "target_y": 4
+          },
+          {
+            "x": 0,
+            "y": 5,
+            "count": 2,
+            "target_x": 1,
+            "target_y": 4
+          },
+          {
+            "x": 0,
+            "y": 7,
+            "count": 2,
+            "target_x": 1,
+            "target_y": 6
+          },
+          {
+            "x": 1,
+            "y": 0,
+            "count": 2,
+            "target_x": 2,
+            "target_y": 1
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "count": 2,
+            "target_x": 2,
+            "target_y": 2
+          }
+        ],
+        "value": null,
+        "completed_depth": 0,
+        "selected_depth": 2,
+        "evaluated_root_actions": 0,
+        "nodes": 1275,
+        "chance_outcomes": 349,
+        "selective_nodes": 65,
+        "unsupported_actions": 0,
+        "timed_out": true,
+        "elapsed_seconds": 1.250594082986936,
+        "value_lower": -1.0,
+        "value_upper": 0.9375138888899514,
+        "bounded_actions": 0,
+        "truncated_generations": 65,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 64,
+        "root_finished": 0,
+        "root_updates": 8727,
+        "root_pruned": 0,
+        "cache_hits": 0,
+        "evaluation_hits": 98,
+        "candidate_hits": 0,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": false,
+            "elapsed_seconds": 1.2435233750147745,
+            "nodes": 1275,
+            "chance_outcomes": 349,
+            "root_started": 64,
+            "root_finished": 0,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 98,
+            "candidate_hits": 0
+          }
+        ]
+      }
+    },
+    {
+      "position": "many_groups",
+      "rows": 8,
+      "columns": 8,
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          3,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          6,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          7,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          3,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          5,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          7,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          3,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          6,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          7,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          3,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          5,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          7,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          3,
+          0,
+          2,
+          0
+        ],
+        [
+          4,
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          4,
+          6,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          7,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          5,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          3,
+          0,
+          0,
+          2
+        ],
+        [
+          5,
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          5,
+          0,
+          0,
+          2
+        ],
+        [
+          5,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          5,
+          7,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          6,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          3,
+          0,
+          2,
+          0
+        ],
+        [
+          6,
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          6,
+          6,
+          0,
+          0,
+          2
+        ],
+        [
+          6,
+          7,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          7,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          3,
+          0,
+          0,
+          2
+        ],
+        [
+          7,
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          5,
+          0,
+          0,
+          2
+        ],
+        [
+          7,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          7,
+          7,
+          0,
+          0,
+          2
+        ]
+      ],
+      "species": "werewolves",
+      "seed": null,
+      "legal": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 0,
+            "y": 0,
+            "count": 2,
+            "target_x": 0,
+            "target_y": 1
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "count": 2,
+            "target_x": 1,
+            "target_y": 3
+          },
+          {
+            "x": 0,
+            "y": 4,
+            "count": 2,
+            "target_x": 1,
+            "target_y": 3
+          },
+          {
+            "x": 0,
+            "y": 6,
+            "count": 2,
+            "target_x": 1,
+            "target_y": 7
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "count": 2,
+            "target_x": 2,
+            "target_y": 0
+          },
+          {
+            "x": 1,
+            "y": 5,
+            "count": 2,
+            "target_x": 0,
+            "target_y": 5
+          }
+        ],
+        "value": null,
+        "completed_depth": 0,
+        "selected_depth": 2,
+        "evaluated_root_actions": 0,
+        "nodes": 1157,
+        "chance_outcomes": 303,
+        "selective_nodes": 65,
+        "unsupported_actions": 0,
+        "timed_out": true,
+        "elapsed_seconds": 1.2505557079566643,
+        "value_lower": -1.0,
+        "value_upper": 0.9375272916677292,
+        "bounded_actions": 0,
+        "truncated_generations": 65,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 64,
+        "root_finished": 0,
+        "root_updates": 8082,
+        "root_pruned": 0,
+        "cache_hits": 0,
+        "evaluation_hits": 22,
+        "candidate_hits": 0,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": false,
+            "elapsed_seconds": 1.2446713339304551,
+            "nodes": 1157,
+            "chance_outcomes": 303,
+            "root_started": 64,
+            "root_finished": 0,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 22,
+            "candidate_hits": 0
+          }
+        ]
+      }
+    },
+    {
+      "position": "max_byte_random_battle",
+      "rows": 1,
+      "columns": 2,
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          255,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "species": "vampires",
+      "seed": null,
+      "legal": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 0,
+            "y": 0,
+            "count": 255,
+            "target_x": 1,
+            "target_y": 0
+          }
+        ],
+        "value": 0.0,
+        "completed_depth": 5,
+        "selected_depth": 5,
+        "evaluated_root_actions": 1,
+        "nodes": 2044,
+        "chance_outcomes": 2044,
+        "selective_nodes": 1,
+        "unsupported_actions": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.019794874940998852,
+        "value_lower": -1e-12,
+        "value_upper": 1e-12,
+        "bounded_actions": 0,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 4,
+        "root_finished": 4,
+        "root_updates": 2048,
+        "root_pruned": 0,
+        "cache_hits": 0,
+        "evaluation_hits": 0,
+        "candidate_hits": 0,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 0.004983916995115578,
+            "nodes": 511,
+            "chance_outcomes": 511,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 0.004952584044076502,
+            "nodes": 511,
+            "chance_outcomes": 511,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 4,
+            "completed": true,
+            "elapsed_seconds": 0.004898958024568856,
+            "nodes": 511,
+            "chance_outcomes": 511,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 5,
+            "completed": true,
+            "elapsed_seconds": 0.004911541938781738,
+            "nodes": 511,
+            "chance_outcomes": 511,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          }
+        ]
+      }
+    },
+    {
+      "position": "max_byte_random_battle",
+      "rows": 1,
+      "columns": 2,
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          255,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "species": "werewolves",
+      "seed": null,
+      "legal": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 1,
+            "y": 0,
+            "count": 255,
+            "target_x": 0,
+            "target_y": 0
+          }
+        ],
+        "value": 0.0,
+        "completed_depth": 5,
+        "selected_depth": 5,
+        "evaluated_root_actions": 1,
+        "nodes": 2044,
+        "chance_outcomes": 2044,
+        "selective_nodes": 1,
+        "unsupported_actions": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.019779958995059133,
+        "value_lower": -1e-12,
+        "value_upper": 1e-12,
+        "bounded_actions": 0,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 4,
+        "root_finished": 4,
+        "root_updates": 2048,
+        "root_pruned": 0,
+        "cache_hits": 0,
+        "evaluation_hits": 0,
+        "candidate_hits": 0,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 0.004964000079780817,
+            "nodes": 511,
+            "chance_outcomes": 511,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 0.004945707973092794,
+            "nodes": 511,
+            "chance_outcomes": 511,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 4,
+            "completed": true,
+            "elapsed_seconds": 0.004916624980978668,
+            "nodes": 511,
+            "chance_outcomes": 511,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 5,
+            "completed": true,
+            "elapsed_seconds": 0.0049142499919980764,
+            "nodes": 511,
+            "chance_outcomes": 511,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          }
+        ]
+      }
+    },
+    {
+      "position": "long_column",
+      "rows": 255,
+      "columns": 1,
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          127,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          254,
+          0,
+          0,
+          10
+        ]
+      ],
+      "species": "vampires",
+      "seed": null,
+      "legal": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 0,
+            "y": 0,
+            "count": 10,
+            "target_x": 0,
+            "target_y": 1
+          }
+        ],
+        "value": 0.0,
+        "completed_depth": 5,
+        "selected_depth": 5,
+        "evaluated_root_actions": 1,
+        "nodes": 28,
+        "chance_outcomes": 28,
+        "selective_nodes": 16,
+        "unsupported_actions": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.001177084050141275,
+        "value_lower": -5e-12,
+        "value_upper": 5e-12,
+        "bounded_actions": 0,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 4,
+        "root_finished": 4,
+        "root_updates": 71,
+        "root_pruned": 0,
+        "cache_hits": 0,
+        "evaluation_hits": 2,
+        "candidate_hits": 8,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 0.000100292032584548,
+            "nodes": 2,
+            "chance_outcomes": 2,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 0.00017233402468264103,
+            "nodes": 4,
+            "chance_outcomes": 4,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 1
+          },
+          {
+            "depth": 4,
+            "completed": true,
+            "elapsed_seconds": 0.0003332500346004963,
+            "nodes": 8,
+            "chance_outcomes": 8,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 2
+          },
+          {
+            "depth": 5,
+            "completed": true,
+            "elapsed_seconds": 0.0005326248938217759,
+            "nodes": 14,
+            "chance_outcomes": 14,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 2,
+            "candidate_hits": 5
+          }
+        ]
+      }
+    },
+    {
+      "position": "long_column",
+      "rows": 255,
+      "columns": 1,
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          127,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          254,
+          0,
+          0,
+          10
+        ]
+      ],
+      "species": "werewolves",
+      "seed": null,
+      "legal": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 0,
+            "y": 254,
+            "count": 10,
+            "target_x": 0,
+            "target_y": 253
+          }
+        ],
+        "value": 0.0,
+        "completed_depth": 5,
+        "selected_depth": 5,
+        "evaluated_root_actions": 1,
+        "nodes": 28,
+        "chance_outcomes": 28,
+        "selective_nodes": 16,
+        "unsupported_actions": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.0011102500138804317,
+        "value_lower": -5e-12,
+        "value_upper": 5e-12,
+        "bounded_actions": 0,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 4,
+        "root_finished": 4,
+        "root_updates": 71,
+        "root_pruned": 0,
+        "cache_hits": 0,
+        "evaluation_hits": 2,
+        "candidate_hits": 8,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 7.754191756248474e-05,
+            "nodes": 2,
+            "chance_outcomes": 2,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 0.00014875002671033144,
+            "nodes": 4,
+            "chance_outcomes": 4,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 1
+          },
+          {
+            "depth": 4,
+            "completed": true,
+            "elapsed_seconds": 0.0003125000512227416,
+            "nodes": 8,
+            "chance_outcomes": 8,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 2
+          },
+          {
+            "depth": 5,
+            "completed": true,
+            "elapsed_seconds": 0.0005372919840738177,
+            "nodes": 14,
+            "chance_outcomes": 14,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 2,
+            "candidate_hits": 5
+          }
+        ]
+      }
+    },
+    {
+      "position": "unsupported_conversion_overflow",
+      "rows": 1,
+      "columns": 3,
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          200,
+          0
+        ],
+        [
+          1,
+          0,
+          200,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          200
+        ]
+      ],
+      "species": "vampires",
+      "seed": null,
+      "legal": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 0,
+            "y": 0,
+            "count": 200,
+            "target_x": 1,
+            "target_y": 0
+          }
+        ],
+        "value": null,
+        "completed_depth": 5,
+        "selected_depth": 5,
+        "evaluated_root_actions": 1,
+        "nodes": 0,
+        "chance_outcomes": 0,
+        "selective_nodes": 1,
+        "unsupported_actions": 4,
+        "timed_out": false,
+        "elapsed_seconds": 6.679201032966375e-05,
+        "value_lower": -1.0,
+        "value_upper": 1.0,
+        "bounded_actions": 4,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 4,
+        "root_finished": 4,
+        "root_updates": 4,
+        "root_pruned": 0,
+        "cache_hits": 0,
+        "evaluation_hits": 0,
+        "candidate_hits": 0,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 1.200009137392044e-05,
+            "nodes": 0,
+            "chance_outcomes": 0,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 8.624978363513947e-06,
+            "nodes": 0,
+            "chance_outcomes": 0,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 4,
+            "completed": true,
+            "elapsed_seconds": 7.4999406933784485e-06,
+            "nodes": 0,
+            "chance_outcomes": 0,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 5,
+            "completed": true,
+            "elapsed_seconds": 6.9999368861317635e-06,
+            "nodes": 0,
+            "chance_outcomes": 0,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          }
+        ]
+      }
+    },
+    {
+      "position": "unsupported_conversion_overflow",
+      "rows": 1,
+      "columns": 3,
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          200,
+          0
+        ],
+        [
+          1,
+          0,
+          200,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          200
+        ]
+      ],
+      "species": "werewolves",
+      "seed": null,
+      "legal": true,
+      "decision": {
+        "moves": [
+          {
+            "x": 2,
+            "y": 0,
+            "count": 200,
+            "target_x": 1,
+            "target_y": 0
+          }
+        ],
+        "value": null,
+        "completed_depth": 5,
+        "selected_depth": 5,
+        "evaluated_root_actions": 1,
+        "nodes": 0,
+        "chance_outcomes": 0,
+        "selective_nodes": 1,
+        "unsupported_actions": 4,
+        "timed_out": false,
+        "elapsed_seconds": 5.8832927606999874e-05,
+        "value_lower": -1.0,
+        "value_upper": 1.0,
+        "bounded_actions": 4,
+        "truncated_generations": 0,
+        "preserved_dominance": false,
+        "remaining_plies": null,
+        "root_started": 4,
+        "root_finished": 4,
+        "root_updates": 4,
+        "root_pruned": 0,
+        "cache_hits": 0,
+        "evaluation_hits": 0,
+        "candidate_hits": 0,
+        "iterations": [
+          {
+            "depth": 2,
+            "completed": true,
+            "elapsed_seconds": 8.16606916487217e-06,
+            "nodes": 0,
+            "chance_outcomes": 0,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 3,
+            "completed": true,
+            "elapsed_seconds": 7.1249669417738914e-06,
+            "nodes": 0,
+            "chance_outcomes": 0,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 4,
+            "completed": true,
+            "elapsed_seconds": 6.958027370274067e-06,
+            "nodes": 0,
+            "chance_outcomes": 0,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          },
+          {
+            "depth": 5,
+            "completed": true,
+            "elapsed_seconds": 6.875023245811462e-06,
+            "nodes": 0,
+            "chance_outcomes": 0,
+            "root_started": 1,
+            "root_finished": 1,
+            "root_pruned": 0,
+            "cache_hits": 0,
+            "evaluation_hits": 0,
+            "candidate_hits": 0
+          }
+        ]
+      }
+    }
+  ]
+}
