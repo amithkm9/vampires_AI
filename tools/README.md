@@ -1,6 +1,6 @@
 # Tool guide
 
-Run these commands with Python 3.10+ from the repository root. Direct script invocation also works from another directory when given an absolute script path; map/output arguments remain relative to the caller's directory. Use `--help` for arguments. Choose fresh output files/directories to preserve previous evidence.
+Run these commands with Python 3.10+ from the repository root. Direct script invocation also works from another directory when given an absolute script path; map/output arguments remain relative to the caller's directory. Use `--help` for arguments. Current report commands reject existing output paths and create new reports exclusively to preserve previous evidence.
 
 ## Current tools
 
@@ -11,6 +11,7 @@ Run these commands with Python 3.10+ from the repository root. Direct script inv
 | `python3 tools/check_player.py` | TCP launcher smoke matches, both maps/species and restart lifecycle |
 | `python3 tools/check_search.py` | Search timing and legality stress cases |
 | `python3 tools/check_limits.py` | Maximum-board and budget probes |
+| `python3 tools/check_runtime.py` | Exact combat speed, completed-tree equivalence and per-call memory against a Git revision |
 | `python3 tools/check_tactics.py` | Candidate/reply coverage against exact tiny trees |
 | `python3 tools/check_outcomes.py` | Decision regret against finite-horizon outcomes |
 | `python3 tools/league.py` | Paired opponent league with immutable source snapshots and resumable records |
@@ -19,6 +20,17 @@ Run these commands with Python 3.10+ from the repository root. Direct script inv
 `league_support.py` is an imported helper, not a separate command. The league uses POSIX file locking and runs matches serially for timing comparisons. Its records include both species, seeds, source provenance, failures and response times. See the [registered league experiment](../experiments/2026-10-13-league/EXPERIMENT.md) for the evaluation protocol.
 
 For an existing league run, retain its `snapshots/` directory. Resume it using that run's archived `snapshots/harness/tools/league.py` with `--resume` and the run's absolute path, as documented in the experiment record. Settings are restored from the original metadata. The current replay analyzer loads recorded runtime snapshots. Never edit frozen sources or overwrite old hashes to make a changed harness resume.
+
+Replay analysis requires newline-terminated journal entries, matching the league's
+completed-append convention. An unfinished final object is rejected even if its
+JSON parses. Only the league's explicit resume operation can archive and recover
+an interrupted tail; read-only analysis never repairs its inputs.
+
+`check_runtime.py --reference REVISION --output FRESH_DIRECTORY` records its plan,
+source/map hashes and environment before measurement. Its constant search clock
+and temporarily disabled cyclic collection isolate completed-tree equivalence
+and retention. Its microbenchmarks do not measure match strength, process RSS,
+official-server behavior or CTI timing; use the separate timing and league tools.
 
 ## Historical tools
 

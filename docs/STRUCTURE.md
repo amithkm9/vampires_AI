@@ -36,6 +36,12 @@ The [tool guide](../tools/README.md) separates current commands from older exper
 
 Tests stay in `tests/test_*.py`, grouped by behavior. Run discovery with `PYTHONPATH=src python3 -m unittest discover -s tests -q`. Tools that record current runtime provenance capture Python files recursively, including the experimental package. Historical Git exports preserve that package hierarchy.
 
+`test_lifecycle.py` checks that temporary search/transition state releases after
+normal completion, timeouts and errors. `test_report_outputs.py` protects existing
+evidence from accidental overwrite. `tools/check_runtime.py` records repeatable
+combat and allocation comparisons against a Git revision, separately from match
+strength and end-to-end timing checks.
+
 ## Documentation and evidence
 
 - Root `README.md`, `STATUS.md` and `TODO.md` provide entry points, current evidence and open work.

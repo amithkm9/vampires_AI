@@ -1,6 +1,6 @@
 # Next algorithm: recognize consequential moves and reduce avoidable losses
 
-Updated: 2026-10-15. The latest provisional default is strategic at depth five:
+Updated: 2026-10-16. The latest provisional default is strategic at depth five:
 resumable expectiminimax, intact-group abstraction, sequential conversion races,
 outcome-oriented no-human scoring and reused completed search work. The new
 72-game evaluation scored 17W/8D/11L for it and 14W/8D/14L for adaptive. Four
@@ -19,7 +19,7 @@ allocation, reusable work, per-depth diagnostics and the opponent league are now
 implemented. The sections below preserve the broader design; features remain
 proposed unless explicitly marked implemented.
 
-October 12 implementation: exact finite-horizon references, known-cutoff search, bounded repetition diagnostics, and an exact two-sided candidate/reply audit are implemented. At limit 64, known cutoff improves 8/30 tiny development decisions and worsens none. Optional attack reservation improves two limit-8 decisions but worsens one by displacing a merge, so it remains disabled. See [the complete experiment](../experiments/2026-10-12-outcomes/EXPERIMENT.md). Live history currently logs diagnostics only; strategic cycle handling and better root allocation remain next work.
+October 12 implementation: exact finite-horizon references, known-cutoff search, bounded repetition diagnostics, and an exact two-sided candidate/reply audit are implemented. At limit 64, known cutoff improves 8/30 tiny development decisions and worsens none. Optional attack reservation improves two limit-8 decisions but worsens one by displacing a merge, so it remains disabled. See [the complete experiment](../experiments/2026-10-12-outcomes/EXPERIMENT.md). Live history currently logs diagnostics only. Balanced root allocation and the recorded no-human cycle repair are now implemented; broader endgame planning and selective root/chance refinement remain open.
 
 ## What the evidence changes
 
@@ -35,7 +35,7 @@ The decision order is: establish a legal fallback; preserve a conditional domina
 
 ## 1. Make final outcomes and repetition visible
 
-Current terminal extinction values are already correct under our model convention. The missing piece is distinguishing a small nonterminal population deficit from a certain population-based loss at a **known** game cutoff.
+Terminal extinction values and explicit **known** cutoff values are implemented under our model convention. Strategic scoring additionally distinguishes no-human population standing without inventing a live countdown. The checklist below describes those foundations and the remaining repetition/planning extensions.
 
 - Add explicit remaining-ply input to controlled benchmarks and the search API, using exact win/draw/loss utility at that cutoff. Include remaining horizon in cached state values.
 - The live protocol supplies no daylight countdown. Use only a verified server configuration or a documented uncertain-horizon model; do not silently treat the supplied 200-ply setting as universal or infer a known deadline from the count of our own UPDs.
@@ -57,7 +57,7 @@ Acceptance: a hand-built and exhaustively checked tactical suite finds no missed
 
 ## 3. Compare root moves before spending the whole budget on one
 
-The current search can spend most of the deadline on early root actions. In the long trap loss it failed to complete root comparison on four turns during the capture race.
+The earlier sequential search could spend most of the deadline on early root actions. In the recorded long trap loss it failed to complete root comparison on four turns during the capture race. Current balanced search shares continuations across roots, including chance-distribution preparation. Selective refinement and tactical extensions remain possible improvements.
 
 - Retain an inexpensive initial ranking, then allocate work across serious root moves and their dangerous replies. Ensure opponent lookahead remains part of the submitted strategy.
 - Refine chance outcomes where uncertainty could change the selected move. Prioritize probability mass and competing value intervals, rather than applying the same work limit everywhere.
@@ -90,7 +90,7 @@ Acceptance: compare against an independently enumerated reference and distinguis
 
 ## 6. Spend computation where it changes the decision
 
-Profile before changing language. Candidate scoring, board copies, exact rational combat construction, repeated distance calculations, and evaluation are plausible costs to measure, not established bottlenecks.
+Profile before changing language. The October 16 [runtime comparison](../reports/runtime-audit-2026-10-16/results.json) measured faster exact rational combat construction and reduced per-call retention after recursive closure cleanup. Candidate scoring, board copies, repeated distance calculations and evaluation remain costs to profile on the target runtime. These microbenchmarks do not establish a match-strength gain.
 
 Test compact state representations, cached battle distributions, incremental features, move ordering, and correctly keyed transposition reuse individually. Preserve the rational simulator as a reference if a floating-point fast path is introduced. Cache horizon/history when values depend on them, and respect authoritative updates.
 

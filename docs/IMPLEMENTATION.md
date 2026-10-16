@@ -1,6 +1,6 @@
 # Player implementation and limits
 
-Updated 2026-10-15. This describes actual code, not the full proposed tournament strategy. The implementation uses Python's standard library and our own algorithms. The published 105-test baseline remains available at revision `2a08829b1935a80c3c11a37ecea5efb089425268` for comparisons; revision `5b47469ac5fec4d2e2d49913a87765ab94604085` preserves the runtime used in the historical 108-match audit. Revision `04a1e85` is the league's frozen cohesive opponent.
+Updated 2026-10-16. This describes actual code, not the full proposed tournament strategy. The implementation uses Python's standard library and our own algorithms. The published 105-test baseline remains available at revision `2a08829b1935a80c3c11a37ecea5efb089425268` for comparisons; revision `5b47469ac5fec4d2e2d49913a87765ab94604085` preserves the runtime used in the historical 108-match audit. Revision `04a1e85` is the league's frozen cohesive opponent.
 
 ## Current search selection
 
@@ -15,7 +15,7 @@ The October 15 [strategy experiment](../experiments/2026-10-15-strategy/EXPERIME
 preserves 184 development games and 72 held-out games. Strategic scored 17W/8D/11L
 against adaptive's 14W/8D/14L; all 8046 plies were replay-verified. Four cases
 improved and one regressed. The paired map-cluster interval includes zero, so this
-is a provisional local promotion. The suite now has 274 tests. Whole-group
+is a provisional local promotion. The suite now has 280 tests. Whole-group
 coverage and interception-aware route planning remain limitations.
 
 `balanced.choose_balanced(reuse_work=True)` reuses completed deterministic
@@ -25,6 +25,15 @@ an entry cap, **not a byte/cell cap**. Truncated candidate lists are not cached,
 but completed node values can still represent a truncated retained tree, as in
 the earlier search. These intervals never certify omitted legal actions.
 Optional iteration records expose work, completion and cache hits per depth.
+
+The October 16 audit explicitly closes suspended root continuations and breaks
+recursive local-function reference cycles in search, simulation and exhaustive
+generation. Per-call data no longer waits for cyclic garbage collection after a
+completed, interrupted or failed call. This does not impose a byte limit on live
+caches. `simulation._survival_branch` computes the same exact rational combat
+distribution through integer binomial recurrence, retaining every tail outcome
+and cooperative deadline checks. See the [runtime measurements](../reports/runtime-audit-2026-10-16/results.json)
+and [current validation](../STATUS.md) for scope and limitations.
 
 `experimental.hybrid.hybrid_turns` preserves at least three quarters of a saturated cohesive
 candidate set (at least one whole move at tiny caps), reserving other slots for
@@ -120,7 +129,7 @@ In a controlled position with exactly one ply remaining, search completes that l
 
 `SearchConfig(protect_tactics=True)` experimentally reserves whole-group contested moves with nonzero success probability before filling the remaining candidate budget. Final move order still uses the ordinary priority. The switch reaches both bounded search and the UCT API, is disabled by default, and has no launcher option. Reserving attacks can displace useful merges: the development audit records two improvements and one regression at limit 8. Complete tactical coverage, wall-clock root allocation, and competitive benefit remain unestablished.
 
-The live player records repetition only after authoritative UPD application, includes that overhead inside the turn budget, and resets history on END/BYE. Logs expose `visits`, `cycle_updates`, `standing`, `trailing_cycle`, and `horizon=unknown`. History retains at most 512 positions and 131072 cell records by default; it does not change search values or moves. Controlled finite-horizon reference policies preserve safe wins/draws; live strategy for trailing cycles is still future work.
+The live player records repetition only after authoritative UPD application, includes that overhead inside the turn budget, and resets history on END/BYE. Logs expose `visits`, `cycle_updates`, `standing`, `trailing_cycle`, and `horizon=unknown`. History retains at most 512 positions and 131072 cell records by default; it does not change search values or moves. Controlled finite-horizon reference policies preserve safe wins/draws. The strategic evaluator repairs the recorded no-human trailing cycle without consulting history; broader unknown-horizon endgame planning remains open.
 
 Each generation call receives at most 3% of the original search budget (with a 0.2 ms minimum, clipped to the global expiry) and a work cap. It may return partial candidates; this bounds effort without proving tactical coverage.
 

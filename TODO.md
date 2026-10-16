@@ -4,6 +4,7 @@ Use [STATUS.md](STATUS.md) for current behavior and evidence, the [roadmap](docs
 
 ## Improve demonstrated weaknesses
 
+- [x] Audit recursive working-data retention, optimize exact combat probabilities, and protect report/replay evidence; verify unchanged completed-tree decisions and local deadlines. See the October 16 audit in STATUS.md.
 - [x] Diagnose the no-human 6-to-7 cycle and test outcome-oriented scoring against opponent replies, with safe known-cutoff lead/tie fixtures and an unknown live horizon. See the October 15 strategy experiment.
 - [x] Complete a new 72-game locked comparison at the normal budget against adaptive, escape and split/merge, with new map/combat seeds and both species.
 - [ ] Investigate the new dispersed-map regression; compare the outcome-only ablation at normal budget on a fresh evaluation set. Do not retune on the October 15 held-out results.
@@ -12,7 +13,7 @@ Use [STATUS.md](STATUS.md) for current behavior and evidence, the [roadmap](docs
 - [ ] Model resource interception and denial; validate trap-map capture plans against opponent responses.
 - [ ] Improve selective partial-move coverage only when exact witnesses and paired matches support the branching/strength tradeoff.
 - [ ] Evaluate tactical extensions or sparse chance sampling as isolated experiments, retaining negative results and prior baselines.
-- [ ] Profile retained search data and memory on the target runtime; cache entry caps are not byte-memory bounds.
+- [ ] Profile retained search data and memory on the target runtime; the October 16 audit removed cyclic per-call retention, but cache entry caps are still not byte-memory bounds.
 
 See [NEXT_ALGORITHM.md](docs/NEXT_ALGORITHM.md) for the technical rationale and earlier evidence.
 

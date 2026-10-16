@@ -14,7 +14,7 @@ Replace the address and port with the server's values. From another directory, u
 
 The provisional default is `strategic` at depth five, with a 1.25-second search budget. It adds outcome-oriented endgame scoring and sequential human conversion races to the existing opponent-aware search. The previous default remains available as `--engine adaptive --depth 5`; `cohesive_material --depth 3` is also retained. Completed shallower decisions survive a deeper search timeout.
 
-The project has **274 passing tests**. In the latest locked local comparison, the new agent scored **17 wins, 8 draws, 11 losses**, versus **14/8/14** for adaptive. Four cases improved and one regressed; the benefit was concentrated in endgames, and statistical uncertainty remains wide. **Official-server and CTI validation remain pending.** See [current status](STATUS.md) and the [strategy experiment](experiments/2026-10-15-strategy/EXPERIMENT.md).
+The project has **280 passing tests**. In the latest locked local comparison, the new agent scored **17 wins, 8 draws, 11 losses**, versus **14/8/14** for adaptive. Four cases improved and one regressed; the benefit was concentrated in endgames, and statistical uncertainty remains wide. The October 16 audit reduced temporary search retention and accelerated exact combat calculations without changing the strategy. **Official-server and CTI validation remain pending.** See [current status](STATUS.md) and the [strategy experiment](experiments/2026-10-15-strategy/EXPERIMENT.md).
 
 ## Project layout
 

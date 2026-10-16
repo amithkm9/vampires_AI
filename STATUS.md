@@ -1,6 +1,6 @@
 # Project status
 
-Updated: 2026-10-15.
+Updated: 2026-10-16.
 
 ## Current state
 
@@ -9,6 +9,27 @@ The persistent client, legal move generation, local simulator, opponent-aware se
 The latest locked comparison scored **17 wins, 8 draws, 11 losses**, versus **14/8/14** for the previous `adaptive:5` default. Four cases improved and one regressed. Improvement was concentrated in no-human endings; one dispersed-map game regressed. The paired map-cluster interval for score gain is **[-0.0833, 0.3333]**, including zero. This is a provisional promotion, not established general superiority. The [strategy record](experiments/2026-10-15-strategy/EXPERIMENT.md) preserves 184 development and 72 held-out games; all **8046 plies** were verified. Earlier adaptive/cohesive results remain in the [October 13 league](experiments/2026-10-13-league/EXPERIMENT.md).
 
 **Official-server parity, CTI launch/timing and strength against tournament opponents remain unverified.** The unresolved move/protocol interpretations remain explicit in [RULES.md](docs/RULES.md).
+
+## Whole-project audit, 2026-10-16
+
+Reviewed the runtime, experimental engines, tools, tests, documentation and assignment PDF. The strategy/default and unresolved rule interpretations are unchanged. Repairs:
+
+- Search and recursive transition/generation helpers now release their closures and suspended continuations on completion, timeout and errors. This removes avoidable retention between turns without forcing garbage collection during play. Weak-reference tests reproduce the previous failures with cyclic collection disabled.
+- `simulation._survival_branch` constructs exact binomial probabilities using integer recurrence. It preserves all outcomes, including rare tails and both ways to reach an empty cell. Eight additional large/asymmetric probability comparisons complement the independent small-battle and joint-transition references.
+- Current report commands reject existing outputs before doing work and create reports exclusively. Replay analysis now rejects an unfinished final append even when its JSON parses; it does not modify the journal.
+
+The [registered runtime comparison](reports/runtime-audit-2026-10-16/plan.json) uses reference commit `edf2c1b`, six explicit battle cases, seven alternating timing batches of thirty calls, and four identical completed depth-three strategic searches. Exact combat construction was **1.43–4.60× faster** on this machine. Decisions and diagnostics matched on both supplied maps/species. With cyclic collection disabled for diagnosis, four repeated testmap2 searches retained **580597 bytes before versus 81126 after**; these are traced Python allocations, not process RSS or cache-memory guarantees. [Raw results](reports/runtime-audit-2026-10-16/results.json). No new competitive-strength result is claimed.
+
+Validation:
+
+- `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discover -s tests -q`: **280 tests passed in 3.412 seconds**.
+- `tools/check_search.py` at 1.25 seconds: strategic/tactical depth five and baseline depth three, both species, **24 cases**, maximum **1.252386 seconds**.
+- `tools/check_limits.py --engines strategic baseline tactical --depth 5`: **36 maximum-area probes**, maximum **1.304241 seconds**. Timing commands ran serially; these are local cooperative measurements, not worst-case guarantees.
+- `tools/check_player.py --engine strategic --depth 5 --budget 1.25 --max-plies 20 --seed 20261016`: **four matches / 25 AI turns**, both supplied maps/species, unrelated working directory, persistent restart and clean BYE. Maximum full response **0.716670 seconds**. Sandbox localhost binding was denied; authorized execution succeeded. [TCP report](reports/player-audit-2026-10-16.json).
+- The current replay analyzer verified all five league journals: **388 matches / 12433 plies**, with archived runtime hashes intact. All **13 original-material hashes** match `materials/manifest.json`. Runtime imports remain standard-library-only; Python 3.10 syntax parsing passed. This does not replace running on the CTI interpreter.
+- All **15 direct CLI entry points** passed `--help` from another directory, plus five module entry points. Changed documentation links, final timing-report source hashes, unused-import checks and `git diff --check` passed. Original materials and earlier experiment records were preserved.
+
+Reproduce the performance comparison with `PYTHONDONTWRITEBYTECODE=1 python3 tools/check_runtime.py --reference edf2c1b --output reports/NEW_RUNTIME_RUN`. It saves configuration, environment, source/map hashes and the reference revision before measurement. Stress reports are `reports/search-audit-*-2026-10-16.json` and `reports/maximum-board-audit-2026-10-16.json`; use fresh output paths for repeats.
 
 ## Agent strategy, 2026-10-15
 
