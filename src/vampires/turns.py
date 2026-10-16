@@ -93,7 +93,10 @@ def exhaustive_turns(board, species, *, max_nodes=100000, check=None):
             if len(turn) < maximum:
                 yield from visit(index + 1, turn, edges | {edge})
 
-    yield from visit(0, (), set())
+    try:
+        yield from visit(0, (), set())
+    finally:
+        visit = None  # Release the recursive closure and its board/atoms now.
 
 
 def significant_amounts(count, target, species):

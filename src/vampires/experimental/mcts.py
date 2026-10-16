@@ -95,6 +95,8 @@ def choose_mcts(board, species, *, time_budget=1.25, seed=0, config=None,
                 simulations += 1
     except SearchTimeout:
         timed_out = True
+    finally:
+        visit = None  # Release the self-referential closure after every exit.
     edges = tree.get(root_key, [])
     visited = [edge for edge in edges if edge[1]]
     if visited:

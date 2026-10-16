@@ -224,6 +224,9 @@ def choose_turn(board, species, *, time_budget=1.25, expires_at=None,
                 roots = (best,) + tuple(turn for turn in roots if turn != best)
     except SearchTimeout:
         timed_out = True
+    finally:
+        # Break mutual recursion so per-turn caches do not wait for cyclic GC.
+        action_value = visit = None
     validate_moves(board, species, best)
     return Decision(best, best_bounds.point, completed_depth, selected_depth, evaluated_roots,
                     nodes, chance_count, selective_nodes, unsupported_actions, timed_out,

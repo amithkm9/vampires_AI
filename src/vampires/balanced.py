@@ -90,6 +90,7 @@ def choose_balanced(board, species, *, time_budget=1.25, expires_at=None,
     cache = {}
     leaf_cache, candidate_cache, preferred = {}, {}, {}
     iterations, current_iteration = [], None
+    streams = []
 
     def remember(table, key, value):
         if key in table or sum(map(len, (cache, leaf_cache, candidate_cache, preferred))) < config.cache_entries:
@@ -301,6 +302,12 @@ def choose_balanced(board, species, *, time_budget=1.25, expires_at=None,
     except SearchTimeout:
         timed_out = True
         record_iteration(False)
+    finally:
+        # Timeout can leave many root continuations suspended inside boards and
+        # chance distributions. Close them before breaking the recursive cycle.
+        for stream in streams:
+            stream.close()
+        action = visit = None
     validate_moves(board, species, best)
     return BalancedDecision(best, best_bounds.point, completed_depth, selected_depth, evaluated_roots,
                             nodes, chance_count, selective_nodes, unsupported_actions, timed_out,

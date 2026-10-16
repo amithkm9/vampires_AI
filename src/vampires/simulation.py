@@ -268,7 +268,12 @@ def iter_turn_outcome_steps(board, species, moves, *, check=None):
             yield from visit(index + 1, probability * chance)
         base.pop(position, None)
 
-    yield from visit(0, Fraction(1))
+    try:
+        yield from visit(0, Fraction(1))
+    finally:
+        # Recursive local functions otherwise keep themselves and their board
+        # data alive until cyclic GC, even after exhaustion or explicit close.
+        visit = None
 
 
 def sample_turn(board, species, moves, rng, *, check=None):
